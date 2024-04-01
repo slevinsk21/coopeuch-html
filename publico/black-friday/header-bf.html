@@ -1,0 +1,246 @@
+<div class="container-drawer">
+  <div id="drawer-menu-mobile">
+    <div class="xpec-header-menu-mobile">
+      <form class="form minisearch" id="search_mini_formnav-sections" action="#" method="get">
+          <input id="searchnav-sections" class="search-input" tipe="text" placeholder="¿Qué buscas?">
+          <input type="submit" value="" class="search_button buscarCoop">
+      </form>
+      <a id="close-nav-sections" class="close-sections icon-X2" href="javascript:;" onclick="toggleMenuHeader()"></a>
+    </div>
+
+    <ul>
+      <li>
+        <a onclick="goToSection(event, 'credit-plan-simulation')" class="level-top menuCoop">Crédito de Consumo</a>
+      </li>
+      <li>
+        <a onclick="goToSection(event, '2-tdc')" class="level-top menuCoop">Tarjeta de Crédito</a>
+      </li>
+      <li>
+        <a onclick="goToSection(event, '3-dp')"  class="level-top menuCoop">Descuentos y Promociones</a>
+      </li>
+      <li>
+        <a onclick="goToSection(event, 'socio')" class="level-top menuCoop">Hazte Socio</a>
+      </li>
+    </ul>
+
+    <div class="header-top-links-mobile">
+      <h5>Sitios Coopeuch</h5>
+      <ul class="list-header">
+        <li><a href="/personas" class="huinchaCoop">Personas</a></li>
+        <li><a href="/mundo_convenios" class="huinchaCoop">Mundo Convenios</a></li>
+        <li><a href="/cooperativa" class="huinchaCoop">Cooperativa</a></li>
+        <li><a href="/investor_es/" class="huinchaCoop">Investor Relations</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  const header = document.getElementsByTagName('header');
+  const navbar = `
+  <div class="xpec-header-logo">
+    <a class="logo" href="https://www.coopeuch.cl/" title="Coopeuch logo" aria-label="store logo">
+      <img src="https://www.coopeuch.cl/media/logo/stores/1/logo.svg" title="Coopeuch logo" alt="Coopeuch logo" width="157" height="27">
+    </a>
+  </div>
+  <nav class="navigation" role="navigation">
+    <div class="menu" id="om" style="float: right;">
+      <ul>
+        <li><a onclick="goToSection(event, 'credit-plan-simulation')" class="level-top menuCoop">Crédito de Consumo</a></li>
+        <li><a onclick="goToSection(event, '2-tdc')" class="level-top menuCoop">Tarjeta de Crédito</a></li>
+        <li><a onclick="goToSection(event, '3-dp')" class="level-top menuCoop">Descuentos y Promociones</a></li>
+        <li><a onclick="goToSection(event, 'socio')" class="level-top menuCoop">Hazte Socio</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="mobile-menu">
+    <div id="ce-loginButton-box" class="loginButton-box">
+      <button class="button action primary button-login" onclick="location.href=('https://ww3.coopeuch.cl/tef3/#/')">
+        <img class="icon-desk" src="/media/botones/login.png"><img class="icon-mobile" src="/media/botones/login-m.png">
+        Ingresar
+      </button>
+    </div>
+    <span data-action="toggle-nav" class="action nav-toggle" onclick="toggleMenuHeader()"><span>Toggle Nav</span></span>
+    </div>
+  </div>
+  `;
+  header[0].children[1].innerHTML = navbar;
+
+  const toggleMenuHeader = () => {
+    const el = document.getElementById('drawer-menu-mobile').classList.toggle('show')
+  }
+
+  const goToSection = (evt, id) => {
+  const links = document.getElementsByClassName('current-link');
+  if (links.length > 0) links[0].classList.remove('current-link');
+
+    const element = document.getElementById(id)
+    evt.currentTarget.classList.add('current-link');
+    element.scrollIntoView({ behavior: 'smooth', block: 'center'});
+
+    (window.screen.width <= 959 )&& toggleMenuHeader();
+  }
+
+</script>
+
+<style>
+  #drawer-menu-mobile.show {
+    display: block !important;
+  }
+  #drawer-menu-mobile {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    color: #f42534;
+    background: #fff;
+    z-index: 100;
+  }
+  #drawer-menu-mobile ul {
+    list-style: none;
+    padding: 0;
+  }
+  #drawer-menu-mobile ul>li {
+    border-top: 1px solid #EAEAEA;
+    font-size: 1.6rem;
+  }
+  #drawer-menu-mobile ul>li>a {
+    font-weight: 500;
+    font-size: 14px;
+    color: #f42534;
+    padding: 14px 40px 14px 20px;
+    text-transform: initial !important;
+    text-decoration: none;
+  }
+  .container-drawer {
+    position: relative;
+  }
+  .btn-actions-container {
+    display: flex;
+    justify-content: center;
+    padding: 14px 20px;
+  }
+  .btn-actions-container button.btn {
+    border-radius: 5px;
+    max-width: 280px;
+    width: 100%;
+    height: 38px;
+    font-size: 14px;
+    border: none;
+    font-weight: bold;
+    box-sizing: border-box;
+    box-shadow: none;
+    transition: .3s ease-out;
+    padding: 6px;
+  }
+  .btn-actions-container button.btn.btn-convenio {
+    color: #f42534;
+    background-color: #fff;
+    border: 2px solid #f42534;
+  }
+  .btn-actions-container button.btn.btn-convenio:hover,
+  .btn-actions-container button.btn.btn-convenio:focus,
+  .btn-actions-container button.btn.btn-convenio:active {
+    background-color: #F42534;
+    color: #fff;
+  }
+  .btn-actions-container button.btn img {
+    height: 15px;
+    margin-right: 3px;
+  }
+  .xpec-header-menu-mobile .form.minisearch {
+    text-align: center;
+    margin: 11px 20px;
+    display: flex;
+    width: 80%;
+    background: #fff;
+    border-radius: 5px;
+  }
+  .xpec-header-menu-mobile .form.minisearch .search-input {
+    width: calc(100% - 55px);
+    padding: 10px;
+    margin: auto;
+    display: block;
+    border-radius: 5px;
+    height: 18px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border: none;
+  }
+  .xpec-header-menu-mobile .close-sections {
+    display: inline-block;
+    width: 20%;
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+    margin: auto;
+    text-decoration: none;
+  }
+  .icon-X2:before {
+    content: "\e902";
+  }
+  #drawer-menu-mobile .header-top-links-mobile {
+    padding: 15px 0 0 20px;
+    background: rgba(51,51,51,0.03);
+  }
+  #drawer-menu-mobile .header-top-links-mobile h5 {
+    margin-bottom: 10px;
+    margin-top: 0;
+    font-family: 'Poppins';
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 16px;
+    color: #4A4A4A;
+  }
+  #drawer-menu-mobile .header-top-links-mobile ul.list-header {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  #drawer-menu-mobile .header-top-links-mobile ul.list-header li {
+    float: none;
+    border: none;
+  }
+  #drawer-menu-mobile .header-top-links-mobile ul.list-header li a {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #333;
+  }
+  .navigation,
+  .menu > ul > li {
+    background: #f42534 !important;
+  }
+  .menu>ul>li a {
+    padding: 1.7em 3em;
+  }
+  .navigation ul {
+    display: flex;
+    align-items: center;
+  }
+  .xpec-header-logo a.logo img {
+    object-fit: contain;
+  }
+  .mobile-menu {
+    display: none;
+  }
+  @media (max-width: 960px) {
+    .navigation {
+      display: none;
+    }
+    .xpec-header-logo {
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+    .mobile-menu {
+      display: flex;
+    }
+  }
+</style>

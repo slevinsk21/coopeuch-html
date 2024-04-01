@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modal Consumo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body style="margin: 0; padding: 0">
+    <section class="modal-credito-consumo">
+      <div class="modal-content">
+        <span class="badge-simulador">Crédito de consumo</span>
+        <h1 class="title-modal">
+          <strong>Tenemos una oferta para ti</strong>
+          <br />
+          en tu sitio privado
+        </h1>
+        <h2 class="subtitle-modal">Crédito de Consumo pre-aprobado de:</h2>
+        <h2 class="amount-aprove">
+          $ 3.000.000
+          <sup style="top: -1em; font-size: 11px; color: #262626">(1)</sup>
+        </h2>
+        <p style="font-size: 12px;">
+          Costo total del Crédito $5.345.123 calculados en 48 cuotas de
+          $234.435, CAE: 9,33%.
+        </p>
+        <a href="#" class="custom-btn">Quiero mi crédito</a>
+        <small class="legal-text">Costo total del Crédito $5.345.123 calculados en 48 cuotas de$234.435, CAE: 9,33%.</small>
+      </div>
+      <img class="modal-img" src="https://www.coopeuch.cl/media/wysiwyg/modal-credito-consumo.png" alt="">
+    </section>
+    <style>
+      .modal-credito-consumo * {
+        font-family: 'Poppins', sans-serif;
+      }
+      .modal-credito-consumo {
+        display: flex;
+        max-width: 995px;
+        margin: 0 auto;
+        background-color: #E6E0DD;
+      }
+      .modal-credito-consumo .modal-content {
+        max-width: 100%;
+        padding: 32px 20px 25px;
+      }
+      .modal-credito-consumo .modal-content .badge-simulador {
+        position: relative;
+        font-size: 16px;
+        line-height: 40px;
+        background-color: #f08117;
+        color: #ffffff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        min-width: 272px;
+        font-family: 'Poppins Bold';
+        text-align: center;
+      }
+      .modal-credito-consumo .modal-content .badge-simulador::after {
+        position: absolute;
+        content: '';
+        background-color: inherit;
+        width: 20px;
+        height: 20px !important;
+        transform: rotate(45deg);
+        right: -7px;
+        top: 4px;
+        border-radius: 4px 4px 4px 100%;
+      }
+      .modal-credito-consumo .modal-content h1.title-modal {
+        font-size: 36px;
+        line-height: 43px;
+        color: #262626;
+        margin: 5px 0;
+      }
+      .modal-credito-consumo .modal-content h2.subtitle-modal {
+        font-size: 16px;
+        line-height: 20px;
+        color: #262626;
+        margin: 5px 0;
+        font-weight: bold;
+        padding-top: 32px;
+      }
+      .modal-credito-consumo .modal-content h2.amount-aprove {
+        font-size: 63px;
+        line-height: 46px;
+        color: #0083f2;
+        margin: 5px 0 32px;
+        font-weight: bold;
+      }
+      .modal-credito-consumo .modal-content small.legal-text {
+        font-size: 9px;
+        color: #262626;
+        margin: 5px 0;
+      }
+      .modal-credito-consumo img.modal-img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+      .modal-credito-consumo .modal-content .custom-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f42534;
+        padding: 12px;
+        font-weight: 800;
+        font-size: 16px;
+        border: 2px solid #f42534;
+        border-radius: 5px;
+        color: #fff !important;
+        outline: none;
+        max-width: 171px;
+        height: 48px;
+        text-align: center;
+        text-decoration: none !important;
+        transition: all 0.3s ease-in;
+        box-shadow: none !important;
+        box-sizing: border-box;
+        margin: 32px 0 42px;
+      }
+      .modal-credito-consumo .modal-content .custom-btn:hover,
+      .modal-credito-consumo .modal-content .custom-btn:focus {
+        color: #fff !important;
+        background-color: #f87c85;
+        box-shadow: none;
+        border: 1px solid #f87c85;
+      }
+
+      @media (max-width: 580.1px) {
+        .modal-credito-consumo .modal-content .badge-simulador {
+          font-size: 14px;
+          min-width: 200px;
+        }
+        .modal-credito-consumo .modal-content h1.title-modal {
+          font-size: 22px;
+          line-height: 36px;
+        }
+        .modal-credito-consumo .modal-content h2.subtitle-modal {
+          font-size: 14px;
+          line-height: 22px;
+        }
+        .modal-credito-consumo .modal-content h2.amount-aprove {
+          font-size: 38px;
+          line-height: 40px;
+        }
+        .modal-credito-consumo .modal-content .custom-btn {
+          width: 100%;
+        }
+      }
+      @media (max-width: 860.1px) {
+        .modal-credito-consumo img.modal-img {
+          display: none;
+        }
+      }
+      @media (max-width: 1208px) {
+        .modal-credito-consumo .modal-content {
+          margin: 0 10px;
+        }
+      }
+
+      body .header.content {
+        min-height: 61px;
+      }
+      .page-wrapper .page-header.personas .panel.wrapper,
+      .xpec-header-menu .nav-sections .navigation,
+      .xpec-header-search {
+        display: none !important;
+      }
+      .widget.block.block-static-block {
+        margin: 15px 0 15px -15px;
+      }
+      .ce-simulatoraccess-box .general-box {
+        background-color: #00a1df !important;
+      }
+      .general-box::before {
+        background-image: linear-gradient(
+          to right top,
+          #00a1df 0%,
+          50%,
+          #fff 50%
+        );
+      }
+      .general-box::after {
+        background-image: linear-gradient(
+          to right bottom,
+          #00a1df 0%,
+          #00a1df 50%,
+          #fff 50%
+        );
+      }
+      .ce-simulatoraccess-box {
+        background-color: #fff;
+      }
+      .form-input,
+      input.form-input {
+        border-radius: 5px;
+      }
+      .coop-dropdown .dropbtn:hover {
+        background-color: #00a1df;
+        color: #fff;
+        border-color: #00a1df;
+      }
+    </style>
+    <script>
+      document.getElementsByClassName('title')[0].innerHTML =
+        '<h1><b>Simula</b><br /><small>tu crédito de consumo</small></h1>';
+    </script>
+  </body>
+</html>

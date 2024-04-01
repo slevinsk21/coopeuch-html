@@ -1,0 +1,364 @@
+<div id="cyber-products">
+  <div class="container-products">
+    <div class="product-text-contaniner">
+      <div style="display: flex; align-items: center">
+        <figure>
+          <img
+            src="https://www.coopeuch.cl/media/wysiwyg/product-icon.png"
+            alt=""
+            class="product-icon"
+          />
+        </figure>
+        <h4>
+          Ejemplos de simulaciones de
+          <strong>crédito de consumo </strong>de:
+        </h4>
+      </div>
+
+      <select
+        id="cuotas"
+        name="cuotas"
+        class="dropbtn form-input"
+        v-model="amountSelected"
+      >
+        <option value="1">$1.000.000</option>
+        <option value="3">$3.000.000</option>
+        <option value="5">$5.000.000</option>
+      </select>
+    </div>
+
+    <div class="box-wrapper">
+      <div class="simulator-box" v-for="item in products[amountSelected]">
+        <div class="box-header">
+          <span class="tag-box">{{ item.coute }} cuotas de</span>
+          <div class="box-title">
+            <span class="title-quotes">
+              {{ item.couteValue }}/ <small>mes</small>
+            </span>
+            <small>monto a solicitar ${{ amountSelected }}.000.000</small>
+          </div>
+        </div>
+        <ul class="box-body">
+          <li class="attribute">
+            <span class="left">Costo total del crédito</span>
+            <b class="right">{{ item.totalCredit }}</b>
+          </li>
+          <li class="attribute">
+            <span class="left">
+              CAE:
+              <div class="coo-tooltip">
+                <div class="tooltip-content">
+                  <p>
+                    Es el porcentaje que revela el costo del crédito en un año,
+                    sin importar el plazo pactado o las cuotas.
+                  </p>
+                </div>
+              </div></span
+            >
+            <b class="right">{{ item.cae }}</b>
+          </li>
+
+          <li class="attribute" style="align-items: center">
+            <span class="left"> Tasa mensual: </span>
+            <b class="right"> {{ item.originalRate }} </b>
+          </li>
+          <a
+            href="#"
+            class="button-coopeuch solicitar_credito"
+            :data-cuotas="item.coute"
+          >
+            Solicítala
+          </a>
+        </ul>
+      </div>
+    </div>
+
+    <section class="card">
+      <div class="card-content">
+        <h5 class="card-content-title">
+          ¿Necesitas un crédito de consumo con otro monto?
+        </h5>
+
+        <a
+          href="/productos/cuentas-creditos-y-tarjetas/cct-credito-consumo.html"
+          class="custom-btn"
+        >
+          Simular
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script>
+  require(['vue'], function (Vue) {
+    'use strict';
+
+    new Vue({
+      el: '#cyber-products',
+      data: {
+        amountSelected: 1,
+        products: {
+          1: [
+            {
+              coute: 12,
+              couteValue: '$ 93.390',
+              totalCredit: '1.144.585',
+              cae: '21,36%',
+              originalRate: '1,55%',
+            },
+            {
+              coute: 24,
+              couteValue: '$ 52.880',
+              totalCredit: '1.268.993',
+              cae: '21,60%',
+              originalRate: '1,55%',
+            },
+            {
+              coute: 36,
+              couteValue: '$ 40.480',
+              totalCredit: '1.457.006',
+              cae: '24,36%',
+              originalRate: '1,77%',
+            },
+          ],
+          3: [
+            {
+              coute: 12,
+              couteValue: '$ 284.930',
+              totalCredit: '3.419.064',
+              cae: '20,64%',
+              originalRate: '1,5%',
+            },
+            {
+              coute: 24,
+              couteValue: '$ 157.520',
+              totalCredit: '3.780.441',
+              cae: '21%',
+              originalRate: '1,5%',
+            },
+            {
+              coute: 36,
+              couteValue: '$ 120.080',
+              totalCredit: '4.322.592',
+              cae: '23,64%',
+              originalRate: '1,71%',
+            },
+          ],
+          5: [
+            {
+              coute: 12,
+              couteValue: '$ 471.260',
+              totalCredit: '5.655.120',
+              cae: '19,44%',
+              originalRate: '1,62%',
+            },
+            {
+              coute: 24,
+              couteValue: '$ 259.120',
+              totalCredit: '6.218.636',
+              cae: '19,68%',
+              originalRate: '1,64%',
+            },
+            {
+              coute: 36,
+              couteValue: '$ 192.720',
+              totalCredit: '6.937.480',
+              cae: '21,12%',
+              originalRate: '1,76%',
+            },
+          ],
+        },
+      },
+      watch: {
+        amountSelected(val) {
+          console.log(val);
+        },
+      },
+    });
+  });
+</script>
+
+<style scoped>
+  #cyber-products {
+    background: rgb(244, 246, 248);
+    border-bottom-right-radius: 20%;
+    border-bottom-left-radius: 5%;
+    padding: 20px 10px 10%;
+  }
+  .container-products {
+    max-width: 1220px;
+    margin: 0 auto;
+  }
+  .product-text-contaniner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+  }
+  .product-icon {
+    max-width: 56px;
+    width: 100%;
+    padding-right: 20px;
+    height: auto;
+  }
+  .dropbtn {
+    max-width: 360px;
+    margin: 0 0 0 15px;
+  }
+  .box-wrapper .simulator-box:first-child,
+  .box-wrapper .simulator-box:last-child {
+    margin: 0 auto;
+  }
+  .box-wrapper .simulator-box {
+    color: #333333;
+    font-weight: normal;
+    width: 100%;
+    max-width: 370px;
+    padding: 0 6px;
+  }
+  .box-wrapper .simulator-box .box-header {
+    background: #22a1db;
+    min-height: 135px;
+    position: relative;
+  }
+  .tag-box {
+    position: absolute;
+    font-size: 13px;
+    line-height: 16px;
+    top: 0px;
+    left: 16px;
+    font-family: 'Poppins Bold';
+    background-color: #2284bc;
+    border-radius: 0 0 7px 7px;
+    padding: 2px 7px;
+    text-transform: inherit;
+    color: #ffffff;
+    height: 44px;
+    width: 127px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .box-wrapper .simulator-box .box-header .box-title {
+    font-family: 'Poppins Bold';
+    color: #fff;
+    font-size: 25px;
+    line-height: 38px;
+    margin: auto 0 5px;
+    padding-left: 16px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .ribbon {
+    color: #fff;
+    min-width: 118px;
+    padding: 0px 10px;
+    background: #801b86;
+    position: relative;
+    line-height: 36px;
+    border-radius: 6px;
+  }
+  .ribbon:before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 97%;
+    width: 0px;
+    height: 0px;
+    border: 18px solid transparent;
+    border-right-color: #801b86;
+    border-radius: 6px;
+  }
+  /* END CARDS PRODUCT */
+
+  /* START SECTION SIMULAR*/
+  .card {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 75px;
+    border-radius: 5px;
+    margin: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16), 0 2px 5px rgba(0, 0, 0, 0.23);
+    margin: 20px auto;
+  }
+  .card-content {
+    display: flex;
+    align-items: center;
+    padding: 13px;
+    justify-content: space-around;
+  }
+  .card-content-title {
+    color: #333333;
+    font-size: 20px;
+    line-height: 20px;
+    margin: 10px 0;
+    text-align: center;
+  }
+  .custom-btn {
+    background-color: #fff;
+    padding: 12px 27px;
+    font-family: Poppins;
+    font-weight: 800;
+    font-size: 16px;
+    border: 2px solid #f42534;
+    border-radius: 5px;
+    color: #f42534 !important;
+    outline: none;
+    min-width: 135px;
+    text-align: center;
+    text-decoration: none !important;
+    transition: all 0.3s ease-in;
+  }
+  .custom-btn:hover,
+  .custom-btn:focus {
+    color: #fff !important;
+    background-color: #f42534;
+  }
+  /* END SECTION SIMULAR*/
+
+  @media (max-width: 480.1px) {
+    .product-icon {
+      max-width: 40px;
+      width: 100%;
+      padding-right: 50px;
+      height: auto;
+    }
+    .product-text-contaniner h4 {
+      font-size: 16px !important;
+    }
+    .box-wrapper .simulator-box {
+      padding: 0;
+    }
+    .dropbtn {
+      margin: 0;
+    }
+  }
+  @media (max-width: 780.1px) {
+    .product-text-contaniner {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .card-content {
+      flex-direction: column;
+    }
+  }
+  @media (max-width: 1440px) {
+    #cyber-products {
+      border-bottom-right-radius: 65px;
+      border-bottom-left-radius: 15px;
+    }
+  }
+  @media (min-width: 780.1px) {
+    .box-wrapper {
+      flex-wrap: nowrap !important;
+    }
+  }
+  @media (min-width: 1440.1px) {
+    .pl-lg-20 {
+      padding-left: 20px;
+    }
+  }
+</style>

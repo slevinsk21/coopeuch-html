@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+<div class="experiences-container">
+  <div class="participant-experiences" onclick="openVideoTestimonial('u0BO9x9oqTU')">
+    <i class="fas fa-play-circle fa-3x play-icon"></i>
+    <img src="http://img.youtube.com/vi/u0BO9x9oqTU/0.jpg" alt="yt-1" loading="lazy">
+  </div>
+  <div class="participant-experiences" onclick="openVideoTestimonial('jO45ZKqctQ4')">
+    <i class="fas fa-play-circle fa-2x play-icon"></i>
+    <img src="http://img.youtube.com/vi/jO45ZKqctQ4/0.jpg" alt="yt-1" loading="lazy">
+  </div>
+  <div class="participant-experiences" onclick="openVideoTestimonial('X9GUmjIL9Zc')">
+    <i class="fas fa-play-circle fa-2x play-icon"></i>
+    <img src="http://img.youtube.com/vi/X9GUmjIL9Zc/0.jpg" alt="yt-1" loading="lazy">
+  </div>
+  <div class="participant-experiences" onclick="openVideoTestimonial('Nn1TnThRWsU')">
+    <i class="fas fa-play-circle fa-2x play-icon"></i>
+    <img src="http://img.youtube.com/vi/Nn1TnThRWsU/0.jpg" alt="yt-1" loading="lazy">
+  </div>
+  <div class="participant-experiences" onclick="openVideoTestimonial('9UM5ubwFp3g')">
+    <i class="fas fa-play-circle fa-2x play-icon"></i>
+    <img src="http://img.youtube.com/vi/9UM5ubwFp3g/0.jpg" alt="yt-1" loading="lazy">
+  </div>
+</div>
+
+<section class="slick-experiencias">
+  <div class="participant-experiences" onclick="openVideoTestimonialMobile('u0BO9x9oqTU', event)">
+    <i class="fas fa-play-circle fa-3x play-icon"></i>
+    <img src="http://img.youtube.com/vi/u0BO9x9oqTU/0.jpg" alt="yt-1" loading="lazy">
+  </div>
+  <div class="participant-experiences" onclick="openVideoTestimonialMobile('jO45ZKqctQ4', event)">
+    <i class="fas fa-play-circle fa-3x play-icon"></i>
+    <img src="http://img.youtube.com/vi/jO45ZKqctQ4/0.jpg" alt="yt-1" loading="lazy">
+  </div>
+  <div class="participant-experiences" onclick="openVideoTestimonialMobile('X9GUmjIL9Zc', event)">
+    <i class="fas fa-play-circle fa-3x play-icon"></i>
+    <img src="http://img.youtube.com/vi/X9GUmjIL9Zc/0.jpg" alt="yt-1" loading="lazy">
+  </div>
+  <div class="participant-experiences" onclick="openVideoTestimonialMobile('Nn1TnThRWsU', event)">
+    <i class="fas fa-play-circle fa-3x play-icon"></i>
+    <img src="http://img.youtube.com/vi/Nn1TnThRWsU/0.jpg" alt="yt-1" loading="lazy">
+  </div>
+  <div class="participant-experiences" onclick="openVideoTestimonialMobile('9mEEL8kajQM', event)">
+    <i class="fas fa-play-circle fa-3x play-icon"></i>
+    <img src="http://img.youtube.com/vi/9mEEL8kajQM/0.jpg" alt="yt-1" loading="lazy">
+  </div>
+</section>
+
+<div class="modal-fundacion-testimonios" onclick="toggleModal()">
+  <div class="content-modal">
+    <i class="close-modal"></i>
+    <iframe width="100%" height="434" src="" title="Testimonio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+
+<style>
+  .experiences-container {
+    display: grid;
+    gap: 1.5rem 1.25rem;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(7.1875rem, 164px);
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, minmax(7.1875rem, 115px));
+    max-width: 1140px;
+    margin: 2rem auto;
+  }
+  .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -10px);
+    color: #fff;
+  }
+  .participant-experiences:nth-child(1) {
+    grid-row: span 4;
+    background-color: #333;
+  }
+  .participant-experiences {
+    position: relative;
+    transition: 0.6s;
+  }
+  .participant-experiences:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+  .participant-experiences > img {
+    object-fit: cover;
+    height: auto;
+    width: 100%;
+  }
+  .modal-fundacion-testimonios {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #3333334d;
+  }
+  .modal-fundacion-testimonios.show-modal {
+    display: block;
+  }
+  .modal-fundacion-testimonios .content-modal {
+    position: absolute;
+    top: 20%;
+    margin: 0 auto;
+    left: 30px;
+    right: 30px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 950px;
+  }
+  .modal-fundacion-testimonios .close-modal {
+    position: absolute;
+    z-index: 1;
+    top: -9px;
+    right: -9px;
+    border: none;
+    opacity: .7;
+    transition: opacity .15s;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    border-radius: 30px;
+    color: #fff;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNTUgNTUiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDU1IDU1IiB4bWw6c3BhY2U9InByZXNlcnZlIj48ZyBpZD0iY2xvc2UiPjxwb2x5Z29uIGZpbGw9IiNGRkZGRkYiIHBvaW50cz0iNDMuNSwxNC43IDQwLjMsMTEuNSAyNy41LDI0LjMgMTQuNywxMS41IDExLjUsMTQuNyAyNC4zLDI3LjUgMTEuNSw0MC4zIDE0LjcsNDMuNSAyNy41LDMwLjcgNDAuMyw0My41IDQzLjUsNDAuMyAzMC43LDI3LjUgIi8+PC9nPjwvc3ZnPg==) 2px no-repeat #575757;
+    background-size: 14px;
+  }
+
+  /* slick */
+  .slick-experiencias {
+    display: none;
+  }
+  .slick-slide .participant-experiences > img {
+    object-fit: cover;
+    height: auto;
+    width: 100%;
+    min-height: 168px;
+    max-height: 245px;
+  }
+  .slick-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .slick-dots li,
+  .slick-dots li button {
+    transition: .6s background;
+  }
+  .slick-dots li.slick-active button,
+  .slick-dots li button {
+    background: #007DB7;
+    border: 1px solid #007DB7;
+  }
+  .slick-dots li.slick-active {
+    background: rgba(0,161,223,0.25);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+  /* slick */
+
+  @media screen and (max-width: 1024.1px) {
+    .experiences-container {
+        margin: 0 10px;
+    }
+  }
+  @media screen and (max-width: 780.1px) {
+    .experiences-container {
+      display: none;
+    }
+    .slick-experiencias {
+      display: block;
+    }
+  }
+</style>
+
+<script type="text/javascript" src="slick/slick.min.js"></script>
+<script>
+  const toggleModal = () => {
+    el = document.querySelector('.modal-fundacion-testimonios');
+    const { classList, children } = el;
+    classList.toggle('show-modal')
+    if (!classList.contains('show-modal')) children[0].children[1].src = ''
+  }
+  const openVideoTestimonial = id => {
+    const modal = document.querySelector('.modal-fundacion-testimonios');
+    modal.children[0].children[1].src = `https://www.youtube.com/embed/${id}`;
+    modal.children[0].children[1].height = window.width <= 780 ? 'auto' : 434;
+    toggleModal();
+  }
+  const openVideoTestimonialMobile = (id, evt) => {
+    evt.path[1].innerHTML = `<iframe width="100%" height="240" src="https://www.youtube.com/embed/${id}" title="Testimonio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+  }
+
+  require(['jquery', 'slick'], function($, slick) {
+    $(document).ready(function(){
+      $('.slick-experiencias').slick({
+        dots: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+      });
+    });
+  });
+</script>
+  </body>
+</html>
+

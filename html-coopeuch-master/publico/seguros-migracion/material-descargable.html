@@ -1,0 +1,148 @@
+<div class="container-balance-current">
+  <img src="https://www.coopeuch.cl/media/wysiwyg/material-descargable-seguros.png" alt="material-descargable" lazy="loading">
+
+  <div class="balance-cards-container">
+    <div class="balance-card">
+      <div class="balance-content-info">
+        <h3>Carta Diversificación</h3>
+        <a id="pdf-2019-link" href="https://www.coopeuch.cl/media/UploadGeneral/file/Balance_Social_Cooperativo_Coopeuch_2019.pdf"><i class="download-icon"></i> Descargar PDF</a>
+      </div>
+      <span class="icon-balance-card" onclick="openPdf('pdf-2019-link')">
+        <img src="https://www.coopeuch.cl/media/wysiwyg/pdf-icon.png" alt="pdf-icon" lazy="loading">
+      </span>
+    </div>
+
+    <div class="balance-card">
+      <div class="balance-content-info">
+        <h3>Información Atención a clientes</h3>
+        <a id="pdf-2019-link" href="https://www.coopeuch.cl/media/UploadGeneral/file/Balance_Social_Cooperativo_Coopeuch_2019.pdf"><i class="download-icon"></i> Descargar PDF</a>
+      </div>
+      <span class="icon-balance-card" onclick="openPdf('pdf-2019-link')">
+        <img src="https://www.coopeuch.cl/media/wysiwyg/pdf-icon.png" alt="pdf-icon" lazy="loading">
+      </span>
+    </div>
+
+    <div class="balance-card">
+      <div class="balance-content-info">
+        <h3>Ley 21234</h3>
+        <a id="pdf-2019-link" href="https://www.coopeuch.cl/media/UploadGeneral/file/Balance_Social_Cooperativo_Coopeuch_2019.pdf"><i class="download-icon"></i> Descargar PDF</a>
+      </div>
+      <span class="icon-balance-card" onclick="openPdf('pdf-2019-link')">
+        <img src="https://www.coopeuch.cl/media/wysiwyg/pdf-icon.png" alt="pdf-icon" lazy="loading">
+      </span>
+    </div>
+  
+  </div>
+</div>
+<style>
+  .bg-degradado {
+    background: linear-gradient(180deg, rgba(246,243,245,0.05) 0%, rgba(55,77,169,0.05) 0%, rgba(246,243,245,0.05) 100%);
+  }
+  .title-section-seguros  {
+    margin: 2rem 0 1.5rem;
+  }
+  .title-section-seguros * {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+  .container-balance-current {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .container-balance-current > img {
+    margin: 0 1.5rem 1.5rem 0;
+  }
+  .balance-cards-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .balance-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    margin: 0 0 1rem;
+    padding: 10px 24px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14);
+    min-width: 180px;
+    max-width: 493px;
+    min-height: 116px;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #e7e7e7;
+    border-left: 8px solid #F52534;
+  }
+  .balance-content-info {
+    text-align: left;
+    margin: 0 1rem 0 0;
+  }
+  .balance-content-info > h3 {
+    font-family: 'Poppins Medium';
+    font-size: 20px;
+    line-height: 20px;
+    color: #383838;
+    margin: 15px 0;
+  }
+  .balance-content-info > a {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .icon-balance-card {
+    cursor: pointer;
+    height: 80px;
+    width: 80px;
+    background-color: #e6f9f8;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+  }
+  .icon-balance-card:hover {
+    transform: scale(0.8);
+  }
+  .download-icon {
+    margin-right: 10px;
+    max-width: 24px;
+    width: 100%;
+    content: url('https://www.coopeuch.cl/media/wysiwyg/download-red-icon.png');
+  }
+
+  @media (max-width: 780.1px) {
+    .balance-card {
+      flex-direction: column-reverse;
+      justify-content: center;
+      max-width: 296px;
+      min-height: 228px;
+    }
+    .balance-content-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .container-balance-current > img {
+      display: none;
+    }
+  }
+  @media (max-width: 580.1px) {
+    .balance-cards-container {
+      flex-wrap: wrap;
+    }
+    .balance-content-info > h3 {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+
+</style>
+<script>
+  const openPdf = (id)  => document.querySelector(`#${id}`).click()
+</script>

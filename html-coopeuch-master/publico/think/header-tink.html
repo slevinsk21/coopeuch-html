@@ -1,0 +1,229 @@
+<!-- header start -->
+<div id="header-think" class="header-links-custom">
+  <div class="container">
+    <nav>
+      <div class="menu mini-header-think">
+        <figure>
+          <img
+            src="https://www.coopeuch.cl/media/wysiwyg/Riesgo_de_salud.png"
+            alt="icon-think"
+          />
+          <figcaption>
+            <b> Ayuda a tus amigos y gana una giftcard de $30.000</b>
+          </figcaption>
+        </figure>
+        <span>¿Listo para ser Embajador?</span>
+        <a href="#" class="button-coopeuch">¡Empecemos!</a>
+      </div>
+    </nav>
+  </div>
+</div>
+<style>
+  .page-wrapper .page-header.personas .panel.wrapper,
+  .xpec-header-menu .nav-sections .navigation,
+  .xpec-header-search {
+    display: none !important;
+  }
+  .header-links-custom .container nav div.menu {
+    position: relative;
+  }
+  .header.content {
+    height: 61px;
+  }
+  .header-links-custom {
+    visibility: hidden;
+    top: 50px;
+    background: #fff;
+    width: 100%;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+    height: 0;
+  }
+  .header-links-custom.fixed {
+    position: fixed;
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+  }
+  .mini-header-think {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 0;
+    min-height: 68px;
+    box-sizing: border-box;
+  }
+  .menu.mini-header-think figure {
+    display: flex;
+    align-items: center;
+  }
+  .menu.mini-header-think figure img {
+    padding-right: 11px;
+    height: 24px;
+    width: 24px;
+    object-fit: contain;
+  }
+  .menu.mini-header-think figure figcaption {
+    color: #1e1e1e;
+    font-size: 16px;
+    line-height: 58px;
+  }
+  .menu.mini-header-think > span {
+    color: #383638;
+    font-size: 16px;
+    line-height: 40px;
+  }
+  .menu.mini-header-think > a.button-coopeuch {
+    max-height: 48px;
+    max-width: 216px;
+    padding: 12px 27px !important;
+    box-sizing: border-box;
+    width: 100%;
+    white-space: nowrap;
+    margin: 0;
+  }
+  @media (max-width: 770.1px) {
+    .menu.mini-header-think > span {
+      font-family: 'Poppins bold';
+    }
+    .menu.mini-header-think > a.button-coopeuch {
+      max-width: 144px;
+      padding: 12px !important;
+    }
+  }
+  @media (max-width: 580.1px) {
+    .menu.mini-header-think figure {
+      display: none;
+    }
+  }
+</style>
+<script>
+  window.addEventListener('scroll', () => {
+    let header = document.getElementById('header-think');
+    window.pageYOffset > 200
+      ? header.classList.add('fixed')
+      : header.classList.remove('fixed');
+  });
+
+  const goToSection = (evt, id) => {
+    const links = document.getElementsByClassName('current-link');
+    if (links.length > 0) links[0].classList.remove('current-link');
+
+    const element = document.getElementById(id);
+    evt.currentTarget.classList.add('current-link');
+    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+</script>
+<!-- header end -->
+
+<!--  -->
+<style>
+  .owl-carousel .owl-stage-outer {
+    overflow: visible;
+  }
+  .coop-product-credits-desktop .credit-box-desktop {
+    position: relative;
+    max-width: 321px;
+    display: flex !important;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14);
+  }
+  .coop-product-credits-desktop .credit-box-desktop figure img {
+    width: 100% !important;
+    max-width: 92px !important;
+    max-height: 92px;
+    position: absolute;
+    left: -44px;
+  }
+
+  @media (max-width: 1024.1px) {
+    .coop-product-credits-desktop .credit-box-desktop figure img {
+      top: 4px;
+      left: 100px;
+      transform: translate(0, -50%);
+    }
+  }
+</style>
+<!--  -->
+
+
+
+
+<div class="slider-think">
+  <div class="item-slide-card">
+    <img src="https://www.coopeuch.cl/media/wysiwyg/Socio_1.png" alt="" >
+  </div>
+  <div class="item-slide-card">
+    <img src="https://www.coopeuch.cl/media/wysiwyg/Socio_2.png" alt="" >
+  </div>
+  <div class="item-slide-card">
+    <img src="https://www.coopeuch.cl/media/wysiwyg/Socio_3.png" alt="" >
+  </div>
+</div>
+
+<style>
+  .slider-think .item-slide-card {
+    display: flex;
+    position: relative;
+    max-width: 321px;
+    min-height: 243px;
+    width: 100%;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.12);
+  }
+  .slider-think .item-slide-card img {
+    width: 100% !important;
+    max-width: 92px !important;
+    max-height: 92px;
+    position: absolute;
+    left: -44px;
+  }
+
+  @media (max-width: 1024.1px) {
+    .slider-think .item-slide-card img {
+      top: 4px;
+      left: 100px;
+      transform: translate(0, -50%);
+    }
+  }
+</style>
+
+<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+<script type="text/javascript" src="slick/slick.min.js"></script>
+<script>
+    require(['jquery', 'slick'], function($, slick) {
+      $(document).ready(function(){
+      $('.slider-think').slick({
+        centerMode: true,
+        centerPadding: '60px',
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        dots: true,
+        arrows: false,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 580,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+      ]
+        });
+    });
+  });
+</script>

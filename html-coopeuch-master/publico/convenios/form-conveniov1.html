@@ -1,0 +1,229 @@
+<figure class="bg-form">
+  <img
+    src="https://devmagento.coopeuch.cl/media/wysiwyg/bannercontacto2_1.png"
+  />
+</figure>
+
+<section class="container-form">
+  <div class="headline">
+    <h2 class="text-headline">
+      <strong> Te invitamos a ser parte del mundo Cooperativo </strong>
+    </h2>
+    <h3 class="text-subheadline">
+      Envíanos tus datos y te contactamos para presentarte nuestro convenios
+    </h3>
+  </div>
+
+  <form>
+    <div class="container-input-group">
+      <span class="input-group">
+        <label for="name">Nombre</label>
+        <input
+          class="text-body"
+          id="name"
+          name="name"
+          type="text"
+          placeholder="Nombre y Apellido"
+          required
+        />
+      </span>
+
+      <span class="input-group">
+        <label for="rut">Rut</label>
+        <input
+          class="text-body"
+          id="rut"
+          name="rut"
+          type="text"
+          placeholder="Ingresa tu Rut"
+          required
+        />
+      </span>
+    </div>
+
+    <div class="container-input-group">
+      <span class="input-group">
+        <label for="position">Cargo</label>
+        <input
+          id="position"
+          name="position"
+          type="text"
+          placeholder="Rol en tu empresa"
+          required
+        />
+      </span>
+
+      <span class="input-group">
+        <label for="business">Empresa</label>
+        <input
+          id="business"
+          name="business"
+          type="text"
+          placeholder="Nombre de tu empresa"
+          required
+        />
+      </span>
+    </div>
+
+    <div class="container-input-group">
+      <span class="input-group">
+        <label for="city">City</label>
+        <input
+          id="city"
+          name="city"
+          type="text"
+          placeholder="Ingresa ubicación"
+          required
+        />
+      </span>
+
+      <span class="input-group">
+        <label for="phone">Teléfono</label>
+        <input
+          id="phone"
+          name="phone"
+          type="text"
+          placeholder="1234 5678"
+          required
+        />
+      </span>
+    </div>
+
+    <div class="container-input-group">
+      <span class="input-group">
+        <label for="Email">Email</label>
+        <input
+          id="Email"
+          name="Email"
+          type="email"
+          placeholder="correo@mail.com"
+          required
+        />
+      </span>
+    </div>
+
+    <div class="xs-text-center">
+      <a class="pagebuilder-button-primary">
+        <span data-element="link_text">Enviar solicitud</span>
+      </a>
+    </div>
+  </form>
+</section>
+
+<style>
+  .container-form {
+    max-width: 1024px;
+    min-height: 500px;
+    padding: 30px 45px;
+    background-color: #f6f3f5;
+    border-bottom-left-radius: 60px;
+    box-sizing: border-box;
+  }
+  .container-input-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+  }
+  .input-group label {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Poppins Bold';
+  }
+  .input-group input {
+    color: #646569;
+    height: 48px;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #646569;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    max-width: 100%;
+    min-width: 326px;
+    resize: vertical;
+  }
+  .input-group input::placeholder {
+    color: #9c9a9f;
+  }
+  .input-group input:focus {
+    box-shadow: none;
+    box-shadow: 0 0 4px 1px #f32634c7;
+    border: 1px solid #f32634;
+    transition: all 0.3s ease;
+  }
+  .bg-form {
+    margin: 0px;
+    padding: 0px;
+  }
+  .bg-form img {
+    display: none;
+  }
+  .p-relative {
+    position: relative;
+  }
+  .xs-text-center {
+    text-align: center;
+  }
+  @media screen and (min-width: 800px) {
+    .container-input-group {
+      flex-wrap: nowrap;
+    }
+    .input-group {
+      flex: 1;
+      padding-right: 40px;
+    }
+    .input-group input {
+      max-width: 326px;
+    }
+    .bg-form img {
+      display: block;
+      max-height: 675px;
+    }
+    .container-form {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .xs-text-center {
+      text-align: left;
+    }
+  }
+  @media (min-width: 801.1px) and (max-width: 855px) {
+    .container-form {
+      padding: 30px 50px;
+    }
+  }
+  @media (min-width: 855.1px) and (max-width: 1930.1px) {
+    .container-form {
+      padding: 30px 13%;
+    }
+  }
+  @media screen and (max-width: 580.1px) {
+    .headline h2.text-headline {
+      font-size: 26px;
+      line-height: 32px;
+    }
+    .headline h3.text-subheadline {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .input-group input {
+      min-width: auto;
+    }
+  }
+
+</style>
+
+<link
+  href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+  rel="stylesheet"
+/>
+
+

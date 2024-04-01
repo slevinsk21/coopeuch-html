@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+<section class="info-credit-500">
+  <div class="amount-credit">
+    <b>Crédito $500.000</b>
+  </div>
+
+  <table class="cifras-credit">
+    <tbody>
+      <tr>
+        <td>Ejemplo Plazo <small>(3)</small></td>
+        <td>24 cuotas</td>
+      </tr>
+      <tr>
+        <td>Valor cuota</td>
+        <td>$23.040</td>
+      </tr>
+      <tr>
+        <td>Tasa interés mensual</td>
+        <td>0,5%</td>
+      </tr>
+      <tr>
+        <td>CAE <small>(4)</small></td>
+        <td>9,12%</td>
+      </tr>
+      <tr>
+        <td style="border-bottom: none">
+          Costo Total del Crédito <small>(5)</small>
+        </td>
+        <td style="border-bottom: none">$ 549.526</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<style>
+  .info-credit-500 {
+    max-width: 500px;
+    width: 100%;
+    border-radius: 8px;
+    display: flex;
+    background: #f0f0f0;
+    overflow: hidden;
+  }
+  .info-credit-500 .amount-credit {
+    color: #fff;
+    background: #f42534;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 8px;
+  }
+  table.cifras-credit {
+    width: 100%;
+  }
+  table.cifras-credit tbody tr td {
+    font-size: 14px;
+    line-height: 22px;
+    padding: 4px 8px;
+    border-bottom: 1px solid #fff;
+  }
+  table.cifras-credit tbody tr > td:first-child {
+    border-right: 1px solid #fff;
+  }
+  table.cifras-credit tbody tr td > small {
+    font-size: 9px;
+  }
+  .owl-carousel .owl-stage-outer,
+  .products.products-grid,
+  .custom-slider {
+    padding: 0;
+  }
+  .title-section-automotriz.center-title.orange-title {
+    color: #f98a37;
+    max-width: 540px;
+  }
+  .description-credit {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .description-cuotes {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .badge-orange {
+    background-color: #f98a37;
+    color: #fff;
+    padding: 25px;
+    border-radius: 5px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    font-size: 32px;
+  }
+  .page-main-full-width {
+    margin-top: -40px;
+  }
+
+  @media screen and (max-width: 580.1px) {
+    .page-main-full-width {
+      margin-top: -20px;
+    }
+    .info-credit-500 {
+      flex-direction: column;
+    }
+    .badge-orange {
+      max-width: 300px;
+      font-size: 24px;
+    }
+  }
+</style>
+  </body>
+</html>

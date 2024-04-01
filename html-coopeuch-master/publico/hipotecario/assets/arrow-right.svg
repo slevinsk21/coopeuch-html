@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="14px" viewBox="0 0 9 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>00.Token/Icons/Directional/Arrow-Right/24x24</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Hipotecario-01" transform="translate(-406.000000, -1073.000000)" fill="#F6F6F6">
+            <g id="Group-14" transform="translate(-54.000000, 833.000000)">
+                <g id="00.Token/Icons/Directional/Arrow-Right/16x16" transform="translate(453.000000, 235.000000)">
+                    <path d="M7.8625,16.85 L12.7125,12 L7.8625,7.15 C7.375,6.6625 7.375,5.875 7.8625,5.3875 C8.35,4.9 9.1375,4.9 9.625,5.3875 L15.3625,11.125 C15.85,11.6125 15.85,12.4 15.3625,12.8875 L9.625,18.625 C9.1375,19.1125 8.35,19.1125 7.8625,18.625 C7.3875,18.1375 7.375,17.3375 7.8625,16.85 Z" id="arrow-color"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

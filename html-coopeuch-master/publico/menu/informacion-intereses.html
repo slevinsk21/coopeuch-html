@@ -1,0 +1,209 @@
+<!-- <style>
+  .container-intereses {
+    display: flex;
+    justify-content: center;
+  }
+  .portabilidad-container-link {
+    display: flex;
+    padding: 20px 5px;
+  }
+  .custom-btn {
+    background-color: #fff;
+    font-family: Poppins;
+    font-weight: 800;
+    font-size: 16px;
+    border: 2px solid #f42534;
+    border-radius: 5px;
+    color: #f42534 !important;
+    outline: none;
+    min-width: 135px;
+    text-align: center;
+    text-decoration: none !important;
+    transition: all 0.3s ease-in;
+    margin: 10px;
+    display: flex;
+    max-width: 198px;
+    height: 57px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .custom-btn:hover,
+  .custom-btn:focus {
+    color: #fff !important;
+    background-color: #f42534;
+  }
+
+  @media (max-width: 580.1px) {
+    .custom-btn {
+      font-size: 14px;
+      max-width: 294px;
+    }
+  }
+</style>
+
+<div class="container-intereses">
+  <a class="custom-btn" href="#">Gobierno de Chile Portabilidad </a>
+  <a class="custom-btn" href="#">Chile Atiende Portabilidad </a>
+  <a class="custom-btn" href="#">Mercado Financiero Portabilidad</a>
+  <a class="custom-btn" href="#">Cuatro pasos para portar productos</a>
+</div> -->
+
+<!--  -->
+<!-- <style>
+  .container-portabilidad {
+    max-width: 1220px;
+    margin: 0 auto;
+  }
+  .content-portabilidad {
+    display: flex;
+    align-items: center;
+    padding: 13px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  h3.title-portabilidad {
+    font-size: 28px;
+    font-family: "Poppins Bold";
+    color: #ffffff !important;
+    line-height: 28px;
+    margin: 10px 0;
+    text-align: left;
+  }
+
+  @media (max-width: 580.1px) {
+    h3.title-portabilidad {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .btn-block {
+      max-width: 294px !important;
+      width: 100% !important;
+    }
+  }
+</style>
+
+<div class="container-portabilidad">
+  <div class="content-portabilidad">
+    <h3 class="title-portabilidad">
+      Revisa el estado de tu Portabilidad Financiera con Coopeuch
+    </h3>
+
+    <a href="#" class="pagebuilder-button-primary btn-block"> Revisar </a>
+  </div>
+</div> -->
+
+<!--  -->
+
+<!--  -->
+<style>
+  .container-cifras {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7%;
+    height: 330px;
+    overflow: hidden;
+  }
+  .container-cifras .banner-item {
+    min-width: 375px;
+  }
+  .banner-item h2 {
+    font-size: 50px;
+    line-height: 42px;
+    color: #ffffff;
+    font-family: 'Poppins Bold';
+  }
+
+  .banner-item h3 {
+    font-size: 30px;
+    color: #ffffff;
+    line-height: 32px;
+  }
+
+  .link-portabilidad {
+    display: none;
+    justify-content: center;
+    color: white !important;
+  }
+  .container-cifras.container-cifras-show {
+    height: auto;
+  }
+
+  @media (max-width: 1250.1px) {
+    .container-cifras {
+      height: auto;
+      overflow: hidden;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  @media (max-width: 580.1px) {
+    .link-portabilidad {
+      display: flex;
+    }
+    .container-cifras {
+      align-items: flex-start;
+      flex-direction: column;
+      height: 145px;
+    }
+    .item-hidden {
+      display: none;
+    }
+    .banner-item h2 {
+      font-size: 35px;
+      line-height: 35px;
+      margin: 10px 0 8px;
+    }
+    .banner-item h3 {
+      font-size: 25px;
+      line-height: 27px;
+      margin: 0 0 20px;
+    }
+  }
+</style>
+
+<div class="container-portabilidad">
+  <div style="padding: 10px 4%">
+    <h3 class="title-portabilidad">
+      Somos la Cooperativa que cumple tus metas
+    </h3>
+
+    <div id="cifras-portabilidad" class="container-cifras">
+      <div id="box-1" class="banner-item item-hidden">
+        <h2>824.419</h2>
+        <h3>Socios Registrados</h3>
+      </div>
+
+      <div id="box-2" class="banner-item">
+        <h2>$64.000.000</h2>
+        <h3>millones de Remanente repartidos el 2020</h3>
+      </div>
+
+      <div id="box-3" class="banner-item item-hidden">
+        <h2>50 años</h2>
+        <h3>de la Cooperativa más grande de <strong>LATAM</strong></h3>
+      </div>
+    </div>
+
+    <a id="link-portabilidad" class="link-portabilidad" onclick="toggleText()">
+      Ver más
+    </a>
+  </div>
+</div>
+<script>
+  function toggleText() {
+    var element = document.getElementById('cifras-portabilidad');
+    element.classList.toggle('container-cifras-show');
+
+    const box1 = document.getElementById('box-1');
+    const box3 = document.getElementById('box-3');
+    box1.classList.toggle('item-hidden');
+    box3.classList.toggle('item-hidden');
+
+    const link = document.getElementById('link-portabilidad');
+    element.classList.length > 1
+      ? (link.innerHTML = 'Ocultar')
+      : (link.innerHTML = 'Ver más');
+  }
+</script>

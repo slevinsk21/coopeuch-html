@@ -1,0 +1,163 @@
+<div id="basesLegales" class="container-bases" v-cloak>
+  <section
+    class="item-bases"
+    v-for="{ title, year, subtitle, file } in legalBases"
+  >
+    <div class="header-content-bases">
+      <img
+        class="mgb-8"
+        src="/media/logo/stores/1/logo.svg"
+        title="Coopeuch logo"
+        alt="Coopeuch logo"
+        width="150"
+        height="22"
+      />
+      <p class="title-section">
+        {{ title }}
+        <br />
+        <span>{{ year }}</span>
+      </p>
+    </div>
+    <div class="date-download">
+      <p class="mg-0">{{ subtitle }}</p>
+      <img
+        src="/media/wysiwyg/download.svg"
+        alt="Descargar"
+        width="24"
+        height="24"
+        style="margin: auto; vertical-align: middle"
+      />
+      <a :href="`https://www.coopeuch.cl/media/UploadGeneral/file/${file}`">
+        Descargar
+      </a>
+    </div>
+  </section>
+</div>
+
+<script>
+  require(['vue'], function (Vue) {
+    'use strict';
+    new Vue({
+      el: '#basesLegales',
+      data: {
+        legalBases: [
+          {
+            title: 'Bases Legales',
+            year: 2021,
+            subtitle: '2021 Concurso Lorem Ipsum',
+            file: 'Ppt_institucional_Dic20-Espa_ol.pdf',
+          },
+          {
+            title: 'Bases Legales',
+            year: 2021,
+            subtitle: '2021 Concurso Lorem Ipsum',
+            file: 'Ppt_institucional_Dic20-Espa_ol.pdf',
+          },
+          {
+            title: 'Bases Legales',
+            year: 2021,
+            subtitle: '2021 Concurso Lorem Ipsum',
+            year: 2021,
+            file: 'Ppt_institucional_Dic20-Espa_ol.pdf',
+          },
+          {
+            title: 'Bases Legales',
+            year: 2021,
+            subtitle: '2021 Concurso Lorem Ipsum',
+            file: 'Ppt_institucional_Dic20-Espa_ol.pdf',
+          },
+          {
+            title: 'Bases Legales',
+            year: 2021,
+            subtitle: '2021 Concurso Lorem Ipsum',
+            file: 'Ppt_institucional_Dic20-Espa_ol.pdf',
+          },
+          {
+            title: 'Bases Legales',
+            year: 2021,
+            subtitle: '2021 Concurso Lorem Ipsum',
+            file: 'Ppt_institucional_Dic20-Espa_ol.pdf',
+          },
+          {
+            title: 'Bases Legales',
+            year: 2021,
+            subtitle: '2021 Concurso Lorem Ipsum',
+            file: 'Ppt_institucional_Dic20-Espa_ol.pdf',
+          },
+          {
+            title: 'Bases Legales',
+            year: 2021,
+            subtitle: '2021 Concurso Lorem Ipsum',
+            file: 'Ppt_institucional_Dic20-Espa_ol.pdf',
+          },
+        ],
+      },
+    });
+  });
+</script>
+
+<style scoped>
+  [v-cloak] {
+    display: none;
+  }
+  .container-bases {
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .item-bases {
+    min-width: 267px;
+    max-width: 267px;
+    margin: 0 5px;
+    background-color: #edeef4;
+  }
+  .header-content-bases {
+    background: #f24535;
+    margin: 43px 33px 0;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .date-download {
+    background: #fff;
+    padding: 25px 0;
+  }
+  .text-info {
+    line-height: 2;
+    letter-spacing: 0.3px;
+  }
+  .pd-10-0 {
+    padding: 10px 0;
+  }
+  .mgb-8 {
+    margin-bottom: 8px;
+  }
+  .text-publication {
+    padding-right: 20px;
+  }
+  .title-section {
+    font-size: 14px;
+    line-height: 21px;
+    font-family: 'Poppins bold';
+    margin: 0;
+    color: #fff;
+  }
+  .title-section span {
+    font-family: 'Poppins Medium';
+  }
+  @media (max-width: 767px) {
+    .year-publication {
+      flex-direction: column-reverse;
+    }
+    .content-year-plubication {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .text-publication {
+      padding-bottom: 10px;
+    }
+  }
+</style>

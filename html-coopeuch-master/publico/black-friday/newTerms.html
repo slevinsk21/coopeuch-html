@@ -1,0 +1,102 @@
+<input type="hidden" id="plus-icon" value="{{media url=wysiwyg/mas.svg}}" />
+<input type="hidden" id="minus-icon" value="{{media url=wysiwyg/menos.svg}}" />
+
+<div class="tex-ter">
+  <h3>Términos y condiciones</h3>
+</div>
+
+<section id="terms"></section>
+
+<style>
+.tex-ter {
+  text-align: center;
+  padding-bottom: 69px;
+}
+.container-termconditions .title {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+.container-termconditions {
+  border-bottom: none;
+  margin-bottom: 10px;
+  margin-bottom: 0;
+}
+.container-termconditions:last-of-type {
+  border-bottom: 2px solid #D7D7D7;
+}
+
+@media only screen and (max-width: 767px) {
+  .tex-ter h3 {
+    font-size: 20px;
+    margin: 5px;
+  }
+}
+</style>
+
+<script>
+const termsAndConditions = [
+  {
+    title: '1.) Plan Oro:',
+    description: 'Infórmese sobre la garantía estatal de los depósitos en su cooperativa o en www.cmfchile.cl Promoción válida 19/11/2021 hasta el 30/11/ 2021. La aprobación del crédito está condicionada a la verificación de antecedentes y cumplimiento de requisitos establecidos en políticas crediticias de Coopeuch. El crédito de consumo Coopeuch tiene el beneficio de un tarifado especial para el caso en que el socio no tenga operaciones de crédito de consumo vigentes, las cuotas serán descontadas a través de PAC coopeuch. Promoción de hasta un 40% de descuento sobre tasa pizarra, contratando crédito de consumo con PAC coopeuch, cuenta vista y abono de remuneraciones. Valor cuota referencial del ejemplo calculado con 62 días plazo del primer vencimiento después de la fecha de otorgamiento del crédito. Ejemplo incluye seguro de desgravamen opcional Coopeuch. CAE (carga anual equivalente) es el indicador expresado en forma de porcentaje que revela el costo total de un crédito en un período anual, cualquiera sea el plazo pactado para el pago del mismo. CTC (costo total del crédito del ejemplo) monto total que debe asumir el consumidor y que corresponde a la suma de todos los pagos periódicos definidos como valor de la cuota en función del plazo acordado. Los planes no aplican para descuento de créditos por planilla. La simulación de crédito de consumo requiere que el consumidor disponga de un patrimonio y/o ingresos futuros suficientes para pagar su costo total y el valor cuota mensual, durante todo el período del crédito y considera gastos notariales que son detallados en el comprobante de esta simulación. Esta simulación es no vinculante y el otorgamiento del crédito está sujeto a aprobación comercial previa, de acuerdo a las políticas de créditos vigentes al momento de la solicitud. El ejemplo incluye sólo seguro de desgravamen. El deudor podrá prepagar este crédito, en estos casos el socio deberá pagar una comisión sobre el capital que se prepaga asociada a esta operación, equivalente a 30 días de intereses calculado. El seguro de desgravamen es ofrecido por Coopeuch y puede contratarse conjuntamente con el crédito. Los riesgos son cubiertos por la Compañía de Seguros BNP Paribas Cardif Seguros de Vida S.A bajo la póliza 221091506. Las coberturas contratadas se rigen según las condiciones generales, cuyos modelos se encuentran depositados en la Comisión para el Mercado Financiero (CMF) bajo el código POL 220130329. El seguro es intermediado por Coopeuch Corredores de Seguros SpA. Participan en esta promoción de puntos los socios que contraten el plan oro, con desembolso del crédito en su cuenta Vista Coopeuch. La promoción corresponde a 15.000 puntos, que serán abonados de la siguiente forma: 5.000 puntos hasta 20 días posteriores a la contratación del crédito de consumo y 10.000 puntos hasta 20 días posteriores, a que socio reciba el abono de remuneraciones en su Cuenta Vista Coopeuch.. Bases y más información del programa de Puntos Coopeuch se encuentran publicadas en www. puntoscoopeuch.cl y protocolizadas en la Séptima Notaría de Santiago doña María Soledad Santos. Cuenta vista con comisión mensual $0 con abono de remuneración *Promoción válida para cuentas vistas abiertas hasta el 30/11/2021” El remanente es el resultado positivo de la gestión de la cooperativa en el ejercicio del año anterior. En caso de que la gestión de Coopeuch sea favorable, el remanente se distribuye entre los socios de la forma señalada en los estatutos y normativa vigente.'
+  },
+  {
+    title: '2.) Cuotas sin interés: Aprovecha de comprar en 6 o 12 cuotas sin interés en grandes tiendas, zapaterías, agencias 	de viajes y en cualquier comercio adherido Transbank.',
+    description: 'Infórmese sobre la garantía estatal de los depósitos en su cooperativa o en www.cmf.cl Promoción válida desde 1/11/2021 al 30/11/2021, ambas fechas inclusive, para compras realizadas con Tarjeta de Crédito Coopeuch Mastercard titulares y/o adicionales que se encuentren al día y con el cupo disponible para realizar compras en cualquier comercio adherido a Transbank bajo la modalidad de compra en 6 o 12 cuotas. La obtención de la Tarjeta de Crédito está sujeta al cumplimento de las políticas de crédito de Coopeuch.'
+  },
+  {
+    title: '3.) Avance en efectivo en Cajeros Automáticos: Tasa especial de 1,19%.',
+    description: 'Infórmese sobre la garantía estatal de los depósitos en su cooperativa o en www.cmf.cl Promoción válida para avances en cuotas en cajeros automáticos desde el 01 al 30 de noviembre de 2021. Avance sujeto al cupo disponible al momento de la transacción: las tarjetas nacionales pueden realizar avances hasta el 60% de su cupo disponible, tarjetas internacionales y doradas hasta el 100% del cupo disponible. La comisión de avance en cuotas para el ejemplo es de UF 0,082. CAE 17,40% y Costo Total del Crédito de $326.880 calculado para un avance de $300.000 en una Tarjeta de Crédito Coopeuch Mastercard Nacional con CHIP, en 12 meses. Los montos incluyen la comisión del avance en cuotas. La obtención de la Tarjeta de Crédito está sujeta a evaluación, de acuerdo con las políticas vigentes de Coopeuch.'
+  },
+  {
+    title: '4.) Hasta 20% descuento en Ansaldo.',
+    description: 'Descuento válido desde 19 al 26 de noviembre 2021, ambas fechas inclusive, o hasta agotar fondo de 200 cupones. Cupón será válido para ser utilizado solo en una compra. Tope de descuento de $20.000 por cupón. Descuento no acumulable con otros descuentos, ofertas y promociones. Descuento no aplica sobre productos de la línea BUILD BEAR. Para compras online, descuento no aplica sobre costo de envío. La administración de la venta, la garantía, la entrega y la calidad del producto y / o la prestación de los servicios son responsabilidad exclusiva Ansaldo, no teniendo Coopeuch intervención ni responsabilidad alguna en la venta, garantía, entrega ni en la ulterior atención.'
+  },
+  {
+    title: '5.) 40% descuento en Ventisquero.',
+    description: 'Descuento válido desde 19 al 26 de noviembre 2021, ambas fechas inclusive. Descuento no acumulable con otros descuentos, ofertas y promociones. Descuento no aplica sobre costo de envío. La administración de la venta, la garantía, la entrega y la calidad del producto y / o la prestación de los servicios son responsabilidad exclusiva de Ventisquero, no teniendo Coopeuch intervención ni responsabilidad alguna en la venta, garantía, entrega ni en la ulterior atención.'
+  },
+  {
+    title: '6.) Hasta 30% descuento en Vuelos y Paquetes.',
+    description: 'Descuento válido desde 19 al 26 de noviembre 2021, ambas fechas inclusive, o hasta agotar stock de 40 cupos en descuentos, lo que ocurra primero. Promoción válida para compra de vuelos y paquetes nacionales o internacionales pagados con Tarjeta de Crédito Mastercard Coopeuch emitidas en Chile, efectuadas a través de www.despegar.cl, la app de Despegar Chile o a través de puntoscoopeuch.cl Las reservas que cumplan con estos requisitos tendrán hasta un 30% de descuento con un tope de $50.000 CLP. Solo aplica para personas naturales y no aplica para otras tarjetas o productos financieros. El descuento se verá reflejado en el último paso del proceso de compra, al momento de ingresar los datos del medio de pago seleccionado. El descuento no tiene valor monetario y, por lo tanto, no será canjeable por dinero en efectivo. Las reprogramaciones pueden generar diferencias tarifarias. Cambios sujetos a la disponibilidad de cada Proveedor. Reservas no endosables. Ver más detalles de la política de flexibilidad de cada Proveedor y restricciones de fechas en el check out. No reembolsable en caso de no uso o uso parcial. En caso de requerir cambios, éstos se encuentran condicionados a la autorización de los proveedores, y de ser procedentes, se aplicará la penalidad de acuerdo a la política de flexibilidad de cada proveedor. Promoción limitada a un descuento por dispositivo y usuario. Aplica un máximo de 8 lugares por reserva. Los descuentos no son acumulables con otras promociones, códigos, bonos de descuento o cupones. Los precios, calidad, estado, entrega del beneficio, servicio y descuento ofrecido, son de exclusiva responsabilidad de Despegar, no correspondiéndole a Coopeuch intervención ni responsabilidad alguna en ello, ni en la ulterior atención que se demande. '
+  },
+  {
+    title: '7.) Canjes de productos con despacho gratis a todo Chile.',
+    description: 'Promoción válida desde 19 al 26 de noviembre 2021, ambas fechas inclusive, o hasta agotar fondo de $1.000.000. Costo de despacho para canjes posteriores varía según comuna, se cobrará el costo indicado al momento de realizar el canje. La administración de la venta, la garantía, la entrega y la calidad del producto y / o la prestación de los servicios son responsabilidad exclusiva de cada una de las empresas mencionadas, no teniendo Coopeuch intervención ni responsabilidad alguna en la venta, garantía, entrega ni en la ulterior atención. Bases y más información del programa de Puntos Coopeuch se encuentran publicadas en www. puntoscoopeuch. cl y protocolizadas en la Séptima Notaría de Santiago doña María Soledad Santos.'
+  },
+  {
+    title: '8.) 20% descuento en Giftcard Navidad.',
+    description: 'Promoción válida desde 19 al 26 de noviembre 2021, ambas fechas inclusive, o hasta agotar fondo de 100 Giftcard de 10.000 y 15.000 Ripley, 100 Giftcard de 10.000 y 15.000 Falabella, 100 Giftcard de 10.000 y 15.000 Paris, 50 Giftcard de 10.000 y 15.000 Dafiti y 50 Giftcard de 10.000 y 15.000 Aldo. La administración de la venta, la garantía, la entrega y la calidad del producto y / o la prestación de los servicios son responsabilidad exclusiva de cada una de las empresas mencionadas, no teniendo Coopeuch intervención ni responsabilidad alguna en la venta, garantía, entrega ni en la ulterior atención. Bases y más información del programa de Puntos Coopeuch se encuentran publicadas en www. puntoscoopeuch. cl y protocolizadas en la Séptima Notaría de Santiago doña María Soledad Santos.'
+  },
+  {
+    title: '9.) Definición de remanente',
+    description: 'El remanente es el resultado positivo de la gestión de la cooperativa del año anterior. En caso que la gestión de Coopeuch sea favorable, el remanente se distribuye entre todos los socios de acuerdo a la proporción de cuotas de participación promedio, el uso de productos y un comportamiento responsable al mantener sus cuotas y pagos al día. Infórmese sobre la garantía estatal de los depósitos en www.cmfchile.cl.'
+  }
+]
+
+document.querySelector('#terms').innerHTML = termsAndConditions.map(({ title, description }) =>
+  `<div class="container-termconditions">
+    <div class="header-termconditions">
+      <span class="title">${title}</span>
+      <span class="icon"><img src="{{media url=wysiwyg/mas.svg}}" /></span>
+    </div>
+    <div class="content-termconditions" style="display: none">
+      <p>${description}</p>
+    </div>
+  </div>`
+).join('');
+
+require(['jquery', 'collapsible', 'accordion'], function ( $, collapsible, accordion) {
+    $('.header-termconditions').click(function () {
+      $header = $(this);
+      $content = $header.next();
+
+      if (!$content.is(':visible')) $header.find('.icon>img').attr('src', $('#minus-icon').val());
+
+      $content.slideToggle(500, () => {
+        if (!$content.is(':visible')) $header.find('.icon>img').attr('src', $('#plus-icon').val());
+      });
+    });
+  });
+</script>

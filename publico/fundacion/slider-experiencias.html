@@ -1,0 +1,62 @@
+<section class="slick-experiencias">
+  <div class="participant-experiences" onclick="openVideoTestimonial('u0BO9x9oqTU')">
+    <i class="fas fa-play-circle fa-3x play-icon"></i>
+    <img src="http://img.youtube.com/vi/u0BO9x9oqTU/0.jpg" alt="yt-1" loading="lazy" />
+  </div>
+  <div class="participant-experiences" onclick="openVideoTestimonial('u0BO9x9oqTU')">
+    <i class="fas fa-play-circle fa-3x play-icon"></i>
+    <img src="http://img.youtube.com/vi/u0BO9x9oqTU/0.jpg" alt="yt-1" loading="lazy" />
+  </div>
+  <div class="participant-experiences" onclick="openVideoTestimonial('u0BO9x9oqTU')">
+    <i class="fas fa-play-circle fa-3x play-icon"></i>
+    <img src="http://img.youtube.com/vi/u0BO9x9oqTU/0.jpg" alt="yt-1" loading="lazy" />
+  </div>
+</section>
+<style>
+  .slick-slide .participant-experiences > img {
+    object-fit: cover;
+    height: auto;
+    width: 100%;
+    min-height: 168px;
+  }
+  .slick-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  .slick-dots li,
+  .slick-dots li button {
+    transition: .6s background;
+  }
+  .slick-dots li.slick-active button,
+  .slick-dots li button {
+    background: #007DB7;
+    border: 1px solid #007DB7;
+  }
+  .slick-dots li.slick-active {
+    background: rgba(0,161,223,0.25);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+</style>
+
+<script type="text/javascript" src="slick/slick.min.js"></script>
+<script>
+    require(['jquery', 'slick'], function($, slick) {
+      $(document).ready(function(){
+        $('.slick-experiencias').slick({
+        dots: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        centerMode: true,
+        centerPadding: '60px',
+        arrows: false,
+      });
+    });
+  });
+</script>

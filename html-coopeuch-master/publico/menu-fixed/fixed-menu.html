@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fixed menu</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      #fixed-menu.show {
+        display: flex;
+      }
+      #fixed-menu {
+        display: none;
+      }
+      .fixed-menu {
+        position: fixed;
+        bottom: 30px;
+        right: 92px;
+        height: 60px;
+        width: 60px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+        border-radius: 50%;
+        transition: 0.2s ease-out;
+        opacity: 0.9;
+        z-index: 1000;
+      }
+      .fixed-menu:hover {
+        opacity: 1;
+      }
+      .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .fixed-menu.content a {
+        cursor: pointer;
+      }
+      .d-none {
+        display: none;
+      }
+      .fixed-menu.opened {
+        right: 50%;
+        transform: translate(50%, 0);
+        width: 372px;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+        border-radius: 35px;
+      }
+      .fixed-menu.opened figure {
+        margin: 0;
+        text-align: center;
+      }
+      .fixed-menu.opened figure img {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+      }
+      .fixed-menu.opened figure figcaption {
+        color: #383838;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 12px;
+        letter-spacing: 0;
+        line-height: 20px;
+        padding: 0 15px;
+      }
+      @media (max-width: 425.1px) {
+        .fixed-menu {
+          right: 15px;
+        }
+        .fixed-menu.opened {
+          width: 296px;
+          right: 15px;
+          transform: none;
+        }
+        .fixed-menu.opened figure figcaption {
+          padding: 0 5px;
+        }
+        .fixed-menu.opened figure img {
+          width: 28px;
+          height: 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      #fixed-menu.show {
+        display: flex;
+      }
+      #fixed-menu {
+        display: none;
+      }
+      .fixed-menu {
+        position: fixed;
+        bottom: 30px;
+        right: 92px;
+        height: 60px;
+        width: 60px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+        border-radius: 50%;
+        transition: 0.2s ease-out;
+        opacity: 0.9;
+        z-index: 1000;
+      }
+      .fixed-menu:hover {
+        opacity: 1;
+      }
+      .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .fixed-menu.content a {
+        cursor: pointer;
+      }
+      .d-none {
+        display: none;
+      }
+      .fixed-menu.opened {
+        right: 50%;
+        transform: translate(50%, 0);
+        width: 372px;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+        border-radius: 35px;
+      }
+      .fixed-menu.opened figure {
+        margin: 0;
+        text-align: center;
+      }
+      .fixed-menu.opened figure img {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+      }
+      .fixed-menu.opened figure figcaption {
+        color: #383838;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 12px;
+        letter-spacing: 0;
+        line-height: 20px;
+        padding: 0 15px;
+      }
+      @media (max-width: 425.1px) {
+        .fixed-menu {
+          right: 15px;
+        }
+        .fixed-menu.opened {
+          width: 296px;
+          right: 15px;
+          transform: none;
+        }
+        .fixed-menu.opened figure figcaption {
+          padding: 0 5px;
+        }
+        .fixed-menu.opened figure img {
+          width: 28px;
+          height: 28px;
+        }
+      }
+    </style> -->
+    <section id="fixed-menu" class="fixed-menu content opened">
+      <div class="items content">
+        <a
+          style="text-decoration: none"
+          href="https://wa.me/56939196149?text=Hola%20necesito%20evaluar%20un%20Cr%C3%A9dito%20de%20Consumo%20en%20Coopeuch"
+        >
+          <figure>
+            <img
+              src="https://www.coopeuch.cl/media/wysiwyg/ws-icon-fixed-menu.svg"
+              alt="ws-icon"
+            />
+            <figcaption>evaluar crédito</figcaption>
+          </figure>
+        </a>
+
+        <a
+          style="text-decoration: none"
+          onclick="window.CognitiveAssistantMain.launcherHandler(this)"
+        >
+          <figure>
+            <img
+              src="https://www.coopeuch.cl/media/wysiwyg/ivic-icon-fixed-menu.svg"
+              alt="ivic-icon"
+            />
+            <figcaption>Contacto IVIC</figcaption>
+          </figure>
+        </a>
+
+        <a
+          style="text-decoration: none"
+          href="https://survey3.medallia.com/?sitio-publico"
+        >
+          <figure>
+            <img
+              src="https://www.coopeuch.cl/media/wysiwyg/comment-icon-fixed-menu.svg"
+              alt="comment-icon"
+            />
+            <figcaption>Evalúanos</figcaption>
+          </figure>
+        </a>
+      </div>
+      <a onclick="toggleMenu()">
+        <img
+          id="action-icon"
+          src="https://www.coopeuch.cl/media/wysiwyg/minus-icon-fixed-menu.svg"
+          alt="action-icon"
+        />
+      </a>
+    </section>
+
+    <script
+      type="text/javascript"
+      src="https://asistente.coopeuch.cl/cdn/js/build/main.js"
+    ></script>
+    <script>
+      document.domain = 'coopeuch.cl';
+
+      window.addEventListener('load', function () {
+        window.CognitiveAssistantMain.init(
+          'https://asistente.coopeuch.cl/asistente/?open=false'
+        );
+      });
+
+      window.addEventListener('scroll', () => {
+        let header = document.getElementById('fixed-menu');
+        window.pageYOffset > 200
+          ? header.classList.add('show')
+          : header.classList.remove('show');
+      });
+
+      const toggleMenu = () => {
+        const btnImg = document.getElementById('action-icon').src;
+        const fixedMenu = document.getElementsByClassName('fixed-menu')[0];
+        const content = document.getElementsByClassName('items')[0];
+        fixedMenu.classList.toggle('opened');
+        content.classList.toggle('d-none');
+        const icon = btnImg.includes('minus') ? 'plus' : 'minus';
+        document.getElementById(
+          'action-icon'
+        ).src = `https://www.coopeuch.cl/media/wysiwyg/${icon}-icon-fixed-menu.svg`;
+      };
+    </script>
+  </body>
+</html>

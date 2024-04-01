@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+<section class="container-ws">
+  <div class="coopeuch-help-ws">
+    <h4>¿Otras dudas? Te contactamos</h4>
+
+    <h4>
+      Desde
+      <span class="info-link">
+        <img
+          src="https://www.coopeuch.cl/media/wysiwyg/ws-contact-center.png"
+          alt="ws-icon"
+          loading="lazy"
+        />
+        Coopeuch Ayuda
+        <img
+          src="https://www.coopeuch.cl/media/wysiwyg/doblecheck-contact-center.png"
+          alt="doblecheck-icon"
+          loading="lazy"
+        />
+      </span>
+    </h4>
+  </div>
+
+  <div class="ws-header">
+    <figure>
+      <img
+        src="https://www.coopeuch.cl/media/wysiwyg/coopeuch-logo-contact-center.png"
+        alt="logo-ws-coopeuch"
+        loading="lazy"
+      />
+      <figcaption class="info-text">
+        <b>+56227125603</b>
+        <span>En línea</span>
+      </figcaption>
+    </figure>
+    <img
+      src="https://www.coopeuch.cl/media/wysiwyg/ws-verified-contact-center.png"
+      alt="verified-ws-coopeuch"
+      loading="lazy"
+    />
+  </div>
+
+  <p class="ws-description">
+    Un nuevo canal de comunicación ,desde donde te enviaremos contenidos
+    para guiarte paso a paso <br />
+    y resolver tus dudas con videos tutoriales.
+  </p>
+</section>
+
+<style>
+  .container-ws {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .ws-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 333px;
+    min-width: 275px;
+    width: 100%;
+    background-color: #00775f;
+    max-height: 74px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .ws-header figure {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+  .ws-header>img {
+    align-self: flex-start;
+  }
+  .ws-header figure figcaption.info-text {
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    text-align: left;
+  }
+  .ws-header figure figcaption.info-text > b {
+    font-size: 24px;
+    line-height: 19px;
+  }
+  .ws-header figure figcaption.info-text > span {
+    font-size: 14px;
+    line-height: 19px;
+  }
+  .container-ws .ws-description {
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    color: #383638;
+    padding: 20px 0;
+    font-family: 'Poppins Medium';
+  }
+  .coopeuch-help-ws * {
+    font-size: 28px;
+    line-height: 40px;
+    font-family: 'Poppins bold';
+  }
+  .coopeuch-help-ws h4 .info-link {
+    color: #009688;
+    font-family: 'Poppins semibold';
+  }
+
+  @media (max-width: 580.1px) {
+    .coopeuch-help-ws * {
+      font-size: 16px;
+      line-height: 19px;
+    }
+    .coopeuch-help-ws h4 .info-link img {
+      max-width: 16px;
+    }
+    .ws-header figure figcaption.info-text > b {
+      font-size: 16px;
+    }
+    .ws-header figure figcaption.info-text > span {
+      font-size: 12px;
+    }
+    .container-ws .ws-description {
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+</style>
+  </body>
+</html>

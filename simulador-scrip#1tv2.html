@@ -1,0 +1,63 @@
+<!-- SCRIPT #1 SIMULADOR HOME AGREGAR TElF Y RUT SI NO EXISTEN -->
+<style>
+  .form-input,
+  input.form-input {
+    border-radius: 4px;
+  }
+  .message-text-simulador {
+    font-size: 14px;
+    position: relative;
+    top: 33px;
+    left: 543px;
+  }
+  .phone-error-msg,
+  .rut-error-msg {
+    display: none;
+  }
+  .general-box,.inputs-simulatoraccess {
+    min-height: 146px;
+  }
+  @media screen and (max-width: 960px) {
+    .message-text-simulador {
+      display: none;
+    }
+  }
+</style>
+<script>
+  const form = document.querySelector('#simulator-consumo'),
+        { children } = form;
+        simulator = document.querySelector('#ce-simulatoraccess-box'),
+        inputs = [{ i: 1, order: 3, id: 'phone' }, { i: 2, order: 2, id: 'rut' }, { i: 3, order: 1 }, { i: 5, order: 4 }],
+        orderInput = (index, order) => children[index].style.order = order;
+
+  simulator.insertAdjacentHTML('beforebegin', '<span class="message-text-simulador">Revisa si tienes una oferta especial ingresando tus datos:</span>');
+  inputs.map(({ id = null, i, order }) => {
+    if (id) children[i].innerHTML += '<div for="' + id + '"generated="true" style="font-size: 1.2rem; color: #646569">*Este campo es opcional</div>'
+    children[i].style.order = order;
+  });
+
+  document.querySelector('.button-simulate').addEventListener('click', () => {
+    const amount = document.querySelector('#amount').value,
+      errorMsg = element => {
+        const messageError = document.querySelector(element);
+        if (messageError) messageError.style.display = 'none';
+      };
+
+    errorMsg('.phone-error-msg');
+    errorMsg('.rut-error-msg');
+
+    if (amount) {
+      if (!form[2].value) {
+        form[2].value = '12312312';
+        form[2].style.color = '#fff';
+      }
+      if (!form[3].value) {
+        form[3].value = '12.312.312-3';
+        form[3].style.color = '#fff';
+      }
+
+      document.querySelector('.button-simulate').click();
+      document.querySelector('.button-simulate').click();
+    }
+  });
+</script>

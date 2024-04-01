@@ -1,0 +1,385 @@
+<div id="simulador-products" v-cloak>
+  <div class="container-products">
+    <h2>
+      Encuentra el Crédito de consumo que mejor se adapte a tus necesidades:
+    </h2>
+
+    <div class="container-select-amount">
+      <template v-for="item in ['1 y 3', '7 y 10', '15' ]">
+        <button
+          @click="amountSelected = item"
+          :disabled="item === amountSelected"
+        >
+          {{ item.length > 2 ? 'Entre ' : '' }} {{ item }} millones
+        </button>
+      </template>
+    </div>
+
+    <div class="box-wrapper">
+      <div class="simulator-box" v-for="(item, i) in products[amountSelected]">
+        <div class="box-header" :class="{ 'min-h': i === 1 }">
+          <span class="tag-box">{{ item.coute }} cuotas de</span>
+          <div class="box-title">
+            <span class="title-quotes">$ {{ item.couteValue }} </span>
+          </div>
+        </div>
+        <div class="amount-request">
+          <span class="left">
+            Monto a solicitar: <b>$ {{ item.totalAmount }} </b>
+          </span>
+        </div>
+
+        <ul class="box-body" :class="{ 'border-bottom': i === 1 }">
+          <li class="attribute" style="align-items: center">
+            <span class="left">
+              Costo total del crédito:
+              <b>$ {{ item.totalCredit }} </b>
+              <div class="coo-tooltip">
+                <div class="tooltip-content">
+                  <p>
+                    Es el porcentaje que revela el costo del crédito en un año,
+                    sin importar el plazo pactado o las cuotas.
+                  </p>
+                </div>
+              </div>
+            </span>
+          </li>
+
+          <li class="attribute" style="align-items: center">
+            <span class="left">
+              CAE:
+              <b> {{ item.cae }} </b>
+            </span>
+          </li>
+
+          <!-- <li class="attribute" style="align-items: center">
+            <span class="left">
+              Tasa mensual:
+              <b> {{ item.originalRate }} </b>
+            </span>
+          </li> -->
+
+          <li class="attribute" style="align-items: center">
+            <span class="left">
+              Seguro invalidez Total y P. Consumo:
+              <b>$ {{ item.desgravamen }} </b>
+            </span>
+          </li>
+
+          <a
+            class="button-coopeuch solicitar_credito_cyber"
+            :data-cuotas="item.coute"
+            data-monto="$300.000"
+            data-vcuota="$30.000"
+            data-imensual="33%"
+            data-ianual="100%"
+            :data-desgravamen="item.desgravamen"
+            :data-total="item.totalCredit"
+            :data-cae="item.cae"
+          >
+            Solicítala
+          </a>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  require(['vue'], function (Vue) {
+    'use strict';
+
+    new Vue({
+      el: '#simulador-products',
+      data: {
+        amountSelected: '1 y 3',
+        products: {
+          '1 y 3': [
+            // 1MM
+            {
+              coute: 12,
+              couteValue: '96.650',
+              totalAmount: '1.000.000',
+              totalCredit: '1.159.716',
+              cae: '23,16%',
+              desgravamen: '16.041',
+              originalRate: '2,10%'
+            },
+            {
+              coute: 18,
+              couteValue: '68.610',
+              totalAmount: '1.000.000',
+              totalCredit: '1.234.815',
+              cae: '24,12%',
+              desgravamen: '30.371',
+              originalRate: '2,20%'
+            },
+            // 3MM
+            {
+              coute: 36,
+              couteValue: '120.400',
+              totalAmount: '3.000.000',
+              totalCredit: '4.334.055',
+              cae: '23,76%',
+              desgravamen: '128.766',
+              originalRate: '2,20%'
+            },
+            {
+              coute: 48,
+              couteValue: '101.950',
+              totalAmount: '3.000.000',
+              totalCredit: '4.892.821',
+              cae: '24,84%',
+              desgravamen: '189.625',
+              originalRate: '2,20%'
+            }
+          ],
+          '7 y 10': [
+            // 7MM
+            {
+              coute: 48,
+              couteValue: '210.590',
+              totalAmount: '7.000.000',
+              totalCredit: '10.108.089',
+              cae: '18,24%',
+              desgravamen: '441.327',
+              originalRate: '1,98%'
+            },
+            {
+              coute: 60,
+              couteValue: '188.110',
+              totalAmount: '7.000.000',
+              totalCredit: '11.286.146',
+              cae: '19,68%',
+              desgravamen: '561.892',
+              originalRate: '1,98%'
+            },
+            // 10MM
+            {
+              coute: 48,
+              couteValue: '298.010',
+              totalAmount: '10.000.000',
+              totalCredit: '10.630.101',
+              cae: '17,76%',
+              desgravamen: '630.101',
+              originalRate: '1,98%'
+            },
+            {
+              coute: 60,
+              couteValue: '264.240',
+              totalAmount: '10.000.000',
+              totalCredit: '15.854.255',
+              cae: '18,96%',
+              desgravamen: '802.334',
+              originalRate: '1,98%'
+            }
+          ],
+          15: [
+            {
+              coute: 60,
+              couteValue: '383.130',
+              totalAmount: '15.000.000',
+              totalCredit: '22.987.245',
+              cae: '17,40%',
+              desgravamen: '1.203.068',
+              originalRate: '1,98%'
+            },
+            {
+              coute: 72,
+              couteValue: '375.570',
+              totalAmount: '15.000.000',
+              totalCredit: '27.040.239',
+              cae: '20,88%',
+              desgravamen: '1.540.743',
+              originalRate: '1,98%'
+            }
+          ]
+        }
+      }
+    });
+  });
+</script>
+<style scoped>
+  [v-cloak] {
+    display: none;
+  }
+  #simulador-products {
+    background: rgb(244, 246, 248);
+    padding: 20px 10px 10%;
+  }
+  .container-products {
+    max-width: 1220px;
+    margin: 0 auto;
+  }
+  .product-text-contaniner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+  }
+  .product-icon {
+    max-width: 56px;
+    width: 100%;
+    padding-right: 20px;
+    height: auto;
+  }
+  .dropbtn {
+    max-width: 360px;
+    margin: 0 0 0 15px;
+  }
+  .box-wrapper {
+    max-width: 768px;
+    margin: 40px auto;
+  }
+  .box-wrapper .simulator-box:first-child,
+  .box-wrapper .simulator-box:last-child {
+    margin: 0 auto;
+  }
+  .box-wrapper .simulator-box {
+    color: #333333;
+    font-weight: normal;
+    width: 100%;
+    max-width: 370px;
+    padding: 0 6px;
+  }
+  .box-wrapper .simulator-box .box-header {
+    background: #2b6bb4;
+    min-height: 85px;
+    position: relative;
+    border-radius: 4px 4px 0 0;
+  }
+  .box-wrapper .simulator-box .box-body {
+    border-radius: 0 0 4px 4px;
+    background-color: white;
+  }
+  /* .box-wrapper .simulator-box:nth-child(even) {
+    margin-top: -13px;
+  } */
+  /* .box-header.min-h {
+    min-height: 101px !important;
+  } */
+  /* .box-wrapper .simulator-box .box-body.border-bottom {
+    border-bottom: 6px solid #23a1df;
+    overflow: hidden;
+  } */
+  .tag-box {
+    position: absolute;
+    left: 0px;
+    top: 25%;
+    font-size: 13px;
+    line-height: 16px;
+    font-family: 'Poppins Bold';
+    padding: 2px 7px;
+    text-transform: inherit;
+    color: #ffffff;
+    height: 44px;
+    width: 127px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #295b9f;
+    border-radius: 0 6px 6px 0;
+  }
+  .box-wrapper .simulator-box .box-header .box-title {
+    font-family: 'Poppins Bold';
+    color: #fff;
+    font-size: 32px;
+    line-height: 38px;
+    margin: auto 0 5px;
+    padding-left: 16px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 32%;
+    left: 36%;
+  }
+  .amount-request {
+    background-color: #e9e9e9;
+    padding: 20px;
+    margin: 0;
+    font-size: 20px;
+  }
+  .container-select-amount {
+    display: flex;
+    justify-content: center;
+    min-height: 48px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14);
+  }
+  .container-select-amount button {
+    flex: 33.33%;
+    color: #333333;
+    border: none;
+    background-color: #ffff;
+    border-radius: 0;
+    position: relative;
+  }
+  .container-select-amount button[disabled] {
+    background-color: #23a1df !important;
+    color: white !important;
+    border-radius: 0;
+    opacity: 1;
+  }
+  .container-select-amount button[disabled]:before {
+    content: '';
+    position: absolute;
+    bottom: -21px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-width: 15px 15px 0;
+    border-style: solid;
+    transform: translate(-50%, -50%);
+    border-color: #23a1df transparent transparent;
+  }
+  .container-products h2 {
+    font-size: 24px;
+    line-height: 26px;
+  }
+  /* END CARDS PRODUCT */
+
+  @media (max-width: 480.1px) {
+    .product-icon {
+      max-width: 40px;
+      width: 100%;
+      padding-right: 50px;
+      height: auto;
+    }
+    .product-text-contaniner h4 {
+      font-size: 16px !important;
+    }
+    .box-wrapper .simulator-box {
+      padding: 0;
+    }
+    .dropbtn {
+      margin: 0;
+    }
+  }
+  @media (max-width: 780.1px) {
+    .product-text-contaniner {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .container-products h2 {
+      font-size: 16px;
+      line-height: 22px;
+    }
+    .box-wrapper {
+      display: flex;
+    }
+    /* .box-wrapper .simulator-box:nth-child(even) {
+      margin-top: 0;
+      order: -1;
+    } */
+  }
+  /* @media (min-width: 780.1px) {
+    .box-wrapper {
+      flex-wrap: nowrap !important;
+    }
+  } */
+  @media (min-width: 1440.1px) {
+    .pl-lg-20 {
+      padding-left: 20px;
+    }
+  }
+</style>

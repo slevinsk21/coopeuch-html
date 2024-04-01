@@ -1,0 +1,477 @@
+<style>
+  .fade-in {
+    animation: fadeIn ease 1.1s;
+    -webkit-animation: fadeIn ease 1.1s;
+    -moz-animation: fadeIn ease 1.1s;
+    -o-animation: fadeIn ease 1.1s;
+    -ms-animation: fadeIn ease 1.1s;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-o-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  #form form {
+    background: #fff;
+    padding: 30px 25px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 14%);
+    width: 100%;
+    margin: 10px;
+  }
+  #form h1,
+  #form p {
+    display: none;
+  }
+  .send-form {
+    margin: 20px 0px;
+  }
+  .general-contacto {
+    width: 100%;
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #fff;
+    margin: 10px;
+    border: 1px solid rgba(51, 51, 51, 0.1);
+    box-shadow: 1px 4px 3px hsl(0deg 0% 0% / 6%);
+    max-width: 425px;
+    min-height: 200px;
+    box-sizing: border-box;
+  }
+  .text1-general {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(31, 30, 30, 0.15);
+    margin: 15px 0;
+    width: 100%;
+  }
+  .zona {
+    margin-right: 15px;
+    margin-left: auto;
+  }
+  .zona p {
+    font-family: 'Poppins Medium';
+    font-size: 16px;
+    line-height: 28px;
+    padding: 10px;
+    border-radius: 20px;
+    padding: 5px 10px 5px 10px;
+    background-color: rgba(0, 161, 223, 0.15);
+    color: #666466;
+  }
+  .ejecutivo p,
+  .correo-ejecutivo,
+  .telefono-ejecutivo {
+    font-size: 16px;
+    line-height: 40px;
+    margin-bottom: 0;
+  }
+  .nombre-ejecutivo p {
+    font-family: 'Poppins Bold';
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 0;
+  }
+  .nombre-ejecutivo,
+  .telefono-ejecutivo,
+  .correo-ejecutivo {
+    margin: 0 15px;
+  }
+  .container-contacts,
+  .container-tabs {
+    max-width: 895px;
+    margin: 0 auto;
+  }
+  .container-contacts h2.title-contacts {
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    font-family: 'Poppins Bold';
+  }
+  .container-contacts p.subtitle-contacts {
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+  }
+  .select-contact-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .select-contact-tabs button.tablink {
+    flex: 33.33%;
+    color: #333333;
+    border: none;
+    background-color: #ffff;
+    border-radius: 0;
+    position: relative;
+    margin: 10px !important;
+    max-width: 200px;
+    min-height: 136px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14);
+    outline: none;
+    transition: all .3s ease-out;
+  }
+  .select-contact-tabs button.tablink strong.text-contact-tab {
+    display: block;
+    font-size: 16px;
+    padding: 10px;
+  }
+  .select-contact-tabs button.tablink.current-tab {
+    background-color: #007DB7 !important;
+    color: white !important;
+    opacity: 1;
+  }
+  .select-contact-tabs button.tablink.current-tab .hide-img {
+    display: none;
+  }
+  .select-contact-tabs button.tablink .show-img-active {
+    display: none;
+  }
+  .select-contact-tabs button.tablink.current-tab .show-img-active {
+    display: inline;
+  }
+  .select-contact-tabs button.tablink.current-tab:before {
+    content: '';
+    position: absolute;
+    bottom: -21px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-width: 15px 15px 0;
+    border-style: solid;
+    transform: translate(-50%, -50%);
+    border-color: #007DB7 transparent transparent;
+  }
+  .content-tabs {
+    background-color: #f6f3f5;
+    min-height: 640px;
+  }
+  .content-tab {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 50px 0 30px;
+    margin-top: -50px;
+  }
+  .whatsapp-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 14%);
+    min-height: 400px;
+    max-width: 1170px;
+    height: auto;
+    max-height: 700px;
+    margin: 10px;
+    width: 100%;
+  }
+  .whatsapp-card h2 {
+    font-family: 'Poppins Bold';
+    font-size: 28px;
+    line-height: 40px;
+    text-align: center;
+  }
+  .whatsapp-card p {
+    font-size: 18px;
+    line-height: 28px;
+    text-align: center;
+  }
+
+  @media (max-width: 960.1px) {
+    .send-form {
+      margin: 20px 0px;
+      width: 100%;
+    }
+  }
+  @media (max-width: 580.1px) {
+    .container-contacts h2.title-contacts {
+      font-size: 28px !important;
+      line-height: 32px !important;
+    }
+    .container-contacts p.subtitle-contacts {
+      font-size: 14px;
+      line-height: 20px;
+    }
+    .select-contact-tabs button.tablink {
+      margin: 0 2px 15px !important;
+      min-height: auto;
+    }
+    .whatsapp-card h2 {
+      font-size: 22px;
+      line-height: 30px;
+    }
+    .whatsapp-card p {
+      font-size: 14px;
+      line-height: 24px;
+    }
+    a.button-coopeuch {
+      width: 100%;
+      margin-top: 20px;
+    }
+    .zona p {
+      font-size: 14px;
+    }
+    .nombre-ejecutivo p {
+      font-size: 18px;
+    }
+    .select-contact-tabs button.tablink img.hide-img,
+    .select-contact-tabs button.tablink img.show-img-active {
+      max-width: 23px !important;
+    }
+    .select-contact-tabs button.tablink strong.text-contact-tab {
+      font-size: 14px;
+      padding: 0;
+    }
+  }
+</style>
+
+<section>
+  <div class="container-contacts">
+    <h2 class="title-contacts">Nuestros canales de contacto</h2>
+    <p class="subtitle-contacts">
+      Envíanos tus datos y te contactamos para presentarte nuestro convenios
+    </p>
+
+    <div class="select-contact-tabs">
+      <button class="tablink current-tab" onclick="selectTab(event,'ejecutive')" >
+        <img
+          class="hide-img"
+          src="https://www.coopeuch.cl/media/wysiwyg/ejecutive.png"
+          alt=""
+        />
+        <img
+          class="show-img-active"
+          src="https://www.coopeuch.cl/media/wysiwyg/ejecutive-active.png"
+          alt=""
+        />
+
+        <strong class="text-contact-tab"> Ejecutivos </strong>
+      </button>
+
+      <button class="tablink" onclick="selectTab(event,'whatsapp')">
+        <img
+          class="hide-img"
+          src="https://www.coopeuch.cl/media/wysiwyg/ws_1.png"
+          alt=""
+        />
+        <img
+          class="show-img-active"
+          src="https://www.coopeuch.cl/media/wysiwyg/ws-active.png"
+          alt=""
+        />
+
+        <strong class="text-contact-tab"> WhatsApp </strong>
+      </button>
+
+      <button class="tablink" onclick="selectTab(event,'form')">
+        <img
+          class="hide-img"
+          src="https://www.coopeuch.cl/media/wysiwyg/form_1.png"
+          alt=""
+        />
+        <img
+          class="show-img-active"
+          src="https://www.coopeuch.cl/media/wysiwyg/form-active.png"
+          alt=""
+        />
+
+        <strong class="text-contact-tab"> Formulario </strong>
+      </button>
+    </div>
+  </div>
+
+  <div class="content-tabs">
+    <div class="container-tabs">
+      <div id="ejecutive" class="content-tab">
+        <div class="general-contacto">
+          <div class="text1-general">
+            <div class="nombre-ejecutivo">
+              <p>Bastián Eldán</p>
+            </div>
+            <div class="zona">
+              <p>Zona Norte</p>
+            </div>
+          </div>
+          <div class="correo-ejecutivo">
+            <p>bastian.eldan@coopeuch.cl</p>
+          </div>
+          <div class="telefono-ejecutivo">
+            <p>Teléfono: +56 9 34481193</p>
+          </div>
+        </div>
+
+        <div class="general-contacto">
+          <div class="text1-general">
+            <div class="nombre-ejecutivo">
+              <p>Paloma Yañez</p>
+            </div>
+            <div class="zona">
+              <p>Zona Centro</p>
+            </div>
+          </div>
+          <div class="correo-ejecutivo">
+            <p>paloma.yañez@coopeuch.cl</p>
+          </div>
+          <div class="telefono-ejecutivo">
+            <p>Teléfono: +56 9 34481195</p>
+          </div>
+        </div>
+
+        <div class="general-contacto">
+          <div class="text1-general">
+            <div class="nombre-ejecutivo">
+              <p>Natalia Soto</p>
+            </div>
+            <div class="zona">
+              <p>Zona Centro</p>
+            </div>
+          </div>
+          <div class="correo-ejecutivo">
+            <p>natalia.sotod@coopeuch.cl</p>
+          </div>
+          <div class="telefono-ejecutivo">
+            <p>Teléfono: +56 9 34481196</p>
+          </div>
+        </div>
+
+        <div class="general-contacto">
+          <div class="text1-general">
+            <div class="nombre-ejecutivo">
+              <p>Luisa Candia</p>
+            </div>
+            <div class="zona">
+              <p>Zona Centro</p>
+            </div>
+          </div>
+          <div class="correo-ejecutivo">
+            <p>luisa.candia@coopeuch.cl</p>
+          </div>
+          <div class="telefono-ejecutivo">
+            <p>Teléfono: +56 9 34481194</p>
+          </div>
+        </div>
+
+        <div class="general-contacto">
+          <div class="text1-general">
+            <div class="nombre-ejecutivo">
+              <p>Ivonne Navarro</p>
+            </div>
+            <div class="zona">
+              <p>Zona Sur</p>
+            </div>
+          </div>
+          <div class="correo-ejecutivo">
+            <p>ivonne.navarro@coopeuch.cl</p>
+          </div>
+          <div class="telefono-ejecutivo">
+            <p>Teléfono: +56 9 34481192</p>
+          </div>
+        </div>
+
+        <div class="general-contacto">
+          <div class="text1-general">
+            <div class="nombre-ejecutivo">
+              <p>Paula Ramírez</p>
+            </div>
+            <div class="zona">
+              <p>Zona Sur</p>
+            </div>
+          </div>
+          <div class="correo-ejecutivo">
+            <p>paula.ramirez@coopeuch.cl</p>
+          </div>
+          <div class="telefono-ejecutivo">
+            <p>Teléfono: +56 9 39194166</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="whatsapp" class="content-tab" style="display: none">
+        <div class="whatsapp-card">
+          <img src="https://www.coopeuch.cl/media/wysiwyg/ws.png" alt="">
+          <h2>Háblanos a través de WhatsApp</h2>
+          <p>
+            así podremos atender tus dudas y consultas de manera rápida y directa.
+          </p>
+          <a class="button-coopeuch">Contactar</a>
+        </div>
+      </div>
+
+      <div id="form" class="content-tab" style="display: none">
+        {{block class="Formax\FormConvenios\Block\Gray" template="Formax_FormConvenios::cyber/gray.phtml"}}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+const hideContent = (arr, attr) => {
+  for (i = 0; i < arr.length; i++) {
+    let  { classList, disabled, style } = arr[i]
+    if (attr === 'actionTabs') {
+        classList.remove('current-tab')
+        disabled = false
+    } else {
+        classList.remove('fade-in')
+        style.display = 'none'
+    }
+  }
+}
+
+const selectTab = ({ currentTarget: { classList, disabled } }, tab) => {
+  const actionTabs = document.getElementsByClassName('tablink'),
+        el = document.getElementById(tab),
+        contentTabs = document.getElementsByClassName('content-tab'),
+        iconTabs = document.getElementsByClassName('icon-tab')
+
+  hideContent(actionTabs, 'actionTabs')
+  hideContent(contentTabs, 'contentTabs')
+
+  el.classList.add('fade-in')
+  el.style.display = 'flex';
+  classList.add('current-tab');
+  disabled = true;
+};
+</script>

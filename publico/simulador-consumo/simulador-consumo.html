@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulador Consumo</title>
+  </head>
+  <body style="margin: 0; padding: 0">
+    <section class="banner-credito-consumo-simulador">
+      <div class="banner-content">
+        <span class="badge-simulador">Simulador Crédito de consumo</span>
+        <h1 class="title-banner">
+          <strong>Crédito de consumo</strong>
+        </h1>
+        <h2 class="subtitle-banner">
+          Aprovecha solo por mayo
+          <b>
+            la mejor <br />
+            tasa para ti desde 1,2%
+            <sup style="top: -1em; font-size: 11px">(*)</sup>
+          </b>
+        </h2>
+        {{widget type="Magento\Cms\Block\Widget\Block"
+        template="widget/static_block/default.phtml" block_id="22"}}
+      </div>
+    </section>
+    <style>
+      .banner-credito-consumo-simulador {
+        background-image: url('https://www.coopeuch.cl/media/wysiwyg/Group_40_Copy_2.png');
+        height: auto;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        min-height: 446px;
+      }
+      .banner-credito-consumo-simulador .banner-content {
+        max-width: 1170px;
+        margin: 0 auto;
+        padding: 41px 0 32px;
+      }
+      .banner-credito-consumo-simulador .banner-content .badge-simulador {
+        font-size: 16px;
+        line-height: 40px;
+        background-color: #f08117;
+        color: #ffffff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        position: relative;
+        min-width: 272px;
+        font-family: 'Poppins Bold';
+        text-align: center;
+      }
+      .banner-credito-consumo-simulador .banner-content h1.title-banner {
+        font-size: 40px;
+        line-height: 46px;
+        color: #262626;
+        margin: 5px 0;
+      }
+      .banner-credito-consumo-simulador .banner-content h2.subtitle-banner {
+        font-size: 24px;
+        line-height: 46px;
+        color: #262626;
+        margin: 5px 0;
+      }
+
+      @media (max-width: 580.1px) {
+        .banner-credito-consumo-simulador {
+          background-image: url('https://www.coopeuch.cl/media/wysiwyg/04_10.png');
+        }
+        .banner-credito-consumo-simulador .banner-content {
+          top: 30%;
+        }
+        .banner-credito-consumo-simulador .banner-content .badge-simulador {
+          font-size: 14px;
+          min-width: 200px;
+        }
+        .banner-credito-consumo-simulador .banner-content h1.title-banner {
+          font-size: 22px;
+          line-height: 36px;
+        }
+        .banner-credito-consumo-simulador .banner-content h2.subtitle-banner {
+          font-size: 16px;
+          line-height: 28px;
+        }
+      }
+      @media (max-width: 1208px) {
+        .banner-credito-consumo-simulador .banner-content {
+          margin: 0 10px;
+        }
+      }
+
+      body .header.content {
+        min-height: 61px;
+      }
+      .page-wrapper .page-header.personas .panel.wrapper,
+      .xpec-header-menu .nav-sections .navigation,
+      .xpec-header-search {
+        display: none !important;
+      }
+      .widget.block.block-static-block {
+        margin: 15px 0 15px -15px;
+      }
+      .ce-simulatoraccess-box .general-box {
+        background-color: #00a1df !important;
+      }
+      .general-box::before {
+        background-image: linear-gradient(
+          to right top,
+          #00a1df 0%,
+          50%,
+          #fff 50%
+        );
+      }
+      .general-box::after {
+        background-image: linear-gradient(
+          to right bottom,
+          #00a1df 0%,
+          #00a1df 50%,
+          #fff 50%
+        );
+      }
+      .ce-simulatoraccess-box {
+        background-color: #fff;
+      }
+      .form-input,
+      input.form-input {
+        border-radius: 5px;
+      }
+      .coop-dropdown .dropbtn:hover {
+        background-color: #00a1df;
+        color: #fff;
+        border-color: #00a1df;
+      }
+    </style>
+    <script>
+      document.getElementsByClassName('title')[0].innerHTML =
+        '<h1><b>Simula</b><br /><small>tu crédito de consumo</small></h1>';
+    </script>
+  </body>
+</html>
+
+<div class="container-banner">
+  <div style="display: flex; align-items: center">
+    <span class="badge-banner-main mr-10">Últimos días</span>
+    <span class="info-text-badge ml-10">Pide tu Crédito de Consumo</span>
+  </div>
+
+  <h1 class="title-banner">
+    Hasta <b>45%</b> dcto en la tasa <sup style="font-size: 12px">(1)</sup>
+  </h1>
+
+  <p class="subtitle-banner">
+    Para solicitudes realizadas a través de nuestros
+    <b
+      >canales <br />
+      digitales</b
+    >
+    con apoyo de un ejecutivo del Contact Center.
+  </p>
+  <a
+    href="https://www.coopeuch.cl/personas/simulador/consumo/inicio"
+    class="button-coopeuch"
+    >Solicitar</a
+  >
+
+  <p class="legal-text">
+    1) Válido desde el 14/7/2021 y hasta 31/7/2021 o hasta agotar stock de
+    $300.000.000 cursados. Otorgamiento sujeto a evaluación crediticia al
+    momento de la solicitud.
+  </p>
+</div>
+<style>
+  .mr-10 {
+    margin-right: 10px;
+  }
+  .ml-10 {
+    margin-left: 10px;
+  }
+  .banner-item.banner-271
+    .content_slider.container
+    .buttons
+    .custom_content
+    .container-banner {
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left !important;
+  }
+  .owl-carousel .owl-stage-outer {
+    padding: 0;
+  }
+  .owl-carousel .banner-item.banner-271 .content_slider {
+    top: 10%;
+  }
+  .owl-carousel
+    .banner-item.banner-271
+    .content_slider
+    .buttons
+    .custom_content {
+    margin: 0;
+    text-align: left;
+  }
+  .banner-item.banner-271
+    .content_slider.container
+    .buttons
+    .custom_content
+    .container-banner
+    div
+    .badge-banner-main {
+    font-size: 16px;
+    line-height: 27px;
+    background-color: #7b2683;
+    padding: 4px;
+    border-radius: 8px;
+    position: relative;
+    min-width: 130px;
+    font-family: 'Poppins Bold';
+    text-align: center;
+    margin-right: 10px;
+  }
+  .banner-item.banner-271
+    .content_slider.container
+    .buttons
+    .custom_content
+    .container-banner
+    div
+    .badge-banner-main::after {
+    position: absolute;
+    content: '';
+    background-color: inherit;
+    width: 25px;
+    height: 25px !important;
+    transform: rotate(45deg);
+    right: -8px;
+    top: 5px;
+    border-radius: 4px 4px 4px 100%;
+  }
+  .banner-item.banner-271
+    .content_slider.container
+    .buttons
+    .custom_content
+    .container-banner
+    div
+    .info-text-badge {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    color: #fff;
+    margin-left: 10px;
+  }
+  .banner-item.banner-271
+    .content_slider.container
+    .buttons
+    .custom_content
+    .container-banner
+    h1.title-banner {
+    font-size: 36px;
+    line-height: 52px;
+    color: #fff;
+    margin: 5px 0;
+  }
+  .banner-item.banner-271
+    .content_slider.container
+    .buttons
+    .custom_content
+    .container-banner
+    p.subtitle-banner {
+    font-size: 20px;
+    line-height: 30px;
+    color: #fff;
+  }
+  .banner-item.banner-271
+    .content_slider.container
+    .buttons
+    .custom_content
+    .container-banner
+    a.button-coopeuch {
+    width: 100%;
+    max-width: 200px;
+    margin: 0;
+  }
+  .banner-item.banner-271
+    .content_slider.container
+    .buttons
+    .custom_content
+    .container-banner
+    .legal-text {
+    color: #fff;
+    max-width: 538px;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 8px 0 0;
+  }
+
+  /* max */
+  @media (max-width: 425.1px) {
+    .co-before-pageMain
+      .custom-slider
+      .owl-carousel
+      .banner-item
+      .content_slider {
+      padding: 10px 20px !important;
+    }
+    .owl-carousel .banner-item.banner-271 .content_slider {
+      top: 5%;
+      left: 10px;
+      width: 97%;
+    }
+    .banner-item.banner-271
+      .content_slider.container
+      .buttons
+      .custom_content
+      .container-banner
+      .badge-banner-main {
+      font-size: 14px;
+      min-width: 125px;
+    }
+    .banner-item.banner-271
+      .content_slider.container
+      .buttons
+      .custom_content
+      .container-banner
+      div
+      .info-text-badge,
+    .banner-item.banner-271
+      .content_slider.container
+      .buttons
+      .custom_content
+      .container-banner
+      p.subtitle-banner {
+      font-size: 15px;
+      line-height: 22px;
+    }
+    .banner-item.banner-271
+      .content_slider.container
+      .buttons
+      .custom_content
+      .container-banner
+      a.button-coopeuch {
+      white-space: nowrap;
+      padding: 14px;
+    }
+  }
+  @media (max-width: 1024.1px) {
+    .banner-item.banner-271
+      .content_slider.container
+      .buttons
+      .custom_content
+      .container-banner
+      h1.title-banner {
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+  /* min */
+  @media (min-width: 1170.1px) {
+    .owl-carousel .banner-item.banner-271 .content_slider {
+      left: calc((100% - 1170px) / 2);
+    }
+  }
+  /* min & max */
+  @media (min-width: 778px) and (max-width: 960px) {
+    .owl-carousel .banner-item.banner-271 .content_slider {
+      top: 10px;
+    }
+  }
+</style>
+

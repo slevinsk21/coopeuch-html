@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+      }
+
+      .banner-container {
+        background-image: url(https://www.coopeuch.cl/media/wysiwyg/nin_aportabilidad-desktop.png);
+        height: auto;
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 460px;
+      }
+      .banner-content {
+        max-width: 1170px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 400px;
+        padding: 10px;
+      }
+      .banner-content h1.title-banner-portabilidad {
+        font-size: 60px;
+        line-height: 46px;
+        margin: 15px 0;
+        font-weight: 800;
+        color: #333333;
+        font-family: 'Poppins Bold';
+      }
+      .banner-content h2.subtitle-banner-portabilidad,
+      .banner-content h2.description-banner-portabilidad {
+        font-size: 40px;
+        font-weight: 400;
+        line-height: 46px;
+        color: #333333;
+        margin: 5px 0;
+      }
+
+      @media (max-width: 780.1px) {
+        .banner-container {
+          background-image: url(https://www.coopeuch.cl/media/wysiwyg/nin_aportabilidad-mobile.png);
+          min-height: 467px;
+        }
+      }
+      @media (max-width: 580.1px) {
+        .banner-content {
+          justify-content: flex-start;
+        }
+        .banner-content h1.title-banner-portabilidad {
+          font-size: 35px;
+          margin: 0;
+        }
+        .banner-content h2.subtitle-banner-portabilidad {
+          font-size: 30px;
+          margin: 0;
+        }
+        .banner-content h2.description-banner-portabilidad {
+          font-size: 18px;
+          margin: 0;
+        }
+      }
+    </style>
+
+    <div class="banner-container">
+      <div class="banner-content">
+        <h2 class="subtitle-banner-portabilidad">Con la portabilidad</h2>
+
+        <h1 class="title-banner-portabilidad">
+          Cambia de Cliente <br />
+          a Socio
+        </h1>
+
+        <div>
+          <a href="#" class="pagebuilder-button-primary btn-block">
+            Portarme
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

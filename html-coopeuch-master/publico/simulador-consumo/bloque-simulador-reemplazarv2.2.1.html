@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container-modal" onclick="document.querySelector('.container-modal').classList.toggle('show-modal');">
+      <section class="modal-credito-consumo">
+        <span class="close-modal"></span>
+        <div class="modal-content">
+          <span class="badge-simulador">Crédito de consumo</span>
+          <h1 class="title-modal">
+            <strong>Tenemos una oferta para ti</strong>
+            <br />
+            en tu sitio privado
+          </h1>
+          <h2 class="subtitle-modal">Crédito de Consumo pre-aprobado de:</h2>
+          <h2 class="amount-aprove">
+            $ 3.000.000
+            <sup style="top: -1em; font-size: 11px; color: #262626">(1)</sup>
+          </h2>
+          <p class="description-cae" style="font-size: 12px;">
+            Costo total del Crédito $5.345.123 calculados en 48 cuotas de
+            $234.435, CAE: 9,33%.
+          </p>
+          <a href="https://ww3.coopeuch.cl/tef3/?q=DY-oferta-consumo-MODAL" class="custom-btn">Quiero mi crédito</a>
+          <small class="legal-text">Costo total del Crédito $5.345.123 calculados en 48 cuotas de$234.435, CAE: 9,33%.</small>
+        </div>
+        <img class="modal-img" src="https://www.coopeuch.cl/media/wysiwyg/modal-credito-consumo.png" alt="">
+      </section>
+    </div>
+
+    <style>
+      .simulator-container #fila1_Oferta {
+        color: #fff;
+        text-align: left;
+        text-indent: 0;
+        font-size: 20px;
+        background-color: #2b6ab4;
+        font-family: 'Poppins';
+        padding: 15px 19px;
+        min-height: initial;
+        border-radius: 5px 5px 0 0;
+        line-height: 22px;
+        box-sizing: border-box;
+      }
+      .content-box {
+        padding: 16px 19px 24px;
+        background-color: #E1F2FA;
+        border: solid 1px #C6E0EC;
+        border-radius: 0 0 5px 5px;
+      }
+      .content-box .item-credit__title {
+        font-size: 14px;
+        line-height: 21px;
+        font-family: 'Poppins SemiBold';
+      }
+      .content-box .item-credit__amount {
+        font-size: 44px;
+        line-height: 65px;
+        color: #00a1df;
+        font-family: 'Poppins Bold';
+        margin: 0;
+      }
+      .content-box .item-credit__amount > sup {
+        font-size: 10px;
+        top: -2.5em;
+      }
+      .content-box .item-credit__description {
+        padding-top: 16px;
+      }
+      .content-box .item-credit__cta-vista {
+        display: flex;
+        padding: 16px 0;
+      }
+      .content-box .item-credit__cta-vista > img {
+        max-width: 19px;
+        object-fit: contain;
+        padding-right: 4px;
+      }
+      .content-box .item-credit__cta-vista > span {
+        font-family: 'Poppins Bold';
+      }
+
+      @media (max-width: 425.1px) {
+        .content-box .item-credit__title {
+          font-size: 12px;
+          line-height: 16px;
+        }
+        .content-box .item-credit__amount {
+          font-size: 40px;
+          line-height: 50px;
+        }
+      }
+
+      /* modal */
+      .container-modal {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgb(0 0 0 / .06);
+        z-index: 100;
+        overflow-y: scroll
+      }
+      .modal-credito-consumo * {
+        font-family: 'Poppins', sans-serif;
+      }
+      .modal-credito-consumo {
+        display: flex;
+        max-width: 995px;
+        margin: 120px auto;
+        background-color: #fff;
+        box-shadow: 0 2px 7px 0 rgba(0,0,0,0.27);
+        border-radius: 5px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .container-modal.show-modal {
+        display: block;
+      }
+      .modal-credito-consumo .modal-content {
+        transform: translateY(0);
+        border-radius: 0;
+        box-shadow: none;
+        max-width: 100%;
+        padding: 32px 20px 25px;
+      }
+      .modal-credito-consumo .modal-content .badge-simulador {
+        position: relative;
+        font-size: 16px;
+        line-height: 40px;
+        background-color: #f08117;
+        color: #ffffff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        min-width: 272px;
+        font-family: 'Poppins Bold';
+        text-align: center;
+      }
+      .modal-credito-consumo .modal-content .badge-simulador::after {
+        content: '';
+        width: 24px;
+        height: 24px !important;
+        position: absolute;
+        top: 5px;
+        right: -9px;
+        transform: rotate(45deg);
+        background-color: inherit;
+        border-radius: 4px 4px 4px 100%;
+      }
+      .modal-credito-consumo .modal-content h1.title-modal {
+        font-size: 36px;
+        line-height: 43px;
+        color: #262626;
+        margin: 5px 0;
+      }
+      .modal-credito-consumo .modal-content h2.subtitle-modal {
+        font-size: 16px;
+        line-height: 20px;
+        color: #262626;
+        margin: 5px 0;
+        font-weight: bold;
+        padding-top: 32px;
+      }
+      .modal-credito-consumo .modal-content h2.amount-aprove {
+        font-size: 63px;
+        line-height: 46px;
+        color: #0083f2;
+        margin: 5px 0 32px;
+        font-weight: bold;
+      }
+      .modal-credito-consumo .modal-content small.legal-text {
+        font-size: 9px;
+        color: #262626;
+        margin: 5px 0;
+      }
+      .modal-credito-consumo img.modal-img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+      .modal-credito-consumo .modal-content .custom-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f42534;
+        padding: 12px;
+        font-weight: 800;
+        font-size: 16px;
+        border: 2px solid #f42534;
+        border-radius: 5px;
+        color: #fff !important;
+        outline: none;
+        max-width: 171px;
+        height: 48px;
+        text-align: center;
+        text-decoration: none !important;
+        transition: all 0.3s ease-in;
+        box-shadow: none !important;
+        box-sizing: border-box;
+        margin: 32px 0 42px;
+      }
+      .modal-credito-consumo .modal-content .custom-btn:hover,
+      .modal-credito-consumo .modal-content .custom-btn:focus {
+        color: #fff !important;
+        background-color: #f87c85;
+        box-shadow: none;
+        border: 1px solid #f87c85;
+      }
+      .close-modal {
+        top: -9px;
+        right: -9px;
+        border: none;
+        opacity: .7;
+        transition: opacity .15s;
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+        position: absolute;
+        border-radius: 30px;
+        color: #fff;
+        background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNTUgNTUiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDU1IDU1IiB4bWw6c3BhY2U9InByZXNlcnZlIj48ZyBpZD0iY2xvc2UiPjxwb2x5Z29uIGZpbGw9IiNGRkZGRkYiIHBvaW50cz0iNDMuNSwxNC43IDQwLjMsMTEuNSAyNy41LDI0LjMgMTQuNywxMS41IDExLjUsMTQuNyAyNC4zLDI3LjUgMTEuNSw0MC4zIDE0LjcsNDMuNSAyNy41LDMwLjcgNDAuMyw0My41IDQzLjUsNDAuMyAzMC43LDI3LjUgIi8+PC9nPjwvc3ZnPg==) 2px no-repeat #575757;
+        background-size: 14px;
+      }
+
+      @media (max-width: 580.1px) {
+        .modal-credito-consumo .modal-content .badge-simulador {
+          font-size: 14px;
+          min-width: 200px;
+        }
+        .modal-credito-consumo .modal-content h1.title-modal {
+          font-size: 22px;
+          line-height: 36px;
+        }
+        .modal-credito-consumo .modal-content h2.subtitle-modal {
+          font-size: 14px;
+          line-height: 22px;
+        }
+        .modal-credito-consumo .modal-content h2.amount-aprove {
+          font-size: 38px;
+          line-height: 40px;
+        }
+        .modal-credito-consumo .modal-content .custom-btn {
+          width: 100%;
+        }
+      }
+      @media (max-width: 860.1px) {
+        .modal-credito-consumo img.modal-img {
+          display: none;
+        }
+      }
+      @media (max-width: 1208px) {
+        .modal-credito-consumo .modal-content {
+          margin: 0 10px;
+        }
+      }
+    </style>
+
+    <script>
+      const toggleModalConsumo = () => document.querySelector('.container-modal').classList.toggle('show-modal');
+      let containerBox = document.getElementById('cajaOfertas');
+
+      if (containerBox) {
+        toggleModalConsumo();
+        let headerBox = document.getElementById('fila1_Oferta'),
+            textToReplace = headerBox.textContent;
+
+        if (textToReplace.includes('-')) {
+          let amountAndCAE = textToReplace.split('-'),
+              coutes = document.getElementById('fila3_Oferta').textContent
+              amount = document.querySelector('#fila4_Oferta .clsSizeFontMoney').textContent,
+              btnLink = document.querySelector('#fila5_Oferta a').href,
+              descriptionCAE = `${amountAndCAE[0]} calculados en ${coutes}, ${amountAndCAE[1]}.`;
+              document.querySelector('.amount-aprove').textContent = `$ ${amount}`;
+              document.querySelector('.description-cae').textContent = descriptionCAE;
+              document.querySelector('.legal-text').textContent = descriptionCAE;
+
+          [2, 3, 4, 5, 6].map((i) => document.getElementById(`fila${i}_Oferta`).remove());
+          headerBox.innerHTML = '<p><span style="display: block">Tenemos una</span><b>Oferta disponible para ti</b></p>';
+          containerBox.innerHTML += `
+            <div class="content-box">
+              <p class="item-credit__title">Crédito de Consumo pre-aprobado de:</p>
+              <h4 class="item-credit__amount">${amount} <sup>(1)</sup></h4>
+              <small class="item-credit__description">
+                ${descriptionCAE}
+              </small>
+              <div class="item-credit__cta-vista">
+                <img src="https://www.coopeuch.cl/media/wysiwyg/c-consumo.svg" alt="icon-money" />
+                <span> con bono directo a tu Cuenta Vista Coopeuch</span>
+              </div>
+              <a href="${btnLink}" class="button-coopeuch">Quiero mi crédito</a>
+            </div>
+          `;
+        }
+      }
+    </script>
+  </body>
+</html>
+
+
+
+<!-- <script>
+function toggleModalConsumo() {document.querySelector('.container-modal').classList.toggle('show-modal');
+}
+      let containerBox = document.getElementById('cajaOfertas');
+      if (containerBox) {
+        toggleModalConsumo();
+        let headerBox = document.getElementById('fila1_Oferta'),
+            textToReplace = headerBox.textContent;
+        if (textToReplace.includes('-')) {
+          let amountAndCAE = textToReplace.split('-'),
+              coutes = document.getElementById('fila3_Oferta').textContent,
+              amount = document.querySelector('#fila4_Oferta .clsSizeFontMoney').textContent,
+              btnLink = document.querySelector('#fila5_Oferta a').href,
+              descriptionCAE = amountAndCAE[0] + 'calculados en ' + coutes + ', ' + amountAndCAE[1] + '.';
+              document.querySelector('.amount-aprove').textContent = amount;
+              document.querySelector('.description-cae').textContent = descriptionCAE;
+              document.querySelector('.legal-text').textContent = descriptionCAE;
+          [2, 3, 4, 5, 6].map((i) => document.getElementById('fila' + i + '_Oferta').remove());
+          headerBox.innerHTML = '<p><span style="display: block">Tenemos una</span><b>Oferta disponible para ti</b></p>';
+          containerBox.innerHTML += 
+              '<div class="content-box">' +
+                '<p class="item-credit__title">Crédito de Consumo pre-aprobado de:</p>' +
+                '<h4 class="item-credit__amount">' + amount + ' <sup>(1)</sup></h4>' +
+                '<small class="item-credit__description">' + descriptionCAE + '</small>' +
+                '<div class="item-credit__cta-vista">' +
+                  '<img src="https://www.coopeuch.cl/media/wysiwyg/c-consumo.svg" alt="icon-money" />' +
+                  '<span> con bono directo a tu Cuenta Vista Coopeuch</span>' + 
+                '</div>' +
+                '<a href="https://ww3.coopeuch.cl/tef3/?q=DY-oferta-consumo-MODAL" class="button-coopeuch">Quiero mi crédito</a>' +
+              '</div>';
+        }
+      }
+</script> -->

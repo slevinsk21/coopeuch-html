@@ -1,0 +1,70 @@
+<style>
+      #banner-video {
+        position: relative;
+        max-height: 420px;
+        min-width: 100%;
+        object-fit: cover;
+      }
+      .banner-content {
+        position: absolute;
+        top: 3%;
+        left: 12%;
+      }
+      .banner-content h1.title-banner-portabilidad {
+        font-size: 60px;
+        line-height: 46px;
+        color: #ffff;
+        margin: 15px 0;
+        font-family: 'Poppins Bold';
+      }
+      .banner-content h2.subtitle-banner-portabilidad,
+      .banner-content h2.description-banner-portabilidad {
+        font-size: 40px;
+        font-weight: 400;
+        line-height: 46px;
+        color: #ffff;
+        margin: 5px 0;
+      }
+
+      @media (max-width: 960.1px) {
+        .banner-content {
+          top: 2%;
+        }
+      }
+      @media (max-width: 580.1px) {
+        #banner-video {
+          height: 400px;
+        }
+        .banner-content h1.title-banner-portabilidad {
+          font-size: 32px;
+          line-height: 35px;
+          margin: 0;
+        }
+        .banner-content h2.subtitle-banner-portabilidad {
+          font-size: 25px;
+          margin: 0;
+        }
+        .banner-content h2.description-banner-portabilidad {
+          font-size: 18px;
+          margin: 0;
+        }
+      }
+    </style>
+
+    <video autoplay muted loop id="banner-video">
+      <source
+        src="https://css-tricks-post-videos.s3.us-east-1.amazonaws.com/Island%20-%204141.mp4"
+        type="video/mp4"
+      />
+      Your browser does not support HTML5 video.
+    </video>
+
+    <div class="banner-content">
+      <h2 class="subtitle-banner-portabilidad">Con la portabilidad</h2>
+
+      <h1 class="title-banner-portabilidad">Cambia de Cliente <br>a Socio</h1>
+
+      <div style="margin-top: 4%">
+        <a href="#" class="pagebuilder-button-primary"> Portarme </a>
+      </div>
+    </div>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login piezas</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <style>
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+      #modal-banner .banner-container {
+        height: auto;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: relative;
+        max-width: 922px;
+        min-height: 260px;
+      }
+      #modal-banner .banner-container.bg-img-modal-1 {
+        background-image: url(https://www.coopeuch.cl/media/wysiwyg/background-banner-2.png);
+      }
+      #modal-banner .banner-container.bg-img-modal-2 {
+        background-image: url(https://www.coopeuch.cl/media/wysiwyg/background-banner-3.png);
+      }
+      #modal-banner .banner-container.bg-img-modal-3 {
+        background-image: url(https://www.coopeuch.cl/media/wysiwyg/background-banner-1.png);
+      }
+
+      #modal-banner .banner-container .banner-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        margin: 10px 20px;
+        top: 9%;
+        left: 96px;
+        max-width: 400px;
+        width: 60%;
+      }
+      #modal-banner .banner-container .banner-content h1 {
+        font-size: 32px;
+        color: #fff;
+        line-height: 36px;
+        margin: 0 0 5px;
+      }
+      #modal-banner .banner-container .banner-content h2 {
+        font-size: 14px;
+        font-weight: 300;
+        color: #fff;
+        line-height: 28px;
+        margin: 0;
+      }
+      #modal-banner .banner-container .banner-content a.btn-primary {
+        margin: 0 10px 10px 0;
+        background-color: #f42534;
+        color: #fff;
+        font-weight: 800;
+        padding: 12px 27px;
+        font-size: 16px;
+        border-color: #f42534;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+      #modal-banner .banner-container .banner-content a.btn-primary:hover {
+        background-color: #f87c85;
+        border-color: #f87c85;
+      }
+
+      @media (max-width: 780px) {
+        .banner-container .banner-content {
+          top: 40px !important;
+          left: 0 !important;
+        }
+        .banner-container .banner-content h1 {
+          font-size: 22px !important;
+          line-height: 26px !important;
+        }
+        #modal-banner .banner-container .banner-content h2 {
+          font-size: 14px !important;
+        }
+      }
+      @media (max-width: 425.1px) {
+        #modal-banner .banner-container .banner-content {
+          top: 27% !important;
+          max-width: 210px;
+          width: 60%;
+        }
+        .banner-container .banner-content h1 {
+          font-size: 14px !important;
+          line-height: 19px !important;
+          margin: 5px 0 !important;
+        }
+        #modal-banner .banner-container .banner-content h2 {
+          font-size: 12px;
+          line-height: 16px;
+          margin: 0;
+        }
+      }
+    </style>
+
+    <div id="modal-banner">
+      <div class="banner-container bg-img-modal-1">
+        <div class="banner-content">
+          <h1>
+            Reliquida tus créditos
+            <br />
+            en 3 simples pasos
+          </h1>
+
+          <h2>¡Llévate saldo a tu cuenta!</h2>
+        </div>
+      </div>
+
+      <br />
+
+      <div class="banner-container bg-img-modal-2">
+        <div class="banner-content">
+          <h1>
+            Finaliza tu reliquidación,
+
+            <br />
+            !no esperes más tiempo!
+          </h1>
+
+          <h2>¡Llévate saldo a tu cuenta!</h2>
+        </div>
+      </div>
+
+      <br />
+
+      <div class="banner-container bg-img-modal-3">
+        <div class="banner-content">
+          <h1>
+            ¿No te acomodó la oferta
+            <br />
+            de reliquidación?
+          </h1>
+
+          <h2>
+            ¡Solicita una
+            <span style="font-weight: 800">
+              evaluación de crédito de consumo
+            </span>
+            con descuento por planilla!
+          </h2>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

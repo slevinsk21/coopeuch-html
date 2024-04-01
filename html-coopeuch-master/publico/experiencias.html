@@ -1,0 +1,467 @@
+<div id="experiencias">
+  <div class="container-onboarding">
+    <h2 class="title-onboarding">Nuestros <b>socios</b> cuentan sus experiencias con coopeuch</h2>
+
+    <section id="slider">
+      <img
+        src="https://www.coopeuch.cl/media/wysiwyg/step-new-1.png"
+        alt="background-step-new"
+        :class="['img-slide', { 'fade-in': getFadeTransition }]"
+      />
+
+      <div class="content-slider">
+        <div
+          :class="['container-title-slide', { 'fade-in': getFadeTransition }]"
+        >
+          <h2 v-text="currentSlide.title"></h2>
+        </div>
+
+        <div
+          :class="['container-title-slide',{ 'fade-in': getFadeTransition }]"
+        >
+          <h4 v-text="currentSlide.subtitle"></h4>
+        </div>
+
+        <p
+          :class="{ 'fade-in': getFadeTransition }"
+          v-html="currentSlide.description"
+        ></p>
+
+        <div class="container-action-buttons">
+          <div class="step-action-change">
+            <button @click="prevSlide(currentSlide.id - 1)" class="prev-step"></button>
+            <button @click="nextSlide(currentSlide.id + 1)" class="next-step"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script>
+  require(['vue'], (Vue) => {
+    'use strict';
+    new Vue({
+      el: '#experiencias',
+      data: {
+        fadeIn: true,
+        steps: [
+          {
+            id: 1,
+            current: true,
+            title: 'César Bermúdez',
+            subtitle: 'Socio desde hace 6 años',
+            description: `
+                is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 
+                1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. `,
+            link: 'https://www.coopeuch.cl/personas/ser-socio/p-ventajas-de-ser-socio.html',
+            label: 'Ver más',
+          },
+          {
+            id: 2,
+            current: false,
+            title: 'César Bermúdez 2',
+            subtitle: 'Socio desde hace 6 años',
+            description: `
+                is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 
+                1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. `,
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=44&question=34',
+            label: 'Ver más',
+          },
+          {
+            id: 3,
+            current: false,
+            title: 'César Bermúdez 3',
+            subtitle: 'Socio desde hace 6 años',
+            description: `
+                is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 
+                1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. `,
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=44&question=0',
+            label: 'Ver más',
+          },
+        ],
+      },
+      computed: {
+        getFadeTransition() {
+          return this.fadeIn;
+        },
+        currentSlide() {
+          const { steps } = this;
+          return steps.find(({ current }) => current === true);
+        },
+      },
+      methods: {
+        findById(id) {
+          return this.steps.find(i => i.id === id);
+        },
+        nextSlide(newStep) {
+          let { steps, findById } = this;
+          this.fadeIn = false;
+          steps.map(({ id, current }) => {
+            findById(id).current = (newStep - 1 > 0 && newStep - 1 === id && newStep - 1 <= 3 && current) ? false : (id === newStep)
+            if (newStep === 4 && id === 3) {
+              findById(id).current = false;
+              findById(1).current = true;
+            }
+            setTimeout(() => this.fadeIn = true, 0);
+          });
+        },
+        prevSlide(newStep) {
+          let { steps, findById } = this;
+          this.fadeIn = false;
+          steps.map(({ id, current }) => {
+            if (newStep === 0) {
+              findById(id).current = false;
+              findById(3).current = true;
+            } else {
+              findById(id).current = (newStep + 1 === id && current) ? false : (newStep === id)
+            }
+            setTimeout(() => this.fadeIn = true, 0);
+          });
+        },
+      },
+    });
+  });
+</script>
+
+<style scoped>
+  .fade-in {
+    animation: fadeIn ease 2.5s;
+    -webkit-animation: fadeIn ease 2.5s;
+    -moz-animation: fadeIn ease 2.5s;
+    -o-animation: fadeIn ease 2.5s;
+    -ms-animation: fadeIn ease 2.5s;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-o-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .container-onboarding {
+    max-width: 1170px;
+    margin: 0 auto;
+  }
+  .container-onboarding h2.title-onboarding {
+    font-size: 24px;
+    line-height: 40px;
+    color: #383638;
+    margin: 0 0 10px;
+    text-align: center;
+  }
+  .container-onboarding p.subtitle-onboarding {
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 33px;
+    color: #383638;
+    margin: 10px 0;
+  }
+  .steps-cards-container {
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-items: center;
+    margin-top: 45px;
+  }
+  .step-card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #ffffff;
+    margin: 0 5px;
+    padding: 10px;
+    border: 1px solid rgb(51 51 51 / 0%);
+    border-radius: 8px;
+    box-shadow: 1px 4px 3px hsl(0deg 0% 0% / 6%);
+    min-width: 180px;
+    max-width: 180px;
+    min-height: 170px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .step-card h3 {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #383638;
+    margin: 0;
+  }
+  #slider {
+    display: flex;
+    max-width: 1252px;
+    margin-top: 30px;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #ffffff;
+    margin-left: 200px;
+  }
+  #slider .content-slider {
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    justify-content: center;
+    padding: 60px 42px 10px 25px;
+    box-sizing: border-box;
+    max-width: 53%;
+    /*min-height: 500px;*/
+  }
+  #slider.presentation-tutorial {
+    align-items: flex-start;
+    background-color: #f42534;
+  }
+  #slider .content-slider .container-title-slide h2 {
+    line-height: 42px;
+    font-size: 28px;
+    font-family: 'Poppins Bold';
+    margin: 0px;
+  }
+  #slider .content-slider .container-title-slide h4 {
+    margin: 0px 0px 12px 0px;
+    font-size: 18px;
+    font-family: 'Poppins Medium';
+  }
+  #slider.presentation-tutorial .content-slider .container-title-slide h2 {
+    color: #ffffff;
+  }
+  #slider .content-slider .container-title-slide {
+    display: flex;
+    align-items: center;
+  }
+  #slider .content-slider .container-title-slide img {
+    display: none;
+  }
+  #slider .content-slider p {
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 10px;
+  }
+  #slider .content-slider a.step-link {
+    align-self: flex-start;
+    padding: 10px 0;
+    font-size: 20px;
+  }
+  #slider .content-slider p span.marked-text {
+    background-color: #8ecaff8c;
+    font-family: 'Poppins SemiBold';
+  }
+  #slider .content-slider .step-action-change {
+    display: flex;
+    align-self: flex-end;
+    padding-left: 340px;
+  }
+  #slider .content-slider .step-action-change button {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: #ff8383;
+    box-sizing: border-box;
+    border: none;
+    color: #ffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+    margin: 1px 5px;
+    transition: all 0.3s ease-in;
+  }
+  #slider .content-slider .step-action-change button.prev-step::before {
+    content: url(https://www.coopeuch.cl/media/wysiwyg/chevron-left.png);
+  }
+  #slider .content-slider .step-action-change button.next-step::before {
+    content: url(https://www.coopeuch.cl/media/wysiwyg/chevron-right.png);
+  }
+  #slider .content-slider .container-action-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 0;
+  }
+  #slider .content-slider .step-action-change button:hover,
+  #slider .content-slider .step-action-change button:focus,
+  #slider .content-slider .step-action-change button:active,
+  #slider .content-slider .step-action-change button.next-step {
+    background-color: #f42534;
+  }
+  #slider .content-slider figure.icon-slider {
+    align-self: flex-start;
+    margin: 10px 0 40px;
+    min-width: 57px;
+    min-height: 57px;
+  }
+  #slider .content-slider hr.icon-line {
+    background-color: #131f6b;
+    width: 85px;
+    height: 5px;
+    margin: 0;
+    align-self: flex-start;
+    border: none;
+  }
+  #slider .content-slider.presentation-tutorial hr.icon-line {
+    background-color: #ffffff;
+  }
+  #slider .content-slider .chip-steps {
+    font-size: 15px;
+    line-height: 16px;
+    font-weight: 400;
+    background-color: #e81e2b;
+    color: #ffffff;
+    width: 85px;
+    height: 33px;
+    border-radius: 15px;
+    margin: 40px 0 15px;
+    align-self: flex-start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #slider img.img-slide {
+    max-width: 60%;
+    border-radius: 38px 6px 6px 38px;
+    object-fit: contain;
+    /*min-height: 400px;*/
+  }
+  #steps .steps-cards-container .step-card {
+    position: relative;
+  }
+  #steps .steps-cards-container .step-card .number-step {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 16px;
+    border-radius: 50%;
+    width: 45px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #steps .steps-cards-container .step-card .number-step.no-visited {
+    color: #8f8f8f;
+    border: 2px solid #8f8f8f;
+    background-color: #ffff;
+  }
+  #steps .steps-cards-container .step-card .number-step.no-visited div {
+    border: 2px solid #8f8f8f;
+    border-radius: 50%;
+    width: 35px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffff;
+  }
+  #steps .steps-cards-container .step-card .number-step.checked {
+    color: #ffffff;
+    box-shadow: inset 0 0 0 6px white;
+    border: 2px solid #20cca5;
+    background-color: #20cca5;
+    padding: 3px;
+  }
+  #steps .steps-cards-container .step-card .number-step.current {
+    color: #ffffff;
+    box-shadow: inset 0 0 0 6px white;
+    background-color: #364f6b;
+    border: 2px solid #364f6b;
+    padding: 3px;
+  }
+  .button-coopeuch.secondary,
+  .button-coopeuch.secondary:hover,
+  .button-coopeuch.secondary:focus,
+  .button-coopeuch.secondary:active {
+    background-color: #09a6e3;
+  }
+
+  @media (max-width: 1180.1px) {
+    .step-card {
+      min-width: 100px;
+      max-width: 80%;
+    }
+  }
+  @media (max-width: 780.1px) {
+    .steps-cards-container {
+      display: none;
+    }
+    #slider img.img-slide {
+      display: none;
+    }
+    #slider .content-slider {
+      text-align: left;
+      max-width: 100%;
+    }
+  }
+  @media (max-width: 639.1px) {
+    #slider .content-slider .container-title-slide img {
+      display: block;
+      padding: 0 10px;
+    }
+  }
+  @media (max-width: 580.1px) {
+    .container-onboarding h2.title-onboarding {
+      font-size: 20px;
+    }
+    .container-onboarding p.subtitle-onboarding {
+      font-size: 15px;
+      line-height: 25px;
+    }
+    #slider .content-slider {
+      min-height: 434px;
+    }
+    #slider .content-slider .container-title-slide h2 {
+      font-size: 30px;
+      line-height: 29px;
+    }
+    #slider .content-slider p {
+      font-size: 18px;
+      line-height: 32px;
+    }
+    #slider .content-slider a.step-link {
+      font-size: 18px;
+    }
+    #benefits h2.title-benefits,
+    #benefits h2.title-benefits span.badge-benefits {
+      font-size: 22px;
+      line-height: 29px;
+    }
+    #benefits .box-benefits p.description-benefits {
+      font-size: 15px;
+      line-height: 20px;
+    }
+  }
+</style>

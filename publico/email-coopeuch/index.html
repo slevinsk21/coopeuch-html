@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- utf-8 works for most cases -->
+    <meta name="viewport" content="width=device-width" />
+    <!-- Forcing initial-scale shouldn't be necessary -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>coopeuch</title>
+    <!-- The title tag shows in email notifications, like Android 4.4. -->
+
+    <!-- CSS Reset : BEGIN -->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        margin: 0 auto;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        background: #f1f1f1;
+      }
+
+      /* What it does: Stops email clients resizing small text. */
+      * {
+        font-family: "Ubuntu", sans-serif;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      /* What it does: Centers email on Android 4.4 */
+      div[style*="margin: 16px 0"] {
+        margin: 0 !important;
+      }
+
+      /* What it does: Fixes webkit padding issue. */
+      table {
+        border-spacing: 0 !important;
+        border-collapse: collapse !important;
+        table-layout: fixed !important;
+        /* margin: 0 auto !important; */
+      }
+
+      /* What it does: Uses a better rendering method when resizing images in IE. */
+      img {
+        -ms-interpolation-mode: bicubic;
+      }
+
+      /* What it does: Prevents Windows 10 Mail from underlining links despite inline CSS. Styles for underlined links should be inline. */
+      a {
+        text-decoration: none;
+      }
+
+      /* What it does: A work-around for email clients meddling in triggered links. */
+      *[x-apple-data-detectors],
+    /* iOS */
+    .unstyle-auto-detected-links *,
+    .aBn {
+        border-bottom: 0 !important;
+        cursor: default !important;
+        color: inherit !important;
+        text-decoration: none !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+      }
+
+      /* What it does: Prevents Gmail from displaying a download button on large, non-linked images. */
+      .a6S {
+        display: none !important;
+        opacity: 0.01 !important;
+      }
+
+      /* What it does: Prevents Gmail from changing the text color in conversation threads. */
+      .im {
+        color: inherit !important;
+      }
+
+      /* If the above doesn't work, add a .g-img class to any image in question. */
+      img.g-img + div {
+        display: none !important;
+      }
+
+      /* What it does: Removes right gutter in Gmail iOS app: https://github.com/TedGoas/Cerberus/issues/89  */
+      /* Create one of these media queries for each additional viewport size you'd like to fix */
+
+      /* iPhone 4, 4S, 5, 5S, 5C, and 5SE */
+      @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
+        u ~ div .email-container {
+          min-width: 320px !important;
+        }
+      }
+
+      /* iPhone 6, 6S, 7, 8, and X */
+      @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
+        u ~ div .email-container {
+          min-width: 375px !important;
+        }
+      }
+
+      /* iPhone 6+, 7+, and 8+ */
+      @media only screen and (min-device-width: 414px) {
+        u ~ div .email-container {
+          min-width: 414px !important;
+        }
+      }
+    </style>
+
+    <!-- CSS Reset : END -->
+
+    <!-- Progressive Enhancements : BEGIN -->
+    <style>
+      .primary {
+        background: #f42534;
+      }
+
+      .bg_white {
+        background: #ffffff;
+      }
+
+      .email-section {
+        padding: 2.5em;
+      }
+
+      /*BUTTON*/
+      .btn {
+        padding: 2px 25px;
+        display: inline-block;
+      }
+
+      .btn.btn-primary {
+        border-radius: 5px;
+        background: #0d0cb5;
+        color: #ffffff;
+      }
+
+      .btn.btn-white {
+        border-radius: 5px;
+        background: #ffffff;
+        color: #000000;
+      }
+
+      .btn.btn-white-outline {
+        border-radius: 5px;
+        background: transparent;
+        border: 1px solid #fff;
+        color: #fff;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Ubuntu", sans-serif;
+        color: #333333;
+        margin-top: 0;
+      }
+
+      body {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 1.8;
+        color: rgba(0, 0, 0, 0.4);
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      /*HERO*/
+      .hero {
+        position: relative;
+        z-index: 0;
+      }
+
+      .hero .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        content: "";
+        width: 100%;
+        z-index: -1;
+        opacity: 0.3;
+      }
+
+      .hero .icon a {
+        display: block;
+        width: 60px;
+        margin: 0 auto;
+      }
+
+      .hero .text {
+        color: #ffffff;
+      }
+
+      .hero .text h2 {
+        color: #ffffff;
+        margin-bottom: 0;
+        font-family: Ubuntu;
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 36px;
+        padding: 20px 0 46px 0;
+      }
+
+      /*HEADING SECTION*/
+      .heading-section h2 {
+        color: #000000;
+        font-size: 20px;
+        margin-top: 0;
+        line-height: 1.4;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .heading-section .subheading {
+        margin-bottom: 20px !important;
+        display: inline-block;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: rgba(0, 0, 0, 0.4);
+        position: relative;
+      }
+
+      .heading-section .subheading::after {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -10px;
+        content: "";
+        width: 100%;
+        height: 2px;
+        background: #0d0cb5;
+        margin: 0 auto;
+      }
+
+      .heading-section-white {
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .heading-section-white h2 {
+        line-height: 1;
+        padding-bottom: 0;
+      }
+
+      .heading-section-white h2 {
+        color: #ffffff;
+      }
+
+      .heading-section-white .subheading {
+        margin-bottom: 0;
+        display: inline-block;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      /*SERVICES*/
+      .text-services {
+        padding: 10px 10px 0;
+        text-align: center;
+      }
+
+      .text-services h3 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .services-list {
+        padding: 0;
+        margin: 0 0 20px 0;
+        width: 100%;
+        float: left;
+      }
+
+      .services-list img {
+        float: left;
+      }
+
+      .services-list .text {
+        width: calc(100% - 60px);
+        float: right;
+      }
+
+      .services-list h3 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      .services-list p {
+        margin: 0;
+      }
+
+      /*BLOG*/
+      .text-services .meta {
+        text-transform: uppercase;
+        font-size: 14px;
+      }
+
+      /*TESTIMONY*/
+      .text-testimony .name {
+        margin: 0;
+      }
+
+      .text-testimony .position {
+        color: rgba(0, 0, 0, 0.3);
+      }
+    </style>
+  </head>
+
+  <body>
+    <center style="width: 100%; background-color: #f1f1f1">
+      <div style="max-width: 600px; margin: 0 auto" class="email-container">
+        <!-- BEGIN BODY -->
+        <table
+          align="center"
+          role="presentation"
+          cellspacing="0"
+          cellpadding="0"
+          border="0"
+          width="600px"
+          style="margin: auto"
+        >
+          <!-- START HEADER -->
+          <tr>
+            <td valign="middle">
+              <table
+                role="presentation"
+                border="0"
+                cellpadding="0"
+                cellspacing="0"
+                width="100%"
+                height="50"
+                class="primary"
+              >
+                <tr>
+                  <td align="middle">
+                    <img
+                      src="https://www.coopeuch.cl/media/wysiwyg/logo-mail.png"
+                      style="width: 100%; max-width: 150px; max-height: 28px"
+                    />
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <!-- END HEADER-->
+
+          <!-- START HERO -->
+          <tr>
+            <td valign="top" class="hero bg_white" style="
+                background-image: url(./assets/banner-mail.png);
+                background-size: cover;
+                background-position: center;
+                height: 317px;
+              ">
+              <table style="margin-left: 40px">
+                <tbody><tr>
+                  <td>
+                    <div class="text">
+                      <h2 style="margin-top: 40px;">
+                        <span style="font-weight: 300">Felicitaciones, ya tienes</span> <br>
+                        Tu Monedero Digital <br>
+                        Coopeuch
+                      </h2>
+                    </div>
+                  </td>
+                </tr>
+              </tbody></table>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="bg_white" style="
+                display: flex;
+                justify-content: center;
+                padding-bottom: 2.5em;
+                padding-right: 2.5em;
+                padding-left: 2.5em;
+                color: #333333;
+              ">
+              <div style="
+                  box-sizing: border-box;
+                  width: 480px;
+                ">
+                <p>
+                  Estimada <b style="color: #007db7;">Andrea Astudillo</b> <br>
+                  A partir de este momento <b>ya puedes comenzar a utilizar tu nuevo Monedero Digital Coopeuch</b>
+                  y adjuntos en este correo encontrarás tus contratos asociados.
+                  Te invitamos a conocer alguna características de tu Monedero:
+                </p>
+              </div>
+            </td>
+          </tr>
+          <!-- END HERO-->
+
+          <tr>
+            <td class="bg_white">
+              <table
+                role="presentation"
+                cellspacing="0"
+                cellpadding="0"
+                border="0"
+                width="100%"
+              >
+                <!-- START CARD STEP 1 -->
+                <tr>
+                  <td class="bg_white" style="
+                      display: flex;
+                      justify-content: center;
+                      padding-bottom: 2.5em;
+                      padding-right: 2.5em;
+                      padding-left: 2.5em;
+                    ">
+                    <div style="
+                        box-sizing: border-box;
+                        /* height: 140px; */
+                        width: 480px;
+                        border: 1px solid rgba(19, 31, 107, 0.1);
+                        border-radius: 10px;
+                        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.19);
+                      ">
+                      <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+                        <tbody>
+                          <tr>
+                            <p style="
+                              border-bottom: 1px solid #d8d8d8;
+                              color: #333333;
+                              font-size: 16px;
+                              padding: 0px 25px 16px 11px;
+                            ">
+                              ¿Que <b>puedo hacer</b> con mi Monedero Digital?
+                            </p>
+                          </tr>
+
+                          <tr>
+                            <td align="center">
+                              <!-- Wrapper -->
+                              <table border="0" cellpadding="0" cellspacing="0" align="center" width="495">
+                                <tbody>
+                                  <tr>
+                                    <td width="100%" class="icon34">
+                                      <!-- Icon 34 - 1 -->
+                                      <table width="40%" border="0" cellpadding="0" cellspacing="0" align="left">
+                                        <tbody>
+                                          <tr>
+                                            <td width="100%">
+                                              <img src="./assets/card-1-success.png" alt="" border="0" style="
+                                                  width: 194px;
+                                                  height: 133px;
+                                                  object-fit: contain;
+                                                  padding-top: 15px;
+                                                ">
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+
+                                      <!-- Icon 34 - 3 -->
+                                      <table width="60%" border="0" cellpadding="0" cellspacing="0" align="right">
+                                        <tbody>
+                                          <tr>
+                                            
+                                          </tr>
+                                          <tr>
+                                            <td style="padding: 0px 25px 16px 11px;color: #333333;" valign="middle">
+                                              <ul style="padding-inline-start: 2px">
+                                                <li>Recibir transferencias desde tu Cuenta de Ahorro Coopeuch.</li>
+                                                <li>Recibir transferencias desde otras cuentas y bancos.</li>
+                                                <li>Transferir tu dinero a tus cuentas de otros bancos.</li>
+                                            </ul>
+
+                                            <b>¡Todo esto a costo 0, sin cobros ni comisiones!</b>
+                                            </td>
+                                          </tr>
+                                          <tr></tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <!-- End Wrapper 2 -->
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <!--  -->
+                    </div>
+                  </td>
+                </tr>
+                <!-- END CARD STEP 1 -->
+
+                <!-- START CARD STEP 2 -->
+                <tr>
+                  <td class="bg_white" style="
+                      display: flex;
+                      justify-content: center;
+                      padding-bottom: 0;
+                      padding-right: 2.5em;
+                      padding-left: 2.5em;
+                    ">
+                    <div style="
+                        box-sizing: border-box;
+                        /* height: 140px; */
+                        width: 480px;
+                        border: 1px solid rgba(19, 31, 107, 0.1);
+                        border-radius: 10px;
+                        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.19);
+                      ">
+                      <p style="
+                              border-bottom: 1px solid #d8d8d8;
+                              color: #333333;
+                              font-size: 16px;
+                              padding: 0px 25px 16px 11px;
+                            ">
+                              ¿Que <b>no puedo hacer</b> con mi Monedero Digital?
+                            </p><table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+                        <tbody>
+                          <tr>
+                            
+                          </tr>
+
+                          <tr>
+                            <td align="center">
+                              <!-- Wrapper -->
+                              <table border="0" cellpadding="0" cellspacing="0" align="center" width="495">
+                                <tbody>
+                                  <tr>
+                                    <td width="100%" class="icon34">
+                                      <!-- Icon 34 - 1 -->
+                                      <table width="40%" border="0" cellpadding="0" cellspacing="0" align="left">
+                                        <tbody>
+                                          <tr>
+                                            <td width="100%">
+                                              <img src="./assets/card-2-error.png" alt="" border="0" style="
+                                                  width: 194px;
+                                                  height: 133px;
+                                                  object-fit: contain;
+                                                  padding-top: 15px;
+                                                ">
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+
+                                      <!-- Icon 34 - 3 -->
+                                      <table width="60%" border="0" cellpadding="0" cellspacing="0" align="right">
+                                        <tbody>
+                                          <tr>
+                                            
+                                          </tr>
+                                          <tr>
+                                            <td style="padding: 0px 25px 16px 11px;color: #333333;" valign="middle">
+                                              <ul style="padding-inline-start: 2px">
+                                                <li>Recibir giros en cajeros automáticos.</li>
+                                                <li>Realizar compras nacionales o internacionales presenciales o digitales.</li>
+                                                <li>Recibir el desembolso de Crédito Coopeuch.</li>
+                                            <li>Realizar transferencias a terceros.</li></ul>
+
+                                            
+                                            </td>
+                                          </tr>
+                                          <tr></tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <!-- End Wrapper 2 -->
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <!--  -->
+                    </div>
+                  </td>
+                </tr>
+                <!-- END CARD STEP 2 -->
+
+                <tr>
+                  
+                  <td class="bg_white" style="
+                  display: flex;
+                  justify-content: center;
+                  padding-bottom: 0.5em;
+                  padding-right: 2.5em;
+                  padding-left: 2.5em;
+                  color: #333333;
+                ">
+                <div style="
+                    box-sizing: border-box;
+                    width: 480px;
+                  ">
+                  <p>Este mensaje constituye una comunicación privada de carácter confidencial dirigida al destinatario del presente correo. En caso de recibir accidentalmente este correo sírvase borrar inmediatamente este mensaje. Por favor no responda este mensaje ya que fue generado de forma automática.</p>
+                </div>
+              </td></tr>
+
+                <!-- START SOCIAL -->
+                <tr>
+                  <td valign="center">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" height="50" class="primary">
+                      <tbody><tr>
+                        <td valign="center">
+                          <table width="96" border="0" cellpadding="0" cellspacing="0" align="center">
+                            <tbody>
+                              <tr>
+                                  <td height="45" valign="middle" width="32" align="center" class="icons17" style="text-align: center">
+                                    <img src="https://www.coopeuch.cl/media/wysiwyg/fb-mail.png" style="
+                                        height: 24px;
+                                        width: 24px;
+                                        margin-top: 15px;
+                                      " alt="" border="0">
+                                  </td>
+                                  <td height="45" valign="middle" width="32" align="center" style="text-align: center">
+                                    <img src="https://www.coopeuch.cl/media/wysiwyg/twitter-mail.png" style="
+                                        height: 24px;
+                                        width: 24px;
+                                        margin-top: 15px;
+                                      " alt="" border="0">
+                                  </td>
+                                  <td height="45" valign="middle" width="32" align="center" style="text-align: center">
+                                    <img src="https://www.coopeuch.cl/media/wysiwyg/instagram-mail.png" style="
+                                        height: 24px;
+                                        width: 24px;
+                                        margin-top: 15px;
+                                      " alt="" border="0">
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+                <!-- END SOCIAL -->
+
+                <!-- START SERVICE -->
+                <tr>
+                  <td class="bg_white" style="padding: 1em">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+                      <tbody>
+                        <tr>
+                          <td align="center">
+                            <!-- Wrapper -->
+                            <table border="0" cellpadding="0" cellspacing="0" align="center" width="495">
+                              <tbody>
+                                <tr>
+                                  <td width="100%" valign="top" align="center">
+                                    <!-- section 1 -->
+                                    <table width="30%" border="0" cellpadding="0" cellspacing="0" align="left">
+                                      <tbody>
+                                        <tr>
+                                          <td width="100%" style="text-align: center">
+                                            <img src="https://www.coopeuch.cl/media/wysiwyg/security-mail.png" alt="" border="0" style="
+                                                width: 90px;
+                                                height: 65px;
+                                                padding-top: 10px;
+                                              ">
+                                          </td>
+                                        </tr>
+
+                                        <tr>
+                                          <td width="100%" height="10"></td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+
+                                    <!-- section 2 -->
+                                    <table width="70%" border="0" cellpadding="0" cellspacing="0" align="left">
+                                      <tbody>
+                                        <tr>
+                                          <td width="100%" style="
+                                              height: 70px;
+                                              width: 294px;
+                                              color: #606060;
+                                              font-family: Arial;
+                                              font-size: 9px;
+                                              letter-spacing: 0;
+                                              line-height: 14px;
+                                            "><b>Recomendación de seguridad</b>
+                                            
+                                            <ul style="padding-inline-start: 2px">
+                                              <li>Coopeuch NUNCA solicitará sus claves de acceso a sus números de tarjeta de crédito y débito por mail o vía telefónica.</li>
+                                              <li>Los correos electrónicos enviados por Coopeuch no contienen links al sitio oficial de Coopeuch ni mucho menos a otros sitios.</li>
+                                              <li>No debes abrir ni descargar archivos sospechosos ni menos que provengan de remitentes desconocidos.</li>
+                                              <li>Utilice siempre un computador e internet personales para realizar operaciones financieras, nunca desde sitios públicos como ciber café o redes gratuitas.</li>
+                                              <li>Coopeuch recomienda utilizar contraseñas robustas, que no se relacionen con usted o sus familiares, asi como también el cambio frecuente de su clave.</li>
+                                            </ul>
+                                          </td>
+                                        </tr>
+
+                                        <tr>
+                                          <td width="100%" height="10"></td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+
+                                
+                              </tbody>
+                            </table>
+                            <!-- End Wrapper 2 -->
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+                <!-- END FOOTER -->
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </center>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container-porcalidad">
+      <div class="content-text-container">
+        <div class="content-text">
+          <div style="display: flex;">
+            <img src="https://www.coopeuch.cl/media/wysiwyg/trofeo_primer_lugar.svg" alt="trofeo-icon" style="margin-right: 15px;">
+            <h4>1º Lugar</h4>
+          </div>
+          <p>
+            por quinto año consecutivo en categoría “Instituciones financieras
+            de ahorro y crédito”
+          </p>
+        </div>
+      </div>
+
+      <figure style="margin: auto">
+        <img
+          class="pagebuilder-mobile-hidden"
+          src="https://www.coopeuch.cl/media/wysiwyg/procalidad-desk-logo.png"
+          alt="procalidad-img"
+        />
+        <img
+          class="pagebuilder-mobile-only"
+          src="https://www.coopeuch.cl/media/wysiwyg/procalidad-mobile-logo.png"
+          alt="procalidad-img"
+        />
+      </figure>
+    </div>
+
+    <style>
+      .container-porcalidad {
+        display: flex;
+        align-items: center;
+      }
+      .container-porcalidad .content-text-container {
+        display: flex;
+        align-items: center;
+        min-width: 60%;
+        padding: 10px;
+        background-color: rgb(64, 77, 112);
+        border-bottom-right-radius: 200px;
+        min-height: 240px;
+      }
+      .container-porcalidad .content-text-container .content-text {
+        max-width: 550px;
+        margin: 0 auto;
+      }
+      .container-porcalidad .content-text-container h4 {
+        font-size: 32px;
+        line-height: 32px;
+        font-family: 'Poppins bold';
+        color: #ffffff;
+      }
+      .container-porcalidad .content-text-container p {
+        font-size: 24px;
+        color: #ffffff;
+        line-height: 32px;
+        font-family: 'Poppins medium';
+        max-width: 400px;
+      }
+      .container-porcalidad figure {
+        margin: 0;
+        padding: 0 20px;
+      }
+      .container-porcalidad figure img {
+        max-width: 265px;
+        object-fit: contain;
+      }
+      @media (max-width: 760.1px) {
+        .container-porcalidad {
+          flex-direction: column;
+        }
+        .container-porcalidad .content-text-container {
+          border-bottom-right-radius: 100px;
+        }
+        .container-porcalidad .content-text-container h4 {
+          font-size: 24px;
+        }
+        .container-porcalidad figure img {
+          margin: 25px;
+        }
+      }
+    </style>
+  </body>
+</html>

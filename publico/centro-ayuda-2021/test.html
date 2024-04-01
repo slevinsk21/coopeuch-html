@@ -1,0 +1,96 @@
+<div id="access-container" class="access-container"></div>
+<style>
+  .access-container [id]:hover {
+    background-color: #565e94;
+    color: #ffffff;
+    transition: all 0.6s ease-out;
+  }
+</style>
+<script>
+  const categories = [
+    {
+      id: 1,
+      icon: '1.password',
+      title: 'Clave de Internet',
+      description: 'Cómo crearla, cómo recuperarla y mucho más. ',
+    },
+    {
+      id: 2,
+      icon: '2.template',
+      title: 'Sitio Privado',
+      description:
+        'Todo sobre cómo realizar transacciones en Coopeuch en Línea.',
+    },
+    {
+      id: 3,
+      icon: '3.smartphone',
+      title: 'App Coopeuch ',
+      description: 'Descubre cómo operar con tu aplicación Coopeuch.',
+    },
+    {
+      id: 4,
+      icon: '4.coopeuch',
+      title: 'PassCoopeuch',
+      description:
+        'Para qué sirve, cómo descargarla,  cómo activarla y mucho más. ',
+    },
+    {
+      id: 5,
+      icon: '5.conversion_rate',
+      title: 'Remanente',
+      description:
+        'Todo lo que tienes que saber sobre este beneficio: monto, cobro, fechas de pago y mucho más. ',
+    },
+    {
+      id: 6,
+      icon: '6.wallet',
+      title: 'Productos',
+      description:
+        'Lo que quieres saber sobre Cuenta Vista, Crédito de Consumo y otros productos Coopeuch.',
+    },
+    {
+      id: 7,
+      icon: '7.dollar_coin',
+      title: 'Pago Online',
+      description: 'Todo lo referente a pagos de tus productos Coopeuch.',
+    },
+    {
+      id: 8,
+      icon: '8.sale',
+      title: 'Beneficios',
+      description: 'Descubre cómo obtener tus beneficios de socio.',
+    },
+  ];
+
+  const htmlCategories = categories
+    .map(
+      ({ id, icon, title, description }) =>
+        `<div class="access-item" id="${id}">
+        <img
+          src="https://www.coopeuch.cl/media/wysiwyg/${icon}.png"
+          alt="${id}-category-icon"
+        />
+        <p class="category-title">${title}</p>
+        <p class="category-text">${description}</p>
+        <p class="go-to-category"><span class="go-icon">Ir</span></p>
+        <form
+          method="get"
+          action="/centro-de-ayuda/categoria/pregunta"
+          id="form${id}"
+          class="category-form"
+        >
+          <input type="hidden" name="category" value="${id}" />
+          <input type="hidden" name="question" value="0" />
+        </form>
+      </div>`
+    )
+    .join('');
+  document.getElementById('access-container').innerHTML = htmlCategories;
+
+  require(['jquery'], function ($) {
+    $('.access-item').click(function () {
+      var id = $(this).attr('id');
+      $('#form' + id).submit();
+    });
+  });
+</script>

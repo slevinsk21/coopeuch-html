@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fixed menu</title>
+  </head>
+  <body style="background: #0000005e">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&amp;display=swap" rel="stylesheet">
+    <style>
+      #main-cognitive-assistant-container {
+        display: none;
+      }
+      .fixed-menu {
+        position: fixed;
+        right: 22px;
+        bottom: 20px;
+        height: 60px;
+        width: 60px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+        border-radius: 50%;
+        transition: 0.2s ease-out;
+        opacity: 0.9;
+        z-index: 1000;
+      }
+      .fixed-menu:hover {
+        opacity: 1;
+      }
+      .content-menu-fixed {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .fixed-menu .content-menu-fixed a,
+      .fixed-menu a {
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .fixed-menu.opened a.toggle-ivic {
+        display: none;
+      }
+      .fixed-menu a.toggle-ivic {
+        display: block;
+        cursor: pointer;
+      }
+      .fixed-menu.content-menu-fixed a.toggle-btn {
+        cursor: pointer;
+        position: absolute;
+        top: -1px;
+        right: -1px;
+      }
+      .fixed-menu.content-menu-fixed a.toggle-btn img {
+        border-radius: 100%;
+        background-color: #fff;
+      }
+      .d-none {
+        display: none !important;
+      }
+      .fixed-menu.opened {
+        width: 60px;
+        height: 206px;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+        border-radius: 35px;
+      }
+      .fixed-menu.opened figure {
+        margin: 4px 0;
+        text-align: center;
+        max-width: 60px;
+      }
+      .fixed-menu.opened figure img {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+      }
+      .fixed-menu.opened figure figcaption {
+        color: #383838;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 10px;
+        letter-spacing: 0;
+        line-height: 12px;
+      }
+      @media (max-width: 425.1px) {
+        .fixed-menu {
+          right: 12px;
+          bottom: 12px;
+        }
+        .fixed-menu.opened figure figcaption {
+          padding: 0 5px;
+        }
+        .fixed-menu.opened figure img {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    </style>
+    <section id="fixed-menu" class="fixed-menu content-menu-fixed opened">
+      <div class="items-menu-fixed content-menu-fixed">
+        <a onclick="window.CognitiveAssistantMain.launcherHandler(this)">
+          <figure>
+            <img src="https://www.coopeuch.cl/media/wysiwyg/ivic-icon-fixed-menu.svg" alt="ivic-icon">
+            <figcaption>IVIC</figcaption>
+          </figure>
+        </a>
+    
+        <a href="https://wa.me/56939196149?text=Hola%20necesito%20evaluar%20un%20Cr%C3%A9dito%20de%20Consumo%20en%20Coopeuch">
+          <figure>
+            <img src="https://www.coopeuch.cl/media/wysiwyg/ws-icon-fixed-menu.svg" alt="ws-icon">
+            <figcaption>evaluar crédito</figcaption>
+          </figure>
+        </a>
+    
+        <a href="https://survey3.medallia.com/?sitio-publico">
+          <figure>
+            <img src="https://www.coopeuch.cl/media/wysiwyg/comment-icon-fixed-menu.svg" alt="comment-icon" style="width: 28px; height: 28px;">
+            <figcaption>Encuesta</figcaption>
+          </figure>
+        </a>
+      </div>
+    
+      <a class="toggle-ivic" onclick="window.CognitiveAssistantMain.launcherHandler(this)">
+        <img src="https://www.coopeuch.cl/media/wysiwyg/ivic-icon-fixed-menu.svg" alt="comment-icon">
+      </a>
+    
+      <a class="toggle-btn" onclick="toggleMenu()">
+        <img id="action-icon" src="https://www.coopeuch.cl/media/wysiwyg/minus-icon-fixed-menu.svg" alt="action-icon">
+      </a>
+    </section>
+    <script>
+      const toggleMenu = () => {
+        const btnImg = document.getElementById('action-icon').src;
+        const fixedMenu = document.getElementsByClassName('fixed-menu')[0];
+        const content = document.getElementsByClassName('items-menu-fixed')[0];
+        fixedMenu.classList.toggle('opened');
+        content.classList.toggle('d-none');
+        const icon = btnImg.includes('minus') ? 'plus' : 'minus';
+        document.getElementById('action-icon').src = `https://www.coopeuch.cl/media/wysiwyg/${icon}-icon-fixed-menu.svg`;
+      };
+    </script>
+  </body>
+</html>

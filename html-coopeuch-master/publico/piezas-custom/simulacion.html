@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>simulacion</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section id="simulator" class="container">
+      <div class="credit-title">
+        <h3>Solicita una de estas simulaciones de Crédito de Consumo</h3>
+      </div>
+
+      <div class="container-items">
+        <div class="box-item">
+          <div class="first-level">
+            <div class="monthly-fee">
+              <b>48 cuotas de</b>
+              <div class="price">$113.500</div>
+            </div>
+            <a href="#" class="btn-action">Solicítalo</a>
+          </div>
+
+          <div class="amount">Monto a solicitar:&nbsp;<b>$5.000.000</b></div>
+
+          <div class="fee-box">
+            <div class="tasa">Tasa de interés mensual: <b>1,79%</b></div>
+            <div class="cae">
+              <div class="path">CAE: <img src=""></div>
+              <b>23,76%</b>
+            </div>
+            <div class="insurance">
+              <div class="path">Seguro opcional de desgravamen:</div>
+              <b>$112.749</b>
+            </div>
+            <div class="total-price">
+              <div class="path">Costo total:</div>
+              <b>$5.442.501</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="box-item">
+          <div class="first-level">
+            <div class="monthly-fee">
+              <b>36 cuotas de</b>
+              <div class="price">$136.330</div>
+            </div>
+            <a href="#" class="btn-action">Solicítalo</a>
+          </div>
+          <div class="amount">Monto a solicitar:&nbsp;<b>$5.000.000</b></div>
+          <div class="fee-box">
+            <div class="tasa">Tasa de interés mensual: <b>1,79%</b></div>
+            <div class="cae">
+              <div class="path">CAE: <img src=""></div>
+              <b>23,52%</b>
+            </div>
+            <div class="insurance">
+              <div class="path">Seguro opcional de desgravamen:</div>
+              <b>$77.291</b>
+            </div>
+            <div class="total-price">
+              <div class="path">Costo total:</div>
+              <b>$4.903.430</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="box-item">
+          <div class="first-level">
+            <div class="monthly-fee">
+              <b>54 cuotas de</b>
+              <div class="price">$108.880</div>
+            </div>
+            <a href="#" class="btn-action">Solicítalo</a>
+          </div>
+          <div class="amount">Monto a solicitar:&nbsp;<b>$5.000.000</b></div>
+          <div class="fee-box">
+            <div class="tasa">Tasa de interés mensual: <b>1,89%</b></div>
+            <div class="cae">
+              <div class="path">CAE: <img src=""></div>
+              <b>25,20%</b>
+            </div>
+            <div class="insurance">
+              <div class="path">Seguro opcional de desgravamen:</div>
+              <b>$139.807</b>
+            </div>
+            <div class="total-price">
+              <div class="path">Costo total:</div>
+              <b>$5.873.634</b>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="legal-bases">
+        La simulación de crédito de consumo requiere que el consumidor disponga
+        de un patrimonio y/o ingresos futuros suficientes para pagar su costo
+        total y el valor cuota mensual, durante todo el período del crédito y
+        considera gastos notariales que son detallados en el comprobante de esta
+        simulación.Esta simulación es no vinculante y el otorgamiento del
+        crédito está sujeto a aprobación comercial previa, de acuerdo a las
+        políticas de créditos vigentes al momento de la solicitud. El deudor
+        podrá prepagar este crédito, en estos casos el socio deberá pagar una
+        comisión sobre el capital que se prepaga asociada a esta operación,
+        equivalente a 30 días de intereses calculado. El seguro de desgravamen
+        ofrecido por Coopeuch y que puede contratarse conjuntamente con el
+        crédito, corresponde a cobertura a contratar con Compañía de Seguros
+        Banchile Vida S.A. la que puede variar de acuerdo a la evaluación de
+        riesgo que realice la compañía de seguros. Simulación válida sólo
+        durante el día de su emisión, expirando en 24 horas. Los valores
+        expresados en la presente simulación son referenciales y podrían variar
+        al momento del curse.
+      </p>
+    </section>
+
+    <style>
+      #simulator {
+        font-family: 'Poppins', sans-serif;
+      }
+      .container {
+        max-width: 1170px;
+        margin: 0 auto;
+      }
+      .credit-title h3 {
+        color: #383838;
+        font-size: 24px;
+        letter-spacing: 0;
+        line-height: 42px;
+        margin: 0 12px 22px;
+      }
+      .container-items {
+        display: flex;
+        margin-bottom: 10px;
+      }
+      .box-item {
+        margin: 6px 12px;
+        border: 1px solid #c6cfe1;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px 0 rgb(0 0 0 / 14%);
+        max-width: 375px;
+      }
+      .box-item .first-level,
+      .box-item .fee-box {
+        padding: 16px;
+      }
+      .box-item .fee-box {
+        padding-bottom: 24px;
+      }
+      .first-level {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .price {
+        color: #2b6bb4;
+        font-family: Poppins;
+        font-size: 32px;
+        line-height: 48px;
+        font-weight: bold;
+        letter-spacing: 0;
+      }
+      a.btn-action {
+        height: 48px;
+        width: 130px;
+        border-radius: 5px;
+        background-color: #007db7;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      a.btn-action:hover {
+        opacity: 0.8;
+      }
+      .total-price {
+        white-space: nowrap;
+      }
+      .tasa,
+      .cae,
+      .insurance,
+      .total-price {
+        color: #545454;
+      }
+      .amount {
+        height: 60px;
+        background-color: #d8d8d8;
+        display: flex;
+        align-items: center;
+        padding: 0 24px;
+        font-size: 20px;
+        color: #333;
+      }
+      .fee-box {
+        display: flex;
+      }
+      .fee-box > div {
+        margin: 0 7px;
+        font-size: 12px;
+        align-self: flex-end;
+      }
+      .legal-bases {
+        max-width: 1173px;
+        font-family: Helvetica;
+        font-size: 9px;
+        margin: 0 12px;
+      }
+      @media (max-width: 1120.1px) {
+        .container-items {
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+        }
+        .box-item {
+          margin: 6px;
+        }
+      }
+    </style>
+  </body>
+</html>

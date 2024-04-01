@@ -1,0 +1,96 @@
+<!-- SCRIPT #1 SIMULADOR HOME AGREGAR TElF Y RUT SI NO EXISTEN -->
+<style>
+  .form-input,
+  input.form-input {
+    border-radius: 4px;
+  }
+  .message-text-simulador {
+    font-size: 14px;
+    position: relative;
+    top: 33px;
+    left: 543px;
+  }
+  .phone-error-msg,
+  .rut-error-msg,
+  .rut-void-error-msg {
+    display: none;
+  }
+  .general-box,.inputs-simulatoraccess {
+    min-height: 146px;
+  }
+  @media screen and (max-width: 960px) {
+    .message-text-simulador {
+      display: none;
+    }
+  }
+</style>
+<script>
+  const form = document.querySelector('#simulator-consumo'),
+    fields = document.dyQuerySelectorAll('.field'),
+    htmlMsg = (el) => '<div for="' + el + '" generated="true" style="font-size: 1.2rem; color: #646569">*Este campo es opcional</div>';
+  fields[1].innerHTML += htmlMsg('phone');
+  fields[2].innerHTML += htmlMsg('rut');
+
+  const el = document.querySelector('#ce-simulatoraccess-box');
+  el.insertAdjacentHTML(
+    'beforebegin',
+    '<span class="message-text-simulador">Revisa si tienes una oferta especial ingresando tus datos:</span>'
+  );
+
+  document.querySelector('.button-simulate').addEventListener('click', () => {
+    const amount = document.querySelector('#amount').value,
+      errorMsg = (element) => {
+        const messageError = document.querySelector(element);
+        if (messageError) messageError.style.display = 'none';
+      };
+
+    errorMsg('.phone-error-msg');
+    errorMsg('.rut-error-msg');
+
+    if (amount) {
+      const form = document.querySelector('#simulator-consumo');
+      if (!form[2].value) {
+        form[2].value = '12312312';
+        form[2].style.color = '#fff';
+      }
+      if (!form[3].value) {
+        form[3].value = '12.312.312-3';
+        form[3].style.color = '#fff';
+      }
+
+      document.querySelector('.button-simulate').click();
+      document.querySelector('.button-simulate').click();
+    }
+  });
+</script>
+
+<!-- SCRIPT #2 SIMULADOR CONSUMO RUT HABILITADO -->
+<style>
+  .form-input,
+  input.form-input {
+    border-radius: 4px;
+  }
+  .rut-void-error-msg {
+    display: none;
+  }
+</style>
+<script>
+  const rutInput = document.querySelector('#rut');
+  if (rutInput.value === '123123123') {
+    rutInput.style.color = '#fff';
+    rutInput.disabled = false;
+    rutInput.classList.remove('disabled');
+  }
+
+  document.querySelector('#rut').addEventListener('focus', () => {
+    if (rutInput.value === '123123123') rutInput.value =  '';
+  });
+
+  document.querySelector('#submitForm').addEventListener('click', event => {
+    if (rutInput.value === '') {
+      rutInput.style.color = '#fff';
+      rutInput.value =  '123123123';
+    }
+    event.target.click()
+  });
+</script>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      * {
+        font-family: 'Poppins', sans-serif;
+      }
+      #modal-banner-1 .banner-container {
+        height: auto;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: relative;
+        max-width: 560px;
+        min-height: 280px;
+      }
+      #modal-banner-1 .banner-container.bg-img-modal-1 {
+        background-image: url(https://www.coopeuch.cl/media/wysiwyg/cc-modal-desktop.png);
+      }
+      #modal-banner-1 .banner-container .banner-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        margin: 0 10px;
+        top: 40px;
+        left: 40px;
+        max-width: 260px;
+        width: 60%;
+      }
+      #modal-banner-1 .banner-container .banner-content h1 {
+        font-size: 18px;
+        color: #fff;
+        line-height: 25px;
+        margin: 5px;
+        font-weight: 300;
+      }
+      #modal-banner-1 .banner-container .banner-content h2 {
+        font-size: 14px;
+        font-weight: 300;
+        color: #fff;
+        line-height: 18px;
+        margin: 5px 5px 10px;
+      }
+      #modal-banner-1 .banner-container .banner-content a.btn-primary {
+        margin: 0 10px 10px 0;
+        background-color: #f42534;
+        color: #fff;
+        font-weight: 800;
+        padding: 12px 27px;
+        font-size: 16px;
+        border-color: #f42534;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+      #modal-banner-1 .banner-container .banner-content a.btn-primary:hover {
+        background-color: #f87c85;
+        border-color: #f87c85;
+      }
+
+      @media (max-width: 580px) {
+        #modal-banner-1 .banner-container .banner-content {
+          top: 40px;
+          left: 0;
+        }
+        #modal-banner-1 .banner-container .banner-content h1 {
+          font-size: 14px;
+          line-height: 18px;
+        }
+      }
+      @media (max-width: 425.1px) {
+        #modal-banner-1 .banner-container.bg-img-modal-1 {
+          background-image: url(https://www.coopeuch.cl/media/wysiwyg/cc-modal-mobile.png);
+        }
+        #modal-banner-1 .banner-container .banner-content {
+          top: 0;
+          left: 60px;
+        }
+      }
+      @media (max-width: 377.1px) {
+        #modal-banner-1 .banner-container .banner-content {
+          margin: 2px;
+        }
+      }
+    </style>
+
+    <div id="modal-banner-1">
+      <div class="banner-container bg-img-modal-1">
+        <div class="banner-content">
+          <h1>
+            <b> Tienes una oferta disponible </b>
+
+            <br />
+
+            de Crédito de Consumo
+          </h1>
+
+          <h2>Ingresa a tu sitio privado con tu rut y clave</h2>
+
+          <a href="#" class="btn-primary">Solicitar</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

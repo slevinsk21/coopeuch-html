@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #383838;
+      }
+      * {
+        font-family: 'Poppins', sans-serif;
+        box-sizing: border-box;
+        margin: 0;
+      }
+      .card {
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 20px;
+        max-width: 400px;
+        margin: 40px auto;
+      }
+      .card h1 {
+        font-weight: 400;
+      }
+      .container-bar {
+        display: flex;
+        width: 100%;
+        height: auto;
+        min-height: 38px;
+        background-color: transparent;
+        border-radius: 50px;
+        overflow: hidden;
+      }
+      .element-bar {
+        padding: 10px;
+        color: white;
+      }
+      .container-legend {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 4px;
+      }
+      .legend-element {
+        display: flex;
+        align-items: center;
+        font-size: 11px;
+        margin: 3px 8px;
+      }
+      .legend-dot {
+        background: aqua;
+        width: 10px;
+        height: 10px;
+        border-radius: 50px;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="card">
+      <h1>Tickets Totales <b class="total-tickets"></b></h1>
+      <div class="container-bar"></div>
+      <div class="container-legend"></div>
+    </section>
+    <script>
+      const tickets = [
+          {
+            name: 'Abiertos',
+            qty: 12,
+            bgColor: '#ffcdd2',
+          },
+          {
+            name: 'A iempo',
+            qty: 5,
+            bgColor: '#666ad1',
+          },
+          {
+            name: 'Vencidas',
+            qty: 1,
+            bgColor: { color: '#00897b' },
+          },
+          {
+            name: 'Cerradas Vencidas',
+            qty: 2,
+            bgColor: '#00e676',
+          },
+          {
+            name: 'Anuladas',
+            qty: 3,
+            bgColor: '#f4511e',
+          },
+        ],
+        totalQtyTickets = tickets.reduce((total, { qty }) => total + qty, 0),
+        ticketPercentHtml = tickets
+          .map(
+            ({ qty, bgColor }, i) =>
+              `<div class="element-bar element-bar__${i}" style="width: ${
+                (qty * 100) / totalQtyTickets
+              }%; background-color: ${bgColor};"></div>`
+          )
+          .join(''),
+        ticketLegendHtml = tickets
+          .map(
+            ({ name, qty, bgColor }, i) =>
+              `
+            <div class="legend-element legend-element__${i}">
+              <div class="legend-dot" style="background-color: ${bgColor};"></div>
+              <span>${name} <b>${((qty * 100) / totalQtyTickets).toFixed(
+                0
+              )}%</b></span>
+            </div>
+            `
+          )
+          .join('');
+
+      document.querySelector('.total-tickets').innerHTML = totalQtyTickets;
+      document.querySelector('.container-bar').innerHTML = ticketPercentHtml;
+      document.querySelector('.container-legend').innerHTML = ticketLegendHtml;
+    </script>
+  </body>
+</html>

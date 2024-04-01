@@ -1,0 +1,128 @@
+<div class="slick-cifras-container">
+  <figure class="cifras-card">
+    <img
+      src="https://www.coopeuch.cl/media/wysiwyg/mundo.png"
+      alt="mundo"
+      loading="lazy"
+    />
+    <figcaption>
+      <h3>12%</h3>
+      <p>de la población mundial es cooperativista</p>
+    </figcaption>
+  </figure>
+
+  <figure class="cifras-card">
+    <img
+      src="https://www.coopeuch.cl/media/wysiwyg/dolares.png"
+      alt="dolares"
+      loading="lazy"
+    />
+    <figcaption>
+      <h3>2,14</h3>
+      <p>Billones de dólares de ingresos generados</p>
+    </figcaption>
+  </figure>
+  <figure class="cifras-card">
+    <img
+      src="https://www.coopeuch.cl/media/wysiwyg/supermercado.png"
+      alt="supermercado"
+      loading="lazy"
+    />
+    <figcaption>
+      <h3>4,6</h3>
+      <p>Millones de socios tiene el supermercado Coop en Reino Unido</p>
+    </figcaption>
+  </figure>
+  <figure class="cifras-card">
+    <img
+      src="https://www.coopeuch.cl/media/wysiwyg/banco.png"
+      alt="banco"
+      loading="lazy"
+    />
+    <figcaption>
+      <h3>875</h3>
+      <p>Instituciones de servicios financieros componen el mercado alemán</p>
+    </figcaption>
+  </figure>
+</div>
+<style>
+  .slick-cifras-container {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; */
+  }
+  .slick-cifras-container .cifras-card {
+    display: flex !important;
+    justify-content: center;
+    flex-direction: column;
+    /* max-width: 240px; */
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  .slick-cifras-container .cifras-card h3 {
+    font-size: 76px;
+    line-height: 46px;
+    color: #364f6b;
+    font-family: 'Poppins Bold';
+    margin: 16px 0;
+  }
+  .slick-cifras-container .cifras-card p {
+    font-size: 14px;
+    line-height: 20px;
+    color: #383638;
+    font-family: 'Poppins';
+    min-height: 40px;
+    margin: 0;
+  }
+  .slick-cifras-container .cifras-card > img {
+    max-width: 32px;
+    object-fit: contain;
+    height: 32px;
+    width: 100%;
+    margin: 10px;
+    align-self: center;
+  }
+</style>
+<script>
+  require(['jquery', 'slick'], function ($, slick) {
+    $(document).ready(function () {
+      $('.slick-cifras-container').slick({
+        dots: false,
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        arrows: false,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              dots: true
+            }
+          }
+        ]
+      });
+    });
+  });
+</script>
+

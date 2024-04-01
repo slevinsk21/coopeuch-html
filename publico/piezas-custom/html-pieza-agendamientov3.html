@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <style>
+      section.agendamiento-container {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        max-width: 1170px;
+        margin: 0 auto;
+        min-height: 104px;
+        border-radius: 10px;
+        border: 1px solid #d6d6d6;
+        background-color: #f6f6f6;
+        padding: 30px;
+      }
+
+      section.agendamiento-container h3 {
+        color: #333333;
+        font-size: 20px;
+        line-height: 30px;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      section.agendamiento-container .custom-btn {
+        background-color: #007db7;
+        padding: 12px 27px;
+        font-family: Poppins;
+        font-weight: 800;
+        font-size: 16px;
+        border: 2px solid #007db7;
+        border-radius: 5px;
+        color: #fff !important;
+        outline: none;
+        min-width: 210px;
+        text-align: center;
+        text-decoration: none !important;
+        transition: all 0.3s ease-in;
+        min-height: 48px;
+        box-shadow: none !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      section.agendamiento-container .custom-btn:hover,
+      section.agendamiento-container .custom-btn:focus {
+        color: #fff !important;
+        background-color: #007db7;
+        box-shadow: none;
+        border: 1px solid #007db7;
+      }
+
+      @media (max-width: 580.1px) {
+        section.agendamiento-container .custom-btn {
+          width: 100%;
+        }
+      }
+    </style>
+    <section class="agendamiento-container">
+      <h3>Planifica tu próxima visita a una de nuestras sucursales.</h3>
+      <button class="custom-btn">
+        <img
+          style="padding-right: 10px"
+          src="https://www.coopeuch.cl/media/wysiwyg/calendar-icon.svg"
+          alt="icon-calendar"
+        />
+        Agenda aquí tu hora
+      </button>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,781 @@
+<section id="credit-plan-simulation-home" v-cloak>
+  <h3 class="subtitle-credit-plans description-plans">
+    Te apoyamos todos los días con estos
+    <b>planes de Créditos más beneficios*</b>, para que manejes fácilmente tus
+    finanzas
+  </h3>
+  <p class="info-credit-plans">
+    *Planes disponibles para personas sin Créditos de Consumo vigentes en
+    Coopeuch.
+  </p>
+
+  <div class="container-credit-plan">
+    <div
+      v-for="{ planType, textDescription, planBg, creditAmount, includes }, i in packages"
+      class="card-credit-plan"
+      :style="`order: ${getOrder(planType)};`"
+    >
+      <div v-if="planType === 'Oro'" class="ribbon-plan-credit ribbon-top-left">
+        <span>Más Conveniente</span>
+      </div>
+
+      <div class="card-credit-plan__header">
+        <figure class="card-credit-plan__container-img">
+          <img
+            :src="`https://www.coopeuch.cl/media/imagegallery/images/${planType.toLowerCase()}.svg`"
+            :alt="`paquete-${planType}`"
+            class="card-credit-plan__img"
+            loading="lazy"
+          />
+          <figcaption>
+            <h5 class="card-credit-plan__title">
+              <b>
+                <template v-if="planType === 'Bronce'">
+                  Crédito de Consumo Tradicional
+                </template>
+                <template v-else>Plan {{ planType }} </template>
+              </b>
+            </h5>
+          </figcaption>
+        </figure>
+        <span class="card-credit-plan__amount-to-request">
+          {{ textDescription }}
+        </span>
+        <h6 class="card-credit-plan__coutes">Crédito de Consumo de</h6>
+        <div class="card-credit-plan__amount">
+          <h3><b>${{ creditAmount }}</b></h3>
+        </div>
+
+        <a v-if="!isMobile" href="https://www.coopeuch.cl/personas/plan-credito-de-consumo" class="button-coopeuch">Conocer más</a>
+      </div>
+
+      <div class="divider"></div>
+      <div class="card-credit-plan__body card-credit-plan-body__benefits">
+        <p class="card-credit-plan__includes-title">
+          <b>¿Qué incluye?</b>
+        </p>
+        <div class="card-credit-plan__includes-content">
+          <template v-for="{ icon, includedTitle, optionalText }, i in includes">
+            <figure class="card-credit-plan__includes-item" :style="{ backgroundColor: planBg, position: planType === 'Oro' && i === 0 && 'relative' }">
+              <template v-if="planType === 'Oro' && i === 0" >
+                <div class="tooltip discount bg-white"></div>
+                <div class="tooltip discount"><b>-40% DCTO</b></div>
+              </template>
+
+              <img :src="`https://www.coopeuch.cl/media/imagegallery/images/${icon}.svg`" alt="incluye-icon" />
+              <figcaption>
+                <b>
+                  {{ includedTitle }}
+                  <span v-if="i === 2 || i === 3" class="coo-tooltip">
+                    <div class="tooltip-content">
+                      <p>
+                        <span style="line-height: 24px; font-size: 12px;">
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. uam suscipit exercitationem autem culpa illo consequuntur
+                        </span>
+                      </p>
+                    </div>
+                  </span>
+                </b>
+                <h4 v-if="optionalText" >
+                  <span style="font-size: 14px">Tasa de interés </span><b>{{ optionalText }}%</b>
+                </h4>
+              </figcaption>
+            </figure>
+          </template>
+
+          <div v-if="!isMobile" :style="`height: ${getHeight(i)};`"></div>
+
+          <div class="tooltip-container">
+            <div class="tooltip"><b>Comienza a pagar el 2022</b></div>
+            <span class="tooltip-text-reference">Primera <b>cuota hasta 90 días</b></span>
+          </div>
+        </div>
+      </div>
+
+      <div v-if="isMobile" class="card-credit-plan__footer">
+        <a href="https://www.coopeuch.cl/personas/plan-credito-de-consumo" class="button-coopeuch">Conocer más</a>
+      </div>
+    </div>
+  </div>
+
+  <div :class="['legal-text-container', { open: toggleLegalText }]">
+    <div class="letra-pequena">
+      <div style="text-align: center"><b>Términos y condiciones</b></div>
+      <p>
+        <b>Crédito de consumo tradicional:</b>
+        La simulación de crédito de consumo requiere que el consumidor disponga de
+        un patrimonio y/o ingresos futuros suficientes para pagar su costo total y
+        el valor cuota mensual, durante todo el período del crédito y considera
+        gastos notariales que son detallados en el comprobante de esta simulación.
+        Esta simulación es no vinculante y el otorgamiento del crédito está sujeto a
+        aprobación comercial previa, de acuerdo a las políticas de créditos vigentes
+        al momento de la solicitud. El ejemplo incluye sólo seguro de desgravamen.
+        El deudor podrá prepagar este crédito, en estos casos el socio deberá pagar
+        una comisión sobre el capital que se prepaga asociada a esta operación,
+        equivalente a 30 días de intereses calculado. El seguro de desgravamen es
+        ofrecido por Coopeuch y puede contratarse conjuntamente con el crédito. Los
+        riesgos son cubiertos por la Compañía de Seguros BNP Paribas Cardif Seguros
+        de Vida S.A bajo la póliza 221091506. Las coberturas contratadas se rigen
+        según las condiciones generales, cuyos modelos se encuentran depositados en
+        la Comisión para el Mercado Financiero (CMF) bajo el código POL 220130329.
+        El seguro es intermediado por Coopeuch Corredores de Seguros SpA.
+      </p>
+      <br />
+      <p>
+        <b>Plan Plata:</b>
+        Promoción válida desde 15/11/2021 hasta el 30/11/2021. La aprobación del
+        crédito está condicionada a la verificación de antecedentes y cumplimiento
+        de requisitos establecidos en políticas crediticias de Coopeuch. El crédito
+        de consumo Coopeuch aplica para el caso en que el socio no tenga operaciones
+        de crédito de consumo vigentes y las cuotas serán descontadas a través de
+        PAC coopeuch. Valor cuota referencial del ejemplo calculado con 62 días
+        plazo del primer vencimiento después de la fecha de otorgamiento del
+        crédito. Ejemplo incluye seguro de desgravamen Coopeuch. CAE (carga anual
+        equivalente) es el indicador expresado en forma de porcentaje que revela el
+        costo total de un crédito en un período anual, cualquiera sea el plazo
+        pactado para el pago del mismo. CTC (costo total del crédito del ejemplo)
+        monto total que debe asumir el consumidor y que corresponde a la suma de
+        todos los pagos periódicos definidos como valor de la cuota en función del
+        plazo acordado. Los planes no aplican para descuento de créditos por
+        planilla. La simulación de crédito de consumo requiere que el consumidor
+        disponga de un patrimonio y/o ingresos futuros suficientes para pagar su
+        costo total y el valor cuota mensual, durante todo el período del crédito y
+        considera gastos notariales que son detallados en el comprobante de esta
+        simulación. Esta simulación es no vinculante y el otorgamiento del crédito
+        está sujeto a aprobación comercial previa, de acuerdo a las políticas de
+        créditos vigentes al momento de la solicitud. El ejemplo incluye sólo seguro
+        de desgravamen. El deudor podrá prepagar este crédito, en estos casos el
+        socio deberá pagar una comisión sobre el capital que se prepaga asociada a
+        esta operación, equivalente a 30 días de intereses calculado. El seguro de
+        desgravamen es ofrecido por Coopeuch y puede contratarse conjuntamente con
+        el crédito. Los riesgos son cubiertos por la Compañía de Seguros BNP Paribas
+        Cardif Seguros de Vida S.A bajo la póliza 221091506. Las coberturas
+        contratadas se rigen según las condiciones generales, cuyos modelos se
+        encuentran depositados en la Comisión para el Mercado Financiero (CMF) bajo
+        el código POL 220130329. El seguro es intermediado por Coopeuch Corredores
+        de Seguros SpA. Participan en esta promoción de puntos los socios que
+        contraten el plan plata, con desembolso del crédito en su cuenta Vista
+        Coopeuch. La promoción corresponde a 5.000 puntos, que serán abonados hasta
+        20 días posteriores a la contratación del crédito de consumo. Bases y más
+        información del programa de Puntos Coopeuch se encuentran publicadas en www.
+        puntoscoopeuch.cl y protocolizadas en la Séptima Notaría de Santiago doña
+        María Soledad Santos. El remanente es el resultado positivo de la gestión de
+        la cooperativa en el ejercicio del año anterior. En caso de que la gestión
+        de Coopeuch sea favorable, el remanente se distribuye entre los socios de la
+        forma señalada en los estatutos y normativa vigente.
+      </p>
+      <br />
+      <p>
+        <b>Plan Oro:</b>
+        Infórmese sobre la garantía estatal de los depósitos en su cooperativa o en
+        www.cmfchile.cl Promoción válida desde 15/11/2021 hasta el 30/11/2021. La
+        aprobación del crédito está condicionada a la verificación de antecedentes y
+        cumplimiento de requisitos establecidos en políticas crediticias de
+        Coopeuch. El crédito de consumo Coopeuch tiene el beneficio de un tarifado
+        especial para el caso en que el socio no tenga operaciones de crédito de
+        consumo vigentes, las cuotas serán descontadas a través de PAC coopeuch.
+        Promoción de hasta un 40% de descuento sobre tasa pizarra, contratando
+        crédito de consumo con PAC coopeuch, cuenta vista y abono de remuneraciones.
+        Valor cuota referencial del ejemplo calculado con 62 días plazo del primer
+        vencimiento después de la fecha de otorgamiento del crédito. Ejemplo incluye
+        seguro de desgravamen opcional Coopeuch. CAE (carga anual equivalente) es el
+        indicador expresado en forma de porcentaje que revela el costo total de un
+        crédito en un período anual, cualquiera sea el plazo pactado para el pago
+        del mismo. CTC (costo total del crédito del ejemplo) monto total que debe
+        asumir el consumidor y que corresponde a la suma de todos los pagos
+        periódicos definidos como valor de la cuota en función del plazo acordado.
+        Los planes no aplican para descuento de créditos por planilla. La simulación
+        de crédito de consumo requiere que el consumidor disponga de un patrimonio
+        y/o ingresos futuros suficientes para pagar su costo total y el valor cuota
+        mensual, durante todo el período del crédito y considera gastos notariales
+        que son detallados en el comprobante de esta simulación. Esta simulación es
+        no vinculante y el otorgamiento del crédito está sujeto a aprobación
+        comercial previa, de acuerdo a las políticas de créditos vigentes al momento
+        de la solicitud. El ejemplo incluye sólo seguro de desgravamen. El deudor
+        podrá prepagar este crédito, en estos casos el socio deberá pagar una
+        comisión sobre el capital que se prepaga asociada a esta operación,
+        equivalente a 30 días de intereses calculado. El seguro de desgravamen es
+        ofrecido por Coopeuch y puede contratarse conjuntamente con el crédito. Los
+        riesgos son cubiertos por la Compañía de Seguros BNP Paribas Cardif Seguros
+        de Vida S.A bajo la póliza 221091506. Las coberturas contratadas se rigen
+        según las condiciones generales, cuyos modelos se encuentran depositados en
+        la Comisión para el Mercado Financiero (CMF) bajo el código POL 220130329.
+        El seguro es intermediado por Coopeuch Corredores de Seguros SpA. Participan
+        en esta promoción de puntos los socios que contraten el plan oro, con
+        desembolso del crédito en su cuenta Vista Coopeuch. La promoción corresponde
+        a 15.000 puntos, que serán abonados de la siguiente forma: 5.000 puntos
+        hasta 20 días posteriores a la contratación del crédito de consumo y 10.000
+        puntos hasta 20 días posteriores a la suscripción del abono de
+        remuneraciones. Bases y más información del programa de Puntos Coopeuch se
+        encuentran publicadas en www. puntoscoopeuch.cl y protocolizadas en la
+        Séptima Notaría de Santiago doña María Soledad Santos. Cuenta vista con
+        comisión mensual $0 con abono de remuneración \*Promoción válida para
+        cuentas vistas abiertas hasta el 30/11/2021” El remanente es el resultado
+        positivo de la gestión de la cooperativa en el ejercicio del año anterior.
+        En caso de que la gestión de Coopeuch sea favorable, el remanente se
+        distribuye entre los socios de la forma señalada en los estatutos y
+        normativa vigente.
+      </p>
+    </div>
+    <div class="continue-reading" @click="toggleLegalText = !toggleLegalText">
+      {{ toggleLegalText ? 'Leer menos' : 'Seguir leyendo' }}
+    </div>
+  </div>
+</section>
+
+<script>
+  require(['vue'], (Vue) => {
+    'use strict';
+    new Vue({
+      el: '#credit-plan-simulation-home',
+      data: {
+        windowWidth: window.screen.width,
+        toggleLegalText: false,
+        packages: [
+          {
+            planType: 'Bronce',
+            textDescription: 'La mejor opción para los que saben qué quieren, y buscan cómo financiarlo.',
+            creditAmount: '3.000.000',
+            planBg: '#ff83001a',
+            includes: [
+              {
+                icon: 'consumo',
+                includedTitle: 'Crédito de Consumo',
+                optionalText: '2,77'
+              }
+            ]
+          },
+          {
+            planType: 'Plata',
+            textDescription: 'Administra tu dinero fácilmente y úsalo para todo lo que necesitas.',
+            creditAmount: '3.000.000',
+            planBg: '#F6F6F6',
+            includes: [
+              {
+                icon: 'consumo',
+                includedTitle: 'Crédito de Consumo',
+                optionalText: '2,77'
+              },
+              {
+                icon: 'cuentavista',
+                includedTitle: 'Cuenta Vista',
+                optionalText: ''
+              },
+              {
+                icon: 'remuneraciones',
+                includedTitle: 'Pago  automático de cuotas de Crédito (PAC)',
+                optionalText: ''
+              }
+            ]
+          },
+          {
+            planType: 'Oro',
+            textDescription: 'Recibe más beneficios y accede a tasas preferenciales por recibir tu sueldo en Cuenta vista.',
+            creditAmount: '3.000.000',
+            planBg: '#fff9e5',
+            includes: [
+              {
+                icon: 'consumo',
+                includedTitle: 'Crédito de Consumo',
+                optionalText: '1,66'
+              },
+              {
+                icon: 'cuentavista',
+                includedTitle: 'Cuenta Vista',
+                optionalText: ''
+              },
+              {
+                icon: 'remuneraciones',
+                includedTitle: 'Pago  automático de cuotas de Crédito (PAC)',
+                optionalText: ''
+              },
+              {
+                icon: 'remuneraciones',
+                includedTitle: 'Abono de Remuneraciones',
+                optionalText: ''
+              }
+            ]
+          }
+        ]
+      },
+      mounted() {
+        this.$nextTick(() => {
+          window.addEventListener(
+            'resize',
+            () => (this.windowWidth = window.screen.width)
+          );
+          window.addEventListener(
+            'scroll',
+            () => (this.fixedSelect = window.pageYOffset > 240)
+          );
+        });
+      },
+      beforeDestroy() {
+        window.removeEventListener('resize');
+        window.removeEventListener('scroll');
+      },
+      computed: {
+        isMobile() {
+          return this.windowWidth <= 580;
+        }
+      },
+      methods: {
+        getOrder(planType) {
+          return (
+            this.isMobile &&
+            (planType === 'Oro' ? 1 : planType === 'Plata' ? 2 : 3)
+          );
+        },
+        getHeight(i) {
+          return i === 0 ? '185px;' : (i === 1 && '55px;') || '0;';
+        }
+      }
+    });
+  });
+</script>
+
+<style scoped>
+  .coo-tooltip::after {
+    content: '!';
+    font-family: 'Poppins Bold';
+    margin: 0 0 0 4px;
+  }
+  .coo-tooltip .tooltip-content {
+    font-family: 'Poppins';
+    font-size: 12px;
+    line-height: 18px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    color: #383838;
+    padding: 10px;
+    z-index: 2;
+  }
+  .coo-tooltip .tooltip-content::after,
+  .coo-tooltip .tooltip-content::before {
+    border-top-color: #fff;
+  }
+  .info-credit-plans {
+    color: #383838;
+    font-family: 'Poppins Bold';
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    margin: 10px 0 24px;
+  }
+  [v-cloak] {
+    display: none;
+  }
+  #credit-plan-simulation-home .container-credit-plan {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 14px;
+    justify-items: center;
+  }
+  .card-credit-plan {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    max-width: 410px;
+    width: 100%;
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    background-color: #ffffff;
+    position: relative;
+  }
+  .card-credit-plan .card-credit-plan__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 24px 16px;
+  }
+  .card-credit-plan .card-credit-plan__header .card-credit-plan__container-img {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .card-credit-plan .card-credit-plan__header .card-credit-plan__img {
+    display: flex;
+    width: 64px;
+    height: 64px;
+    box-sizing: border-box;
+    margin: 0 0 7px;
+  }
+  .card-credit-plan .card-credit-plan__header .card-credit-plan__title {
+    color: #383838;
+    font-size: 18px;
+    line-height: 24px;
+    margin: 7px 0;
+    min-height: 48px;
+    text-align: center;
+  }
+  .card-credit-plan .card-credit-plan__header .card-credit-plan__coutes {
+    color: #383638;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 28px;
+    margin: 7px 0 0;
+    font-family: 'Poppins SemiBold';
+  }
+  .card-credit-plan .card-credit-plan__header .card-credit-plan__amount {
+    display: flex;
+    align-items: baseline;
+    color: #7c2582;
+  }
+  .card-credit-plan .card-credit-plan__header .card-credit-plan__amount > h3 {
+    font-size: 28px;
+    line-height: 38px;
+    margin: 0;
+    color: #7c2582;
+  }
+  .card-credit-plan .card-credit-plan__header > a.button-coopeuch {
+    min-width: 184px;
+    margin: 10px 0 0;
+  }
+  .card-credit-plan .card-credit-plan__body {
+    padding: 16px 24px;
+    min-height: 140px;
+  }
+  .card-credit-plan .card-credit-plan__footer {
+    padding: 16px 24px;
+    min-height: auto;
+  }
+  .card-credit-plan .card-credit-plan__body.card-credit-plan-body__benefits {
+    flex-grow: 1;
+  }
+  .card-credit-plan .card-credit-plan__body .card-credit-plan__includes-title {
+    font-size: 14px;
+    line-height: 20px;
+    color: #383838;
+  }
+  .card-credit-plan
+    .card-credit-plan__body
+    .card-credit-plan__includes-content
+    .card-credit-plan__includes-item {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    padding: 15px;
+    box-sizing: border-box;
+    margin: 5px 0;
+    max-width: 341px;
+  }
+  .tooltip-container {
+    display: flex;
+  }
+  .tooltip-text-reference {
+    max-width: fit-content;
+    margin-left: 20px;
+  }
+  .tooltip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 32px;
+    max-width: 218px;
+    width: 100%;
+    background-color: rgba(124, 37, 130, 0.15);
+    border-radius: 3px;
+    color: #2b0040;
+  }
+  .tooltip.discount {
+    position: absolute;
+    z-index: 1;
+    right: 10px;
+    top: -15px;
+    max-width: 102px;
+  }
+  .tooltip.discount::after {
+    display: none;
+  }
+  .tooltip.discount.bg-white {
+    background-color: #fff;
+  }
+  .tooltip.discount.bg-white::before {
+    border-color: transparent #fff transparent transparent;
+  }
+  .tooltip.discount::before {
+    content: '';
+    position: absolute;
+    top: 2%;
+    right: 100%;
+    border-width: 15px;
+    border-style: solid;
+    border-color: transparent rgba(124, 37, 130, 0.15) transparent transparent;
+  }
+  .tooltip::after {
+    content: '';
+    position: absolute;
+    top: 2%;
+    left: 100%;
+    border-width: 15px;
+    border-style: solid;
+    border-color: transparent transparent transparent rgba(124, 37, 130, 0.15);
+  }
+  .card-credit-plan
+    .card-credit-plan__body
+    .card-credit-plan__includes-item
+    figcaption {
+    margin: 0 0 0 16px;
+  }
+  .card-credit-plan
+    .card-credit-plan__body
+    .card-credit-plan__includes-item
+    figcaption
+    > b {
+    font-size: 14px;
+    line-height: 20px;
+    color: #383838;
+  }
+  .card-credit-plan
+    .card-credit-plan__body
+    .card-credit-plan__includes-item
+    figcaption
+    > h4 {
+    font-size: 24px;
+    line-height: 20px;
+    margin: 8px 0;
+    color: #383838;
+  }
+  .card-credit-plan .card-credit-plan__header .card-credit-plan__amount > span {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 28px;
+  }
+  .card-credit-plan
+    .card-credit-plan__header
+    .card-credit-plan__amount-to-request {
+    color: #383638;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    min-height: 60px;
+  }
+  .divider {
+    box-sizing: border-box;
+    height: 1px;
+    width: 100%;
+    border: 1px solid #e7e7e7;
+    background: #e7e7e7;
+  }
+  .legal-text-container {
+    overflow: hidden;
+    transition: height 0.5s;
+    position: relative;
+  }
+  .legal-text-container.open .letra-pequena,
+  .legal-text-container.open {
+    height: auto;
+  }
+  .continue-reading {
+    cursor: pointer;
+    color: #f42534;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    background-color: #f6f6f6;
+    min-height: 46px;
+    line-height: 46px;
+    width: calc(100% - 10px);
+    font-family: 'Poppins SemiBold';
+    font-size: 14px;
+    box-shadow: 0 -8px 12px 10px #f6f6f6;
+  }
+  .legal-text-container.open .continue-reading {
+    position: relative;
+  }
+  .legal-text-container .letra-pequena {
+    height: 60px;
+  }
+  .ribbon-plan-credit {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: absolute;
+  }
+  .ribbon-plan-credit::before,
+  .ribbon-plan-credit::after {
+    position: absolute;
+    content: '';
+    display: block;
+    border: 5px solid #7c2582;
+  }
+  .ribbon-plan-credit span {
+    position: absolute;
+    display: block;
+    width: 225px;
+    padding: 15px 0;
+    background-color: #7c2582;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 14px;
+    line-height: 21px;
+    font-family: 'Poppins SemiBold';
+  }
+  .ribbon-top-left {
+    top: -10px;
+    left: -10px;
+  }
+  .ribbon-top-left::before,
+  .ribbon-top-left::after {
+    border-top-color: transparent;
+    border-left-color: transparent;
+  }
+  .ribbon-top-left::before {
+    top: 0;
+    right: 0;
+  }
+  .ribbon-top-left::after {
+    bottom: 0;
+    left: 0;
+  }
+  .ribbon-top-left span {
+    right: -25px;
+    top: 30px;
+    transform: rotate(-45deg);
+  }
+  .title-credit-plans {
+    max-width: 1062px;
+    color: #383838;
+    font-size: 36px;
+    line-height: 46px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .subtitle-credit-plans {
+    max-width: 1062px;
+    color: #383838;
+    font-size: 28px;
+    line-height: 38px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  /* Medias Queries */
+  @media (max-width: 1024.1px) {
+    .tooltip {
+      font-size: 12px;
+      line-height: 16px;
+      padding: 0 10px;
+    }
+  }
+  @media (max-width: 580.1px) {
+    #credit-plan-simulation-home .container-credit-plan {
+      grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
+    .title-credit-plans {
+      font-size: 24px;
+      line-height: 30px;
+      text-align: left;
+    }
+    .subtitle-credit-plans.description-plans {
+      font-size: 14px;
+      line-height: 20px;
+      text-align: left;
+      font-family: 'Poppins';
+    }
+    .subtitle-credit-plans {
+      font-size: 20px;
+      line-height: 30px;
+      font-family: 'POPPINS BOLD';
+    }
+    .info-credit-plans {
+      font-family: 'Poppins';
+      font-size: 12px;
+      text-align: left;
+    }
+    .card-credit-plan .card-credit-plan__header {
+      padding: 24px 16px;
+    }
+    .card-credit-plan .card-credit-plan__body {
+      padding: 16px;
+    }
+    .card-credit-plan .card-credit-plan__header {
+      align-items: flex-start;
+    }
+    .card-credit-plan
+      .card-credit-plan__header
+      .card-credit-plan__container-img {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+    }
+    .card-credit-plan .card-credit-plan__header .card-credit-plan__img {
+      width: 32px;
+      height: 32px;
+      margin: 0 10px 0 0;
+    }
+    .card-credit-plan .card-credit-plan__detail-collapsable {
+      text-align: left;
+      margin: 0;
+    }
+    .example-simulation {
+      margin: 0;
+    }
+    a.button-coopeuch {
+      width: 100%;
+      margin: 0;
+    }
+    .tooltip-container {
+      flex-direction: column;
+    }
+    .tooltip-text-reference {
+      margin: 10px 0;
+    }
+    .card-credit-plan .card-credit-plan__body .card-credit-plan__includes-item {
+      align-items: flex-start;
+    }
+    .card-credit-plan
+      .card-credit-plan__body
+      .card-credit-plan__includes-item
+      > img {
+      max-width: 24px;
+      max-height: 24px;
+    }
+    .ribbon-top-left {
+      top: -10px;
+      left: 0px;
+    }
+    .ribbon-plan-credit span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      width: 134px;
+      padding: 8px 0;
+      font-size: 12px;
+      height: 24px;
+    }
+    .ribbon-top-left span {
+      right: 0;
+      top: 0;
+      transform: rotate(0);
+    }
+    .ribbon-top-left::after {
+      top: 0px;
+      left: 6px;
+      bottom: auto;
+    }
+    .card-credit-plan
+      .card-credit-plan__body
+      .card-credit-plan__includes-title {
+      font-size: 18px;
+    }
+    .card-credit-plan .card-credit-plan__body {
+      min-height: 14px;
+    }
+    .card-credit-plan .card-credit-plan__header .card-credit-plan__amount-to-request {
+      text-align: left;
+      margin: 10px 0 0;
+    }
+    .card-credit-plan .card-credit-plan__header .card-credit-plan__title {
+      text-align: left;
+      min-height: 20px;
+    }
+    .tooltip-content {
+      left: -80px !important;
+      padding: 8px !important;
+      width: 150px !important;
+    }
+  }
+</style>

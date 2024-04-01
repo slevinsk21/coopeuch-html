@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- condiciones -->
+    <div class="container">
+      <h4 class="title-section-seguro-covid" style="text-align: left">
+        <b>Condiciones</b>
+      </h4>
+    </div>
+
+    <section class="container seguro-covid-condiciones">
+      <div id="seguro-covid-buttons" class="seguro-covid-buttons">
+        <button
+          class="tablink current-tab"
+          onclick="selectTab(event, 'costos')"
+        >
+          <span>Costos</span>
+        </button>
+        <button class="tablink" onclick="selectTab(event, 'exclusiones')">
+          <span>Exclusiones del seguro</span>
+        </button>
+        <button class="tablink" onclick="selectTab(event, 'otros')">
+          <span>Otros aspectos relevantes</span>
+        </button>
+      </div>
+
+      <div id="costos" class="seguro-covid-content fade-in">
+        <div class="info-content-seguro-covid">
+          <h4 class="info-content-title">
+            Costo de la Prima y Montos Asegurados
+          </h4>
+
+          <figure>
+            <img
+              src="https://www.coopeuch.cl/media/wysiwyg/valor_prima.png"
+              alt=""
+            />
+            <figcaption>
+              Valor de prima bruta única por trabajador
+              <b style="color: #00a1df">$9.181</b>
+              (UF 0,31. Valor UF al 01-06-21: $29.617,07)
+            </figcaption>
+          </figure>
+
+          <h5 class="info-content-subtitle">
+            <b>Costo de la Prima y Montos Asegurados</b>
+          </h5>
+
+          <figure>
+            <img
+              src="https://www.coopeuch.cl/media/wysiwyg/Riesgo_de_salud.png"
+              alt="salud-icon"
+            />
+            <figcaption>
+              Riesgos de salud: <b style="color: #00a1df">UF 126</b>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="https://www.coopeuch.cl/media/wysiwyg/Riesgo_de_muerte.png"
+              alt="cruz-icon"
+            />
+            <figcaption>
+              Riesgos de muerte: <b style="color: #00a1df">UF 180</b>
+            </figcaption>
+          </figure>
+        </div>
+
+        <img
+          class="seguro-covid-img"
+          src="https://www.coopeuch.cl/media/wysiwyg/img_costos.png"
+          alt=""
+        />
+      </div>
+
+      <div
+        id="exclusiones"
+        class="seguro-covid-content fade-in"
+        style="display: none"
+      >
+        <h4 class="info-content-title">Exclusiones del seguro</h4>
+
+        <div class="description-column description-column description-column1">
+          <div class="description-text">
+            <ul>
+              <li>
+                <span
+                  >Gastos de hospitalización, rehabilitación o el fallecimiento
+                  asociados a <b>enfermedades distintas al Covid-19.</b></span
+                >
+              </li>
+              <li>
+                <span
+                  >Gastos de hospitalización, rehabilitación o el fallecimiento
+                  asociados a
+                  <b>derivados de lesiones sufridas en un accidente</b>, de
+                  cualquier naturaleza o tipo, incluso si la victima tiene
+                  Covid-19.</span
+                >
+              </li>
+              <li>
+                <span
+                  >En el caso de personas asegurads afiliadas a <b>FONASA</b>,
+                  los gastos de hospitalización y rehabilitación
+                  <b
+                    >incurridos en prestadores que no pertenezcan a la Red
+                    Asistencial</b
+                  >
+                  o bien fuera de la Modalidad de Atención Institucional.</span
+                >
+              </li>
+              <li>
+                <span
+                  >En el caso de personas asegurads afiliadas a una
+                  <b>ISAPRE</b>, los gastos de hospitalización y rehabilitación
+                  <b
+                    >incurridos en prestadores de salud individuales e
+                    institucionales</b
+                  >
+                  que cada Institución pone a disposición de sus afiliados, con
+                  el propósito de otorgarles la <b>CAEC (*)</b></span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <small>(*) Cobertura Adicional para Efermedades Catastróficas</small>
+      </div>
+
+      <div
+        id="otros"
+        class="seguro-covid-content fade-in"
+        style="display: none"
+      >
+        <div class="info-content-seguro-covid">
+          <h4 class="info-content-title">Otros aspectos relevantes</h4>
+
+          <h5 class="info-content-subtitle"><b>Vigencia del seguro</b></h5>
+          <figure>
+            <img
+              src="https://www.coopeuch.cl/media/wysiwyg/vigencia.png"
+              alt="vigencia-icon"
+            />
+            <figcaption>
+              El plazo de vigencia del contrato de seguro será de un año desde
+              su contratación.
+            </figcaption>
+          </figure>
+
+          <h5 class="info-content-subtitle"><b>Carencias y deducibles</b></h5>
+          <figure>
+            <img
+              src="https://www.coopeuch.cl/media/wysiwyg/deducibles.png"
+              alt="deducibles-icon"
+            />
+            <figcaption>
+              Este seguro no contepla carencias de ninguna especie ni
+              deducibles.
+            </figcaption>
+          </figure>
+
+          <h5 class="info-content-subtitle"><b>Solución de controversia</b></h5>
+          <figure>
+            <img
+              src="https://www.coopeuch.cl/media/wysiwyg/arbitro.png"
+              alt="arbitro-icon"
+            />
+            <figcaption>
+              Cualquier dificultad que se suscite entre involucrados será
+              resuelta por un árbitro arbitrador.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+    <script>
+      const selectTab = ({ currentTarget }, id) => {
+        tablinks = document.getElementsByClassName('tablink');
+        contentTab = document.getElementsByClassName('seguro-covid-content');
+        for (i = 0; i < contentTab.length; i++) {
+          contentTab[i].style.display = 'none';
+          tablinks[i].classList.remove('current-tab');
+          tablinks[i].disabled = false;
+        }
+        currentTarget.classList.add('current-tab');
+        currentTarget.disabled = true;
+        document.getElementById(id).style.display = 'flex';
+      };
+    </script>
+    <style>
+      #costos.seguro-covid-content .info-content-seguro-covid {
+        max-width: 478px;
+      }
+      #exclusiones.seguro-covid-content {
+        flex-direction: column;
+        padding: 0 50px 34px;
+      }
+      #otros {
+        justify-content: flex-start;
+        padding: 0 50px 34px;
+      }
+      #otros.seguro-covid-content .info-content-seguro-covid {
+        max-width: 100% !important;
+      }
+      #otros.seguro-covid-content .info-content-seguro-covid figure {
+        min-height: auto;
+      }
+      .fade-in {
+        animation: fadeIn ease 1.1s;
+        -webkit-animation: fadeIn ease 1.1s;
+        -moz-animation: fadeIn ease 1.1s;
+        -o-animation: fadeIn ease 1.1s;
+        -ms-animation: fadeIn ease 1.1s;
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @-moz-keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @-webkit-keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @-o-keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @-ms-keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      .seguro-covid-condiciones {
+        display: flex;
+        flex-direction: column;
+        min-height: 468px;
+        margin: 30px 0;
+        box-sizing: border-box;
+        background-color: #fff;
+      }
+      .seguro-covid-buttons {
+        display: flex;
+        box-sizing: border-box;
+        height: 49px;
+        background-color: #ffffff;
+        overflow: hidden;
+        margin-bottom: 33px;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14);
+        width: 100%;
+      }
+      .seguro-covid-buttons button {
+        position: relative;
+        flex: 1;
+        cursor: pointer;
+        box-shadow: none;
+        background: #00000000;
+        border: none;
+        outline: none;
+        transition: all 0.3s ease;
+      }
+      .seguro-covid-buttons button:hover,
+      .seguro-covid-buttons button.current-tab:active,
+      .seguro-covid-buttons button.current-tab {
+        opacity: 1;
+      }
+      .seguro-covid-buttons button:hover::after,
+      .seguro-covid-buttons button.current-tab:active::after,
+      .seguro-covid-buttons button.current-tab::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        background-color: #ec1b2b;
+        width: 100%;
+      }
+      .seguro-covid-buttons button span {
+        color: #383838;
+      }
+      .seguro-covid-buttons button:hover span,
+      .seguro-covid-buttons button.current-tab:active span,
+      .seguro-covid-buttons button.current-tab span {
+        color: #ec1b2b;
+        font-family: 'Poppins SemiBold';
+      }
+      .seguro-covid-content {
+        display: flex;
+        justify-content: space-around;
+      }
+      .info-content-title {
+        color: #333333;
+        font-size: 24px;
+        line-height: 42px;
+      }
+      .info-content-subtitle {
+        color: #333333;
+        font-size: 16px;
+        line-height: 32px;
+      }
+      .seguro-covid-img {
+        object-fit: contain;
+        max-width: 393px;
+        width: 100%;
+        height: auto;
+        min-width: 100px;
+        padding: 10px;
+      }
+      .description-column .description-text {
+        padding: 0;
+      }
+      @media (max-width: 792.1px) {
+        .seguro-covid-condiciones {
+          align-items: center;
+        }
+        .seguro-covid-content {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .seguro-covid-buttons {
+          flex-direction: column;
+          height: auto;
+        }
+        .seguro-covid-buttons button {
+          flex: 1;
+          min-height: 50px;
+        }
+      }
+      @media (max-width: 580.1px) {
+        .seguro-covid-content {
+          margin-left: 0;
+          padding: 20px 0;
+        }
+        .info-content-title {
+          font-size: 18px;
+          line-height: 32px;
+          margin-top: 0;
+        }
+        .info-content-subtitle {
+          font-size: 14px;
+          line-height: 24px;
+        }
+        #exclusiones.seguro-covid-content,
+        #otros {
+          padding: 0 10px 20px;
+        }
+        #costos.seguro-covid-content .info-content-seguro-covid figure,
+        #otros.seguro-covid-content .info-content-seguro-covid figure {
+          min-height: 50px;
+        }
+      }
+    </style>
+    <!-- condiciones -->
+  </body>
+</html>

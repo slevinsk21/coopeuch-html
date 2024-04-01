@@ -1,0 +1,1026 @@
+<div id="cyber-products" v-cloak>
+  <div class="container-products">
+    <h2 style="text-align: center">
+      Productos <strong>Cyber Coopeuch</strong>
+    </h2>
+
+    <div class="product-text-contaniner">
+      <div class="container-title-section">
+        <figure>
+          <img
+            src="https://www.coopeuch.cl/media/wysiwyg/ico_simulaciones.png"
+            alt=""
+            class="product-icon"
+          />
+        </figure>
+        <h2 class="title-section-cyber-layout">
+          Ejemplos de simulaciones de
+          <strong>crédito de consumo </strong>
+          para socios sin crédito vigente
+          <span style="font-size: 9px">(1)</span>
+        </h2>
+      </div>
+    </div>
+
+    <div class="box-wrapper">
+      <div class="simulator-box" v-for="item in products.cardCuotes">
+        <div class="box-header">
+          <span class="ribbon"
+            >HASTA &nbsp;<b>64% DCTO.</b>&nbsp;EN LA TASA</span
+          >
+          <div>
+            <span class="tag-box">{{ item.coute }} coutas de </span>
+            <h3 class="box-title">{{ item.couteValue }}</h3>
+          </div>
+          <a
+            href="https://www.coopeuch.cl/personas/simulador/consumo/inicio"
+            :data-cuotas="item.coute"
+            class="button-coopeuch"
+          >
+            Solicítala
+          </a>
+        </div>
+
+        <div class="amount-request">
+          <h4>
+            Monto a solicitar
+            <b>{{ products.totalAmount }}</b>
+          </h4>
+        </div>
+
+        <ul class="box-body">
+          <li class="attribute txt-m-dscto">
+            <span> Tasa mensual interés mensual:</span>
+            <b style="text-decoration: line-through">{{ item.originalRate }}</b>
+          </li>
+
+          <li class="attribute">
+            <div style="width: 60px">
+              <span>CAE:</span>
+              <div class="coo-tooltip">
+                <div class="tooltip-content">
+                  <p>
+                    Es el porcentaje que revela el costo del crédito en un año,
+                    sin importar el plazo pactado o las cuotas.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <b>{{ item.cae }}</b>
+          </li>
+          <li class="attribute" style="min-width: 95px">
+            <span>Seguro de desgravamen:</span>
+            <b>{{ item.desgravamen }}</b>
+          </li>
+
+          <li class="attribute">
+            <span>Costo total:</span>
+            <b>{{ item.totalCredit }}</b>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="padding: 0 10px">
+      <section class="card">
+        <div class="card-content">
+          <h5 class="card-content-title">
+            ¿Necesitas un crédito de consumo con otro monto?
+          </h5>
+          <a
+            href="https://www.coopeuch.cl/personas/simulador/consumo/inicio"
+            class="custom-btn"
+            >Simular</a
+          >
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<script>
+  require(['vue'], function (Vue) {
+    'use strict';
+
+    new Vue({
+      el: '#cyber-products',
+      data: {
+        products: {
+          totalAmount: '$ 1.000.000',
+          cardCuotes: [
+            {
+              coute: 6,
+              couteValue: '$ 178.450',
+              totalCredit: '1.067.561',
+              cae: '16,92%',
+              desgravamen: '$10.262',
+              originalRate: '1,00%'
+            },
+            {
+              coute: 12,
+              couteValue: '$ 91.910',
+              totalCredit: '1.099.639',
+              cae: '15,12%',
+              desgravamen: '$10.262',
+              originalRate: '1,00%'
+            },
+            {
+              coute: 18,
+              couteValue: '$ 63.990',
+              totalCredit: '1.148.489',
+              cae: '15,96%',
+              desgravamen: '$17.516',
+              originalRate: '1,00%'
+            }
+          ]
+        }
+      }
+    });
+  });
+</script>
+<style scoped>
+  [v-cloak] {
+    display: none;
+  }
+  p.subtitle-cope-new {
+    font-size: 20px;
+  }
+  p.subtitle-cope {
+    font-size: 40px;
+    font-weight: bold;
+    color: #f42534;
+  }
+  .subti-cyber-new {
+    color: #f42534;
+    font-size: 40px;
+  }
+  #cyber-products {
+    background: rgb(244, 246, 248);
+    padding: 20px 0 41px;
+  }
+  .container-products {
+    max-width: 1170px;
+    margin: 0 auto;
+  }
+  .product-text-contaniner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 10px;
+  }
+  .product-icon {
+    max-width: 36px;
+    width: 100%;
+    padding-right: 30px;
+    height: auto;
+  }
+  .dropbtn {
+    max-width: 360px;
+    margin: 0 0 0 15px;
+    border-radius: 6px;
+    font-family: 'Poppins Bold';
+  }
+  .box-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .box-wrapper .simulator-box {
+    color: #333333;
+    font-weight: normal;
+    width: 100%;
+    max-width: 370px;
+    background-color: #fff;
+    border: 1px solid #c6cfe1;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: 10px !important;
+  }
+  .box-wrapper .simulator-box .box-header {
+    min-height: 135px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px 25px;
+    align-items: flex-end;
+    background: #fff;
+  }
+  .tag-box {
+    color: #383838;
+    font-family: 'Poppins Bold';
+    position: unset;
+    background: inherit;
+    font-size: 16px;
+    line-height: 25px;
+    text-transform: none;
+    padding: 0;
+  }
+  .box-title {
+    font-family: 'Poppins Bold';
+    color: #2b6bb4;
+    font-size: 32px;
+    line-height: 48px;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .simulator-box .amount-request {
+    display: flex;
+    align-items: center;
+    background: rgb(216 216 216 / 0.2);
+    min-height: 60px;
+  }
+  .simulator-box .amount-request h4 {
+    margin: 0;
+    font-size: 20px;
+    line-height: 30px;
+    padding: 0 16px;
+  }
+  .box-wrapper .simulator-box .box-body {
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+    margin: 0;
+    border: none;
+    background: #fff;
+  }
+  .box-wrapper .simulator-box .box-body .attribute {
+    display: flex;
+    margin: 0;
+    flex-wrap: wrap;
+    flex: 25%;
+    margin-right: 4px;
+  }
+  .box-wrapper .simulator-box .box-body .attribute span,
+  .box-wrapper .simulator-box .box-body .attribute b {
+    font-size: 12px !important;
+    line-height: 18px;
+  }
+  .ribbon {
+    position: absolute !important;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    min-width: 200px;
+    height: 29px;
+    padding: 0px 10px;
+    background: #801b86;
+    position: relative;
+    line-height: 36px;
+    border-radius: 6px;
+    top: 16px;
+    left: -5px;
+  }
+  .ribbon::after {
+    position: absolute;
+    content: '';
+    background-color: inherit;
+    width: 22px;
+    height: 22px !important;
+    transform: rotate(45deg);
+    right: -7px;
+    top: 3px;
+    border-radius: 5px 4px 5px 100%;
+  }
+  /* END CARDS PRODUCT */
+
+  /* START SECTION SIMULAR*/
+  .card {
+    width: 100%;
+    max-width: calc(1170px - 20px);
+    min-height: 75px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16), 0 2px 5px rgba(0, 0, 0, 0.23);
+  }
+  .card-content {
+    display: flex;
+    align-items: center;
+    padding: 13px;
+    justify-content: space-around;
+  }
+  .card-content-title {
+    color: #333333;
+    font-size: 20px;
+    line-height: 20px;
+    margin: 10px 0;
+    text-align: center;
+  }
+  .custom-btn {
+    background-color: #fff;
+    padding: 12px 27px;
+    font-family: Poppins;
+    font-weight: 800;
+    font-size: 16px;
+    border: 2px solid #f42534;
+    border-radius: 5px;
+    color: #f42534 !important;
+    outline: none;
+    min-width: 135px;
+    text-align: center;
+    text-decoration: none !important;
+    transition: all 0.3s ease-in;
+  }
+  .custom-btn:hover,
+  .custom-btn:focus {
+    color: #fff !important;
+    background-color: #f42534;
+  }
+  @media only screen and (max-width: 767px) {
+    p.subtitle-cope {
+      font-size: 24px;
+    }
+    .container-products h2 {
+      font-size: 20px;
+    }
+    p.subtitle-cope-new {
+      font-size: 12px;
+      padding-top: 6px;
+    }
+  }
+  /* END SECTION SIMULAR*/
+
+  @media (max-width: 480.1px) {
+    .box-wrapper .simulator-box .box-body .attribute.txt-m-dscto .ribbon {
+      font-size: 14px !important;
+    }
+    .product-icon {
+      max-width: 24px;
+    }
+    .product-text-contaniner h4,
+    span {
+      font-size: 14px !important;
+    }
+    .box-wrapper .simulator-box {
+      padding: 0;
+    }
+    .dropbtn {
+      margin: 0;
+    }
+  }
+  @media (max-width: 780.1px) {
+    .product-text-contaniner {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .card-content {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<!--  -->
+<style>
+  .tex-ter {
+    text-align: center;
+    padding-bottom: 69px;
+  }
+
+  @media only screen and (max-width: 767px) {
+    .tex-ter h3 {
+      font-size: 20px;
+      margin: 5px;
+    }
+  }
+  .container-termconditions .title {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    padding: 0;
+  }
+</style>
+
+<div class="tex-ter"><h3>Términos y condiciones</h3></div>
+
+<input type="hidden" id="plus-icon" value="{{media url=wysiwyg/mas.svg}}" />
+<input type="hidden" id="minus-icon" value="{{media url=wysiwyg/menos.svg}}" />
+
+<div class="container-termconditions" style="border-bottom: none">
+  <div class="header-termconditions">
+    <span class="title">1.) Simulación crédito de consumo</span>
+    <span class="icon"><img src="{{media url=wysiwyg/mas.svg}}" /></span>
+  </div>
+  <div class="content-termconditions" style="display: none">
+    <p>
+      Infórmese sobre la garantía estatal de los depósitos en su cooperativa o
+      en www. cmfchile .cl
+      <br />
+
+      La aprobación del crédito está condicionada a la verificación de
+      antecedentes y cumplimiento a requisitos establecidos en políticas
+      crediticias de Coopeuch. Promoción válida hasta el 15 de agosto 2021.
+    </p>
+    <ul>
+      <li>
+        El crédito de consumo Coopeuch comunicado en el presente sitio web tiene
+        el beneficio de un tarifado especial para el caso en que el socio lo
+        tome con pago de cuotas descontadas por planilla y para montos de hasta
+        $1.000.000 hasta 24 meses. Si el socio no desea utilizar el descuento
+        por planilla como medio de pago, o desea un monto superior a $1.000.000
+        o un plazo superior a los 24 meses, también podría acceder a este
+        crédito, pero sujeto a evaluación crediticia según políticas de Coopeuch
+        y con condiciones de tarifado normal.
+      </li>
+
+      <li>
+        Valor cuota del ejemplo calculado con 66 días plazo del primer
+        vencimiento después de la fecha de otorgamiento del crédito. Ejemplo
+        incluye plan de seguros Coopeuch que corresponde a los seguros de
+        desgravamen, invalidez total y permanente 2/3, enfermedades graves y
+        hospitalización, para un socio sin crédito de consumo vigente de hasta
+        68 años de edad.
+      </li>
+
+      <li>
+        CAE (Carga Anual Equivalente) es el indicador expresado en forma de
+        porcentaje que revela el costo total de un crédito en un período anual,
+        cualquiera sea el plazo pactado para el pago del mismo.
+      </li>
+
+      <li>
+        CTC (Costo total del crédito) monto total que debe asumir el consumidor
+        y que corresponde a la suma de todos los pagos periódicos definidos como
+        valor de la cuota en función del plazo acordado.
+      </li>
+
+      <li>
+        El remanente es el resultado positivo de la gestión de la cooperativa en
+        el ejercicio del año anterior. En caso que la gestión de Coopeuch sea
+        favorable, el remanente se distribuye entre los socios de la forma
+        señalada en los estatutos y la normativa vigente.
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="container-termconditions" style="border-bottom: none">
+  <div class="header-termconditions">
+    <span class="title">
+      2.) Promoción válida desde el 11 al 15 de agosto de 2021, hasta agotar el
+      stock de 1.500.000 Puntos Coopeuch
+    </span>
+    <span class="icon"><img src="{{media url=wysiwyg/mas.svg}}" /></span>
+  </div>
+  <div class="content-termconditions" style="display: none">
+    <p>
+      Participan en esta promoción los socios que contraten su seguro de auto
+      con Cuenta Vista Coopeuch vigente y/o Tarjeta de Crédito Mastercard
+      Coopeuch vigente.
+    </p>
+    <p>
+      Bases y más información del programa de Puntos Coopeuch se encuentran
+      publicadas en www. puntoscoopeuch.cl y protocolizadas en la Séptima
+      Notaría de Santiago doña María Soledad Santos.
+    </p>
+    <p>
+      Los riesgos son cubiertos por la Compañía de Seguros BNP Paribas Cardif
+      Seguros Generales S.A. Las coberturas contratadas se rigen según las
+      condiciones generales, cuyos modelos se encuentran depositados en la C.M.F
+      bajo el código POL120170042, CAD120170044, CAD120170046, CAD120170043 Y
+      POL320131424. Los seguros son intermediados por Coopeuch Corredores de
+      Seguros SpA. Quien asume las obligaciones propias de los seguros que
+      intermedia en dependencias de Coopeuch sin responsabilidad ni injerencia
+      para esta última. El detalle de las coberturas y exclusiones de éste
+      seguro se encuentra en las condiciones generales antes mencionadas. Las
+      condiciones generales pueden ser consultadas a través del sitio web de la
+      Comisión del Mercado Financiero (www.cmfchile.cl) en la opción Mercado de
+      Seguros/Depósito de pólizas. Vigencia del seguro: Anual mientras se
+      mantenga al día en el pago de su póliza contratada y se cumplan los
+      requisitos de asegurabilidad. Forma de pago de la prima: cuotas mensuales
+      según el plan contratado. Se deja constancia que Coopeuch no comercializa,
+      no intermedia, ni promueve seguros. Oferta exclusiva para personas
+      naturales.
+    </p>
+  </div>
+</div>
+
+<div class="container-termconditions" style="border-bottom: none">
+  <div class="header-termconditions">
+    <span class="title">3.) Sorteo de 20 Compras gratis</span>
+    <span class="icon"><img src="{{media url=wysiwyg/mas.svg}}" /></span>
+  </div>
+  <div class="content-termconditions" style="display: none">
+    <p>
+      Conéctate con los Dias Coopeuch y participa por una de las 20 compras
+      gratis que tenemos para ti, compra lo que quieras desde $15.000 con tu
+      Tarjeta de Crédito Coopeuch entre el 11 al 15 de Agosto del 2021. Monto
+      máximo de devolución por socio es de $50.000. El abono será depositado en
+      la Tarjeta de Crédito Coopeuch Mastercard del socio titular ganador y será
+      reflejado en el estado de cuenta del mes siguiente o subsiguiente a la
+      fecha del sorteo. El sorteo se llevará a efecto el día 18 de Agosto de
+      2021 y la modalidad será a través de la tómbola digital
+      https://primaryschoolict.com/random-name-selector/ o en su defecto la
+      modalidad que determine la Cooperativa. Para recibir el abono, es
+      necesario que el socio conserve su estado de vigente y su Tarjeta de
+      Crédito Coopeuch Mastercard se encuentre sin mora a la fecha de dicho
+      abono. Las bases de este concurso se encuentran publicadas en
+      https://www.coopeuch.cl/dias-coopeuch. Prefiere comprar por internet, no
+      lo olvides, cuidarnos es tarea de todos.
+    </p>
+  </div>
+</div>
+
+<div class="container-termconditions" style="border-bottom: none">
+  <div class="header-termconditions">
+    <span class="title">4.) Sorteo de 5 Avances gratis </span>
+    <span class="icon"><img src="{{media url=wysiwyg/mas.svg}}" /></span>
+  </div>
+  <div class="content-termconditions" style="display: none">
+    <p>
+      Concurso válido desde el 11 al 15 de Agosto del 2021. Las bases del
+      concurso se encuentran publicadas en
+      https://www.coopeuch.cl/dias-coopeuch. Se excluyen de esta promoción todos
+      los funcionarios de Coopeuch, sus cónyuges, conviviente civil, hijos y
+      parientes en primer grado como, asimismo, personas, agencias o empresas
+      contratistas o subcontratistas de Coopeuch. Participan en el concurso
+      todos los socios titulares y adicionales vigentes que utilicen su tarjeta
+      de crédito Coopeuch Mastercard. Sólo se considerarán como participantes de
+      este concurso los titulares y adicionales que no se encuentren en mora en
+      el pago de su tarjeta de crédito Coopeuch Mastercard antes y durante la
+      vigencia de este concurso, es decir con retraso en el pago por más de 5
+      días a partir del vencimiento de este. El sorteo se realizará el día 18 de
+      agosto de 2021. El premio consiste en un abono por el monto total del
+      avance ganador con un tope máximo de devolución por avance de $200.000,
+      valor que será abonado en la Tarjeta de Crédito Coopeuch Mastercard de
+      cada socio titular ganador. Para recibir el abono, es necesario que el
+      socio conserve su estado de socio vigente y su Tarjeta Coopeuch Mastercard
+      se encuentre sin mora a la fecha de dicho abono.
+    </p>
+  </div>
+</div>
+
+<div class="container-termconditions" style="border-bottom: none">
+  <div class="header-termconditions">
+    <span class="title">5.) 6 a 12 cuotas precio contado</span>
+    <span class="icon"><img src="{{media url=wysiwyg/mas.svg}}" /></span>
+  </div>
+  <div class="content-termconditions" style="display: none">
+    <p>
+      Promoción válida desde 11 de agosto al 15 de agosto del 2021, ambas fechas
+      inclusive, para compras realizadas con Tarjeta de Crédito Coopeuch
+      Mastercard titulares y/o adicionales que se encuentren al día y con el
+      cupo disponible para realizar compras en cualquier comercio adherido a
+      Transbank bajo la modalidad de compra en 6 o 12 cuotas. La obtención de la
+      Tarjeta de Crédito está sujeta al cumplimiento de las políticas de crédito
+      de Coopeuch.
+    </p>
+  </div>
+</div>
+
+<div class="container-termconditions" style="border-bottom: none">
+  <div class="header-termconditions">
+    <span class="title">6.) Avance tasa 1,19%</span>
+    <span class="icon"><img src="{{media url=wysiwyg/mas.svg}}" /></span>
+  </div>
+  <div class="content-termconditions" style="display: none">
+    <p>
+      Avance tasa 1,19% en cajeros automáticos hasta el 15-08-21. Como ejemplo,
+      al solicitar un monto de avance de $300.000 en 6 cuotas iguales de
+      $52.736. CAE 20,18% y costo total del crédito de $316.417. Calculado el
+      día 09-08-21
+    </p>
+  </div>
+</div>
+
+<div class="container-termconditions" style="border-bottom: none">
+  <div class="header-termconditions">
+    <span class="title">7.) Despacho gratis catálogo de productos</span>
+    <span class="icon"><img src="{{media url=wysiwyg/mas.svg}}" /></span>
+  </div>
+  <div class="content-termconditions" style="display: none">
+    <p>
+      Infórmese sobre la garantía estatal de los depósitos en su cooperativa o
+      www.cmfchile.cl. Despacho gratis desde el 11 al 15 de agosto 2021, o hasta
+      agotar fondo de $1.000.000, lo que ocurra primero. Para los canjes
+      posteriores, se cobrará el costo de despacho indicado al momento de
+      realizar el canje.La administración, garantía, entrega y calidad del
+      premio es de exclusiva responsabilidad de SOCIEDAD DE MARKETING Y
+      FIDELIZACIÓN SpA, no teniendo Coopeuch intervención ni responsabilidad
+      alguna en la garantía, entrega, ni en la ulterior atención. Bases y más
+      información del programa de Puntos Coopeuch se encuentran publicadas en
+      www. puntoscoopeuch.cl y protocolizadas en la Séptima Notaría de Santiago
+      doña María Soledad Santos.
+    </p>
+  </div>
+</div>
+
+<div class="container-termconditions" style="border-bottom: none">
+  <div class="header-termconditions">
+    <span class="title">8.) 30% descuento en vuelos y paquetes</span>
+    <span class="icon"><img src="{{media url=wysiwyg/mas.svg}}" /></span>
+  </div>
+  <div class="content-termconditions" style="display: none">
+    <p>
+      Descuento válido desde 11al 15 de agosto de 2021, ambas fechas inclusive,
+      o hasta agotar fondo disponible de $2.000.000, lo que ocurra primero. El
+      descuento será realizado al momento de la compra, pagando con tarjeta de
+      crédito Coopeuch. Descuento se aplica sobre la tarifa final del pasaje o
+      paquete (incluye impuestos), tope de descuento por compra de $50.000
+      pesos. En caso de requerir cambios en fechas se debe contactar con
+      despegar al número + 56 22 484 8484, Apps despegar o página web www.
+      despegar .cl. Cambio se encuentra condicionado a las características del
+      pasaje y/o paquete, la autorización de la aerolínea y/o hotel, y puede
+      estar afecto a la penalidad indicada al momento de realizar la compra.
+    </p>
+  </div>
+</div>
+
+<div class="container-termconditions">
+  <div class="header-termconditions">
+    <span class="title">9.) Definición de remanente</span>
+    <span class="icon"><img src="{{media url=wysiwyg/mas.svg}}" /></span>
+  </div>
+  <div class="content-termconditions" style="display: none">
+    <p>
+      El remanente es el resultado positivo de la gestión de la cooperativa del
+      año anterior. En caso que la gestión de Coopeuch sea favorable, el
+      remanente se distribuye entre todos los socios de acuerdo a la proporción
+      de cuotas de participación promedio, el uso de productos y un
+      comportamiento responsable al mantener sus cuotas y pagos al día.
+    </p>
+  </div>
+</div>
+
+<script>
+  require(['jquery', 'collapsible', 'accordion'], function (
+    $,
+    collapsible,
+    accordion
+  ) {
+    $('.header-termconditions').click(function () {
+      $header = $(this);
+      $content = $header.next();
+
+      if (!$content.is(':visible')) {
+        $header.find('.icon>img').attr('src', $('#minus-icon').val());
+      }
+
+      $content.slideToggle(500, function () {
+        if (!$content.is(':visible')) {
+          $header.find('.icon>img').attr('src', $('#plus-icon').val());
+        }
+      });
+    });
+  });
+</script>
+
+<!--  -->
+
+<h4 class="medium-size-porta-credit">
+  <b>Porta tu Crédito Hipotecario</b> a Coopeuch con tasa desde
+</h4>
+
+<h2 class="valuation-porta-credit">
+  <strong>3,39% a 15 años</strong>
+  <sup style="font-size: 9px; top: -30px">(*)</sup>
+</h2>
+
+<h4 class="medium-size-porta-credit">¿Por qué portarme a Coopeuch?</h4>
+
+<figure class="item-porta-credit">
+  <img src="{{media url=wysiwyg/ico_cliente_socio.png}}" alt="" />
+
+  <figcaption>
+    <b>Cliente a Socio</b><br />
+    <p>
+      Pasa de ser cliente a Socio y participa de los resultados de la
+      cooperativa (Remanente)
+    </p>
+  </figcaption>
+</figure>
+
+<figure class="item-porta-credit">
+  <img src="{{media url=wysiwyg/ico_remanente_1.png}}" alt="" />
+
+  <figcaption>
+    <b>Participar del remanente</b><br />
+    <p>
+      Una vez al año Coopeuch distribuye el resultado positivo del ejercicio
+      anterior entre todos sus socios. Este año se distribuyeron más de $60.000
+      millones en todo el país.
+    </p>
+  </figcaption>
+</figure>
+
+<a href="https://portabilidad.coopeuch.cl" class="button-coopeuch">
+  Portarme
+</a>
+
+<p class="legal-cyber">
+  (*) Sujeto a evaluación de acuerdo a las políticas de créditos vigentes al
+  momento de la solicitud.
+</p>
+
+<style>
+  .legal-cyber {
+    font-size: 12px;
+    line-height: 22px;
+    margin-top: 16px;
+  }
+  h4.medium-size-porta-credit {
+    font-size: 20px;
+    font-family: 'Poppins';
+    line-height: 28px;
+    margin-top: 0;
+  }
+  .valuation-porta-credit {
+    font-size: 40px;
+    line-height: 40px;
+    font-family: 'Poppins Bold';
+    color: #333;
+    margin-top: 0;
+  }
+  .item-porta-credit-container {
+    display: flex;
+  }
+  figure.item-porta-credit {
+    display: flex;
+    align-items: flex-start;
+  }
+  figure.item-porta-credit > img {
+    margin: 6px 10px 0 0;
+    max-width: 32px;
+  }
+  figure.item-porta-credit > figcaption {
+    font-size: 14px;
+    line-height: 22px;
+    color: #333333;
+  }
+  .cyber-img-desk {
+    display: none !important;
+  }
+
+  @media only screen and (max-width: 580.1px) {
+    .medium-size-porta-credit {
+      font-size: 18px;
+      line-height: 24px;
+    }
+    h4.medium-size-porta-credit {
+      font-size: 28px;
+      line-height: 32px;
+    }
+    .pagebuilder-column.cyber-img-mob {
+      order: -1;
+      /* text-align: center; */
+    }
+    .legal-cyber {
+      font-size: 10px;
+    }
+  }
+</style>
+
+<style>
+  .container-title-section {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+  }
+  .container-title-section h2.title-section-cyber-layout {
+    font-size: 24px;
+    line-height: 35px;
+    color: #333;
+  }
+</style>
+
+<!--  -->
+<style>
+  #main-cognitive-assistant-container {
+    display: none;
+  }
+  .boton-vertical {
+    display: none;
+  }
+  .banner-cyber-container {
+    background-image: url(https://www.coopeuch.cl/media/wysiwyg/banner_desktop_dias_coopeuch.png);
+    height: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    min-height: 420px;
+  }
+  .banner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 16%;
+    right: 25%;
+    width: 100%;
+  }
+  .banner-content h5 {
+    color: #333;
+    font-size: 24px;
+    font-family: 'Poppins Bold';
+  }
+  .banner-content h1 {
+    font-family: 'Poppins Bold';
+    font-size: 40px;
+    line-height: 60px;
+    text-align: center;
+    color: #ffff;
+    margin-bottom: 2px;
+    background: #f22535;
+    border-radius: 13px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .page-main {
+    max-width: 100%;
+  }
+  .chip-cyber {
+    font-family: 'Poppins SemiBold';
+    color: #ffffff;
+    padding: 8px 15px;
+    border-radius: 4px;
+    max-width: fit-content;
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 780.1px) {
+    .banner-content {
+      right: 0;
+    }
+  }
+  @media (max-width: 580.1px) {
+    .banner-cyber-container {
+      background-image: url(https://www.coopeuch.cl/media/wysiwyg/banner-mobile-cyber-new.png);
+    }
+    .banner-content {
+      top: 0;
+      left: auto;
+      text-align: center;
+    }
+    .banner-content h5 {
+      max-width: 340px;
+    }
+    .banner-content h1 {
+      font-size: 32px;
+      line-height: 40px;
+    }
+  }
+</style>
+
+<style>
+  #main-cognitive-assistant-container {
+    display: none;
+  }
+  .boton-vertical {
+    display: none;
+  }
+  .banner-cyber-container {
+    background-image: url(https://www.coopeuch.cl/media/wysiwyg/banner_desktop_dias_coopeuch.png);
+    height: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    min-height: 420px;
+  }
+  .banner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+  }
+  .banner-content h5.subtitle-cyber {
+    color: #333;
+    font-size: 24px;
+    font-family: 'Poppins Bold';
+    line-height: 35px;
+    text-align: center;
+  }
+  .banner-content h5.title-cyber {
+    color: #333;
+    font-size: 36px;
+    font-family: 'Poppins Bold';
+    line-height: 55px;
+    text-align: center;
+  }
+  .banner-content h1 {
+    font-family: 'Poppins Bold';
+    font-size: 40px;
+    line-height: 60px;
+    text-align: center;
+    color: #ffff;
+    margin-bottom: 2px;
+    background: #f22535;
+    border-radius: 13px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .banner-content p {
+    font-size: 14px;
+    line-height: 21px;
+    margin: 0;
+  }
+  .page-main {
+    max-width: 100%;
+  }
+  .chip-cyber {
+    font-family: 'Poppins SemiBold';
+    color: #ffffff;
+    padding: 8px 15px;
+    border-radius: 4px;
+    max-width: fit-content;
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 780.1px) {
+    .banner-content {
+      right: 0;
+    }
+  }
+  @media (max-width: 580.1px) {
+    .banner-cyber-container {
+      background-image: url(https://www.coopeuch.cl/media/wysiwyg/banner-mobile-cyber-new.png);
+    }
+    .banner-content h5.subtitle-cyber {
+      font-size: 18px;
+      line-height: 26px;
+    }
+    .banner-content h5.title-cyber {
+      font-size: 24;
+      line-height: 32px;
+    }
+    .banner-content h5 {
+      max-width: 340px;
+    }
+    .banner-content h1 {
+      font-size: 32px;
+      line-height: 40px;
+    }
+    .banner-content p {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+  @media (min-width: 1200.1px) {
+    .banner-content {
+      left: calc((100% - 1170px) / 2);
+    }
+  }
+</style>
+
+<section id="banner" class="banner-cyber-container">
+  <div class="banner-content">
+    <h5 class="title-cyber">Conéctate con los</h5>
+    <h1>Días Coopeuch</h1>
+    <h5 class="subtitle-cyber">Con estas ofertas todos ganamos</h5>
+    <p>Con estas ofertas todos ganamos</p>
+  </div>
+</section>
+
+<div class="container-link-action">
+  <span>Si no tienes tarjeta de crédito</span>
+  <a
+    href="https://www.coopeuch.cl/simulator/creditcard/index"
+    class="custom-btn"
+  >
+    Solícitala aquí
+  </a>
+</div>
+<style>
+  .container-link-action {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 420px;
+    justify-content: space-between;
+  }
+  .container-link-action span {
+    color: #fff;
+    padding: 10px 0;
+    line-height: 21px;
+  }
+  .container-link-action a.custom-btn {
+    margin: 10px 0;
+  }
+</style>
+
+
+
+<div style="
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 420px;
+    justify-content: space-between;
+">
+  <span style="
+    color: #fff;
+    padding: 10px 0;
+">Si no tienes tarjeta de crédito</span>
+  <a href="https://www.coopeuch.cl/simulator/creditcard/index" class="custom-btn" style="
+    margin: 10px 0;
+">
+    Solícitala aquí
+  </a>
+</div>
+
+
+
+

@@ -1,0 +1,708 @@
+<div id="onboarding">
+  <div class="container-onboarding">
+    <section id="steps">
+      <h2 class="title-onboarding">
+        <strong>Tus primeros pasos</strong>
+      </h2>
+
+      <p class="subtitle-onboarding">
+        Sigue estos pasos para que disfrutes de los beneficios de tus productos
+        Coopeuch.
+      </p>
+
+      <div class="steps-cards-container">
+        <div
+          v-for="{ id, card, status, icon } in steps"
+          class="step-card"
+          :style="status.checked || status.current ? '' : 'opacity: 0.5'"
+        >
+          <div
+            :class="[{ checked: status.checked }, { current: status.current }, { 'no-visited': !status.checked && !status.current  }, 'number-step']"
+          >
+            <div>
+              <template v-if="status.checked">
+                <img
+                  src="https://www.coopeuch.cl/media/wysiwyg/check-icon.png"
+                  alt="check-step"
+                />
+              </template>
+
+              <template v-else> {{ id }} </template>
+            </div>
+          </div>
+          <figure>
+            <img
+              :src="`https://www.coopeuch.cl/media/wysiwyg/${icon}.png`"
+              :alt="`${icon}-icon`"
+            />
+          </figure>
+
+          <h3>{{ card.title }}</h3>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="slider"
+      :class="[{ 'presentation-tutorial': !getCurrentStepSlider() && !handleFinishTutorial() }]"
+    >
+      <div class="content-slider">
+        <template v-if="!getCurrentStepSlider() && !handleFinishTutorial()">
+          <hr class="icon-line" style="background-color: #fff" />
+
+          <h2 class="fade-in" style="color: #ffffff">
+            <strong>Felicidades,</strong>
+            ya eres parte de <strong>Coopeuch</strong>
+          </h2>
+
+          <button
+            class="button-coopeuch secondary solicitar_credito_cyber"
+            @click="handleFirtStep"
+          >
+            Ver tutorial
+          </button>
+        </template>
+
+        <template v-else-if="handleFinishTutorial()">
+          <hr class="icon-line" />
+
+          <h2 class="fade-in" style="color: #131f6b">
+            <strong>¡Felicidades! Completaste el tutorial.</strong>
+          </h2>
+
+          <p class="fade-in" style="color: #131f6b">
+            Ahora empieza a beneficiarte de tus productos Coopeuch en línea,
+            creando tu clave de internet.
+          </p>
+
+          <button
+            class="button-coopeuch solicitar_credito_cyber"
+            @click="handleResetSteps"
+          >
+            Crear clave
+          </button>
+        </template>
+
+        <template v-else>
+          <!-- <span class="chip-steps"> Paso {{ getCurrentStepSlider().id }} </span> -->
+
+          <hr class="icon-line" />
+
+          <div
+            :class="{ 'fade-in': getFadeTransition }"
+            class="container-title-slide"
+          >
+            <h2 v-text="getCurrentStepSlider().slide.title"></h2>
+            <img
+              :src="`https://www.coopeuch.cl/media/wysiwyg/${getCurrentStepSlider().icon}.png`"
+              alt="step-icon"
+            />
+          </div>
+
+          <p
+            :class="{ 'fade-in': getFadeTransition }"
+            v-html="getCurrentStepSlider().slide.description"
+          ></p>
+
+          <div class="container-action-buttons">
+            <a class="step-link" :href="getCurrentStepSlider().slide.link">
+              {{ getCurrentStepSlider().slide.label }}
+            </a>
+
+            <div class="step-action-change">
+              <button
+                @click="prevSlide(getCurrentStepSlider().id - 1)"
+                :disabled="getCurrentStepSlider().id === 1"
+                class="prev-step"
+              ></button>
+
+              <button
+                @click="nextSlide(getCurrentStepSlider().id + 1)"
+                class="next-step"
+              ></button>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <img
+        :src="getBackgroundImg()"
+        alt="background-step"
+        class="img-slide"
+        :class="{ 'fade-in': getFadeTransition }"
+      />
+    </section>
+  </div>
+</div>
+
+<script>
+  require(['vue'], function (Vue) {
+    'use strict';
+
+    new Vue({
+      el: '#onboarding',
+      data: {
+        fadeIn: true,
+        steps: [
+          {
+            id: 1,
+            icon: 'user_alt_copy',
+            status: {
+              current: false,
+              checked: false
+            },
+            card: {
+              title: 'Conoce tus beneficios'
+            },
+            slide: {
+              title: 'Beneficios de ser socio',
+              description: `
+              - <span class="marked-text">Remanente</span> (ganancia distribuida entre todos los socios).
+              <br>
+              - <span class="marked-text">Bonos y becas</span> de estudio.
+              <br>
+              - <span class="marked-text">Amplia oferta</span> de productos y servicios financieros.
+              `,
+              link: '#',
+              label: 'Ver más'
+            }
+          },
+          {
+            id: 2,
+            icon: 'security',
+            status: {
+              current: false,
+              checked: false
+            },
+            card: {
+              title: 'Crea tu clave de Internet'
+            },
+            slide: {
+              title: 'Crea tu clave de Internet',
+              description: `
+              - Accede a todos tus productos en línea.
+              <br>
+              - Ingresa a <span class="marked-text">Coopeuch en Línea.</span>
+              <br>
+              - Haz clic en <span class="marked-text">¿Necesitas crear</span> o recuperar tu clave?.
+              <br>
+              - Sigue el <span class="marked-text">paso a paso</span> para validarte.
+              `,
+              link: '#',
+              label: 'Ver más'
+            }
+          },
+          {
+            id: 3,
+            icon: 'template_copy',
+            status: {
+              current: false,
+              checked: false
+            },
+            card: {
+              title: 'Ingresa a Coopeuch en Línea'
+            },
+            slide: {
+              title: 'Ingresa a tu sitio privado',
+              description: `
+              Realiza consultas y transacciones con tus productos.
+              <br>
+              - Haz clic en <span class="marked-text">Coopeuch en Línea,</span> desde cualquier dispositivo.
+              <br>
+              - Ingresa tu <span class="marked-text">rut y clave.</span>
+              `,
+              link: '#',
+              label: 'Ver más'
+            }
+          },
+          {
+            id: 4,
+            icon: 'Page_1_Copy_2',
+            status: {
+              current: false,
+              checked: false
+            },
+            card: {
+              title: 'Obtén tu Cuenta Vista'
+            },
+            slide: {
+              title: 'Obtén tu Cuenta Vista',
+              //  Realiza compras, transacciones y pagos en línea sin contacto. <br>
+              description: `
+              - Obten tu Tarjeta de <span class="marked-text">Débito Mastercard</span>
+              para realizar <span class="marked-text">compras, transferencias y pagos online</span> y sin contacto. Además
+              acumula <span class="marked-text">Puntos Coopeuch.</span>
+              `,
+              link: '#',
+              label: 'Ver más'
+            }
+          },
+          {
+            id: 5,
+            icon: 'Group_15_Copy',
+            status: {
+              current: false,
+              checked: false
+            },
+            card: {
+              title: 'Usa tu APP Coopeuch'
+            },
+            slide: {
+              title: 'Usa tu APP Coopeuch',
+              description: `
+              - Empieza a <span class="marked-text">disfrutar</span> de todo lo que puedes hacer con <span class="marked-text">tu App, descargándola.</span>
+              <br>
+              - Para conocer información sobre tus productos y <span class="marked-text">realizar transferencias</span> desde <span class="marked-text">tus dispositivos móviles.</span>
+              `,
+              link: '#',
+              label: 'Ver más'
+            }
+          },
+          {
+            id: 6,
+            icon: 'Group_45_Copy',
+            status: {
+              current: false,
+              checked: false
+            },
+            card: {
+              title: 'Descarga tu Passcoopeuch'
+            },
+            slide: {
+              title: 'Descarga PassCoopeuch',
+              description: `
+              - Para <span class="marked-text">autorizar</span> todas tus <span class="market-text">transacciones online</span>
+              y actualizar <span class="marked-text">tus datos personales.</span>
+              <br>
+              - Empieza ya a autorizar tus transacciones online,<span class="marked-text">descargando tu PassCoopeuch</span>.
+              `,
+              link: '#',
+              label: 'Ver más'
+            }
+          }
+        ]
+      },
+      computed: {
+        getFadeTransition() {
+          return this.fadeIn;
+        }
+      },
+      methods: {
+        handleFirtStep() {
+          const { steps } = this;
+          const slide = steps.find(({ id }) => id === 1);
+          slide.status.current = true;
+        },
+        handleFinishTutorial() {
+          const { steps } = this;
+          const slide = steps.find(
+            ({ id, status }) => id === 6 && status.checked
+          );
+          return slide !== undefined ? true : false;
+        },
+        handleResetSteps() {
+          const { steps } = this;
+          const slide = steps.map(({ id, status }) => {
+            if (id === 1) {
+              status.checked = false;
+              status.current = true;
+            } else status.checked = false;
+          });
+        },
+        getCurrentStepSlider() {
+          const { steps } = this;
+          const slide = steps.find(({ status }) => status.current === true);
+          return slide ? slide : false;
+        },
+        nextSlide(newStep) {
+          const { steps } = this;
+          steps.map(({ id, status }) => {
+            if (
+              newStep - 1 > 0 &&
+              newStep - 1 === id &&
+              status.current &&
+              newStep - 1 <= 6
+            ) {
+              status.current = false;
+              status.checked = true;
+              this.fadeIn = false;
+            } else if (id === newStep) {
+              status.current = true;
+            }
+
+            if (newStep === 7 && id === 6) {
+              status.current = false;
+              status.checked = true;
+            }
+
+            setTimeout(() => {
+              this.fadeIn = true;
+            }, 0);
+          });
+        },
+        prevSlide(newStep) {
+          const { steps } = this;
+          steps.map(({ id, status }) => {
+            if (newStep + 1 > 0 && newStep + 1 === id && status.current) {
+              status.current = false;
+              status.checked = false;
+              this.fadeIn = false;
+            } else if (id === newStep) {
+              status.current = true;
+            }
+
+            setTimeout(() => {
+              this.fadeIn = true;
+            }, 0);
+          });
+        },
+        getBackgroundImg() {
+          const currenSlide = this.getCurrentStepSlider();
+          if (currenSlide) {
+            return `https://www.coopeuch.cl/media/wysiwyg/step-${currenSlide.id}.png`;
+          } else {
+            if (!currenSlide && !this.handleFinishTutorial())
+              return 'https://www.coopeuch.cl/media/wysiwyg/start-tutorial.png';
+
+            if (this.handleFinishTutorial())
+              return 'https://www.coopeuch.cl/media/wysiwyg/finish-tutorial.png';
+          }
+        }
+      }
+    });
+  });
+</script>
+
+<style scoped>
+  .fade-in {
+    animation: fadeIn ease 2.5s;
+    -webkit-animation: fadeIn ease 2.5s;
+    -moz-animation: fadeIn ease 2.5s;
+    -o-animation: fadeIn ease 2.5s;
+    -ms-animation: fadeIn ease 2.5s;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-o-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .container-onboarding {
+    max-width: 1170px;
+    margin: 0 auto;
+  }
+  .container-onboarding h2.title-onboarding {
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 40px;
+    color: #383638;
+    margin: 0 0 10px;
+  }
+  .container-onboarding p.subtitle-onboarding {
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 33px;
+    color: #383638;
+    margin: 10px 0;
+  }
+  .steps-cards-container {
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-items: center;
+    margin-top: 45px;
+  }
+  .step-card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #ffffff;
+    margin: 0 5px;
+    padding: 10px;
+    border: 1px solid rgb(51 51 51 / 0%);
+    border-radius: 8px;
+    box-shadow: 1px 4px 3px hsl(0deg 0% 0% / 6%);
+    min-width: 180px;
+    max-width: 180px;
+    min-height: 170px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .step-card h3 {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #383638;
+    margin: 0;
+  }
+  #slider {
+    display: flex;
+    max-width: 1252px;
+    margin-top: 30px;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #ffffff;
+  }
+  #slider .content-slider {
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    justify-content: center;
+    padding: 10px 42px 10px 25px;
+    box-sizing: border-box;
+    max-width: 40%;
+    min-height: 500px;
+  }
+  #slider.presentation-tutorial {
+    align-items: flex-start;
+    background-color: #f42534;
+  }
+  #slider .content-slider .container-title-slide h2 {
+    color: #131f6b;
+    font-size: 40px;
+  }
+  #slider.presentation-tutorial .content-slider .container-title-slide h2 {
+    color: #ffffff;
+  }
+  #slider .content-slider .container-title-slide {
+    display: flex;
+    align-items: center;
+  }
+  #slider .content-slider .container-title-slide img {
+    display: none;
+  }
+  #slider .content-slider p {
+    color: #131f6b;
+    font-size: 20px;
+    line-height: 40px;
+    margin-bottom: 10px;
+  }
+  #slider .content-slider a.step-link {
+    align-self: flex-start;
+    padding: 10px 0;
+    font-size: 20px;
+  }
+  #slider .content-slider p span.marked-text {
+    background-color: #8ecaff8c;
+    font-family: 'Poppins SemiBold';
+  }
+  #slider .content-slider .step-action-change {
+    display: flex;
+    align-self: flex-end;
+  }
+  #slider .content-slider .step-action-change button {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: #ff8383;
+    box-sizing: border-box;
+    border: none;
+    color: #ffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+    margin: 1px 5px;
+    transition: all 0.3s ease-in;
+  }
+  #slider .content-slider .step-action-change button.prev-step::before {
+    content: url(https://www.coopeuch.cl/media/wysiwyg/chevron-left.png);
+  }
+  #slider .content-slider .step-action-change button.next-step::before {
+    content: url(https://www.coopeuch.cl/media/wysiwyg/chevron-right.png);
+  }
+  #slider .content-slider .container-action-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 0;
+  }
+  #slider .content-slider .step-action-change button:hover,
+  #slider .content-slider .step-action-change button:focus,
+  #slider .content-slider .step-action-change button:active,
+  #slider .content-slider .step-action-change button.next-step {
+    background-color: #f42534;
+  }
+  #slider .content-slider figure.icon-slider {
+    align-self: flex-start;
+    margin: 10px 0 40px;
+    min-width: 57px;
+    min-height: 57px;
+  }
+  #slider .content-slider hr.icon-line {
+    background-color: #131f6b;
+    width: 85px;
+    height: 5px;
+    margin: 0;
+    align-self: flex-start;
+    border: none;
+  }
+  #slider .content-slider.presentation-tutorial hr.icon-line {
+    background-color: #ffffff;
+  }
+  #slider .content-slider .chip-steps {
+    font-size: 15px;
+    line-height: 16px;
+    font-weight: 400;
+    background-color: #e81e2b;
+    color: #ffffff;
+    width: 85px;
+    height: 33px;
+    border-radius: 15px;
+    margin: 40px 0 15px;
+    align-self: flex-start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #slider img.img-slide {
+    max-width: 60%;
+    border-radius: 38px 6px 6px 38px;
+    object-fit: cover;
+    min-height: 500px;
+  }
+  #steps .steps-cards-container .step-card {
+    position: relative;
+  }
+  #steps .steps-cards-container .step-card .number-step {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 16px;
+    border-radius: 50%;
+    width: 45px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #steps .steps-cards-container .step-card .number-step.no-visited {
+    color: #8f8f8f;
+    border: 2px solid #8f8f8f;
+    background-color: #ffff;
+  }
+  #steps .steps-cards-container .step-card .number-step.no-visited div {
+    border: 2px solid #8f8f8f;
+    border-radius: 50%;
+    width: 35px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffff;
+  }
+  #steps .steps-cards-container .step-card .number-step.checked {
+    color: #ffffff;
+    box-shadow: inset 0 0 0 6px white;
+    border: 2px solid #20cca5;
+    background-color: #20cca5;
+    padding: 3px;
+  }
+  #steps .steps-cards-container .step-card .number-step.current {
+    color: #ffffff;
+    box-shadow: inset 0 0 0 6px white;
+    background-color: #364f6b;
+    border: 2px solid #364f6b;
+    padding: 3px;
+  }
+  .button-coopeuch.secondary,
+  .button-coopeuch.secondary:hover,
+  .button-coopeuch.secondary:focus,
+  .button-coopeuch.secondary:active {
+    background-color: #09a6e3;
+  }
+
+  @media (max-width: 1180.1px) {
+    .step-card {
+      min-width: 100px;
+      max-width: 80%;
+    }
+  }
+  @media (max-width: 780.1px) {
+    .steps-cards-container {
+      display: none;
+    }
+    #slider img.img-slide {
+      display: none;
+    }
+    #slider .content-slider {
+      text-align: left;
+      max-width: 100%;
+    }
+  }
+  @media (max-width: 639.1px) {
+    #slider .content-slider .container-title-slide img {
+      display: block;
+      padding: 0 10px;
+    }
+  }
+  @media (max-width: 580.1px) {
+    .container-onboarding h2.title-onboarding {
+      font-size: 20px;
+    }
+    .container-onboarding p.subtitle-onboarding {
+      font-size: 15px;
+      line-height: 25px;
+    }
+    #slider .content-slider {
+      min-height: 434px;
+    }
+    #slider .content-slider .container-title-slide h2 {
+      font-size: 30px;
+      line-height: 29px;
+    }
+    #slider .content-slider p {
+      font-size: 18px;
+      line-height: 32px;
+    }
+    #slider .content-slider a.step-link {
+      font-size: 18px;
+    }
+    #benefits h2.title-benefits,
+    #benefits h2.title-benefits span.badge-benefits {
+      font-size: 22px;
+      line-height: 29px;
+    }
+    #benefits .box-benefits p.description-benefits {
+      font-size: 15px;
+      line-height: 20px;
+    }
+  }
+</style>

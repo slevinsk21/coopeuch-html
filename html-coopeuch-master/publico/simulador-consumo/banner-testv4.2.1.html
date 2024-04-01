@@ -1,0 +1,234 @@
+<section class="banner-credito-consumo-simulador">
+  <div class="banner-content">
+    <span class="badge-simulador">Crédito de consumo</span>
+    <h1 class="title-banner">
+      <strong>Solícitalo ahora</strong>
+      <br />
+      y despreocúpate de las deudas
+      <sup style="top: -1em; font-size: 10px">(*)</sup>
+    </h1>
+
+    <section class="container-remanente">
+      <figure>
+        <img
+          src="https://www.coopeuch.cl/media/wysiwyg/pago.svg"
+          alt="cash-icon"
+        />
+
+        <figcaption>
+          <h5>Primera Cuota <strong>hasta 90 días</strong></h5>
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img
+          src="https://www.coopeuch.cl/media/wysiwyg/3.1-icon-hipotecario.svg"
+          alt="calendar-icon"
+        />
+
+        <figcaption>
+          <h5>Hasta <strong>Hasta 84 cuotas</strong> plazo</h5>
+        </figcaption>
+      </figure>
+    </section>
+
+    <p class="legal-text">
+      *) Sujeto a evaluación de acuerdo a las políticas de créditos vigentes al
+      momento de la solicitud. Valida hasta el 31/07/2021. Exclusivo para socios
+      nuevos y antiguos sin crédito de consumo vigente. Infórmese sobre la
+      garantía estatal de los depósitos en su cooperativa o en www.cmfchile.cl
+    </p>
+  </div>
+</section>
+<style>
+  .banner-credito-consumo-simulador {
+    background-image: url('https://www.coopeuch.cl/media/wysiwyg/banner-desk-simulador.png');
+    height: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    min-height: 446px;
+  }
+  .banner-credito-consumo-simulador .banner-content .legal-text {
+    position: absolute;
+    bottom: 16px;
+    max-width: 890px;
+    color: #383838;
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .banner-credito-consumo-simulador .banner-content {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 41px 0 32px;
+  }
+  .banner-credito-consumo-simulador .banner-content .badge-simulador {
+    font-size: 16px;
+    line-height: 40px;
+    background-color: #f08117;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: relative;
+    min-width: 272px;
+    font-family: 'Poppins Bold';
+    text-align: center;
+  }
+  .banner-credito-consumo-simulador .banner-content h1.title-banner {
+    font-size: 40px;
+    line-height: 46px;
+    color: #262626;
+    margin: 5px 0;
+  }
+  .banner-credito-consumo-simulador .banner-content h2.subtitle-banner {
+    font-size: 24px;
+    line-height: 46px;
+    color: #262626;
+    margin: 5px 0;
+  }
+  body .header.content {
+    min-height: 61px;
+  }
+  .page-wrapper .page-header.personas .panel.wrapper,
+  .xpec-header-menu .nav-sections .navigation,
+  .xpec-header-search {
+    display: none !important;
+  }
+  .ce-simulatoraccess-box .general-box {
+    background-color: #00a1df !important;
+  }
+  .general-box::before {
+    background-image: linear-gradient(to right top, #00a1df 0%, 50%, #fff 50%);
+  }
+  .general-box::after {
+    background-image: linear-gradient(
+      to right bottom,
+      #00a1df 0%,
+      #00a1df 50%,
+      #fff 50%
+    );
+  }
+  .ce-simulatoraccess-box {
+    background-color: #fff;
+  }
+  .form-input,
+  input.form-input {
+    border-radius: 5px;
+  }
+  .coop-dropdown .dropbtn:hover {
+    background-color: #00a1df;
+    color: #fff;
+    border-color: #00a1df;
+  }
+  .container-simulador-consumo-test {
+    position: absolute;
+    top: 300px;
+    max-width: 1170px;
+    width: 100%;
+    margin: 15px 0 15px -15px;
+    left: calc((100% - 1170px) / 2);
+  }
+  .g-recaptcha {
+    display: none;
+  }
+  .container-remanente {
+    display: flex;
+  }
+  .container-remanente figure {
+    display: flex;
+    margin: 5px;
+  }
+  .container-remanente figure img {
+    max-width: 24px !important;
+    max-height: 24px !important;
+    object-fit: contain !important;
+  }
+  .container-remanente figure figcaption h5 {
+    font-size: 12px;
+    line-height: 16px;
+    min-height: auto;
+    margin: 0 5px;
+    color: #373737;
+  }
+  .title-simulador-test {
+    color: #fff;
+    font-size: 25px;
+    line-height: 30px;
+  }
+  @media (max-width: 580.1px) {
+    .banner-credito-consumo-simulador {
+      background-image: url('https://www.coopeuch.cl/media/wysiwyg/banner-mobile-simulador.png.png');
+      background-position: bottom right;
+    }
+    .banner-credito-consumo-simulador .banner-content {
+      top: 30%;
+      padding: 0;
+    }
+    .banner-credito-consumo-simulador .banner-content .badge-simulador {
+      font-size: 14px;
+      min-width: 200px;
+    }
+    .banner-credito-consumo-simulador .banner-content h1.title-banner {
+      font-size: 22px;
+      line-height: 35px;
+    }
+  }
+  @media (max-width: 620.1px) {
+    .container-remanente {
+      flex-direction: column;
+    }
+    .container-remanente figure {
+      flex-direction: row;
+      max-width: 277px;
+    }
+    .container-remanente figure figcaption {
+      padding: 0 10px;
+    }
+    .container-remanente figure figcaption h5 {
+      font-size: 12px;
+      text-align: left;
+      line-height: 18px;
+      margin: 0;
+      max-height: 36px;
+    }
+    .title-simulador-test {
+      font-size: 18px;
+      line-height: 21px;
+    }
+  }
+  @media (max-width: 960.1px) {
+    .banner-credito-consumo-simulador .banner-content .legal-text {
+      bottom: 75px;
+    }
+  }
+  @media (max-width: 1220.1px) {
+    .container-simulador-consumo-test {
+      left: 10px;
+    }
+    .banner-credito-consumo-simulador {
+      min-height: 800px;
+    }
+  }
+  @media (max-width: 1208px) {
+    .banner-credito-consumo-simulador .banner-content {
+      margin: 0 10px;
+    }
+  }
+</style>
+<script>
+  window.addEventListener('scroll', () => {
+    let elem = document.querySelector('.container-simulador-consumo-test'),
+      { pageYOffset } = window,
+      { top } = getComputedStyle(elem);
+
+    elem.style.top =
+      window.screen.width <= 960 ?
+      pageYOffset >= 10 ? '245px' : '295px'
+        : pageYOffset >= 40 ? '239px' : '300px';
+  });
+
+  document.getElementsByClassName('title')[0].innerHTML = '<h1 class="title-simulador-test"><b>Para comenzar tu <br> simulación</b></h1>';
+  document.getElementsByClassName('button-simulate')[0].value = 'Simular mi crédito';
+</script>
+<!--  -->

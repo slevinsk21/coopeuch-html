@@ -1,0 +1,203 @@
+<style>
+  #terms .container figure {
+    display: flex;
+    align-items: center;
+  }
+  #terms .container figure img {
+    max-width: 40px;
+    max-height: 40px;
+  }
+  #terms .container figure img,
+  #terms .container figure figcaption {
+    padding: 22px 12px;
+  }
+  #terms .container figure figcaption .title-terms {
+    color: #333333;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 42px;
+    margin: 0;
+  }
+  #terms .container figure figcaption .description-terms {
+    color: #000000;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin: 0;
+  }
+  .page-wrapper.b-plomo {
+    background-color: #fff !important;
+  }
+  .simula-coo .simula__inner h2 {
+    font-size: 21px;
+    line-height: 40px;
+    max-width: 580px;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+  .simula-coo .simula__inner .card-simulador {
+    background: #fff;
+    border-radius: 4px;
+    max-width: 419px;
+    min-height: 369px;
+    padding: 32px 24px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border: 1px solid #e7e7e7;
+  }
+  .simula-coo .simula__inner .card-simulador ul.list-example-credit {
+    list-style: none;
+  }
+  .simula-coo .simula__inner .card-simulador ul.list-example-credit > li {
+    font-size: 16px;
+    line-height: 25px;
+    color: #333;
+  }
+  .simula-coo
+    .simula__inner
+    .card-simulador
+    ul.list-example-credit
+    > li::before {
+    content: '\2022';
+    color: #007db7;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    width: 16px;
+    font-size: 24px;
+  }
+  .simula-coo .tl-simula {
+    margin: 48px auto 0;
+    max-width: 600px;
+  }
+  .form-input,
+  input.form-input {
+    border-radius: 4px;
+  }
+  .phone-error-msg,
+  .rut-error-msg {
+    display: none;
+  }
+
+  @media (max-width: 680.1px) {
+    #terms .container figure figcaption .description-terms {
+      display: none;
+    }
+    .main-title-term-dale h4 * {
+      font-size: 20px !important;
+      line-height: 32px !important;
+    }
+  }
+
+  @media (max-width: 580.1px) {
+    #terms .container figure {
+      display: none;
+    }
+    #terms .container figure figcaption .title-terms {
+      font-size: 14px;
+      line-height: 24px !important;
+    }
+    #terms {
+      display: none;
+    }
+    .simula-coo .simula__inner h2 {
+      font-size: 16px;
+      line-height: 25px;
+    }
+    .simula-coo .simula__inner .card-simulador ul.list-example-credit > li {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+  .input-prefix + .input-sufix {
+    padding: 10px;
+  }
+</style>
+
+<script>
+  const getElBy = (className) => document.querySelector(className),
+    htmlFields = document.querySelectorAll('.field'),
+    fields = [
+      { id: 'phone', label: 'Número de celular', order: 3 },
+      { id: 'rut', label: 'Tu RUT', order: 2 },
+      { id: 'amount', label: '¿Cuanto necesitas?', order: 1 },
+    ],
+    steps = getElBy('.progress-container.wizard-three-steps');
+
+  getElBy('.simulator-title').textContent =
+    'Encontraremos la mejor oferta para ti';
+  getElBy('.simulator-banner').remove();
+  getElBy('.breadcrumbs').remove();
+
+  steps.insertAdjacentHTML(
+    'beforebegin',
+    `
+    <div id="terms">
+      <div class="container">
+        <figure>
+          <img src="https://www.coopeuch.cl/media/wysiwyg/product-icon.png" class="icon_product" alt="icon-product" />
+          <figcaption>
+            <h1 class="title-terms"><b>Crédito de Consumo</b></h1>
+            <h2 class="description-terms">Solicítalo hoy y despreocúpate de las deudas</h2>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  `
+  );
+
+  getElBy('.simula-coo .simula__inner').innerHTML = `
+    <h2>Ejemplo de simulación de Crédito de Consumo <b>para socios sin Crédito vigente al momento del curse.</b></h2>
+    <div class="card-simulador">
+      <ul class="list-example-credit">
+        <li>Crédito de <b>$1.000.000</b></li>
+        <li>
+          Plazo de <b>24 cuotas.</b></li>
+        <li>Valor de la Cuota<b>$49.420</b></li>
+        <li>Con una <b>Tasa de interés de 1%</b></li>
+        <li>Carga anual equivalente <b>(CAE): 15,12%</b></li>
+        <li>Costo total del Crédito: <b>$1.182.515</b></li>
+        <li>Ejemplo incluye <b>plan de seguros Coopeuch.</b></li>
+      </ul>
+    <div>
+    `;
+
+  fields.map(({ id, label, order }, i) => {
+    if (id === 'rut' || id === 'phone')
+      htmlFields[i].innerHTML +=
+        '<div for="' +
+        id +
+        '"generated="true" style="font-size: 1.2rem; color: #646569">*Este campo es opcional</div>';
+    if (id === 'phone')
+      htmlFields[i].children[0].children[2].placeholder = 'Celular';
+    htmlFields[i].children[0].children[0].textContent = label;
+    htmlFields[i].style.order = order;
+  });
+
+  document.querySelector('.button-simulate').addEventListener('click', () => {
+    const amount = document.querySelector('#amount').value,
+      errorMsg = (element) => {
+        const messageError = document.querySelector(element);
+        if (messageError) messageError.style.display = 'none';
+      };
+
+    errorMsg('.phone-error-msg');
+    errorMsg('.rut-error-msg');
+
+    if (amount) {
+      if (!htmlFields[0].value) {
+        htmlFields[0].children[0].children[2].value = '12312312';
+        htmlFields[0].children[0].children[2].style.color = '#fff';
+      }
+      if (!htmlFields[1].value) {
+        htmlFields[1].children[0].children[1].value = '12.312.312-3';
+        htmlFields[1].children[0].children[1].style.color = '#fff';
+      }
+
+      document.querySelector('.button-simulate').click();
+      document.querySelector('.button-simulate').click();
+    }
+  });
+</script>
+

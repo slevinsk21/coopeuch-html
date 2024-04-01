@@ -1,0 +1,44 @@
+<div class="container-menu-ws-fixed">
+  <div class="whatsapp-fixed">
+    <i class="fab fa-whatsapp fa-2x"></i>
+    <a
+      href="https://api.whatsapp.com/send/?phone=56939196149&text=Hola+necesito+evaluar+un+Cr%C3%A9dito+de+Consumo+en+Coopeuch&app_absent=0"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Simula otro monto
+    </a>
+  </div>
+</div>
+<style>
+  .container-menu-ws-fixed {
+    position: relative;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .container-menu-ws-fixed .whatsapp-fixed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: -132px;
+    height: 62px;
+    width: 180px;
+    border-radius: 100px 0 0 100px;
+    background-color: #25d366;
+    box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.4);
+    transition: all 0.3s;
+    color: #fff;
+    z-index: 10;
+  }
+  .whatsapp-fixed:hover {
+    transform: scale(0.95);
+  }
+  .container-menu-ws-fixed .whatsapp-fixed a {
+    margin: 0 0 0 8px;
+    color: #fff;
+  }
+  .container-menu-ws-fixed:hover .whatsapp-fixed {
+    right: -4px;
+  }
+</style>

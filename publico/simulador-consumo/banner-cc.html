@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        body{
+            margin: 0; 
+            padding: 0;
+        }
+        .content-all{
+            font-family: 'Poppins', sans-serif;
+        }
+        .content-desktop{
+            background: linear-gradient(270deg, rgba(255,255,255,0) 0%, #FFFFFF 100%);
+            width: 994px;
+            height: 580px;
+            padding-left: 40px;
+            padding-top: 58px;
+            background-image: url(images/modal_consumo_desktop.png);
+            color: #000;
+            background-repeat: no-repeat;
+
+        }
+        .title-arrows{
+            max-width: 212px;
+            background-color: #F08117;
+            font-size: 18px;
+            color: #fff;
+            line-height: 24px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            padding-left: 8px;
+            padding-right: 13px;
+            position: relative;
+            border-radius: 6px 11px 11px 6px;
+        }
+        .title-arrows::after {
+            z-index: 1 !important;
+            position: absolute;
+            content: '';
+            background-color: inherit;
+            width: 26px;
+            height: 26px !important;
+            transform: rotate(45deg);
+            right: -8.4px;
+            top: 7px;
+            border-radius: 4px 4px 4px 100%;
+        }
+        .div-arrow{
+            max-width: 212px;
+            /*height: 24px;*/
+        }
+        .title-part{
+            margin-top: -2px;
+            font-size: 28px;
+            line-height: 36px;
+            letter-spacing: 0;
+        }
+        .title-strong{
+            font-size:40px;
+        }
+        .title-symbol{
+            font-size: 14px;
+            letter-spacing: 0;
+            line-height: 21px;
+        }
+        .text-in-text{
+            font-size: 16px;
+            line-height: 16px;
+        }
+        .icons-in-text{
+            width: 24px; 
+            height: 24px; 
+            padding-right: 16px;
+            margin-bottom: -5px;
+        }
+        .space-for-text-in-text{
+            margin-top: -5px;
+            padding-bottom: 1px;
+        }
+        .text-to-right{
+            padding-left: 44px;
+            margin-top: -5px;
+        }
+        .custom-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f42534;
+            padding: 12px;
+            font-weight: 800;
+            font-size: 16px;
+            border: 2px solid #f42534;
+            border-radius: 5px;
+            color: #fff !important;
+            outline: none;
+            max-width: 171px;
+            height: 48px;
+            text-align: center;
+            text-decoration: none !important;
+            transition: all 0.3s ease-in;
+            box-shadow: none !important;
+            box-sizing: border-box;
+            margin: 32px 0 42px;
+        }
+        .up-button{
+            margin-top: -25px;
+        }
+        .footer-text-in-text{
+            font-size: 11px;
+            line-height: 17px;
+            height: 80px;
+            width: 350px;
+        }
+        .phone-text{
+            display: none !important;
+        }
+        .desktop-text{
+            display: block !important;
+        }
+        @media (max-width: 425px) {
+            .content-desktop{
+                width: 280px;
+                height: 440px;
+                padding-left: 16px;
+                padding-top: 16px;
+                background-image: url(images/modal_consumo_mobile.png);
+            }
+            .title-arrows{
+                max-width: 212px;
+                background-color: #F08117;
+                font-size: 14px;
+                color: #fff;
+                line-height: 21px;
+                padding-top: 4px;
+                padding-bottom: 3px;
+                padding-left: 8px;
+                padding-right: 13px;
+                position: relative;
+                border-radius: 6px 11px 11px 6px;
+            }
+            .title-arrows::after {
+                z-index: 1 !important;
+                position: absolute;
+                content: '';
+                background-color: inherit;
+                width: 18px;
+                height: 18px !important;
+                transform: rotate(45deg);
+                right: -4px;
+                top: 5px;
+                border-radius: 4px 4px 4px 100%;
+            }
+            .div-arrow{
+                max-width: 170px;
+                /*height: 24px;*/
+            }
+            .title-part{
+                margin-top: -2px;
+                font-size: 14px;
+                line-height: 24px;
+                letter-spacing: 0;
+            }
+            .title-strong{
+                font-size:24px;
+            }
+            .title-symbol{
+                font-size: 10px;
+                letter-spacing: 0;
+                line-height: 16px;
+            }
+            .icons-in-text{
+                width: 18px; 
+                height: 18px; 
+                padding-right: 8px;
+                margin-bottom: -5px;
+            }
+            .text-in-text{
+                font-size: 10px;
+                line-height: 16px;
+            }
+            .text-to-right{
+                padding-left: 30px;
+                margin-top: -5px;
+            }
+            .footer-text-in-text{
+                font-size: 8px;
+                line-height: 12px;
+                padding-top: 63px;
+            }
+            .custom-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #f42534;
+                padding: 12px;
+                font-weight: 800;
+                font-size: 16px;
+                border: 2px solid #f42534;
+                border-radius: 5px;
+                color: #fff !important;
+                outline: none;
+                max-width: 130px;
+                height: 40px;
+                text-align: center;
+                text-decoration: none !important;
+                transition: all 0.3s ease-in;
+                box-shadow: none !important;
+                box-sizing: border-box;
+                margin: 32px 0 42px;
+            }
+            .space-for-text-in-text{
+                margin-top: -1px;
+                padding-bottom: 0px;
+            }
+            .up-button{
+                margin-top: -20px;
+            }
+            .only-mobile{
+                margin-top: -7px;
+            }
+            .phone-text{
+                display: block !important;
+            }
+            .desktop-text{
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content-all">
+        <div class="content-desktop">
+            <div class="div-arrow">
+                <h1 class="title-arrows">
+                    Crédito de Consumo
+                </h1>
+            </div>
+            <p class="title-part">
+                <strong class="title-strong">Solícitalo hoy</strong> <br>
+                y despreocúpate de las deudas <span class="title-symbol">(*)</span>
+            </p>
+            <div class="only-mobile">
+                <div class="space-for-text-in-text">
+                    <p class="text-in-text">
+                        <img class="icons-in-text" src="icons/icono_calculadora.png" alt="">
+                        Crédito Libre disposición <strong>hasta 84 cuotas</strong>
+                    </p>
+                </div>
+                <div class="space-for-text-in-text">
+                    <p class="text-in-text">
+                        <img class="icons-in-text" src="icons/icono_cuota.png" alt="">
+                        Primera cuota <strong>hasta en 90 días</strong>
+                    </p>
+                </div>
+                <div class="space-for-text-in-text">
+                    <div class="desktop-text">
+                        <p class="text-in-text"> 
+                            <img class="icons-in-text" src="icons/icono_seguro.png" alt="">
+                            Seguro de Desgravamen con cobertura
+                        </p>
+                        <p class="text-in-text" style="margin-top: -8px;">
+                            <strong class="text-to-right">hasta los 89 años y 364 días</strong>
+                        </p>
+                    </div>
+                    <div class="phone-text">
+                        <p class="text-in-text"> 
+                            <img class="icons-in-text" src="icons/icono_seguro.png" alt="">
+                            Seguro de Desgravamen con
+                        </p>
+                        <p class="text-in-text" style="margin-top: -8px;">
+                            <span class="text-to-right">cobertura <strong>hasta los 89 años y 364 días</strong> </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="up-button">
+                <a href="#" class="custom-btn">Solicitar</a>
+            </div>
+            <p class="footer-text-in-text">
+                *) Sujeto a evaluación de acuerdo a las políticas de créditos <br>
+                vigentes al momento de la solicitud. Valido hasta el 31/07/2021. <br> 
+                Exclusivo para socios nuevos y antiguos sin crédito de <br> 
+                consumo vigente. Infórmese sobre la garantía estatal de los <br> 
+                depósitos en su cooperativa o en www.cmfchile.cl
+            </p>
+        </div>
+    </div>
+</body>
+</html>

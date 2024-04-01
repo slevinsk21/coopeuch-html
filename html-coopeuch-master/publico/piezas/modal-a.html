@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+      #modal-banner-1 .banner-container {
+        height: auto;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        max-width: 620px;
+        min-height: 330px;
+      }
+      #modal-banner-1 .banner-container.bg-img-modal-1 {
+        background-image: url("https://www.coopeuch.cl/media/wysiwyg/modal.jpg");
+        border-radius: 4px;
+      }
+      #modal-banner-1 .banner-container .banner-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        max-width: 297px;
+        width: 70%;
+      }
+      #modal-banner-1 .banner-container .banner-content h1 {
+        font-size: 20px;
+        font-weight: 400;
+        color: #fff;
+        line-height: 26px;
+        margin: 0;
+      }
+      #modal-banner-1 .banner-container .banner-content h2 {
+        font-size: 14px;
+        font-weight: 400;
+        font-weight: 300;
+        color: #fff;
+        line-height: 20px;
+        margin: 5px 0;
+      }
+      #modal-banner-1 .banner-container .banner-content a.btn-primary {
+        margin: 0 0 10px;
+        background-color: #f42534;
+        color: #fff;
+        font-weight: 800;
+        font-size: 16px;
+        border-color: #f42534;
+        border-radius: 5px;
+        text-decoration: none;
+        min-width: 160px;
+        height: 48px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+      #modal-banner-1 .banner-container .banner-content a.btn-primary:hover {
+        background-color: #f87c85;
+        border-color: #f87c85;
+      }
+      #modal-banner-1 .banner-container .banner-content small {
+        font-size: 8px;
+        line-height: 12px;
+        color: #fff;
+      }
+      @media (max-width: 580.1px) {
+        #modal-banner-1 .banner-container.bg-img-modal-1 {
+          background-image: none;
+          background-color: #00a1e1;
+        }
+        #modal-banner-1 .banner-container .banner-content {
+          width: 100%;
+        }
+      }
+    </style>
+    <div id="modal-banner-1">
+      <div class="banner-container bg-img-modal-1">
+        <div class="banner-content">
+          <h1>
+            Consolida tus créditos
+            <br />
+            con esta conveniente tasa
+            <br />
+            <b>y aumenta tu Remanente</b>
+          </h1>
+
+          <h2>
+            Aprovecha la tasa desde 1,02% (*) de tu
+            <br />
+            Crédito de Consumo en Mayo
+          </h2>
+
+          <a href="#" class="btn-primary">Solicitar</a>
+          <small>
+            (*) Tasa especial corresponde a una simulación de crédito de consumo
+            de $15.000.000 en 24 cuotas para socios sin crédito de consumo
+            vigente al momento del curse. Ejemplo de simulación válido hasta el
+            31-05-2021 calculado con 85 días plazo del primer vencimiento
+            después de la fecha de otorgamiento. Ejemplo incluye plan de seguros
+            Coopeuch que incluye desgravamen, invalidez total y permanente 2/3,
+            enfermedades graves y hospitalización para un socio de hasta 68
+            años. Sujeto a evaluación de acuerdo a las políticas de créditos
+            vigentes al momento de la solicitud.
+          </small>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

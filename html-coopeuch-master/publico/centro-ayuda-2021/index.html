@@ -1,0 +1,812 @@
+<!-- Banner Search Start -->
+<section class="banner-search">
+  <div class="container flex-container">
+    <h2>¡Hola¡ ¿En qué te ayudamos?</h2>
+    <div class="hsearch-content">
+      <div id="box-hsearch" class="box-hsearch">
+        <div class="hsearch-container">
+          <input
+            type="search"
+            id="hsearch"
+            name="hsearch"
+            class="input-hsearch"
+            placeholder="Escribe tu consulta..."
+          />
+          <button class="btn-hsearch" style="background: #f42534">
+            <img
+              src="https://www.coopeuch.cl/media/helpcenter/default/search.svg"
+              alt="Buscar"
+              height="20"
+              width="20"
+            />
+          </button>
+        </div>
+        <div class="results-hsearch">
+          <ul></ul>
+        </div>
+      </div>
+      <div class="bg-hsearch"></div>
+      <div class="searches-by-users"></div>
+    </div>
+
+    <div class="custom-actions-asosiate lg-only">
+      <h4>Nuestros socios buscan:</h4>
+      <div class="container-asociates-links">
+        <a class="custom-btn" href="/centro-de-ayuda/categoria/pregunta?category=44&question=34"> Creación clave de internet</a>
+        <a class="custom-btn" href="/centro-de-ayuda/categoria/pregunta?category=66&question=73">Activación PassCoopeuch</a>
+        <a class="custom-btn" href="/centro-de-ayuda/categoria/pregunta?category=39&question=75">Cobrar Remanente</a>
+      </div>
+    </div>
+  </div>
+</section>
+<style type="text/css">
+  .banner-search {
+    background-image: url('https://www.coopeuch.cl/media/wysiwyg/banner_centro_ayuda.jpg');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 400px;
+    width: 100%;
+  }
+  .banner-search .container.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 320px;
+    padding: 32px 16px;
+  }
+  .banner-search h2 {
+    max-width: 416px;
+    color: #383838;
+    font-family: 'Poppins bold';
+    font-size: 28px;
+    line-height: 42px;
+    margin-top: 0;
+  }
+  .custom-actions-asosiate.lg-only h4 {
+    font-size: 18px;
+  }
+  @media only screen and (max-width: 959px) {
+    .hsearch-content {
+      margin: 0;
+    }
+  }
+  @media only screen and (max-width: 580.1px) {
+    .banner-search h2 {
+      font-size: 18px;
+      line-height: 27px;
+    }
+  }
+  @media only screen and (max-width: 680.1px) {
+    .banner-search {
+      background-image: url(https://www.coopeuch.cl/media/wysiwyg/banner_mobile_1.jpg);
+      background-position: bottom;
+      min-height: 320px;
+    }
+    .banner-search .container.flex-container {
+      justify-content: flex-start;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('input', evt => {
+    const { value, id } = evt.target;
+    evt.preventDefault();
+
+    if (id === 'hsearch') {
+      const list = [
+          {
+            title:
+              '¿Cómo ver el monto ahorrado en mis cuotas de participación?',
+            subcategoria: 'informacion',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=33&question=27',
+          },
+          {
+            title: '¿Cómo reviso mi remanente?',
+            subcategoria: 'informacion',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=39&question=31',
+          },
+          {
+            title: '¿Cómo saber mi Remanente de Coopeuch sin salir de casa?',
+            subcategoria: 'informacion',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=39&question=74',
+          },
+          {
+            title: '¿Cómo cobrar mi Remanente Coopeuch por internet?',
+            subcategoria: 'informacion',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=39&question=75',
+          },
+          {
+            title: '¿Cómo capitalizo mi Remanente?',
+            subcategoria: 'informacion',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=39&question=76',
+          },
+          {
+            title: '¿Cómo abro mi Monedero Digital?',
+            subcategoria: 'informacion',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=39&question=77',
+          },
+          {
+            title: '¿Cómo transfiero mi Remanente desde mi Monedero Digital?',
+            subcategoria: 'informacion',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=39&question=78',
+          },
+          {
+            title:
+              '¿Cuál es la fecha de devolución de mi Remanente Coopeuch 2021?',
+            subcategoria: 'informacion',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=39&question=79',
+          },
+          {
+            title: 'Tomar DAP desde la APP y Sitio Privado',
+            subcategoria: 'Depósito a plazo',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=41&question=28',
+          },
+          {
+            title: '¿Cómo contratar SOAP?',
+            subcategoria: 'Contratación SOAP',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=41&question=29',
+          },
+          {
+            title: '¿Cómo puedo saber el número de mi Cuenta Vista?',
+            subcategoria: 'Cuenta Vista',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=41&question=69',
+          },
+          {
+            title: 'No ha llegado la Cuenta Vista a mi casa, ¿qué hago?',
+            subcategoria: 'Cuenta Vista',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=41&question=71',
+          },
+          {
+            title: 'Saldo de mi Cuenta Vista Coopeuch: ¿cómo lo veo?',
+            subcategoria: 'Cuenta Vista',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=41&question=72',
+          },
+          {
+            title: '¿Cómo actualizo mi número de celular?',
+            subcategoria: 'Actualización de celular',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=44&question=30',
+          },
+          {
+            title:
+              '¿Cómo hago una transferencia a otro banco desde mi App Coopeuch?',
+            subcategoria: 'Transferencias',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=44&question=32',
+          },
+          {
+            title: '¿Cómo creo mi clave de internet Coopeuch?',
+            subcategoria: 'Transferencias',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=44&question=34',
+          },
+          {
+            title:
+              '¿Cómo hago transferencias entre mis productos desde Coopeuch en Línea?',
+            subcategoria: 'Transferencias',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=44&question=36',
+          },
+          {
+            title: '¿Cómo transfiero a otro banco desde Coopeuch en Línea?',
+            subcategoria: 'Transferencias',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=44&question=38',
+          },
+          {
+            title:
+              'Cómo hago transferencias entre mis productos desde mi App Coopeuch?',
+            subcategoria: 'Transferencias',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=44&question=42',
+          },
+          {
+            title: '¿Cómo solicito mi Cuenta Vista Coopeuch por internet?',
+            subcategoria: 'Transferencias',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=44&question=65',
+          },
+          {
+            title:
+              '¿Cómo me pueden transferir si olvidé el número de mi Cuenta Vista?',
+            subcategoria: 'Transferencias',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=44&question=70',
+          },
+          {
+            title: 'Descargar APP Coopeuch',
+            subcategoria: 'Descargas',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=44&question=37',
+          },
+          {
+            title: '¿Cómo pago mis productos Coopeuch?',
+            subcategoria: 'Pago Online Ahorros',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=52&question=41',
+          },
+          {
+            title: '¿Cómo puedo ahorrar por internet?',
+            subcategoria: 'Pago Online Ahorros',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=52&question=58',
+          },
+          {
+            title: 'Sitio Privado y APP',
+            subcategoria: 'Pago Online Ahorros',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=52&question=61',
+          },
+          {
+            title: '¿Por qué no puedo depositar en el sitio?',
+            subcategoria: 'Pago Online Ahorros',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=52&question=62',
+          },
+          {
+            title:
+              '¿Si abono a mi Cuenta de Ahorro, el dinero se refleja al instante?',
+            subcategoria: 'Pago Online Ahorros',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=52&question=63',
+          },
+          {
+            title:
+              '¿Puedo abonar a mi Cuenta de Ahorro solo desde Cuenta Vista?',
+            subcategoria: 'Pago Online Ahorros',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=52&question=64',
+          },
+          {
+            title: '¿Qué es la Portabilidad Financiera?',
+            subcategoria: 'Información Portabilidad Financiera',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=56&question=43',
+          },
+          {
+            title: '¿Que requisito existe para solicitar mis acreencias?',
+            subcategoria: 'Preguntas Frecuentes De Acreencias',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=58&question=44',
+          },
+          {
+            title: '¿Comó solicito el retiro de mis acreencias?',
+            subcategoria: 'Preguntas Frecuentes De Acreencias',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=58&question=45',
+          },
+          {
+            title: '¿Cómo solicito mi crédito de consumo 100% digital?',
+            subcategoria: 'Preguntas Frecuente',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=61&question=46',
+          },
+          {
+            title: '¿ En que consisten las reliquidaciones web?',
+            subcategoria: 'Preguntas Frecuentes De Reliquidaciones Web',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=63&question=47',
+          },
+          {
+            title: '¿ Para quienes aplica las reliquidaciones web?',
+            subcategoria: 'Preguntas Frecuentes De Reliquidaciones Web',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=63&question=48',
+          },
+          {
+            title: '¿Cuales son las condiciones de las Reliquidaciones Web?',
+            subcategoria: 'Preguntas Frecuentes De Reliquidaciones Web',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=63&question=49',
+          },
+          {
+            title: '¿Como accedo a mi reliquidación web?',
+            subcategoria: 'Preguntas Frecuentes De Reliquidaciones Web',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=63&question=50',
+          },
+          {
+            title: '¿Qué es Pass Coopeuch?',
+            subcategoria: 'Preguntas frecuentes de PassCoopeuch',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=66&question=51',
+          },
+          {
+            title: '¿Por qué se creó la app Pass Coopeuch?',
+            subcategoria: 'Preguntas frecuentes de PassCoopeuch',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=66&question=52',
+          },
+          {
+            title: '¿En qué nos beneficia Pass Coopeuch?',
+            subcategoria: 'Preguntas frecuentes de PassCoopeuch',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=66&question=53',
+          },
+          {
+            title: '¿Cómo descargo la aplicación?',
+            subcategoria: 'Preguntas frecuentes de PassCoopeuch',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=66&question=54',
+          },
+          {
+            title: '¿Qué transacciones puedo autorizar con Pass Coopeuch?',
+            subcategoria: 'Preguntas frecuentes de PassCoopeuch',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=66&question=55',
+          },
+          {
+            title:
+              '¿Pass Coopeuch reemplaza a la tarjeta de coordenadas para autorizar transferencias?',
+            subcategoria: 'Preguntas frecuentes de PassCoopeuch',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=66&question=56',
+          },
+          {
+            title:
+              '¿Cómo activo mi PassCoopeuch si no tengo Tarjeta de Coordenadas?',
+            subcategoria: 'Preguntas frecuentes de PassCoopeuch',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=66&question=66',
+          },
+          {
+            title: 'Tengo problemas con mi Clave Única, ¿qué hago?',
+            subcategoria: 'Preguntas frecuentes de PassCoopeuch',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=66&question=67',
+          },
+          {
+            title: '¿Cómo obtengo mi Clave Única a través de internet?',
+            subcategoria: 'Preguntas frecuentes de PassCoopeuch',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=66&question=68',
+          },
+          {
+            title: '¿Cómo puedo saber el número de mi Cuenta Vista?',
+            subcategoria: 'Preguntas frecuentes de PassCoopeuch',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=66&question=69',
+          },
+          {
+            title: '¿Cómo activo mi PassCoopeuch con Tarjeta de Coordenadas?',
+            subcategoria: 'Preguntas frecuentes de PassCoopeuch',
+            link: 'https://www.coopeuch.cl/centro-de-ayuda/categoria/pregunta?category=66&question=73',
+          },
+        ],
+        resultList = document.getElementsByClassName('results-hsearch')[0],
+        term = value.toLowerCase();
+
+      searchResult = list.filter(({ title }) => title.toLowerCase().includes(term));
+      resultList.children[0].innerHTML =
+        searchResult.length > 0
+          ? searchResult.map(({ title, link }) => `<li><a href="${link}">${title}</a></li>`).join('')
+          : '<li><a>Ups intenta buscar otra cosa...</a></li>';
+      resultList.style.display = term.length === 0 ? 'none' : 'block';
+    }
+  });
+</script>
+<!-- Banner Search End -->
+
+<!-- Nuestros socios buscan botnoes del banner Start -->
+<div class="custom-actions-asosiate xs-only">
+  <h4>Nuestros socios buscan:</h4>
+  <div class="container-asociates-links">
+    <a class="custom-btn" href="/centro-de-ayuda/categoria/pregunta?category=44&question=34"> Creación clave de internet</a>
+    <a class="custom-btn" href="/centro-de-ayuda/categoria/pregunta?category=66&question=73">Activación PassCoopeuch</a>
+    <a class="custom-btn" href="/centro-de-ayuda/categoria/pregunta?category=39&question=75">Cobrar Remanente</a>
+  </div>
+</div>
+<style>
+  .custom-actions-asosiate.xs-only {
+    display: none;
+  }
+  .custom-actions-asosiate h4 {
+    font-size: 24px;
+    color: #383838;
+    font-family: 'Poppins bold';
+    line-height: 40px;
+  }
+  .custom-actions-asosiate.xs-only .container-asociates-links {
+    padding: 0 15px;
+  }
+  .custom-actions-asosiate .container-asociates-links {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .custom-actions-asosiate.xs-only .container-asociates-links {
+    justify-content: center;
+  }
+  .custom-actions-asosiate.lg-only
+    .container-asociates-links
+    .custom-btn:nth-child(1) {
+    margin-left: 0;
+  }
+  .custom-actions-asosiate .container-asociates-links .custom-btn {
+    background-color: #fff0;
+    font-family: Poppins;
+    font-weight: 800;
+    font-size: 14px;
+    border: 2px solid #007db7;
+    border-radius: 5px;
+    color: #007db7 !important;
+    outline: none;
+    min-width: 135px;
+    text-align: center;
+    text-decoration: none !important;
+    transition: all 0.3s ease-in;
+    margin: 10px;
+    display: flex;
+    max-width: 220px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .custom-actions-asosiate .container-asociates-links .custom-btn:hover,
+  .custom-actions-asosiate .container-asociates-links .custom-btn:focus {
+    color: #fff !important;
+    background-color: #007db7;
+  }
+  .custom-actions-asosiate.xs-only .container-asociates-links .custom-btn {
+    font-size: 14px;
+    max-width: 288px;
+    margin: 4px;
+  }
+  .custom-actions-asosiate.xs-only h4 {
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    margin: 0;
+    padding: 0 15px;
+  }
+  @media (max-width: 768.1px) {
+    .custom-actions-asosiate.xs-only {
+      display: block;
+    }
+    .custom-actions-asosiate.lg-only {
+      display: none;
+    }
+  }
+</style>
+<!-- Nuestros socios buscan  botnoes del bannerEnd -->
+
+<!-- Que necesitas Saber Start -->
+<div class="access-container">
+  <a href="/centro-de-ayuda/categoria/pregunta?category=44&question=34" class="access-item">
+    <img
+      src="https://www.coopeuch.cl/media/wysiwyg/1.password.png"
+      alt="category-icon"
+    />
+    <p class="category-title">Clave de Internet</p>
+    <p class="category-text">Cómo crearla, cómo recuperarla y mucho más.</p>
+    <p class="go-to-category"><span class="go-icon">Ir</span></p>
+  </a>
+
+  <a href="/centro-de-ayuda/categoria/pregunta?category=44&question=0" class="access-item">
+    <img
+      src="https://www.coopeuch.cl/media/wysiwyg/2.template.png"
+      alt="category-icon"
+    />
+    <p class="category-title">Sitio Privado</p>
+    <p class="category-text">
+      Todo sobre cómo realizar transacciones en Coopeuch en Línea.
+    </p>
+    <p class="go-to-category"><span class="go-icon">Ir</span></p>
+  </a>
+
+  <a href="/centro-de-ayuda/categoria/pregunta?category=44&question=0" class="access-item">
+    <img
+      src="https://www.coopeuch.cl/media/wysiwyg/3.smartphone.png"
+      alt="category-icon"
+    />
+    <p class="category-title">App Coopeuch</p>
+    <p class="category-text">
+      Descubre cómo operar con tu aplicación Coopeuch.
+    </p>
+    <p class="go-to-category"><span class="go-icon">Ir</span></p>
+  </a>
+
+  <a href="/centro-de-ayuda/categoria/pregunta?category=66&question=0" class="access-item">
+    <img
+      src="https://www.coopeuch.cl/media/wysiwyg/4.coopeuch.png"
+      alt="category-icon"
+    />
+    <p class="category-title">PassCoopeuch</p>
+    <p class="category-text">
+      Para qué sirve, cómo descargarla, cómo activarla y mucho más.
+    </p>
+    <p class="go-to-category"><span class="go-icon">Ir</span></p>
+  </a>
+
+  <a href="/centro-de-ayuda/categoria/pregunta?category=39&question=0" class="access-item">
+    <img
+      src="https://www.coopeuch.cl/media/wysiwyg/5.conversion_rate.png"
+      alt="category-icon"
+    />
+    <p class="category-title">Remanente</p>
+    <p class="category-text">
+      Todo lo que tienes que saber sobre este beneficio: monto, cobro, fechas de
+      pago y mucho más.
+    </p>
+    <p class="go-to-category"><span class="go-icon">Ir</span></p>
+  </a>
+
+  <a href="/centro-de-ayuda/categoria/pregunta?category=41&question=0" class="access-item">
+    <img
+      src="https://www.coopeuch.cl/media/wysiwyg/6.wallet.png"
+      alt="category-icon"
+    />
+    <p class="category-title">Productos</p>
+    <p class="category-text">
+      Lo que quieres saber sobre Cuenta Vista, Crédito de Consumo y otros
+      productos Coopeuch.
+    </p>
+    <p class="go-to-category"><span class="go-icon">Ir</span></p>
+  </a>
+
+  <a href="/centro-de-ayuda/categoria/pregunta?category=52&question=0" class="access-item">
+    <img
+      src="https://www.coopeuch.cl/media/wysiwyg/7.dollar_coin.png"
+      alt="category-icon"
+    />
+    <p class="category-title">Pago Online</p>
+    <p class="category-text">
+      Todo lo referente a pagos de tus productos Coopeuch.
+    </p>
+    <p class="go-to-category"><span class="go-icon">Ir</span></p>
+  </a>
+
+  <a href="/centro-de-ayuda/categoria/pregunta?category=44&question=34" class="access-item">
+    <img
+      src="https://www.coopeuch.cl/media/wysiwyg/8.sale.png"
+      alt="category-icon"
+    />
+    <p class="category-title">Beneficios</p>
+    <p class="category-text">Descubre cómo obtener tus beneficios de socio.</p>
+    <p class="go-to-category"><span class="go-icon">Ir</span></p>
+  </a>
+</div>
+<style>
+  .access-container .access-item {
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.22);
+    border: none;
+    text-decoration: none;
+    color: #383638;
+  }
+  .access-container .access-item:hover {
+    background-color: #f3f4f7;
+    color: #383638;
+    transition: all 0.6s ease-out;
+  }
+  .access-container .access-item .category-text,
+  .access-container .access-item .go-to-category {
+    min-height: 60px;
+  }
+</style>
+<!-- Que necesitas Saber End -->
+
+<!-- Nuestros socios buscando Start  -->
+<section class="container-items">
+  <a href="/centro-de-ayuda/categoria/pregunta?category=44&question=34" class="item-asosiate-looking">
+    <h3 class="title-asosiate">¿Cómo creo o recupero mi clave de internet?</h3>
+    <h3 class="subtitle">Clave Internet</h3>
+  </a>
+
+  <a href="/centro-de-ayuda/categoria/pregunta?category=66&question=73" class="item-asosiate-looking">
+    <h3 class="title-asosiate">¿Cómo activo mi PassCoopeuch?</h3>
+    <h3 class="subtitle">PassCoopeuch</h3>
+  </a>
+
+  <a href="/centro-de-ayuda/categoria/pregunta?category=39&question=74" class="item-asosiate-looking">
+    <h3 class="title-asosiate">¿Cómo reviso mi Remanente sin salir de casa?</h3>
+    <h3 class="subtitle">Remanente</h3>
+  </a>
+
+  <a href="/centro-de-ayuda/categoria/pregunta?category=61&question=46" class="item-asosiate-looking">
+    <h3 class="title-asosiate">¿Cómo solicito mi Crédito de Consumo?</h3>
+    <h3 class="subtitle">Productos</h3>
+  </a>
+</section>
+<style>
+  section.container-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  section.container-items .item-asosiate-looking {
+    min-height: 80px;
+    max-width: 591px;
+    border-radius: 10px;
+    background-color: rgb(54 79 117 / .4);
+    margin: 4px;
+    padding: 5px 20px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all .3s ease-out;
+    text-decoration: none;
+  }
+  section.container-items .item-asosiate-looking:hover {
+    background-color: rgb(54 79 117 / 1);
+  }
+  section.container-items .item-asosiate-looking h3.title-asosiate,
+  section.container-items .item-asosiate-looking h3.subtitle {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 40px;
+    margin: 0;
+  }
+  section.container-items .item-asosiate-looking h3.subtitle {
+    opacity: 0.49;
+  }
+  section.container-items .item-asosiate-looking::after {
+    content: url(https://www.coopeuch.cl/media/wysiwyg/arrow-right-black.svg);
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translate(50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 580.1px) {
+    section.container-items .item-asosiate-looking {
+      min-height: 70px;
+      max-height: 70px;
+      box-sizing: border-box;
+    }
+    section.container-items .item-asosiate-looking h3.title-asosiate {
+      font-size: 16px !important;
+      line-height: 24px;
+      max-width: 95%;
+    }
+    section.container-items .item-asosiate-looking h3.subtitle {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .bg-container-asociates {
+      background-position: top !important;
+      min-height: 672px !important;
+    }
+    section.container-items .item-asosiate-looking {
+      display: flex;
+      align-items: center;
+    }
+    section.container-items .item-asosiate-looking h3.title-asosiate {
+      font-size: 16px !important;
+      line-height: 24px;
+      max-width: 95%;
+    }
+    section.container-items .item-asosiate-looking h3.subtitle {
+      display: none;
+    }
+  }
+  @media (min-width: 768.1px) and (max-width: 1220.1px) {
+    .bg-container-asociates {
+      background-position: bottom !important;
+    }
+  }
+</style>
+<!-- Nuestros socios buscando End -->
+
+<!-- Canales de Contacto Start -->
+<section class="container-contacto">
+  <a style="text-decoration: none" href="#">
+    <figure class="divider">
+      <img src="https://www.coopeuch.cl/media/wysiwyg/ivic-centro-ayuda.png" />
+      <figcaption>
+        <h5>Asistente Virtual</h5>
+        <p>IVIC</p>
+      </figcaption>
+    </figure>
+  </a>
+
+  <a style="text-decoration: none" href="tel:6002001200">
+    <figure class="divider">
+      <img
+        src="https://www.coopeuch.cl/media/wysiwyg/contact-centro-ayuda.png"
+      />
+      <figcaption>
+        <h5>Contact Center</h5>
+        <p>600 200 1200</p>
+      </figcaption>
+    </figure>
+  </a>
+
+  <a style="text-decoration: none" href="https://facebook.com/Coopeuch">
+    <figure>
+      <img src="https://www.coopeuch.cl/media/wysiwyg/fb-centro-ayuda.png" />
+      <figcaption>
+        <h5>Redes Sociales</h5>
+        <p>Facebook</p>
+      </figcaption>
+    </figure>
+  </a>
+</section>
+
+<style scoped>
+  .help-center-title-section h2 * {
+    font-family: 'Poppins bold';
+  }
+  .divider::before {
+    position: absolute;
+    content: ' ';
+    right: 0;
+    box-sizing: border-box;
+    height: 123px;
+    width: 2px;
+    background: rgba(19, 31, 107, 0.05);
+    border: none;
+  }
+  .container-contacto {
+    display: flex;
+    justify-content: center;
+  }
+  .container-contacto figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 290px;
+    text-align: center;
+    position: relative;
+    margin: 5px;
+  }
+  .container-contacto figure img {
+    max-width: 60px;
+    max-height: 60px;
+  }
+  .container-contacto figure figcaption h5 {
+    min-height: 25px;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Poppins Bold';
+    color: #383638;
+    margin: 10px 0 5px;
+  }
+  .container-contacto figure figcaption p {
+    min-width: 40px;
+    color: #364f6b;
+    font-size: 20px;
+    line-height: 30px;
+    margin: 0;
+  }
+
+  /* MAGENTO CSS START */
+  .columns .column.main {
+    padding-bottom: 0;
+  }
+  /* MAGENTO CSS END */
+
+  @media (max-width: 580.1px) {
+    .help-center-title-section h2 {
+      margin: 10px 0 22px;
+    }
+  }
+  @media (max-width: 762.1px) {
+    .help-center-title-section h2 {
+      padding: 0 15px;
+      text-align: center;
+    }
+    .help-center-title-section h2 * {
+      font-size: 20px !important;
+      line-height: 28px !important;
+    }
+    .help-center-subtitle-section {
+      display: flex;
+      justify-content: center;
+    }
+    .help-center-subtitle-section p {
+      max-width: 280px;
+    }
+    .help-center-subtitle-section p * {
+      font-size: 14px !important;
+      line-height: 21px !important;
+    }
+    .container-contacto {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .container-contacto figure {
+      flex-direction: row;
+      text-align: left;
+    }
+    .divider::before {
+      right: auto;
+      bottom: 0;
+      box-sizing: border-box;
+      height: 2px;
+      min-width: 247px;
+      width: 100%;
+    }
+    .container-contacto figure figcaption {
+      padding: 10px 20px;
+    }
+    .container-contacto figure figcaption h5 {
+      font-size: 14px;
+      line-height: 22px;
+    }
+    .container-contacto figure figcaption p {
+      font-size: 18px;
+      line-height: 27px;
+    }
+  }
+</style>
+<!-- Canales de Contacto End -->

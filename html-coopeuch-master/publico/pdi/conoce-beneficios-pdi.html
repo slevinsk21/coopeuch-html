@@ -1,0 +1,301 @@
+<style>
+  .benefits-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .benefits-card {
+    display: flex;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    overflow: hidden;
+    min-height: 332px;
+    max-width: 556px;
+  }
+  .benefits-card h4 {
+    font-size: 20px;
+    color: #000000;
+    font-weight: 500;
+    letter-spacing: 0;
+    margin: 0 0 10px 0;
+    line-height: 30px;
+    max-width: 272px;
+  }
+  .benefits-card p {
+    color: #000000;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 25px;
+    max-width: 408px;
+  }
+  .benefits-card .benefits-content {
+    padding: 30px;
+    position: relative;
+    width: 100%;
+  }
+  .image-benefits {
+    position: absolute;
+    top: 1px;
+    right: 0;
+    border-bottom-left-radius: 100%;
+    max-width: 260px;
+    max-height: 195px;
+    border-top-right-radius: 10px;
+  }
+  .logo-benefits {
+    object-fit: contain;
+    max-width: 140px;
+    margin-bottom: 85px;
+  }
+  .icon-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  .benefits-card.card-small {
+    min-height: 332px;
+    max-width: 360px;
+  }
+  .benefits-card.card-small .benefits-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+  .benefits-card.card-small .benefits-content .image-benefits {
+    max-height: 150px;
+    max-width: 190px;
+    object-fit: fill;
+    height: 100%;
+    width: 100%;
+  }
+  .benefits-card.card-small .benefits-content .logo-benefits {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+  }
+  .visible-info {
+    overflow: visible;
+    position: relative;
+  }
+  .benefits-card.card-small.visible-info .info-card-container {
+    max-width: 313px;
+    background-color: #7c2482;
+  }
+  .info-card-container {
+    max-height: 44px;
+    max-width: 349px;
+    border-radius: 12px 12px 0 0;
+    background-color: #3aa1df;
+    padding: 5px 10px;
+    position: absolute;
+    top: -39px;
+    left: 0;
+  }
+  .info-card-content {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 30px;
+  }
+  @media screen and (max-width: 1010.1px) {
+    .benefits-card {
+      min-height: 332px;
+      max-width: 360px;
+    }
+    .image-benefits {
+      max-height: 150px;
+      max-width: 190px;
+      object-fit: fill;
+      height: 100%;
+      width: 100%;
+    }
+    .info-card-container {
+      max-width: 313px;
+    }
+    .info-card-content {
+      font-size: 18px;
+    }
+  }
+  @media screen and (max-width: 480.1px) {
+    .image-benefits,
+    .benefits-card.card-small .benefits-content .image-benefits {
+      max-height: 145px;
+      max-width: 170px;
+      object-fit: fill;
+      height: 100%;
+      width: 100%;
+    }
+    .logo-benefits,
+    .benefits-card.card-small .benefits-content .logo-benefit {
+      max-width: 130px;
+    }
+    .benefits-card h4 {
+      font-size: 18px;
+    }
+    .benefits-card p {
+      font-size: 14px;
+    }
+  }
+  @media screen and (min-width: 1010.1px) {
+    .card-wide {
+      min-width: 556px;
+    }
+  }
+
+
+</style>
+
+<div class="benefits-container" style="margin: 60px 0">
+  <div class="benefits-card card-wide visible-info">
+    <div class="info-card-container">
+      <span class="info-card-content">Beneficios con medios de pago</span>
+    </div>
+
+    <div class="benefits-content">
+      <img
+        class="image-benefits"
+        src="https://www.coopeuch.cl/media/wysiwyg/beneficios-tarjeta.png"
+        alt=""
+      />
+
+      <img
+        class="logo-benefits"
+        src="https://www.coopeuch.cl/media/wysiwyg/tarjetas-credito.png"
+        alt=""
+      />
+
+      <h4>Realiza tus compras en 6 ó 12 Cuotas sin interés</h4>
+
+      <p>
+        Promoción válida hasta el 31 de octubre de 2020, para compras realizadas
+        con Tarjeta Coopeuch Mastercard titulares y/o adicionales.
+      </p>
+
+      <img
+        class="icon-bottom"
+        src="https://www.coopeuch.cl/media/wysiwyg/medio-pago-icn.png"
+      />
+    </div>
+  </div>
+
+  <div class="benefits-card card-wide ">
+    <div class="benefits-content">
+      <img
+        class="image-benefits"
+        src="https://www.coopeuch.cl/media/wysiwyg/beneficios-ptos-coopeuch.png"
+        alt=""
+      />
+
+      <img
+        class="logo-benefits"
+        src="https://www.coopeuch.cl/media/wysiwyg/puntos-coopeuch-logo.png"
+        alt=""
+      />
+
+      <h4>Paga tus cuentas con tus puntos</h4>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+        nonummy nibh euismod tincidunt ut laoreet.
+      </p>
+
+      <img
+        class="icon-bottom"
+        src="https://www.coopeuch.cl/media/wysiwyg/medio-pago-icn.png"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="benefits-container">
+  <div class="benefits-card card-small visible-info">
+    <div class="info-card-container">
+      <span class="info-card-content">Beneficios exlusivos socios</span>
+    </div>
+
+    <div class="benefits-content">
+      <img
+        class="image-benefits"
+        src="https://www.coopeuch.cl/media/wysiwyg/beneficios-uber.png"
+        alt=""
+      />
+
+      <img
+        class="logo-benefits"
+        src="https://www.coopeuch.cl/media/wysiwyg/uber-logo.png"
+        alt=""
+      />
+
+      <h4>$2.300 de descuento en tu próximo viaje.</h4>
+
+      <p>
+        Válido pagando con tarjetas de crédito y débito Mastercard Coopeuch.
+      </p>
+
+      <img
+        class="icon-bottom"
+        src="https://www.coopeuch.cl/media/wysiwyg/exclusivo-socios-icn.png"
+      />
+    </div>
+  </div>
+
+  <div class="benefits-card card-small">
+    <div class="benefits-content">
+      <img
+        class="image-benefits"
+        src="https://www.coopeuch.cl/media/wysiwyg/beneficios-mayorista.png"
+        alt=""
+      />
+
+      <img
+        class="logo-benefits"
+        src="https://www.coopeuch.cl/media/wysiwyg/mayorista-logo.png"
+        alt=""
+      />
+
+      <h4>20% descuento en el total de compra en mayorista 10</h4>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+        nonummy nibh euismod tincidunt ut laoreet.
+      </p>
+
+      <img
+        class="icon-bottom"
+        src="https://www.coopeuch.cl/media/wysiwyg/exclusivo-socios-icn.png"
+      />
+    </div>
+  </div>
+
+  <div class="benefits-card card-small">
+    <div class="benefits-content">
+      <img
+        class="image-benefits"
+        src="https://www.coopeuch.cl/media/wysiwyg/beneficios-farmacia.png"
+        alt=""
+      />
+
+      <img
+        class="logo-benefits"
+        src="https://www.coopeuch.cl/media/wysiwyg/cruzverde-logo.png"
+        alt=""
+      />
+
+      <h4>Hasta 20% dcto en productos en Cruz Verde</h4>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+        nonummy nibh euismod tincidunt ut laoreet.
+      </p>
+
+      <img
+        class="icon-bottom"
+        src="https://www.coopeuch.cl/media/wysiwyg/exclusivo-socios-icn.png"
+      />
+    </div>
+  </div>
+</div>

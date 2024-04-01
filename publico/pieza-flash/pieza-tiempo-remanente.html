@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pieza - Remanente</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      * {
+        font-family: 'Ubuntu', sans-serif;
+      }
+      header.coopeuch-header {
+        height: 71.56px;
+        background-color: #f42534;
+        margin: 0;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      footer {
+        min-height: 116px;
+        background-color: #969799;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        box-sizing: border-box;
+      }
+      .text-footer {
+        color: #fff;
+        font-size: 12px;
+        line-height: 20px;
+      }
+      .text-align-right-desktop {
+        text-align: right;
+      }
+      .container-remanente {
+        padding: 30px 10px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .headline {
+        max-width: 511px;
+        padding: 10px;
+      }
+      .headline h2.text-headline {
+        color: #383838;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 36px;
+        font-weight: bold;
+        line-height: 46px;
+      }
+      .headline p.text-subheadline {
+        color: #393939;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 18px;
+        line-height: 27px;
+      }
+      .headline h3.text-subheadline-btn {
+        color: #393939;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 34px;
+      }
+      img.side-img {
+        max-height: 511px;
+        object-fit: contain;
+      }
+      .btn {
+        font-family: 'Ubuntu', sans-serif;
+        background-color: #fff;
+        padding: 12px 27px;
+        font-weight: 800;
+        font-size: 16px;
+        border: 2px solid #f42534;
+        border-radius: 5px;
+        outline: none;
+        min-width: 135px;
+        text-align: center;
+        text-decoration: none !important;
+        transition: all 0.3s ease-in;
+        margin: 10px 0;
+      }
+      .btn.btn-outline {
+        background-color: #fff;
+        box-sizing: border-box;
+        border: 1px solid #f42534;
+        color: #f42534 !important;
+      }
+      .btn.btn-primary {
+        background-color: #f42534cc;
+        box-sizing: border-box;
+        border: none;
+        color: #ffff;
+      }
+      .btn.btn-primary:hover,
+      .btn.btn-primary:focus,
+      .btn.btn-primary:active,
+      .btn.btn-outline:hover,
+      .btn.btn-outline:focus,
+      .btn.btn-outline:active {
+        color: #fff !important;
+        background-color: #f42534;
+      }
+      .ml-10 {
+        margin-left: 10px;
+      }
+      .mr-10 {
+        margin-right: 10px;
+      }
+      .mobile-only {
+        display: none;
+      }
+
+      @media screen and (max-width: 1275.1px) {
+        .side-img {
+          margin-top: 40px;
+        }
+      }
+      @media screen and (max-width: 580.1px) {
+        .headline h2.text-headline {
+          font-size: 23px;
+          line-height: 28px;
+        }
+        .headline h3.text-subheadline-btn {
+          font-size: 18px;
+          line-height: 26px;
+        }
+        .headline p.text-subheadline {
+          font-size: 14px;
+          line-height: 24px;
+        }
+        .desktop-only {
+          display: none;
+        }
+        .mobile-only {
+          display: block;
+        }
+        .ml-10,
+        .mr-10 {
+          margin: 10px 0;
+        }
+        .container-btn {
+          display: flex;
+          flex-direction: column;
+        }
+        .text-align-right-desktop {
+          text-align: left;
+        }
+        footer {
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="coopeuch-header">
+      <a
+        class="logo"
+        href="https://www.coopeuch.cl/personas/"
+        title="Coopeuch logo"
+        aria-label="store logo"
+      >
+        <img
+          src="https://www.coopeuch.cl/media/logo/stores/1/logo.svg"
+          title="Coopeuch logo"
+          alt="Coopeuch logo"
+          width="157"
+          height="27"
+        />
+      </a>
+    </header>
+    <section class="container-remanente">
+      <div class="headline">
+        <h2 class="text-headline">
+          <strong> Es tiempo de Remanente</strong>
+        </h2>
+
+        <p class="text-subheadline">
+          Es tiempo de que todas las utilidades de nuestra cooperativa se
+          repartan entre todos nosotros. Conoce el monto, fecha y modalidad de
+          pago de tu Remanente, ingresando a “Conocer mi Remanente” y para otros
+          trámites a www.coopeuch.cl
+        </p>
+
+        <p class="text-subheadline">
+          Conoce el monto, fecha y modalidad de pago de tu Remanente, ingresando
+          a “Conocer mi Remanente” y para otros trámites a www.coopeuch.cl
+        </p>
+
+        <h3 class="text-subheadline-btn">Cuéntanos que quieres hacer ahora</h3>
+
+        <div class="container-btn">
+          <a class="btn btn-outline mr-10" href="#">Ir a Coopeuch.cl</a>
+          <a class="btn btn-primary ml-10" href="#">Conocer mi Remanente</a>
+        </div>
+      </div>
+
+      <img
+        class="side-img desktop-only"
+        src="./desktop-side-img-remanente.png"
+      />
+      <img class="side-img mobile-only" src="./mobile-side-img-remanente.png" />
+    </section>
+
+    <footer>
+      <div style="display: flex; flex-wrap: wrap">
+        <figure style="margin: 0 20px 0 0;">
+          <img
+            class="pagebuilder-mobile-hidden"
+            src="https://www.coopeuch.cl/media/wysiwyg/procalidad_1_.png"
+            alt=""
+          />
+        </figure>
+        <p class="text-footer">
+          1º Lugar por <strong>quito año consecutivo</strong> en categoría
+          "instituciones financieras de ahorro y crédito"
+        </p>
+      </div>
+
+      <p class="text-footer text-align-right-desktop">
+        Infórmese sobre la garantía estatal de los depósitos en su cooperativa o
+        en www.cmfchile.cl
+        <br />
+        <strong>Coopeuch ®️ 2020</strong> - Todos los derechos reservados
+      </p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,202 @@
+<link
+  href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap"
+  rel="stylesheet"
+/>
+<style>
+  .banner-cyber-container {
+    background-image: url(https://www.coopeuch.cl/media/wysiwyg/img_banner_desk.png);
+    height: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    min-height: 420px;
+  }
+  .banner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 5%;
+    right: 20%;
+    width: 100%;
+  }
+  .banner-content h5 {
+    color: #fff;
+  }
+  .banner-content h1 {
+    font-family: 'Poppins Bold';
+    font-size: 52px;
+    text-align: center;
+    color: #ffff;
+    margin-bottom: 2px;
+  }
+  .page-main {
+    max-width: 100%;
+  }
+  .chip-cyber {
+    font-family: 'Poppins SemiBold';
+    color: #ffffff;
+    padding: 8px 15px;
+    border-radius: 4px;
+    max-width: fit-content;
+    margin-bottom: 2px;
+  }
+  .chip-cyber.bg-blue {
+    background-color: rgb(35 161 219);
+  }
+  .chip-cyber.bg-red {
+    background-color: rgb(236 57 59);
+  }
+
+  @media (max-width: 780.1px) {
+    .banner-content {
+      right: 0;
+    }
+  }
+  @media (max-width: 580.1px) {
+    .banner-cyber-container {
+      background-image: url(https://www.coopeuch.cl/media/wysiwyg/img_menu.png);
+    }
+    .banner-content {
+      top: 0;
+      left: auto;
+      text-align: center;
+    }
+    .banner-content h5 {
+      max-width: 340px;
+    }
+    .banner-content h1 {
+      font-size: 42px;
+    }
+  }
+
+  .watch {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .container-box-time {
+    display: flex;
+    flex-direction: column;
+  }
+  .box-time {
+    position: relative;
+    width: 55px;
+    height: 63px;
+    background-color: white;
+    color: #393939;
+    font-size: 46px;
+    text-align: center;
+    padding: 15px;
+    margin: 0 10px;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.14);
+    overflow: hidden;
+    font-family: 'Oswald', sans-serif;
+  }
+  .time-description {
+    font-size: 14px;
+    color: white;
+    margin: 10px;
+  }
+  .divider {
+    position: absolute;
+    bottom: 48%;
+    left: 0;
+    width: 100%;
+    background: #393939;
+    height: 1px;
+    border: none;
+  }
+  .square {
+    position: absolute;
+    bottom: 43%;
+    width: 10px;
+    background: #393939;
+    height: 10px;
+    border: none;
+  }
+  .square.left {
+    left: 0;
+  }
+  .square.right {
+    right: 0;
+  }
+</style>
+
+<!-- START SECTION BANNER -->
+<style></style>
+<section id="banner" class="banner-cyber-container">
+  <div class="banner-content">
+    <h5>
+      Hasta el
+      <span class="chip-cyber">6 de noviembre</span>
+    </h5>
+    <img
+      src="https://www.coopeuch.cl/media/wysiwyg/logo_cyber_banner_home.png"
+      alt="dias-coopuech-logo"
+      style="max-width: 280px"
+    />
+    <h5 class="chip-cyber">Con estas ofertas todos ganamos</h5>
+
+    <div class="watch">
+      <h5 style="margin: 4px; text-align: left">Termina en:</h5>
+      <div id="clock" style="display: flex"></div>
+    </div>
+  </div>
+</section>
+<!-- END SECTION BANNER -->
+<script>
+  const getRemainingTime = (deadline) => {
+    let now = new Date(),
+      remainTime = (new Date(deadline) - now + 1000) / 1000,
+      remainSeconds = ('0' + Math.floor(remainTime % 60)).slice(-2),
+      remainMinutes = ('0' + Math.floor((remainTime / 60) % 60)).slice(-2),
+      remainHours = ('0' + Math.floor((remainTime / 3600) % 24)).slice(-2),
+      remainDays = Math.floor(remainTime / (3600 * 24));
+
+    return {
+      remainSeconds,
+      remainMinutes,
+      remainHours,
+      remainDays,
+      remainTime,
+    };
+  };
+
+  const countdown = (deadline, elem, finalMessage) => {
+    const el = document.getElementById(elem);
+
+    // const timerUpdate = setInterval(() => {
+    let t = getRemainingTime(deadline);
+
+    const getBoxItem = (time, word) =>
+      `<div class="container-box-time">
+              <div class="box-time">
+                ${time}
+                <div>
+                  <div class="square left"></div>
+                  <div class="divider"></div>
+                  <div class="square right"></div>
+                </div>
+              </div>
+              <small class="time-description">${word}</small>
+            </div>`;
+
+    el.innerHTML =
+      getBoxItem(t.remainDays, 'Días') +
+      getBoxItem(t.remainHours, 'Horas') +
+      getBoxItem(t.remainMinutes, 'Minutos');
+    // getBoxItem(t.remainSeconds, "seg");
+
+    //if (t.remainTime <= 1) {
+    // clearInterval(timerUpdate);
+    // el.innerHTML = finalMessage;
+    //}
+    // }, 1000);
+  };
+
+  countdown('Nov 06 2020 23:59:59 GMT-0300', 'clock', '¡Ya empezó!');
+</script>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section id="insuranceCards" v-cloak>
+      <template v-for="{ imgSrc, title, subtitle, description, link } in insuranceContent">
+        <div class="insurance-card">
+          <img
+            :src="imgSrc"
+            :alt="title"
+            class="insurance-item-image"
+            loading="lazy"
+          />
+          <span class="insurance-title">
+            <a href="#" class="insurance-link">{{ title }}</a>
+          </span>
+
+          <div class="insurance-content">
+            <h3>{{ subtitle }}</h3>
+
+            <ul>
+              <li v-for="itemDescription in description">
+                {{ itemDescription }}
+              </li>
+            </ul>
+
+            <a class="coopeuch-link" :href="link.url">{{ link.title }}</a>
+          </div>
+        </div>
+      </template>
+    </section>
+    <script>
+      require(['vue'], function (Vue) {
+        'use strict';
+        new Vue({
+          el: '#insuranceCards',
+          data: {
+            insuranceContent: [
+              {
+                imgSrc: 'https://www.coopeuch.cl/media/wysiwyg/card-seguros-1.png',
+                title: 'Seguro Auto pérdida Total',
+                subtitle: 'Lorem ipsum sit amet consectetur',
+                description: [
+                  'Lorem ipsum dolor it amet consectetur.',
+                  'sit amet consectetur, adipisicing elit.',
+                  'Saepe cupiditate recusandae possimus.'
+                ],
+                link: {
+                  title: 'Conocer más',
+                  url: '#'
+                }
+              },
+              {
+                imgSrc: 'https://www.coopeuch.cl/media/wysiwyg/card-seguros-2.png',
+                title: 'Seguro Auto Full',
+                subtitle: 'Lorem ipsum sit amet consectetur',
+                description: [
+                  'Lorem ipsum dolor it amet consectetur.',
+                  'sit amet consectetur, adipisicing elit.',
+                  'Saepe cupiditate recusandae possimus.'
+                ],
+                link: {
+                  title: 'Conocer más',
+                  url: '#'
+                }
+              },
+              {
+                imgSrc: 'https://www.coopeuch.cl/media/wysiwyg/card-seguros-3.png',
+                title: 'SOAP',
+                subtitle: 'Lorem ipsum sit amet consectetur',
+                description: [
+                  'Lorem ipsum dolor it amet consectetur.',
+                  'sit amet consectetur, adipisicing elit.',
+                  'Saepe cupiditate recusandae possimus.'
+                ],
+                link: {
+                  title: 'Conocer más',
+                  url: '#'
+                }
+              },
+              {
+                imgSrc: 'https://www.coopeuch.cl/media/wysiwyg/card-seguros-4.png',
+                title: 'Seguro Hogar Contenido',
+                subtitle: 'Lorem ipsum sit amet consectetur',
+                description: [
+                  'Lorem ipsum dolor it amet consectetur.',
+                  'sit amet consectetur, adipisicing elit.',
+                  'Saepe cupiditate recusandae possimus.'
+                ],
+                link: {
+                  title: 'Conocer más',
+                  url: '#'
+                }
+              },
+              {
+                imgSrc: 'https://www.coopeuch.cl/media/wysiwyg/card-seguros-5.png',
+                title: 'Seguro Hogar Catastrófico',
+                subtitle: 'Lorem ipsum sit amet consectetur',
+                description: [
+                  'Lorem ipsum dolor it amet consectetur.',
+                  'sit amet consectetur, adipisicing elit.',
+                  'Saepe cupiditate recusandae possimus.'
+                ],
+                link: {
+                  title: 'Conocer más',
+                  url: '#'
+                }
+              },
+              {
+                imgSrc: 'https://www.coopeuch.cl/media/wysiwyg/card-seguros-6.png',
+                title: 'Seguro Hogar Estructura + Contenido',
+                subtitle: 'Lorem ipsum sit amet consectetur',
+                description: [
+                  'Lorem ipsum dolor it amet consectetur.',
+                  'sit amet consectetur, adipisicing elit.',
+                  'Saepe cupiditate recusandae possimus.'
+                ],
+                link: {
+                  title: 'Conocer más',
+                  url: '#'
+                }
+              },
+              {
+                imgSrc: 'https://www.coopeuch.cl/media/wysiwyg/card-seguros-7.png',
+                title: 'Seguro Vida',
+                subtitle: 'Lorem ipsum sit amet consectetur',
+                description: [
+                  'Lorem ipsum dolor it amet consectetur.',
+                  'sit amet consectetur, adipisicing elit.',
+                  'Saepe cupiditate recusandae possimus.'
+                ],
+                link: {
+                  title: 'Conocer más',
+                  url: '#'
+                }
+              },
+              {
+                imgSrc: 'https://www.coopeuch.cl/media/wysiwyg/card-seguros-8.png',
+                title: 'Seguro Educación Protegida',
+                subtitle: 'Lorem ipsum sit amet consectetur',
+                description: [
+                  'Lorem ipsum dolor it amet consectetur.',
+                  'sit amet consectetur, adipisicing elit.',
+                  'Saepe cupiditate recusandae possimus.'
+                ],
+                link: {
+                  title: 'Conocer más',
+                  url: '#'
+                }
+              }
+            ]
+          }
+        });
+      });
+    </script>
+    <style scoped>
+      /*  */
+      .co-before-pageMain
+        .co-title-container
+        .page-title-wrapper
+        .icon_product {
+        top: 5px;
+        height: 32px;
+        width: 32px;
+        object-fit: contain;
+      }
+      .co-before-pageMain
+        .co-title-container
+        .page-title-wrapper
+        .page-title
+        span,
+      .co-before-pageMain
+        .co-title-container
+        .page-title-wrapper
+        .titledescription
+        .value {
+        margin-left: 3rem;
+      }
+      .co-before-pageMain .co-title-container {
+        border: none;
+      }
+      .breadcrumbs .items .item:not(:last-child)::after {
+        color: #333 !important;
+      }
+      @media only screen and (max-width: 767px) {
+        .co-before-pageMain
+          .co-title-container
+          .page-title-wrapper
+          .page-title {
+            margin-left: -43px;
+        }
+      }
+      /*  */
+      [v-cloak] {
+        display: none;
+      }
+      html {
+        font-size: 16px;
+      }
+      body {
+        font-size: 0.875rem;
+      }
+      #insuranceCards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+        grid-gap: 1.5rem;
+      }
+      .insurance-card {
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.27);
+        border-radius: 5px;
+        margin: 5px;
+        max-width: 25.125rem;
+        overflow: hidden;
+      }
+      .insurance-card .insurance-item-image {
+        max-height: 12.125rem;
+        object-fit: cover;
+      }
+      .insurance-card .insurance-title {
+        display: flex;
+        align-items: center;
+        background-color: #00a1df;
+        padding: 1rem;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        max-height: 2rem;
+        box-sizing: border-box;
+      }
+      .insurance-card .insurance-title .insurance-link {
+        color: #fff;
+        text-decoration: none;
+      }
+      .insurance-card .insurance-content {
+        padding: 1rem;
+      }
+      .insurance-card .insurance-content > h3 {
+        font-size: 1.125rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+        text-align: left;
+        color: #383838;
+        margin: 0;
+      }
+      .insurance-card .insurance-content > ul {
+        list-style: none;
+        padding: 1rem 0;
+        margin-bottom: 0;
+      }
+      .insurance-card .insurance-content > ul > li {
+        display: flex;
+        align-items: center;
+        font-size: 0.875rem;
+        font-weight: bold;
+        line-height: 1.125rem;
+        text-align: left;
+        color: #383838;
+      }
+      .insurance-card .insurance-content > ul > li::before {
+        content: '\2022';
+        color: #1e1e1e;
+        font-weight: bold;
+        display: flow-root;
+        width: 0.9375rem;
+        font-size: 1.5625rem;
+        line-height: 15px;
+        margin-right: .8rem;
+      }
+      .insurance-card .insurance-content > a.coopeuch-link {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+      }
+
+      @media screen and (max-width: 36.625rem) {
+        #insuranceCards {
+          justify-items: center;
+        }
+      }
+    </style>
+  </body>
+</html>

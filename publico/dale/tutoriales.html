@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+<div id="container-grid" class="container-grid"></div>
+<script>
+  const products = [
+    {
+      link: '#',
+      img: 'webpay-01'
+    },
+    {
+      link: '#',
+      img: 'airbnb'
+    },
+    {
+      link: '#',
+      img: 'aliexpress-01'
+    },
+    {
+      link: '#',
+      img: 'alipay'
+    },
+    {
+      link: '#',
+      img: 'amazon'
+    },
+    {
+      link: '#',
+      img: 'amazon-ws'
+    },
+    {
+      link: '#',
+      img: 'badoo'
+    },
+    {
+      link: '#',
+      img: 'blizzard'
+    },
+    {
+      link: '#',
+      img: 'booking'
+    },
+    {
+      link: '#',
+      img: 'canva'
+    },
+    {
+      link: '#',
+      img: 'casa-ideas'
+    },
+    {
+      link: '#',
+      img: 'crehana'
+    },
+    {
+      link: '#',
+      img: 'crunchyroll'
+    },
+    {
+      link: '#',
+      img: 'cuballama-01'
+    },
+    {
+      link: '#',
+      img: 'despegar'
+    },
+    {
+      link: '#',
+      img: 'deezer'
+    },
+    {
+      link: '#',
+      img: 'dhgate-logo'
+    },
+    {
+      link: '#',
+      img: 'dropbox'
+    },
+    {
+      link: '#',
+      img: 'ebay'
+    },
+    {
+      link: '#',
+      img: 'epicgames'
+    },
+    {
+      link: '#',
+      img: 'etsy_logo'
+    },
+    {
+      link: '#',
+      img: 'face-logo'
+    },
+    {
+      link: '#',
+      img: 'far-ahu-01'
+    },
+    {
+      link: '#',
+      img: 'github'
+    },
+    {
+      link: '#',
+      img: 'gog.com'
+    },
+    {
+      link: '#',
+      img: 'goo-play'
+    },
+    {
+      link: '#',
+      img: 'grin'
+    },
+    {
+      link: '#',
+      img: 'gsuite'
+    },
+    {
+      link: '#',
+      img: 'igg-logo'
+    },
+    {
+      link: '#',
+      img: 'instagram_2'
+    },
+    {
+      link: '#',
+      img: 'imusic'
+    },
+    {
+      link: '#',
+      img: 'latam'
+    },
+    {
+      link: '#',
+      img: 'lime'
+    },
+    {
+      link: '#',
+      img: 'linkedin_1'
+    },
+    {
+      link: '#',
+      img: 'lufthansa'
+    },
+    {
+      link: '#',
+      img: 'microsoft'
+    },
+    {
+      link: '#',
+      img: 'mobike',
+    },
+    {
+      link: '#',
+      img: 'neteller'
+    },
+    {
+      link: '#',
+      img: 'netflix-logo'
+    },
+    {
+      link: '#',
+      img: 'nintendo'
+    },
+    {
+      link: '#',
+      img: 'patreon'
+    },
+    {
+      link: '#',
+      img: 'paypal'
+    },
+    {
+      link: '#',
+      img: 'peixe'
+    },
+    {
+      link: '#',
+      img: 'playstation'
+    },
+    {
+      link: '#',
+      img: 'pokemon-go'
+    },
+    {
+      link: '#',
+      img: 'riot-games'
+    },
+    {
+      link: '#',
+      img: 'rock-games'
+    },
+    {
+      link: '#',
+      img: 'sephora'
+    },
+    {
+      link: '#',
+      img: 'sky'
+    },
+    {
+      link: '#',
+      img: 'skype'
+    },
+    {
+      link: '#',
+      img: 'spotify-01'
+    },
+    {
+      link: '#',
+      img: 'steam'
+    },
+    {
+      link: '#',
+      img: 'tinder-logo'
+    },
+    {
+      link: '#',
+      img: 'twitch'
+    },
+    {
+      link: '#',
+      img: 'uber-logo_1'
+    },
+    {
+      link: '#',
+      img: 'uber-eats'
+    },
+    {
+      link: '#',
+      img: 'wish-logo'
+    },
+    {
+      link: '#',
+      img: 'wix'
+    },
+    {
+      link: '#',
+      img: 'xbox'
+    },
+    {
+      link: '#',
+      img: 'youtube_1'
+    }
+  ],
+  el = document.getElementById('container-grid'),
+  htmlItems = products.map(({ img, link }, i) => `<a class="grid-item" href="${link}"><img class="grid-img" src="https://www.coopeuch.cl/media/wysiwyg/${img}.png" alt="logo${i + 1}" loading="lazy" /></a>`).join('');
+  el.innerHTML = htmlItems
+</script>
+<style>
+  .container-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    max-width: 1170px;
+    margin: 30px auto;
+  }
+  .container-grid a.grid-item:hover img.grid-img,
+  .container-grid a.grid-item:active img.grid-img,
+  .container-grid a.grid-item:focus img.grid-img {
+    transform: scale(0.9);
+  }
+  .container-grid a.grid-item:hover,
+  .container-grid a.grid-item:active,
+  .container-grid a.grid-item:focus {
+    background: #d4d4d4;
+  }
+  a.grid-item {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    box-sizing: border-box;
+    max-height: 108px;
+    max-width: 208px;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    background-color: #ffffff;
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+  }
+  a.grid-item img.grid-img {
+    transition: transform 0.3s ease-out;
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+    max-height: calc(108px - 24px);
+    max-width:  calc(208px - 24px);
+  }
+
+  @media (max-width: 768px) {
+    .container-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  @media (max-width: 580px) {
+    .container-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 425px) {
+    .container-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 0 10px;
+    }
+    a.grid-item {
+      max-width: 146px;
+      max-height: 76px;
+    }
+  }
+</style>
+  </body>
+</html>

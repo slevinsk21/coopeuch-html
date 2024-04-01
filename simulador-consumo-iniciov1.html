@@ -1,0 +1,36 @@
+<style>
+  .form-input,
+  input.form-input {
+    border-radius: 4px;
+  }
+  .phone-error-msg,
+  .rut-error-msg {
+    display: none;
+  }
+</style>
+<script>
+  const fields = document.querySelectorAll('.field');
+  fields[0].innerHTML += '<div for="phone"generated="true" style="font-size: 1.2rem; color: #646569">*Este campo es opcional</div>';
+  fields[1].innerHTML += '<div for="rut"generated="true" style="font-size: 1.2rem; color: #646569">*Este campo es opcional</div>';
+
+  document.querySelector('#submit-mf-form').addEventListener('click', () => {
+    const amount = document.querySelector('#amount').value,
+      formINputs = document.querySelector('#simulator-consumo');
+
+    if (amount) {
+      if (!formINputs[3].value) {
+        formINputs[3].setAttribute('value', '12312312');
+        formINputs[3].style.color = '#fff';
+      }
+
+      if (!formINputs[4].value) {
+        formINputs[4].setAttribute('value', '12.312.312-3');
+        formINputs[4].style.color = '#fff';
+      }
+    }
+    document.querySelector('#submit-mf-form').click();
+    document.querySelector('#submit-mf-form').click();
+  });
+</script>
+<!--  -->
+

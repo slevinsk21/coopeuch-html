@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C-Consumo-JUN | modal</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="modal-banner-1">
+      <div class="banner-container bg-img-modal-1">
+        <div class="banner-content">
+          <span class="tooltip-c-consumo">Crédito de Consumo</span>
+          <h1 class="title-remanente">
+            <strong>Solícitalo hoy</strong> <br />
+            y despreocúpate de <br />
+            las deudas <sup style="top: -2em; font-size: 11px">(*)</sup>
+          </h1>
+
+          <section class="container-remanente">
+            <figure>
+              <img src="https://www.coopeuch.cl/media/wysiwyg/pago.svg" />
+
+              <figcaption>
+                <h5>Primero couta <strong>en Agosto</strong></h5>
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="https://www.coopeuch.cl/media/wysiwyg/3.1-icon-hipotecario.svg"
+              />
+
+              <figcaption>
+                <h5><strong>Hasta 84 cuotas</strong> plazo.</h5>
+              </figcaption>
+            </figure>
+          </section>
+
+          <a
+            href="/personas/simulador/consumo/inicio"
+            class="btn-primary"
+            style="margin-top: 10px"
+          >
+            Solicitar mi crédito
+          </a>
+
+          <p class="legal-text">
+            *) Sujeto a evaluación de acuerdo a las políticas de créditos
+            vigentes al momento de la solicitud. Valida hasta el 30/06/2021.
+            Exclusivo para socios nuevos y antiguos sin crédito de consumo.
+            infórmese sobre la garantía estatal de los depósitos en su
+            cooperativa o en www.cmfchile.cl.
+          </p>
+        </div>
+      </div>
+    </div>
+    <style>
+      #modal-banner-1 * {
+        font-family: 'Poppins', sans-serif;
+      }
+      #modal-banner-1 .banner-container {
+        height: auto;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        max-width: 994px;
+        min-height: 330px;
+      }
+      #modal-banner-1 .banner-container .banner-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 462px;
+        width: 100%;
+        padding: 40px;
+      }
+      #modal-banner-1 .banner-container .banner-content a.btn-primary {
+        margin: 0 0 10px;
+        background-color: #f42534;
+        color: #fff;
+        font-weight: 800;
+        font-size: 16px;
+        border-color: #f42534;
+        border-radius: 5px;
+        text-decoration: none;
+        min-width: 160px;
+        height: 48px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+      #modal-banner-1 .banner-container .banner-content a.btn-primary:hover {
+        background-color: #f87c85;
+        border-color: #f87c85;
+      }
+      #modal-banner-1 .banner-container .banner-content .tooltip-c-consumo {
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 27px;
+        background-color: #f08117;
+        color: #fff;
+        padding: 4px;
+        border-radius: 8px;
+        position: relative;
+        min-width: 212px;
+        text-align: center;
+      }
+      #modal-banner-1
+        .banner-container
+        .banner-content
+        .tooltip-c-consumo::after {
+        content: '';
+        position: absolute;
+        background-color: inherit;
+        width: 25px;
+        height: 25px !important;
+        transform: rotate(45deg);
+        right: -8px;
+        top: 5px;
+        border-radius: 4px 4px 4px 100%;
+      }
+      #modal-banner-1 .banner-container .banner-content .legal-text {
+        color: #262626;
+        font-size: 11px;
+        line-height: 17px;
+        margin-top: 10px;
+        max-width: 350px;
+      }
+      #modal-banner-1 .banner-container .banner-content h1.title-remanente {
+        font-size: 40px;
+        line-height: 46px;
+        color: #262626;
+        margin: 5px 0;
+        font-weight: normal;
+      }
+      #modal-banner-1 .banner-container .banner-content .container-remanente {
+        display: flex;
+        justify-content: center;
+      }
+      #modal-banner-1
+        .banner-container
+        .banner-content
+        .container-remanente
+        figure {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        max-width: 277px;
+        margin: 5px;
+      }
+      #modal-banner-1
+        .banner-container
+        .banner-content
+        .container-remanente
+        figure
+        img {
+        max-width: 32px !important;
+        max-height: 32px !important;
+        object-fit: contain !important;
+      }
+      #modal-banner-1
+        .banner-container
+        .banner-content
+        .container-remanente
+        figure
+        figcaption {
+        padding: 10px;
+      }
+      #modal-banner-1
+        .banner-container
+        .banner-content
+        .container-remanente
+        figure
+        figcaption
+        h5 {
+        font-size: 12px;
+        text-align: left;
+        line-height: 18px;
+        min-height: auto;
+        margin: 10px 0 5px;
+        color: #373737;
+      }
+      #modal-banner-1 .banner-container.bg-img-modal-1 {
+        background-image: url('https://www.coopeuch.cl/media/wysiwyg/img_modal_desk.jpg');
+        border-radius: 4px;
+      }
+      #modal-banner-1 .banner-container .banner-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 462px;
+        width: 100%;
+      }
+      #modal-banner-1 .banner-container .banner-content a.btn-primary {
+        margin: 0 0 10px;
+        background-color: #f42534;
+        color: #fff;
+        font-weight: 800;
+        font-size: 16px;
+        border-color: #f42534;
+        border-radius: 5px;
+        text-decoration: none;
+        min-width: 190px;
+        height: 48px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+      #modal-banner-1 .banner-container .banner-content a.btn-primary:hover {
+        background-color: #f87c85;
+        border-color: #f87c85;
+      }
+      @media (max-width: 580.1px) {
+        #modal-banner-1 .banner-container.bg-img-modal-1 {
+          background-image: url('https://www.coopeuch.cl/media/wysiwyg/img_modal_mobile.jpg');
+        }
+        #modal-banner-1 .banner-container .banner-content {
+          padding: 8px;
+        }
+        #modal-banner-1 .banner-container .banner-content .tooltip-c-consumo {
+          font-size: 16px;
+          min-width: 190px;
+        }
+        #modal-banner-1 .banner-container .banner-content {
+          max-width: 300px;
+        }
+      }
+      @media (max-width: 620.1px) {
+        #modal-banner-1 .banner-container .banner-content .container-remanente {
+          flex-direction: column;
+        }
+        #modal-banner-1
+          .banner-container
+          .banner-content
+          .container-remanente
+          figure {
+          flex-direction: row;
+          max-width: 277px;
+        }
+        #modal-banner-1
+          .banner-container
+          .banner-content
+          .container-remanente
+          figure
+          figcaption
+          h5 {
+          font-size: 12px;
+          text-align: left;
+          line-height: 18px;
+          margin: 0;
+          max-height: 36px;
+        }
+      }
+      @media (max-width: 1024.1px) {
+        #modal-banner-1 .banner-container .banner-content h1.title-remanente {
+          font-size: 22px;
+          line-height: 28px;
+        }
+      }
+    </style>
+  </body>
+</html>

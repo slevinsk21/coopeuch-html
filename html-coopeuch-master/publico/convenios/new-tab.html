@@ -1,0 +1,408 @@
+<style>
+  .general-contacto {
+    width: 100%;
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #fff;
+    margin: 20px;
+    border: 1px solid rgba(51, 51, 51, 0.1);
+    box-shadow: 1px 4px 3px hsl(0deg 0% 0% / 6%);
+    max-width: 425px;
+    min-height: 249px;
+  }
+  .text1-general {
+    display: inline-flex;
+    border-bottom: 1px solid #ccc;
+    margin: 15px 0;
+    width: 100%;
+  }
+  .zona p {
+    font-family: 'Poppins Bold';
+    font-size: 16px;
+    line-height: 40px;
+    padding: 10px;
+    border-radius: 20px;
+    padding: 5px 10px 5px 10px;
+    background-color: #f6f3f5;
+    border: azure;
+    color: #666466;
+  }
+  .ejecutivo p,
+  .correo-ejecutivo,
+  .telefono-ejecutivo {
+    font-family: 'Poppins Medium';
+    font-size: 16px;
+    line-height: 40px;
+  }
+  .nombre-ejecutivo p {
+    font-family: 'Poppins Bold';
+    font-size: 20px;
+    line-height: 40px;
+  }
+  .nombre-ejecutivo,
+  .telefono-ejecutivo,
+  .correo-ejecutivo {
+    margin: 0 15px;
+  }
+  .zona {
+    margin-left: 15px;
+    margin-right: auto;
+  }
+  .ejecutivo {
+    margin-left: auto;
+    margin-right: 15px;
+  }
+  div#ejecutive {
+    padding-top: 40px;
+  }
+  .container-contacts,
+  .container-tabs {
+    max-width: 978px;
+    margin: 0 auto;
+  }
+  .container-contacts h2.title-contacts {
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    font-family: 'Poppins Bold';
+  }
+  .container-contacts p.subtitle-contacts {
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+  }
+  .select-contact-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .select-contact-tabs button.tablink {
+    flex: 33.33%;
+    color: #333333;
+    border: none;
+    background-color: #ffff;
+    border-radius: 0;
+    position: relative;
+    margin: 10px !important;
+    max-width: 200px;
+    min-height: 136px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14);
+    outline: none;
+  }
+  .select-contact-tabs button.tablink strong.text-contact-tab {
+    display: block;
+    font-size: 16px;
+    padding: 10px;
+  }
+  .select-contact-tabs button.tablink.current-tab {
+    background-color: #23a1df !important;
+    color: white !important;
+    opacity: 1;
+  }
+  .select-contact-tabs button.tablink.current-tab .hide-img {
+    display: none;
+  }
+  .select-contact-tabs button.tablink .show-img-active {
+    display: none;
+  }
+  .select-contact-tabs button.tablink.current-tab .show-img-active {
+    display: inline;
+  }
+  .select-contact-tabs button.tablink.current-tab:before {
+    content: '';
+    position: absolute;
+    bottom: -21px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-width: 15px 15px 0;
+    border-style: solid;
+    transform: translate(-50%, -50%);
+    border-color: #23a1df transparent transparent;
+  }
+  .content-tabs {
+    background-color: #f6f3f5;
+    min-height: 640px;
+    position: relative;
+  }
+  .whatsapp-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 14%);
+    min-height: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 1170px;
+    height: auto;
+    max-height: 700px;
+  }
+  .whatsapp-card h2 {
+    font-family: 'Poppins Bold';
+    font-size: 28px;
+    line-height: 40px;
+  }
+  .whatsapp-card p {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  @media (max-width: 580.1px) {
+    .container-contacts h2.title-contacts {
+      font-size: 28px !important;
+      line-height: 32px !important;
+    }
+    .container-contacts p.subtitle-contacts {
+      font-size: 14px;
+      line-height: 20px;
+    }
+    .select-contact-tabs button.tablink {
+      margin: 0 0 15px !important;
+      min-height: auto;
+      border-radius: 0 !important;
+      box-shadow: none;
+      outline: none;
+    }
+    .whatsapp-card h2 {
+      font-size: 22px;
+      line-height: 30px;
+    }
+    .whatsapp-card p {
+      font-size: 14px;
+      line-height: 24px;
+    }
+    a.button-coopeuch {
+      width: 100%;
+      margin-top: 20px;
+    }
+  }
+</style>
+
+<section>
+  <div class="container-contacts">
+    <h2 class="title-contacts">Nuestros canales de contacto</h2>
+    <p class="subtitle-contacts">
+      Envíanos tus datos y te contactamos para presentarte nuestro convenios
+    </p>
+
+    <div class="select-contact-tabs">
+      <button
+        class="tablink current-tab"
+        onclick="selectTab(event,'ejecutive')"
+      >
+        <img
+          class="hide-img"
+          src="https://devmagento.coopeuch.cl/media/wysiwyg/ejecutive.png"
+          alt=""
+        />
+        <img
+          class="show-img-active"
+          src="https://devmagento.coopeuch.cl/media/wysiwyg/ejecutive-active.png"
+          alt=""
+        />
+
+        <strong class="text-contact-tab"> Ejecutivos </strong>
+      </button>
+
+      <button class="tablink" onclick="selectTab(event,'whatsapp')">
+        <img
+          class="hide-img"
+          src="https://devmagento.coopeuch.cl/media/wysiwyg/ws.png"
+          alt=""
+        />
+        <img
+          class="show-img-active"
+          src="https://devmagento.coopeuch.cl/media/wysiwyg/ws-active.png"
+          alt=""
+        />
+
+        <strong class="text-contact-tab"> WhatsApp </strong>
+      </button>
+
+      <button class="tablink" onclick="selectTab(event,'form')">
+        <img
+          class="hide-img"
+          src="https://devmagento.coopeuch.cl/media/wysiwyg/form.png"
+          alt=""
+        />
+        <img
+          class="show-img-active"
+          src="https://devmagento.coopeuch.cl/media/wysiwyg/form-active.png"
+          alt=""
+        />
+
+        <strong class="text-contact-tab"> Formulario </strong>
+      </button>
+    </div>
+  </div>
+
+  <div class="content-tabs">
+    <div class="container-tabs">
+      <div id="ejecutive" class="content-tab">
+        <div style="display: flex; justify-content: center; flex-wrap: wrap">
+          <div class="general-contacto">
+            <div class="text1-general">
+              <div class="zona">
+                <p>Zona Norte</p>
+              </div>
+              <div class="ejecutivo">
+                <p>Ejecutivo Regional V</p>
+              </div>
+            </div>
+            <div class="nombre-ejecutivo">
+              <p>Bastian Eldan</p>
+            </div>
+            <div class="correo-ejecutivo">
+              <p>bastian.eldan@coopeuch.cl</p>
+            </div>
+            <div class="telefono-ejecutivo">
+              <p>Télefono: + 569 4234 985</p>
+            </div>
+          </div>
+
+          <div class="general-contacto">
+            <div class="text1-general">
+              <div class="zona">
+                <p>Zona Norte</p>
+              </div>
+              <div class="ejecutivo">
+                <p>Ejecutivo Regional V</p>
+              </div>
+            </div>
+            <div class="nombre-ejecutivo">
+              <p>Bastian Eldan</p>
+            </div>
+            <div class="correo-ejecutivo">
+              <p>bastian.eldan@coopeuch.cl</p>
+            </div>
+            <div class="telefono-ejecutivo">
+              <p>Télefono: + 569 4234 985</p>
+            </div>
+          </div>
+
+          <div class="general-contacto">
+            <div class="text1-general">
+              <div class="zona">
+                <p>Zona Norte</p>
+              </div>
+              <div class="ejecutivo">
+                <p>Ejecutivo Regional V</p>
+              </div>
+            </div>
+            <div class="nombre-ejecutivo">
+              <p>Bastian Eldan</p>
+            </div>
+            <div class="correo-ejecutivo">
+              <p>bastian.eldan@coopeuch.cl</p>
+            </div>
+            <div class="telefono-ejecutivo">
+              <p>Télefono: + 569 4234 985</p>
+            </div>
+          </div>
+
+          <div class="general-contacto">
+            <div class="text1-general">
+              <div class="zona">
+                <p>Zona Norte</p>
+              </div>
+              <div class="ejecutivo">
+                <p>Ejecutivo Regional V</p>
+              </div>
+            </div>
+            <div class="nombre-ejecutivo">
+              <p>Bastian Eldan</p>
+            </div>
+            <div class="correo-ejecutivo">
+              <p>bastian.eldan@coopeuch.cl</p>
+            </div>
+            <div class="telefono-ejecutivo">
+              <p>Télefono: + 569 4234 985</p>
+            </div>
+          </div>
+
+          <div class="general-contacto">
+            <div class="text1-general">
+              <div class="zona">
+                <p>Zona Norte</p>
+              </div>
+              <div class="ejecutivo">
+                <p>Ejecutivo Regional V</p>
+              </div>
+            </div>
+            <div class="nombre-ejecutivo">
+              <p>Bastian Eldan</p>
+            </div>
+            <div class="correo-ejecutivo">
+              <p>bastian.eldan@coopeuch.cl</p>
+            </div>
+            <div class="telefono-ejecutivo">
+              <p>Télefono: + 569 4234 985</p>
+            </div>
+          </div>
+
+          <div class="general-contacto">
+            <div class="text1-general">
+              <div class="zona">
+                <p>Zona Norte</p>
+              </div>
+              <div class="ejecutivo">
+                <p>Ejecutivo Regional V</p>
+              </div>
+            </div>
+            <div class="nombre-ejecutivo">
+              <p>Bastian Eldan</p>
+            </div>
+            <div class="correo-ejecutivo">
+              <p>bastian.eldan@coopeuch.cl</p>
+            </div>
+            <div class="telefono-ejecutivo">
+              <p>Télefono: + 569 4234 985</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="whatsapp" class="content-tab" style="display: none">
+        <div class="whatsapp-card">
+          <h2>Contáctate con nosotros a través de Whatsapp,</h2>
+          <p>
+            así podremos atender tus dudas y consultas de manera rápida y
+            directa.
+          </p>
+          <a class="button-coopeuch">Contactar</a>
+        </div>
+      </div>
+
+      <div id="form" class="content-tab" style="display: none">
+        <h2>Formulario</h2>
+        <p>aqui va</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function selectTab(e, tab) {
+    let i, x, tablinks;
+    console.log(i, x, tablinks)
+    x = document.getElementsByClassName('content-tab');
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = 'none';
+    }
+    tablinks = document.getElementsByClassName('tablink');
+    for (i = 0; i < x.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(' current-tab', '');
+    }
+    document.getElementById(tab).style.display = 'block';
+    e.currentTarget.className += ' current-tab';
+  }
+</script>

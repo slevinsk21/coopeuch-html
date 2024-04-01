@@ -1,0 +1,189 @@
+<div id="form-solicitar" class="card-solicitar">
+  <h6>
+    Pide tu descuento ahora, ingresando los 6 primeros dígitos de tu tarjeta
+  </h6>
+  <div class="input-container">
+    <input
+      id="input-soap-cards"
+      class="input-text"
+      type="number"
+      placeholder="Ej: 3453 1234 65438976"
+      required
+      maxlength="6"
+      min="0"
+      min="999999"
+      oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)"
+    />
+
+    <button id="btn-soap-cards" class="button-coopeuch" onclick="handleClick()" disabled="handleValueInput()">Solicitar</button>
+  </div>
+  <small id="input-soap-cards-error" class="error-text">
+    Código Inválido, por favor utiliza otro medio de pago
+  </small>
+
+  <a class="mx-mobile-10" href="#">¿Dónde están los dígitos en mí tarjeta?</a>
+
+  <div class="btn-actions">
+    <span class="p-10">Si no la tienes utiliza</span>
+
+    <a
+      class="custom-btn mx-10"
+      :href="baseUrl + '.aspx?Convenios=3C1A454C35901108634C220643FA04FE'"
+    >
+      Otro medio de pago
+    </a>
+  </div>
+</div>
+<script>
+  function validEmptyValue (value) {
+    return value !== null && value !== undefined && value !== '' && value.length > 0
+  }
+  function handleError() {
+    const input = document.getElementById('input-soap-cards');
+    const errorMsg = document.getElementById('input-soap-cards-error');
+    input.classList.add('error-form');
+    errorMsg.classList.add('d-block');
+  }
+  function handleClick() {
+    const validCodes = ['503441','524101','531926','518472','518497','518535'];
+    const input = document.getElementById('input-soap-cards');
+    const baseUrl = 'https://soapweb.bciseguros.cl/web/DatosVehiculo';
+
+    if (validEmptyValue(input.value)) {
+      validCodes.includes(input.value)
+        ? (window.location.href =
+            baseUrl + '?Convenios=F16081C5FA6DD114C6292FBBC652A185')
+        : handleError();
+    }
+  }
+  function handleBtn() {
+      button.disabled = !validEmptyValue(input.value)
+  }
+
+  const input = document.getElementById('input-soap-cards');
+  const button = document.getElementById('btn-soap-cards');
+  input.addEventListener('keyup', (e) => {
+    (e.key === "Enter" && validEmptyValue(input.value)) ? handleClick() : handleBtn()
+  });
+</script>
+
+<style scoped>
+  .card-solicitar {
+    box-sizing: border-box;
+    min-height: 279px;
+    max-width: 955px;
+    margin: 0 auto;
+    border: 1px solid #d8d8d8;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14);
+    padding: 30px;
+    margin-bottom: -4%;
+  }
+  .mx-10 {
+    margin: 0 10px;
+  }
+  .p-10 {
+    padding: 10px;
+  }
+  .btn-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .custom-btn {
+    background-color: #fff;
+    padding: 12px 27px;
+    font-family: Poppins;
+    font-weight: 800;
+    font-size: 16px;
+    border: 2px solid #f42534;
+    border-radius: 5px;
+    color: #f42534 !important;
+    outline: none;
+    min-width: 135px;
+    text-align: center;
+    text-decoration: none !important;
+    transition: all 0.3s ease-in;
+  }
+  .button-coopeuch {
+    min-height: 48px;
+    margin: 10px;
+  }
+  .button-coopeuch:focus,
+  .button-coopeuch:active,
+  .custom-btn:hover,
+  .custom-btn:focus {
+    color: #fff !important;
+    background-color: #f42534;
+  }
+  .card-solicitar h6.subtitle-form {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .input-container {
+    display: flex;
+    align-items: center;
+    padding: 0;
+  }
+  .card-solicitar .input-container input.input-text {
+    display: block;
+    margin: 0;
+    color: #333;
+    width: 80%;
+    height: 50px;
+    font-size: 14px !important;
+    line-height: 21px !important;
+    border-radius: 0.4rem;
+    transition: box-shadow cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  .card-solicitar .input-container input.input-text::placeholder {
+    color: #b0bec5;
+  }
+  .card-solicitar .input-container input.input-textt:focus {
+    outline: none;
+    box-shadow: 0.2rem 0.8rem 1.6rem rgba(51, 51, 51, 0.3);
+  }
+  .error-form {
+    border: 2px solid #f436351c !important;
+    box-shadow: 0px 0px 4px #f43635 !important;
+    color: #f43635 !important;
+  }
+  .error-text {
+    display: none;
+    color: #f43635;
+    margin-bottom: 15px;
+  }
+  .error-text.d-block {
+    display: block;
+  }
+
+  @media (max-width: 580.1px) {
+    .card-solicitar {
+      margin-bottom: 10px;
+    }
+    .input-container {
+      flex-direction: column;
+      margin: 0 10px;
+    }
+    .card-solicitar .input-container input.input-text,
+    .custom-btn,
+    .button-coopeuch {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  @media (max-width: 425.1px) {
+    .title-section-form-solicitar h2 {
+      text-align: left !important;
+    }
+    .title-section-form-solicitar h2 strong span {
+      font-size: 20px !important;
+      line-height: 25px !important;
+    }
+    .mx-mobile-10 {
+      margin: 0 10px;
+    }
+  }
+</style>

@@ -1,0 +1,2567 @@
+<!-- header dale -->
+<div class="container-drawer">
+  <div id="drawer-menu-mobile">
+    <div class="xpec-header-menu-mobile">
+      <a
+        class="logo"
+        href="https://www.coopeuch.cl/personas/"
+        title="Coopeuch logo"
+        aria-label="store logo"
+      >
+        <img
+          src="https://www.coopeuch.cl/media/logo/stores/1/logo.svg"
+          alt="Coopeuch logo"
+          width="102px"
+          height="27"
+        />
+        <img
+          src="https://www.coopeuch.cl/media/wysiwyg//logo-dale-b.png"
+          alt="dale logo"
+          width="40px"
+          height="27px"
+          style="margin-left: 4px"
+        />
+      </a>
+      <a
+        id="close-nav-sections"
+        class="close-sections icon-X2"
+        href="javascript:;"
+        onclick="toggleMenu()"
+      ></a>
+    </div>
+
+    <ul>
+      <li><a href="#" class="level-top menuCoop">Hazte cliente</a></li>
+      <li><a href="#" class="level-top menuCoop">Comercios habilitados</a></li>
+      <li><a href="#" class="level-top menuCoop">Ingresar</a></li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  const header = document.getElementsByTagName('header'),
+    footer = document.getElementsByTagName('footer'),
+    toggleMenu = () =>
+      document.getElementById('drawer-menu-mobile').classList.toggle('show'),
+    navbar = `
+            <div class="xpec-header-logo">
+              <a class="logo" href="https://www.coopeuch.cl/personas/" title="Coopeuch logo" aria-label="store logo">
+                <img src="https://www.coopeuch.cl/media/logo/stores/1/logo.svg" alt="Coopeuch logo">
+                <img src="https://www.coopeuch.cl/media/wysiwyg//logo-dale-b.png" alt="dale logo">
+              </a>
+            </div>
+            <nav class="navigation" role="navigation">
+              <div class="menu" id="om" style="float: right;">
+                <ul>
+                  <li><a href="#" class="level-top menuCoop">Hazte cliente</a></li>
+                  <li><a href="#" class="level-top menuCoop">Comercios habilitados</a></li>
+                  <li class="container-btn-desk" hoverin="false" style="margin: 10px">
+                    <a href="https://portalconvenios.coopeuch.cl/#/" class="button-coopeuch header-btn">
+                      <i aria-hidden="true" class="fas fa-user" style="margin-right: 3px;"></i>
+                      Registrar
+                    </a>
+                  </li>
+                  <li class="container-btn-desk" hoverin="false" style="margin: 10px">
+                    <a href="https://www.coopeuch.cl/tef/" class="btn-outline header-btn">Ingresar</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+
+            <div class="mobile-menu">
+              <div id="ce-loginButton-box" class="loginButton-box">
+                <button class="button action primary button-login" onclick="location.href=('https://ww3.coopeuch.cl/tef3/#/')">
+                  <img class="icon-desk" src="/media/botones/login.png"><img class="icon-mobile" src="/media/botones/login-m.png"> 
+                  Ingresar
+                </button>
+              </div>
+              <span data-action="toggle-nav" class="action nav-toggle" onclick="toggleMenu()"><span>Toggle Nav</span></span>
+              </div>
+            </div>
+            `,
+    footerContent = `
+    <div class="widget block block-static-block">
+      <div
+        class="full-width"
+        data-content-type="row"
+        data-appearance="full-width"
+        data-enable-parallax="0"
+        data-parallax-speed="0.5"
+        data-background-images="{}"
+        data-element="main"
+      >
+        <div class="row-full-width-inner" data-element="inner">
+          <div
+            class="pagebuilder-column-group"
+            style="display: flex"
+            data-content-type="column-group"
+            data-grid-size="12"
+            data-element="main"
+          >
+            <div
+              class="pagebuilder-column footer-block first"
+              data-content-type="column"
+              data-appearance="full-height"
+              data-background-images="{}"
+              data-element="main"
+              style="
+                background-color: #7c2583;
+                width: 25%;
+                padding: 40px 20px;
+              "
+            >
+              <div
+                class="block-title"
+                data-content-type="text"
+                data-appearance="default"
+                data-element="main"
+              >
+                <h3><span style="color: #ffffff">Contenido</span></h3>
+              </div>
+              <div
+                class="mobile-toggle"
+                data-content-type="text"
+                data-appearance="default"
+                data-element="main"
+              >
+                <ul>
+                  <li>
+                    <a href="#"><span style="color: #ffffff">Tutoriales</span></a>
+                  </li>
+                  <li>
+                    <a href="#"><span style="color: #ffffff">Concursos y Campañas</span></a>
+                  </li>
+                  <li>
+                    <a href="#"><span style="color: #ffffff">Prensa</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="pagebuilder-column footer-block"
+              data-content-type="column"
+              data-appearance="full-height"
+              data-background-images="{}"
+              data-element="main"
+              style="
+                background-color: #7c2583;
+                width: 25%;
+                padding: 40px;
+              "
+            >
+              <div
+                class="block-title"
+                data-content-type="text"
+                data-appearance="default"
+                data-element="main"
+              >
+                <h3><span style="color: #ffffff">Ayuda</span></h3>
+              </div>
+              <div
+                class="mobile-toggle"
+                data-content-type="text"
+                data-appearance="default"
+                data-element="main"
+              >
+                <ul>
+                  <li>
+                    <a style="color: #ffffff" href="#">Preguntas frecuentes</a>
+                  </li>
+                  <li>
+                    <a style="color: #ffffff" href="#">Oficinas</a>
+                  </li>
+                  <li>
+                    <a style="color: #ffffff" href="#">Contáctanos</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="pagebuilder-column footer-block"
+              data-content-type="column"
+              data-appearance="full-height"
+              data-background-images="{}"
+              data-element="main"
+              style="
+                background-color: #7c2583;
+                width: 25%;
+                padding: 40px 30px;
+              "
+            >
+              <div
+                class="block-title"
+                data-content-type="text"
+                data-appearance="default"
+                data-element="main"
+              >
+                <h3><span style="color: #ffffff">Regulaciones</span></h3>
+              </div>
+              <div
+                class="mobile-toggle"
+                data-content-type="text"
+                data-appearance="default"
+                data-element="main"
+              >
+                <ul>
+                  <li>
+                    <a style="color: #ffffff" href="#">Términos y condiciones</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="pagebuilder-column footer-block active"
+              data-content-type="column"
+              data-appearance="full-height"
+              data-background-images="{}"
+              data-element="main"
+              style="
+                background-color: #7c2583;
+                width: 25%;
+                padding: 40px 0px 40px 20px;
+              "
+            >
+              <div
+                class="block-title"
+                data-content-type="text"
+                data-appearance="default"
+                data-element="main"
+              >
+                <h3><span style="color: #ffffff">Redes Sociales</span></h3>
+              </div>
+              <div
+                class="mobile-toggle"
+                data-content-type="text"
+                data-appearance="default"
+                data-element="main"
+                style="display: block;"
+              >
+                <ul>
+                  <li>
+                    <div
+                      class="footer-social-icons"
+                      data-content-type="text"
+                      data-appearance="default"
+                      data-element="main"
+                    >
+                      <p>
+                        <a href="#"><img src="/pub/media/wysiwyg/COOPEUCH/footer/social_fb.png" alt="" width="32" height="32" /></a>
+                        <a href="#"><img src="/pub/media/wysiwyg/COOPEUCH/footer/social_tw.png" alt="" width="33" height="32" /></a>
+                        <a href="#"><img src="/pub/media/wysiwyg/COOPEUCH/footer/social_yt.png" alt="" width="32" height="32" /></a>
+                        <a href="#"><img src="/pub/media/wysiwyg/COOPEUCH/footer/social_ig.png" alt="" width="32" height="32"/></a>
+                      </p>
+                    </div>
+                  </li>
+                  <li style="color: #fff; font-size: 14px">
+                    Tarjeta Dale Coopeuch es una tarjeta prepago digital Mastercard,
+                    gratis y para todos.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="widget block block-static-block">
+      <div
+        class="after-footer"
+        data-content-type="row"
+        data-appearance="full-width"
+        data-enable-parallax="0"
+        data-parallax-speed="0.5"
+        data-background-images="{}"
+        data-element="main"
+        style="background-color: #8a2c91; padding: 18px;"
+      >
+        <div class="row-full-width-inner" data-element="inner">
+          <div
+            class="pagebuilder-column-group"
+            style="display: flex"
+            data-content-type="column-group"
+            data-grid-size="7"
+            data-element="main"
+          >
+            <div
+              class="pagebuilder-column"
+              data-content-type="column"
+              data-appearance="align-center"
+              data-background-images="{}"
+              data-element="main"
+              style="margin: 0; padding: 15px;"
+            >
+              <div
+                data-content-type="text"
+                data-appearance="default"
+                data-element="main"
+              >
+                <p style="font-size: 12px; color: #ffffff; min-width: 261px">
+                  <strong>Coopeuch ® 2021 - Todos los derechos reservados.</strong>
+                  <br />
+                  Infórmese sobre la garantía estatal de los depósitos en su cooperativa
+                  <br /> 
+                  o en www.cmfchile.cl
+                </p>
+              </div>
+            </div>
+            <div
+              class="pagebuilder-column"
+              data-content-type="column"
+              data-appearance="align-center"
+              data-background-images="{}"
+              data-element="main"
+              style="margin: 0; padding: 15px !important;"
+            >
+              <div
+                data-content-type="text"
+                data-appearance="default"
+                data-element="main"
+              >
+                <p style="font-size: 12px; color: #ffffff; text-align: left; float: right">
+                    Infórmese sobre las entidades autorizadas para emitir Tarjetas
+                    de Pago en el país, 
+                    <br />
+                    quienes se encuentran inscritas en los Registros de Emisores de
+                    Tarjetas que lleva 
+                    <br />
+                    la CMF, en www.cmfchile.cl.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        `;
+
+  header[0].removeChild(header[0].children[0]);
+  header[0].children[0].innerHTML = navbar;
+  footer[0].innerHTML = footerContent;
+</script>
+
+<style>
+  .page-footer {
+    background: #7c2583;
+  }
+  .page-header.personas,
+  .navigation,
+  .menu > ul > li {
+    background: #009fe6 !important;
+  }
+  #drawer-menu-mobile.show {
+    display: block !important;
+  }
+  #drawer-menu-mobile {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background: #fff;
+    z-index: 100;
+    transition: all 0.3s ease-out;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.22);
+  }
+  #drawer-menu-mobile ul {
+    list-style: none;
+    padding: 0;
+  }
+  #drawer-menu-mobile ul > li {
+    border-top: 1px solid #eaeaea;
+    font-size: 1.6rem;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+  #drawer-menu-mobile ul > li > a {
+    font-weight: 500;
+    font-size: 14px;
+    color: #009fe6;
+    padding: 14px 40px 14px 20px;
+    text-transform: initial !important;
+    text-decoration: none;
+  }
+  .container-drawer {
+    position: relative;
+  }
+  .xpec-header-menu-mobile {
+    height: 50px;
+    background-color: #009fe6;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px;
+    box-sizing: border-box;
+  }
+  .xpec-header-menu-mobile .close-sections {
+    display: inline-block;
+    font-size: 30px;
+    color: #fff;
+    text-decoration: none;
+  }
+  .page-header.personas .menu > ul > li:hover > a.btn-outline.header-btn {
+    color: inherit;
+    background-color: inherit;
+  }
+  .menu > ul > li a {
+    font-family: 'Poppins SemiBold';
+    padding: 1.7em 3em;
+  }
+  .navigation ul {
+    display: flex;
+    align-items: center;
+  }
+  .menu ul li.container-btn-desk > a.header-btn {
+    height: 38px;
+    min-height: 38px;
+    width: 130px;
+    padding: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    line-height: 21px;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  a.button-coopeuch.header-btn {
+    color: #009fe6 !important;
+    background-color: #fff;
+  }
+  a.button-coopeuch.header-btn:hover,
+  a.button-coopeuch.header-btn:active,
+  a.button-coopeuch.header-btn:focus {
+    color: #fff !important;
+  }
+  a.btn-outline.header-btn {
+    color: #fff !important;
+    background-color: #009fe6;
+    border: 2px solid #ffffff;
+  }
+  a.btn-outline.header-btn:hover,
+  a.btn-outline.header-btn:active,
+  a.btn-outline.header-btn:focus {
+    color: #009fe6 !important;
+    background-color: #fff !important;
+  }
+  .xpec-header-menu-mobile a.logo,
+  .xpec-header-logo a.logo {
+    display: flex;
+  }
+  .xpec-header-menu-mobile a.logo img,
+  .xpec-header-logo a.logo img {
+    object-fit: contain;
+  }
+  .xpec-header-logo a.logo img:first-child {
+    width: 152px;
+    height: 27px;
+  }
+  .xpec-header-logo a.logo img:last-child {
+    width: 62px;
+    height: 27px;
+    margin-left: 4px;
+  }
+  .mobile-menu {
+    display: none;
+  }
+  @media (max-width: 960px) {
+    .navigation {
+      display: none;
+    }
+    .xpec-header-logo {
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+    .mobile-menu {
+      display: flex;
+    }
+    .xpec-header-logo a.logo img:first-child {
+      width: 102px;
+    }
+    .xpec-header-logo a.logo img:last-child {
+      width: 40px;
+    }
+  }
+</style>
+<!-- header dale -->
+
+<!-- Banner Start -->
+<section class="banner-dale-coopeuch">
+  <div class="banner-content">
+    <h1 class="title-banner-dale">
+      Tarjeta Dale Coopeuch <br />
+      <b>Prepago Virtual</b> <br />
+      <b>Obtenla solo con tu RUT</b>
+    </h1>
+
+    <h2 class="description-banner-dale">
+      Es gratis y sin requisitos. <br />
+      La mejor tarjeta virtual prepago es Dale.
+    </h2>
+
+    <a href="#" class="button-coopeuch" style="max-width: 272px; margin: 0">
+      Obtén tu tarjeta
+    </a>
+
+    <p class="text-condition-dale">
+      Paga AliExpress, PayPal, Netflix, Wish, Uber, Google Play, Apple, Spotify,
+      Steam, Falabella, Paris, Ripley y cualquier comercio online con tu
+      Mastercard Prepago.
+    </p>
+  </div>
+</section>
+<style>
+  .banner-dale-coopeuch {
+    background-image: url('https://devmagento.coopeuch.cl/media/wysiwyg/banner_Mesa_de_trabajo_1.png');
+    height: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    min-height: 400px;
+  }
+  .banner-dale-coopeuch .banner-content {
+    position: absolute;
+    top: 50%;
+    left: calc((100% - 1170px) / 2);
+    transform: translate(0, -50%);
+  }
+  .banner-dale-coopeuch .banner-content h1.title-banner-dale {
+    font-size: 40;
+    line-height: 48px;
+    color: #383638;
+    margin: 10px 0;
+  }
+  .banner-dale-coopeuch .banner-content h2.description-banner-dale {
+    font-size: 20px;
+    line-height: 30px;
+    color: #383638;
+    margin: 10px 0;
+  }
+  .banner-dale-coopeuch .banner-content p.text-condition-dale {
+    font-size: 14px;
+    line-height: 21px;
+    max-width: 558px;
+    margin: 10px 0;
+    color: #383838;
+  }
+
+  /* only max */
+  @media (max-width: 425.1px) {
+    .banner-dale-coopeuch .banner-content h2.description-banner-dale {
+      font-size: 14px;
+      line-height: 26px;
+      margin: 10px 0;
+    }
+  }
+  @media (max-width: 580.1px) {
+    .banner-dale-coopeuch {
+      background-image: url('https://www.coopeuch.cl/media/wysiwyg/04_10.png');
+    }
+    .banner-dale-coopeuch .banner-content {
+      top: 30%;
+    }
+  }
+  @media (max-width: 1024.1px) {
+    .banner-dale-coopeuch .banner-content h1.title-banner-dale span,
+    .banner-dale-coopeuch .banner-content h1.title-banner-dale {
+      font-size: 24px;
+      line-height: 30px;
+    }
+    .banner-dale-coopeuch .banner-content h2.description-banner-dale {
+      font-size: 18px;
+      line-height: 30px;
+    }
+  }
+  @media (max-width: 1208px) {
+    .banner-dale-coopeuch .banner-content {
+      left: 15px;
+      margin: 0 10px;
+    }
+  }
+  /* min and max */
+  @media (min-width: 778px) and (max-width: 1440px) {
+    .banner-dale-coopeuch .banner-content h2.description-banner-dale {
+      margin: 10px 0 5px;
+    }
+  }
+</style>
+<!-- Banner End -->
+
+<!-- Que es la tarjeta coopeuch Start -->
+<style>
+  .title-card h3 {
+    font-size: 28px;
+    line-height: 42px;
+    color: #333333;
+    font-family: 'Poppins Medium';
+  }
+  .subtitle-card p {
+    font-size: 20px;
+    line-height: 24px;
+    color: #333333;
+    font-family: 'Poppins Medium';
+  }
+
+  @media (max-width: 580.1px) {
+    .title-card h3 {
+      font-size: 18px;
+      line-height: 32px;
+    }
+    .subtitle-card p {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+</style>
+<!-- Que es la tarjeta coopeuch End -->
+
+<!-- beneficios Start -->
+<style>
+  .title-main-seccion-dale h2 {
+    font-size: 28px;
+    line-height: 42px;
+    color: #383638;
+    font-family: 'Poppins semibold';
+  }
+
+  @media (max-width: 580.1px) {
+    .title-main-seccion-dale h2 {
+      font-size: 18px;
+      line-height: 32px;
+    }
+  }
+</style>
+<!-- beneficios End -->
+
+<!-- Solicita tu tarjeta Start colunm 1 -->
+<section class="sharing-section">
+  <ul class="sharing-list">
+    <li class="sharing-list__item">
+      <i aria-hidden="true" class="fas fa-check-circle"></i>
+      <span>Mayores de 18 años.</span>
+    </li>
+
+    <li class="sharing-list__item">
+      <i aria-hidden="true" class="fas fa-check-circle"></i>
+      <span>Rut Chileno (Provisorio o definitivo).</span>
+    </li>
+  </ul>
+
+  <hr class="divider-dale" />
+
+  <div class="container-social-dale">
+    <label for="sharing-social-dale"> Compartir:</label>
+    <div id="sharing-social-dale">
+      <a
+        href="https://api.whatsapp.com/send?text=*Tarjeta%20Prepago%20Virtual%20Dale%20Coopeuch%20%E2%80%93%20Paga%20Aliexpress%2C%20Netflix%2C%20Wish%2C%20Uber%2C%20Google%20Play%2C%20Spotify%2C%20Steam%20y%20cualquier%20comercio%20online.*https://dalecoopeuch.cl/"
+      >
+        <img
+          src="https://devmagento.coopeuch.cl/media/wysiwyg/whatsapp.png"
+          alt="icon-whatsapp"
+        />
+      </a>
+
+      <a href="https://www.facebook.com/sharer.php?u=https://dalecoopeuch.cl/">
+        <img
+          src="https://devmagento.coopeuch.cl/media/wysiwyg/facebook.png"
+          alt="icon-facebook"
+        />
+      </a>
+
+      <a
+        href="https://twitter.com/intent/tweet?text=%20https://dalecoopeuch.cl/"
+      >
+        <img
+          src="https://devmagento.coopeuch.cl/media/wysiwyg/twitter.png"
+          alt="icon-twitter"
+        />
+      </a>
+      <a
+        href="https://www.linkedin.com/shareArticle?mini=true&url=https://dalecoopeuch.cl/&title=Tarjeta%20Prepago%20Virtual%20Dale%20Coopeuch%20%E2%80%93%20Paga%20Aliexpress%2C%20Netflix%2C%20Wish%2C%20Uber%2C%20Google%20Play%2C%20Spotify%2C%20Steam%20y%20cualquier%20comercio%20online.&summary=&source=https://dalecoopeuch.cl/"
+      >
+        <img
+          src="https://devmagento.coopeuch.cl/media/wysiwyg/linkedin.png"
+          alt="icon-linkedin"
+        />
+      </a>
+
+      <a
+        href="mailto:?Subject=Tarjeta%20Prepago%20Virtual%20Dale%20Coopeuch%20%E2%80%93%20Paga%20Aliexpress%2C%20Netflix%2C%20Wish%2C%20Uber%2C%20Google%20Play%2C%20Spotify%2C%20Steam%20y%20cualquier%20comercio%20online.&body=https://dalecoopeuch.cl/"
+      >
+        <img
+          src="https://devmagento.coopeuch.cl/media/wysiwyg/email.png"
+          alt="icon-email"
+        />
+      </a>
+    </div>
+  </div>
+</section>
+<style>
+  .sharing-section {
+    max-width: 410px;
+    margin: 0 auto;
+  }
+  .sharing-section ul.sharing-list {
+    text-align: left;
+    list-style: none;
+    padding: 0;
+  }
+  .sharing-section ul.sharing-list li.sharing-list__item {
+    font-size: 14px;
+    line-height: 22px;
+    color: #000;
+  }
+  .sharing-section
+    ul.sharing-list
+    li.sharing-list__item
+    i.fas.fa-check-circle::before {
+    font-weight: 900;
+    color: #04584c;
+    height: 20px;
+    width: 20px;
+  }
+  hr.divider-dale {
+    background-color: #d4d4d4;
+    border: none;
+    width: 100%;
+    height: 1px;
+  }
+  .container-social-dale {
+    display: flex;
+  }
+  .container-social-dale label {
+    font-size: 16px;
+    color: #333333;
+    font-weight: 500;
+    line-height: 25px;
+  }
+  #sharing-social-dale {
+    display: flex;
+  }
+  #sharing-social-dale a:active,
+  #sharing-social-dale a:focus,
+  #sharing-social-dale a:hover {
+    transition: all 0.3s ease;
+    transform: scale(1.1);
+  }
+  #sharing-social-dale img {
+    margin: 0 8px;
+  }
+</style>
+<!-- Solicita tu tarjeta Start colunm 1 -->
+
+<!-- Solicita tu tarjeta Start colunm 2 -->
+<div class="container-table-price">
+  <div class="table-price">
+    <div class="table-price__header">
+      <h3 class="table-price__title">Tarjeta Dale Coopeuch</h3>
+      <span class="table-price__subtitle"
+        >Mejor Tarjeta Prepago Virtual Mastercard</span
+      >
+    </div>
+    <div class="table-price__cost">
+      <span class="table-price__currency">$0</span>
+      <span class="table-price__period"
+        >Sin costo de emisión <br />
+        ni activación.</span
+      >
+    </div>
+    <ul class="table-price__list">
+      <li class="table-price__feature-inner">
+        <i aria-hidden="true" class="fas fa-check-circle"></i>
+        <span>Es gratis.</span>
+      </li>
+
+      <li class="table-price__feature-inner">
+        <i aria-hidden="true" class="fas fa-check-circle"></i>
+        <span>Sin liquidación de sueldo.</span>
+      </li>
+
+      <li class="table-price__feature-inner">
+        <i aria-hidden="true" class="fas fa-check-circle"></i>
+        <span>No hay mantención mensual.</span>
+      </li>
+
+      <li class="table-price__feature-inner">
+        <i aria-hidden="true" class="fas fa-check-circle"></i>
+        <span>Sin costos por transacción.</span>
+      </li>
+
+      <li class="table-price__feature-inner">
+        <i aria-hidden="true" class="fas fa-check-circle"></i>
+        <span>Carga hasta $500.000 pesos.</span>
+      </li>
+
+      <li class="table-price__feature-inner">
+        <i aria-hidden="true" class="fas fa-check-circle"></i>
+        <span>5 años de duración.</span>
+      </li>
+    </ul>
+    <div class="table-price__actions">
+      <a class="button-coopeuch" href="https://tarjeta.dalecoopeuch.cl/register"
+        >Obtén tu Tarjeta</a
+      >
+    </div>
+  </div>
+  <div class="container-table-price__ribbon-right">
+    <span class="container-table-price__ribbon-content">Promoción</span>
+  </div>
+</div>
+
+<style>
+  .justify-content-center {
+    display: flex;
+    justify-content: center;
+  }
+  .container-table-price {
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    min-height: 537px;
+    max-width: 427px;
+    position: relative;
+    border-radius: 0 0 5px 5px;
+    width: 100%;
+  }
+  .container-table-price .table-price .table-price__header {
+    background-color: #009fe6;
+    padding: 20px;
+    text-align: center;
+  }
+  .container-table-price
+    .table-price
+    .table-price__header
+    h3.table-price__title {
+    font-size: 26px;
+    color: #ffffff;
+    line-height: 35px;
+    margin-bottom: 0;
+  }
+  .container-table-price
+    .table-price
+    .table-price__header
+    span.table-price__subtitle {
+    font-size: 16px;
+    line-height: 25px;
+    color: #ffffff;
+  }
+  .container-table-price .table-price .table-price__cost {
+    padding: 25px;
+    text-align: center;
+  }
+  .container-table-price
+    .table-price
+    .table-price__cost
+    span.table-price__currency {
+    color: #009fe6;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 72px;
+    display: block;
+  }
+  .container-table-price
+    .table-price
+    .table-price__cost
+    span.table-price__period {
+    color: #004f73;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+  }
+  .container-table-price .table-price ul.table-price__list {
+    text-align: left;
+    list-style: none;
+    padding: 0% 0% 0% 025%;
+  }
+  .container-table-price
+    .table-price
+    ul.table-price__list
+    li.table-price__feature-inner {
+    font-size: 14px;
+    line-height: 22px;
+    color: #000;
+  }
+  .container-table-price
+    .table-price
+    ul.table-price__list
+    li.table-price__feature-inner
+    i.fas.fa-check-circle::before {
+    font-weight: 900;
+    color: #04584c;
+    height: 20px;
+    width: 20px;
+  }
+  .container-table-price .table-price .table-price__actions {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+  }
+  .container-table-price .container-table-price__ribbon-right {
+    position: absolute;
+    top: 0;
+    left: auto;
+    right: 0;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    width: 150px;
+    overflow: hidden;
+    height: 150px;
+  }
+  .container-table-price
+    .container-table-price__ribbon-right
+    .container-table-price__ribbon-content {
+    text-align: center;
+    background-color: #fd5373;
+    margin-top: 50px;
+    transform: translateY(-50%) translateX(-50%) translateX(-28px)
+      rotate(-45deg);
+    color: #ffffff;
+    font-family: 'Poppins Bold';
+    position: absolute;
+    width: 100%;
+    padding: 4px 10px;
+  }
+  .card-animation-rotate img {
+    object-fit: contain;
+    transition: all 0.3s ease;
+  }
+  .card-animation-rotate:active img,
+  .card-animation-rotate:focus img,
+  .card-animation-rotate:hover img {
+    transform: rotate(4deg);
+  }
+  .container-table-price .table-price .table-price__actions .button-coopeuch {
+    margin: 0;
+  }
+
+  @media (min-width: 425.1px) {
+    .card-animation-rotate img {
+      max-width: 410px !important;
+    }
+  }
+  @media (max-width: 580.1px) {
+    .container-table-price
+      .table-price
+      .table-price__header
+      h3.table-price__title {
+      font-size: 20px;
+      line-height: 30px;
+    }
+    .container-table-price
+      .table-price
+      .table-price__header
+      span.table-price__subtitle {
+      font-size: 14px;
+      line-height: 21px;
+    }
+    .container-table-price .table-price ul.table-price__list {
+      padding: 0 10%;
+    }
+    .container-table-price .table-price .table-price__actions .button-coopeuch {
+      width: 100%;
+      max-width: 272px;
+    }
+    .container-table-price
+      .container-table-price__ribbon-right
+      .container-table-price__ribbon-content {
+      font-size: 10px;
+      line-height: 22px;
+      left: 63px;
+      top: -16px;
+    }
+  }
+</style>
+<!-- Solicita tu tarjeta End  column 2 -->
+
+<!-- Compra en comercios -->
+<div class="container-grid">
+  <a
+    class="area1"
+    href="https://dalecoopeuch.cl/2020/06/25/como-obtener-la-segunda-clave-de-tarjeta-dale-para-pagar-en-webpay/"
+  >
+    <img
+      class="grid-item-img"
+      src="https://www.coopeuch.cl/media/wysiwyg/webpay-01.png"
+      alt="webpay-logo"
+    />
+  </a>
+
+  <a class="area2" href="https://play.google.com/store">
+    <img
+      class="grid-item-img"
+      src="https://www.coopeuch.cl/media/wysiwyg/goo-play.png"
+      alt="ggplay-logo"
+    />
+  </a>
+
+  <a class="area3" href="https://www.netflix.com/cl/Login">
+    <img
+      class="grid-item-img"
+      src="https://www.coopeuch.cl/media/wysiwyg/netflix-logo.png"
+      alt="netflix-logo"
+    />
+  </a>
+
+  <a class="area4" href="https://www.spotify.com/cl/">
+    <img
+      class="grid-item-img"
+      src="https://www.coopeuch.cl/media/wysiwyg/spotify-01.png"
+      alt="spotify-logo"
+    />
+  </a>
+
+  <a class="area5" href="https://es.aliexpress.com/">
+    <img
+      class="grid-item-img"
+      src="https://www.coopeuch.cl/media/wysiwyg/aliexpress-01.png"
+      alt="aliexpress-logo"
+    />
+  </a>
+
+  <a class="area6" href="https://www.amazon.com/">
+    <img
+      class="grid-item-img"
+      src="https://www.coopeuch.cl/media/wysiwyg/amazon.png"
+      alt="amazon-logo"
+    />
+  </a>
+
+  <a class="area7" href="https://www.uber.com/es-CL/sign-in/">
+    <img
+      class="grid-item-img"
+      src="https://www.coopeuch.cl/media/wysiwyg/uber-logo_1.png"
+      alt="uber-logo"
+    />
+  </a>
+
+  <a class="area8" href="https://store.steampowered.com/">
+    <img
+      class="grid-item-img"
+      src="https://www.coopeuch.cl/media/wysiwyg/steam.png"
+      alt="steam-logo"
+    />
+  </a>
+
+  <div class="area9 link-arrow">
+    <a href="#" class="link-arrow">¿Dónde más puedo comprar?</a>
+  </div>
+</div>
+<style>
+  .container-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      'area1 area2 area3 area4'
+      'area5 area6 area7 area8'
+      'area9 .     .     .    ';
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    max-width: 1170px;
+    margin: 30px auto;
+  }
+  .container-grid a:hover img,
+  .container-grid a:active img,
+  .container-grid a:focus img {
+    transition: all 0.3s ease-out;
+    transform: scale(0.97);
+    background: #d4d4d4;
+  }
+  img.grid-item-img {
+    object-fit: contain;
+    align-self: center;
+    justify-self: center;
+    box-sizing: border-box;
+    max-height: 108px;
+    max-width: 208px;
+    border: 1px solid #d4d4d4;
+    border-radius: 5px;
+    background-color: #ffffff;
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+  }
+  .link-arrow {
+    text-align: left;
+  }
+  .link-arrow a {
+    font-family: 'Poppins SemiBold';
+    color: #fd5373;
+    white-space: nowrap;
+  }
+  .area1 {
+    grid-area: area1;
+  }
+  .area2 {
+    grid-area: area2;
+  }
+  .area3 {
+    grid-area: area3;
+  }
+  .area4 {
+    grid-area: area4;
+  }
+  .area5 {
+    grid-area: area5;
+  }
+  .area6 {
+    grid-area: area6;
+  }
+  .area7 {
+    grid-area: area7;
+  }
+  .area8 {
+    grid-area: area8;
+  }
+  .area9 {
+    grid-area: area9;
+  }
+  @media (max-width: 768px) {
+    .container-grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas:
+        'area1 area2 area3'
+        'area4 area5 area6'
+        'area7 area8 .    '
+        'area9 .     .    ';
+    }
+  }
+  @media (max-width: 580px) {
+    .container-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+        'area1 area2'
+        'area3 area4'
+        'area5 area6'
+        'area7 area8'
+        'area9 area9';
+      grid-gap: 0 10px;
+    }
+    img.grid-item-img {
+      max-width: 146px;
+      max-height: 76px;
+    }
+  }
+</style>
+<!-- Compra en comercios -->
+
+<!-- footer -->
+<footer class="page-footer">
+  <div class="widget block block-static-block">
+    <div
+      class="full-width"
+      data-content-type="row"
+      data-appearance="full-width"
+      data-enable-parallax="0"
+      data-parallax-speed="0.5"
+      data-background-images="{}"
+      data-element="main"
+      style="
+        justify-content: flex-start;
+        display: flex;
+        flex-direction: column;
+        background-position: left top;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        border-style: none;
+        border-width: 1px;
+        border-radius: 0px;
+        margin: 0px;
+        padding: 0px;
+      "
+    >
+      <div class="row-full-width-inner" data-element="inner">
+        <div
+          class="pagebuilder-column-group"
+          style="display: flex"
+          data-content-type="column-group"
+          data-grid-size="12"
+          data-element="main"
+        >
+          <div
+            class="pagebuilder-column footer-block first"
+            data-content-type="column"
+            data-appearance="full-height"
+            data-background-images="{}"
+            data-element="main"
+            style="
+              justify-content: flex-start;
+              display: flex;
+              flex-direction: column;
+              background-color: #7c2583;
+              background-position: left top;
+              background-size: cover;
+              background-repeat: no-repeat;
+              background-attachment: scroll;
+              border-style: none;
+              border-width: 1px;
+              border-radius: 0px;
+              width: 25%;
+              margin: 0px;
+              padding: 40px 20px;
+              align-self: stretch;
+            "
+          >
+            <div
+              class="block-title"
+              data-content-type="text"
+              data-appearance="default"
+              data-element="main"
+              style="
+                border-style: none;
+                border-width: 1px;
+                border-radius: 0px;
+                margin: 0px;
+                padding: 0px;
+              "
+            >
+              <h3><span style="color: #ffffff">Contenido</span></h3>
+            </div>
+            <div
+              class="mobile-toggle"
+              data-content-type="text"
+              data-appearance="default"
+              data-element="main"
+              style="
+                border-style: none;
+                border-width: 1px;
+                border-radius: 0px;
+                margin: 0px;
+                padding: 0px;
+              "
+            >
+              <ul>
+                <li>
+                  <a href="/sucursales"
+                    ><span style="color: #ffffff">Tutoriales</span></a
+                  >
+                </li>
+                <li>
+                  <a href="#"
+                    ><span style="color: #ffffff">Concursos y Campañas</span></a
+                  >
+                </li>
+                <li>
+                  <a href="#"><span style="color: #ffffff">Prensa</span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="pagebuilder-column footer-block"
+            data-content-type="column"
+            data-appearance="full-height"
+            data-background-images="{}"
+            data-element="main"
+            style="
+              justify-content: flex-start;
+              display: flex;
+              flex-direction: column;
+              background-color: #7c2583;
+              background-position: left top;
+              background-size: cover;
+              background-repeat: no-repeat;
+              background-attachment: scroll;
+              border-style: none;
+              border-width: 1px;
+              border-radius: 0px;
+              width: 25%;
+              margin: 0px;
+              padding: 40px;
+              align-self: stretch;
+            "
+          >
+            <div
+              class="block-title"
+              data-content-type="text"
+              data-appearance="default"
+              data-element="main"
+              style="
+                border-style: none;
+                border-width: 1px;
+                border-radius: 0px;
+                margin: 0px;
+                padding: 0px;
+              "
+            >
+              <h3><span style="color: #ffffff">Ayuda</span></h3>
+            </div>
+            <div
+              class="mobile-toggle"
+              data-content-type="text"
+              data-appearance="default"
+              data-element="main"
+              style="
+                border-style: none;
+                border-width: 1px;
+                border-radius: 0px;
+                margin: 0px;
+                padding: 0px;
+              "
+            >
+              <ul>
+                <li>
+                  <span style="color: #ffffff"
+                    ><a
+                      style="color: #ffffff"
+                      href="/ser-socio/lo-que-debes-saber/que-es-coopeuch.html"
+                      >Preguntas frecuentes</a
+                    ></span
+                  >
+                </li>
+                <li>
+                  <span style="color: #ffffff"
+                    ><a
+                      style="color: #ffffff"
+                      href="/personas/ser-socio/lo-que-debes-saber/p-ventajas-de-ser-socio.html"
+                      >Oficinas</a
+                    ></span
+                  >
+                </li>
+                <li>
+                  <span style="color: #ffffff"
+                    ><a
+                      style="color: #ffffff"
+                      href="/ser-socio/p-remanente.html"
+                      >Contáctanos</a
+                    ></span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="pagebuilder-column footer-block"
+            data-content-type="column"
+            data-appearance="full-height"
+            data-background-images="{}"
+            data-element="main"
+            style="
+              justify-content: flex-start;
+              display: flex;
+              flex-direction: column;
+              background-color: #7c2583;
+              background-position: left top;
+              background-size: cover;
+              background-repeat: no-repeat;
+              background-attachment: scroll;
+              border-style: none;
+              border-width: 1px;
+              border-radius: 0px;
+              width: 25%;
+              margin: 0px;
+              padding: 40px 30px;
+              align-self: stretch;
+            "
+          >
+            <div
+              class="block-title"
+              data-content-type="text"
+              data-appearance="default"
+              data-element="main"
+              style="
+                border-style: none;
+                border-width: 1px;
+                border-radius: 0px;
+                margin: 0px;
+                padding: 0px;
+              "
+            >
+              <h3><span style="color: #ffffff">Regulaciones</span></h3>
+            </div>
+            <div
+              class="mobile-toggle"
+              data-content-type="text"
+              data-appearance="default"
+              data-element="main"
+              style="
+                border-style: none;
+                border-width: 1px;
+                border-radius: 0px;
+                margin: 0px;
+                padding: 0px;
+              "
+            >
+              <ul>
+                <li>
+                  <span style="color: #ffffff"
+                    ><a style="color: #ffffff" href="#"
+                      >Términos y condiciones</a
+                    ></span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="pagebuilder-column footer-block"
+            data-content-type="column"
+            data-appearance="full-height"
+            data-background-images="{}"
+            data-element="main"
+            style="
+              justify-content: flex-start;
+              display: flex;
+              flex-direction: column;
+              background-color: #7c2583;
+              background-position: left top;
+              background-size: cover;
+              background-repeat: no-repeat;
+              background-attachment: scroll;
+              border-style: none;
+              border-width: 1px;
+              border-radius: 0px;
+              width: 25%;
+              margin: 0px;
+              padding: 40px 0px 40px 20px;
+              align-self: stretch;
+            "
+          >
+            <div
+              class="block-title"
+              data-content-type="text"
+              data-appearance="default"
+              data-element="main"
+              style="
+                border-style: none;
+                border-width: 1px;
+                border-radius: 0px;
+                margin: 0px;
+                padding: 0px;
+              "
+            >
+              <h3><span style="color: #ffffff">Redes Sociales</span></h3>
+            </div>
+            <div
+              class="mobile-toggle"
+              data-content-type="text"
+              data-appearance="default"
+              data-element="main"
+              style="
+                border-style: none;
+                border-width: 1px;
+                border-radius: 0px;
+                margin: 0px;
+                padding: 0px;
+              "
+            >
+              <ul>
+                <li>
+                  <div
+                    class="footer-social-icons mobile-hide"
+                    data-content-type="text"
+                    data-appearance="default"
+                    data-element="main"
+                    style="
+                      border-style: none;
+                      border-width: 1px;
+                      border-radius: 0px;
+                      margin: 0;
+                      padding: 0px;
+                    "
+                  >
+                    <p>
+                      <a href="#"
+                        ><img
+                          src="/pub/media/wysiwyg/COOPEUCH/footer/social_fb.png"
+                          alt=""
+                          width="32"
+                          height="32" /></a
+                      ><a href="#"
+                        ><img
+                          src="/pub/media/wysiwyg/COOPEUCH/footer/social_tw.png"
+                          alt=""
+                          width="33"
+                          height="32" /></a
+                      ><a href="#"
+                        ><img
+                          src="/pub/media/wysiwyg/COOPEUCH/footer/social_yt.png"
+                          alt=""
+                          width="32"
+                          height="32" /></a
+                      ><a href="#"
+                        ><img
+                          src="/pub/media/wysiwyg/COOPEUCH/footer/social_ig.png"
+                          alt=""
+                          width="32"
+                          height="32"
+                      /></a>
+                    </p>
+                  </div>
+                </li>
+                <li style="color: #fff; font-size: 14px">
+                  Tarjeta Dale Coopeuch es una tarjeta prepago digital
+                  Mastercard, gratis y para todos.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="mobile-show"
+      data-content-type="row"
+      data-appearance="full-width"
+      data-enable-parallax="0"
+      data-parallax-speed="0.5"
+      data-background-images="{}"
+      data-element="main"
+      style="
+        justify-content: flex-start;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(244, 37, 52);
+        background-position: left top;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        border-style: none;
+        border-width: 1px;
+        border-radius: 0px;
+        margin: 0px;
+        padding: 20px 30px 0px;
+      "
+    >
+      <div class="row-full-width-inner" data-element="inner">
+        <div
+          class="footer-social-icons mobile-show"
+          data-content-type="text"
+          data-appearance="default"
+          data-element="main"
+          style="
+            border-style: none;
+            border-width: 1px;
+            border-radius: 0px;
+            margin: 0px;
+            padding: 0px;
+          "
+        >
+          <p>
+            <a href="#"
+              ><img
+                src="/pub/media/wysiwyg/COOPEUCH/footer/social_fb.png"
+                alt=""
+                width="32"
+                height="32" /></a
+            ><a href="#"
+              ><img
+                src="/pub/media/wysiwyg/COOPEUCH/footer/social_tw.png"
+                alt=""
+                width="33"
+                height="32" /></a
+            ><a href="#"
+              ><img
+                src="/pub/media/wysiwyg/COOPEUCH/footer/social_yt.png"
+                alt=""
+                width="32"
+                height="32" /></a
+            ><a href="#"
+              ><img
+                src="/pub/media/wysiwyg/COOPEUCH/footer/social_ig.png"
+                alt=""
+                width="32"
+                height="32"
+            /></a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="widget block block-static-block">
+    <div
+      class="after-footer"
+      data-content-type="row"
+      data-appearance="full-width"
+      data-enable-parallax="0"
+      data-parallax-speed="0.5"
+      data-background-images="{}"
+      data-element="main"
+      style="
+        justify-content: flex-start;
+        display: flex;
+        flex-direction: column;
+        background-color: #8a2c91;
+        background-position: left top;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        border-style: none;
+        border-width: 1px;
+        border-radius: 0px;
+        margin: 0px;
+        padding: 18px;
+      "
+    >
+      <div class="row-full-width-inner" data-element="inner">
+        <div
+          class="pagebuilder-column-group"
+          style="display: flex"
+          data-content-type="column-group"
+          data-grid-size="7"
+          data-element="main"
+        >
+          <div
+            class="pagebuilder-column"
+            data-content-type="column"
+            data-appearance="align-center"
+            data-background-images="{}"
+            data-element="main"
+            style="
+              justify-content: flex-start;
+              display: flex;
+              flex-direction: column;
+              background-position: left top;
+              background-size: cover;
+              background-repeat: no-repeat;
+              background-attachment: scroll;
+              border-style: none;
+              border-width: 1px;
+              border-radius: 0px;
+              width: 28.5714%;
+              margin: 0px 0px 0px 10px;
+              padding: 10px 10px 10px 30px;
+              align-self: center;
+            "
+          >
+            <div
+              data-content-type="text"
+              data-appearance="default"
+              data-element="main"
+              style="
+                border-style: none;
+                border-width: 1px;
+                border-radius: 0px;
+                margin: 0px;
+                padding: 0px;
+              "
+            >
+              <p>
+                <strong
+                  style="font-size: 12px; color: #ffffff; white-space: nowrap"
+                  >Coopeuch ® 2021 - Todos los derechos reservados.</strong
+                ><br /><span style="font-size: 12px; color: #ffffff"
+                  >Infórmese sobre la garantía estatal de los depósitos en su
+                  cooperativa o en www.cmfchile.cl</span
+                >
+              </p>
+            </div>
+          </div>
+          <div
+            class="pagebuilder-column"
+            data-content-type="column"
+            data-appearance="align-center"
+            data-background-images="{}"
+            data-element="main"
+            style="
+              justify-content: flex-start;
+              display: flex;
+              flex-direction: column;
+              background-position: left top;
+              background-size: cover;
+              background-repeat: no-repeat;
+              background-attachment: scroll;
+              border-style: none;
+              border-width: 1px;
+              border-radius: 0px;
+              width: 57.1429%;
+              margin: 0px;
+              padding: 10px;
+              align-self: center;
+            "
+          >
+            <div
+              data-content-type="text"
+              data-appearance="default"
+              data-element="main"
+              style="
+                border-style: none;
+                border-width: 1px;
+                border-radius: 0px;
+                margin: 0px;
+                padding: 0px;
+              "
+            >
+              <p style="text-align: left; float: right">
+                <span style="font-size: 12px; color: #ffffff"
+                  >Infórmese sobre las entidades autorizadas para emitir
+                  Tarjetas de Pago en el país, <br />
+                  quienes se encuentran inscritas en los Registros de Emisores
+                  de Tarjetas que lleva <br />
+                  la CMF, en www.cmfchile.cl.</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- footer -->
+
+<!-- Faqs 1 como funciona -->
+<input
+  type="hidden"
+  id="plus-icon"
+  value="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+/>
+<input
+  type="hidden"
+  id="minus-icon"
+  value="https://www.coopeuch.cl/media/wysiwyg/menos.svg"
+/>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title">¿Qué es Dale?</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Dale es una tarjeta prepagada que te permitirá comprar de manera fácil,
+      cómoda y segura en cualquier sitio web donde acepten Mastercard como medio
+      de pago. Nuestra tarjeta es emitida en Chile y, de esta forma,
+      garantizamos el mejor servicio y sin mantenciones. Con la Tarjeta Virtual
+      además de compras online en todos los sitios que acepten Mastercard como
+      medio de pago, vas a poder realizar la verificación de cuentas como
+      PayPal, AliPay, eBay, Google Play, y comprar en Itunes, Xbox, Yahoo!,
+      Amazon, Godaddy y muchos más.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title">¿Para qué sirve esto?</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Si quieres contratar algún servicio internacional que te pida una tarjeta
+      de crédito y no tienes una o no quieres usar la tuya por motivos de
+      seguridad, puedes sacar una tarjeta de crédito virtual prepago hoy mismo.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title">¿Cómo comprar la tarjeta?</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Ingresa a la página dalecoopeuch.cl y completa el formulario de
+      enrolamiento para crear tu tarjeta Dale. Te pedirán datos personales para
+      crear tu cuenta como nombre completo, rut, fecha de nacimiento, dirección,
+      entre otros. Para activarla tendrás que pagar $3.500 (gratis durante
+      promoción) y cargar el dinero que necesites para realizar tus compras
+      online.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title">¿Cómo recargo mi tarjeta?</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Para recargar deberás tener una cuenta creada en Dale Coopeuch, pues
+      aparecerá tu número de cuenta Prepago. Ya en tu sesión, eliges el monto a
+      cargar y luego podrás abonar con transferencia (Coopeuch o de otros
+      Bancos) o con efectivo en oficinas Coopeuch.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title">¿Dónde puedo usar la tarjeta?</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Puedes usarla en cualquier servicio internacional como Netflix, Spotify,
+      Playstation USA, Nintendo, Microsoft, Steam, Facebook Ads, iTunes, Google
+      Play, PayPal, Amazon, Aliexpress, Wish y muchos más. En este link
+      encontrarás mayor información: https://dalecoopeuch.cl/tutoriales
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title">¿Cuántas veces puedo usar la tarjeta?</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Puedes usarla todas las veces que quieras en todos los comercios que
+      quieras, siempre y cuando tengas el saldo necesario para hacer esas
+      compras.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title">¿Puedo usar la tarjeta en diferentes comercios?</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Si. Puedes revisar el listado de los comercios donde puedes comprar
+      https://dalecoopeuch.cl/tutoriales
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title"
+      >¿Cómo puedo ver lo que me queda en la tarjeta (mi saldo actual)?</span
+    >
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Puedes ingresar en tu sesión en https://tarjeta.dalecoopeuch.cl/ y ver tu
+      saldo.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title">¿Cómo puedo ver las transacciones que he hecho?</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Puedes ingresar en tu sesión en https://tarjeta.dalecoopeuch.cl/ e ir a la
+      sección de tus transacciones para ver tus movimientos.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs final-container-faqs">
+  <div class="header-faqs">
+    <span class="title">¿No entiendo cómo usar la tarjeta?</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Puedes revisar cómo comprar en el siguiente link:
+      https://dalecoopeuch.cl/tutoriales/
+      <br />
+      Si aún no te funciona, por favor escribe a soporte@dalecoopeuch.cl
+    </p>
+  </div>
+</div>
+
+<style>
+  .content-faqs {
+    display: none;
+    margin-top: 15px;
+  }
+  .header-faqs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .container-faqs {
+    min-height: 67px;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    border-top: 2px solid #d7d7d7;
+    cursor: pointer;
+  }
+  .header-faqs .title {
+    display: inline-block;
+    width: 100%;
+    max-width: 90%;
+    font-size: 14px;
+    margin: 0;
+  }
+  .content-faqs ul {
+    color: #f42534;
+  }
+  .content-faqs ul li > span {
+    color: #333;
+    font-size: 14px;
+  }
+  .content-faqs ul li {
+    list-style-type: disc;
+  }
+  .content-faqs p {
+    padding: 0 40px;
+  }
+  .container-faqs.final-container-faqs {
+    border-bottom: 2px solid #d7d7d7;
+  }
+  @media (max-width: 375.1px) {
+    .header-faqs span img {
+      width: 23px !important;
+      height: auto;
+    }
+  }
+  @media (max-width: 411.1px) {
+    .header-faqs .title {
+      width: 85%;
+    }
+  }
+</style>
+
+<script>
+  require(['jquery', 'collapsible', 'accordion'], function (
+    $,
+    collapsible,
+    accordion
+  ) {
+    $('.header-faqs').click(function () {
+      $header = $(this);
+      //getting the next element
+      $content = $header.next();
+      //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
+      if (!$content.is(':visible')) {
+        $header.find('.icon>img').attr('src', $('#minus-icon').val());
+      }
+      $content.slideToggle(500, function () {
+        //execute this after slideToggle is done
+        //change text of header based on visibility of content div
+        if (!$content.is(':visible')) {
+          $header.find('.icon>img').attr('src', $('#plus-icon').val());
+        }
+      });
+    });
+  });
+</script>
+<!-- Faqs 1 como funciona -->
+
+<!-- faqs 2 Debes saber... -->
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title"
+      >¿Cuáles son los requisitos para comprar la tarjeta?</span
+    >
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Tienes que ser mayor de 18 años y tener tu carnet vigente.
+      <br />
+      Si eres extranjero, debes ser mayor de 18 años y tener tu carnet
+      provisorio o definitivo.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title"
+      >¿Qué es el número de serie/documento que solicitan al registrarse en
+      Dale?</span
+    >
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      El número de serie o documento es el número que aparece en tu carnet de
+      identidad chileno.En el carnet antiguo, el número de serie aparecerá en el
+      lado de atrás, abajo del código de barra. Y en el carnet nuevo, el número
+      de documento aparecerá al lado derecho de tu fecha de nacimiento.
+      <br />
+      Debes ingresarlo sin puntos en el espacio indicado al registrarte para
+      adquirir la tarjeta Dale https://tarjeta.dalecoopeuch.cl/register
+      <br />
+      Esta información es necesaria para que sepamos que tu carnet se encuentra
+      vigente.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title"
+      >¿Cómo comprar en Netflix, Aliexpress, Spotify, otros?</span
+    >
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Aquí puedes revisar nuestros tutoriales para comprar en los diferentes
+      comercios https://dalecoopeuch.cl/new/tutoriales/
+      <br />
+      Si el comercio en el que quieres comprar no se encuentra en este link,
+      favor escribir a soporte@dalecoopeuch.cl para recibir ayuda.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title"
+      >¿Qué significa que el comercio verifica mi tarjeta?</span
+    >
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Cada comercio necesita comprobar que tu tarjeta es real y no un posible
+      fraude. Es por esto que cada vez que asocias tu tarjeta por primera vez en
+      un comercio (por ejemplo: Netflix, Apple, Google) este requerirá comprobar
+      que tu tarjeta funciona, descontando un pequeño saldo inicial (Siempre
+      inferior a 2 USD) como verificación, saldo que te devolverán en 14 días
+      hábiles. Por lo tanto, es importante que siempre tengas saldo adicional
+      del que ocuparás para tu compra en dicho comercio.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title">¿Debo tener saldo de sobra para poder comprar?</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Si, para cada compra que realices debes tener al menos 2 USD adicionales
+      de saldo que ocuparás para tu compra. Esto porque algunos comercios (como
+      Apple, Google) cobran 2 USD aprox como verificación de la tarjeta, monto
+      que te devolverán en 14 días hábiles.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title">¿Qué es el Código de Verificación (CVV)?</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      El CVV es el código verificador de tarjeta. Este lo obtienes ingresando en
+      tu sesión en <b>dalecoopeuch.cl</b> y seleccionando “Ver “, donde también
+      podrás encontrar el número de tarjeta y fecha de vencimiento. Estos 3
+      datos te servirán para realizar tus compras por internet.
+      <br />
+      Siempre te lo pedirán y no debes equivocarte.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title">¿Qué es la Fecha de Expiración?</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      La fecha de expiración es la fecha de vencimiento de tu tarjeta. Está en
+      formato mes/año.
+      <br />
+      Siempre te lo pedirán y no debes equivocarte.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title">¿Puedo comprar en cuotas?</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      No, porque es una tarjeta prepago, por lo que el dinero que abones será el
+      único saldo disponible que tendrás para realizar tus compras. No es una
+      tarjeta de crédito.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title">Intenté en reiteradas ocasiones hacer mi compra</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Si intentaste reiteradamente y leíste nuestros instructivos en
+      https://dalecoopeuch.cl/new/tutoriales/ favor escribe a
+      soporte@dalecoopeuch.cl para que podamos ayudarte.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title">Cancelé mi compra luego de hacerla</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Si cancelas una compra luego de hacerla, el comercio demorará 14 días
+      hábiles en devolver tu dinero en la tarjeta Dale, por lo que ese saldo no
+      lo tendrás disponible durante ese tiempo.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title">¿Dónde no Funciona la Tarjeta Dale?</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      No funciona para algunas suscripciones como en Origin. No funciona en
+      Hulu, Vivastreet. Si la Tarjeta Dale no funciona puedes buscar la
+      alternativa de pagar a través de PayPal. Es decir, en Paypal agregas la
+      tarjeta Dale como medio de pago. Tampoco se puede usar en sitios chilenos
+      por ahora.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title">¿Qué pasa si me piden el Código Postal?</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Tienes que ingresar el código postal correspondiente a la dirección que
+      registraste en Dale.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title">¿Puedo sacar otra tarjeta?</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Si ya tienes una tarjeta Dale, no podrás obtener otra tarjeta, ya que sólo
+      puedes tener una tarjeta activa por rut.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs final-container-faqs">
+  <div class="header-faqs">
+    <span class="title">¿Qué valor usan para el tipo de cambio?</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      El valor del dólar que usamos es aproximadamente el que aparece en el
+      dashboard cuando inicias sesión. Al enrolarte no debes pagar nada, por lo
+      que puedes acceder a tu sesión y ver el precio del dólar de referencia sin
+      necesidad de pagar algo antes.
+    </p>
+  </div>
+</div>
+<!-- faqs 2 Debes saber... -->
+
+<!-- faqs 3 Costos y limitaciones. -->
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title"
+      >¿Cuáles son los costos de crear o recargar la tarjeta?</span
+    >
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <table style="height: 182px" width="259">
+      <tbody>
+        <tr>
+          <td><span style="font-weight: 400">Costo de creación</span></td>
+          <td><span style="font-weight: 400">$0</span></td>
+        </tr>
+        <tr>
+          <td>
+            <p><span style="font-weight: 400">Comisión de activación</span></p>
+            <p>
+              <span style="color: #009fe6"
+                ><strong>No reembolsable</strong></span
+              >
+            </p>
+          </td>
+          <td>
+            <span style="font-weight: 400"
+              >$3.500 (Gratis durante promoción)</span
+            >
+          </td>
+        </tr>
+        <tr>
+          <td><span style="font-weight: 400">Mantención Mensual</span></td>
+          <td><span style="font-weight: 400">$0</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="container-faqs final-container-faqs">
+  <div class="header-faqs">
+    <span class="title">Limitaciones</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <p>Saldo máximo disponible</p>
+          </td>
+          <td>
+            <p>$500.000</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>Carga máxima</p>
+          </td>
+          <td>
+            <p>$500.000</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>Monto máximo de recarga al día</p>
+          </td>
+          <td>
+            <p>$1.000.000</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>Monto máximo de retiro por caja</p>
+          </td>
+          <td>
+            <p>Ilimitado</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>Número máximo de recargas al día</p>
+          </td>
+          <td>
+            <p>10</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>Número máximo de compras al día</p>
+          </td>
+          <td>
+            <p>Ilimitado</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- faqs 3 Costos y limitaciones. -->
+
+<!-- faqs 4 que pasa si -->
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title"
+      >¿Qué pasa si no me funciona la tarjeta y ya les pagué a ustedes?</span
+    >
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Si no te funciona la tarjeta Dale, puedes contactarnos para que te
+      ayudemos escribiendo a soporte@dalecoopeuch.cl.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title"
+      >¿Me devuelven el total de mi dinero si la tarjeta no funciona?</span
+    >
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Si y puedes retirar tu saldo disponible directamente en cajas Coopeuch.
+      Aquí encuentras la sucursal más cercana https://www.coopeuch.cl/oficinas
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title"
+      >¿Qué pasa si no me alcanzó el monto que cargué para comprar?</span
+    >
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Puedes recargar la tarjeta las veces que quieras, siempre teniendo como
+      máximo $500.000 como saldo disponible y cargando hasta 1.000.000 diario.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title">¿Qué pasa si me paso del monto cargado?</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>Tu transacción saldrá rechazada y no podrás hacer la compra.</p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title">¿Qué pasa si se me acaba el cupo?</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Si se te acaba el cupo puedes volver a recargar iniciando sesión en
+      https://dalecoopeuch.cl/new/, siempre teniendo un saldo disponible como
+      máximo de $500.000 y recargando hasta $1.000.000 diario.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title"
+      >¿Me pueden dar un crédito para gastar más de lo que tengo?</span
+    >
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      No, esta es una tarjeta prepago, por lo que debes transferir el monto
+      antes de que te carguemos la tarjeta y gastar sólo ese saldo.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs final-container-faqs">
+  <div class="header-faqs">
+    <span class="title"
+      >¿No me funciona la tarjeta o el comercio no me la acepta?</span
+    >
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Puedes revisar cómo comprar en el siguiente link:
+      https://dalecoopeuch.cl/new/tutoriales/
+      <br />
+      Si aún no te funciona, por favor escribe a soporte@dalecoopeuch.cl
+    </p>
+  </div>
+</div>
+<!-- faqs 4 que pasa si -->
+
+<!-- faqs 5 falló la compra -->
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title">¿Por qué falló la transacción?</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>Hay 4 razones por las que puede haber fallado la transacción.</p>
+    <p>
+      <span>1.- Te sobrepasaste del cupo cargado.</span>
+      <br />
+      <span>2.- Indicaste mal el número de la tarjeta</span>
+      <br />
+      <span>3.- Indicaste mal la fecha de expiración</span>
+      <br />
+      <span>4.- Indicaste mal el código de verificación (CVV)</span>
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title"
+      >Revisé y todo está ok pero me siguen rechazando la transacción. ¿Por
+      qué?</span
+    >
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Si te rechazan la transacción repetidas veces es posible que te bloqueen
+      la tarjeta, por lo que te recomendamos leer nuestros instructivos de
+      compra que aparecen en el siguiente link:
+      https://dalecoopeuch.cl/new/tutoriales/
+      <br />
+      De persistir el problema, escríbenos a soporte@dalecoopeuch.cl
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title"
+      >Hice un pedido y luego lo cancelé. ¿Cuándo tendré el cupo disponible
+      nuevamente?</span
+    >
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Si cancelas una compra o el comercio te avisó que devolverá el dinero, por
+      favor escríbenos en Dale Coopeuch en Facebook o
+      dalecoopeuch.cl/formulario# indicando el monto y fecha.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title"
+      >Hice un pedido y luego lo cancelé. ¿Cuándo tendré el cupo disponible
+      nuevamente?</span
+    >
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Si cancelas una compra o el comercio te avisó que devolverá el dinero, por
+      favor escríbenos en Dale Coopeuch en Facebook o
+      dalecoopeuch.cl/formulario# indicando el monto y fecha.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs">
+  <div class="header-faqs">
+    <span class="title"
+      >¿Cómo garantizan la seguridad y privacidad de mi información?</span
+    >
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Toda la información se encuentra cifrada y sólo podemos verla si nos
+      autorizas formalmente por correo. Adicionalmente toda la información es
+      tuya por lo que si eliminas Dale, toda la data queda absolutamente borrada
+      de nuestras bases.
+    </p>
+  </div>
+</div>
+
+<div class="container-faqs final-container-faqs">
+  <div class="header-faqs">
+    <span class="title">¿Qué pasa si me rechazan muchas transacciones?</span>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+    /></span>
+  </div>
+  <div class="content-faqs" style="display: none">
+    <p>
+      Es posible que bloqueen tu tarjeta en el comercio por tantos intentos
+      fallidos de compra, pues esto puede ser relacionado a fraude o que alguien
+      intenta hacer mal uso de tu tarjeta.
+      <br />
+      En este caso te recomendamos leer nuestros instructivos de compra que
+      aparecen en el siguiente link: https://dalecoopeuch.cl/new/tutoriales/
+      <br />
+      De persistir el problema, escríbenos a soporte@dalecoopeuch.cl
+    </p>
+  </div>
+</div>
+<!-- faqs 5 falló la compra -->

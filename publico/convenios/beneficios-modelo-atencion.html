@@ -1,0 +1,205 @@
+<style>
+  .container-benefits-atention {
+    max-width: 1220px;
+    margin: 0 auto;
+  }
+  h3.title-benefits-atention {
+    font-size: 28px;
+    font-family: 'Poppins Bold';
+    color: #ffffff !important;
+    line-height: 40px;
+    margin: 10px 0;
+    text-align: left;
+  }
+  .content-section-benefits-atention {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 280px;
+  }
+  .content-section-benefits-atention-show {
+    height: auto;
+  }
+  .box-item {
+    margin: 10px 0;
+  }
+  .box-item img {
+    max-width: 40px;
+    max-height: 40px;
+    object-fit: contain;
+  }
+  .box-item h2 {
+    font-size: 28px;
+    line-height: 32px;
+    color: #ffffff;
+    font-family: 'Poppins Bold';
+  }
+  .box-item h3 {
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 25px;
+    margin-top: 10px;
+  }
+  .link-benefits-atention {
+    display: none;
+    justify-content: center;
+    color: white !important;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .section-info {
+    padding: 2%;
+  }
+
+  @media (min-width: 1250.1px) {
+    .content-section-benefits-atention .box-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-height: 200px;
+      max-width: 280px;
+      padding: 0 15px;
+    }
+    .box-item h2,
+    .box-item h3 {
+      min-height: 64px;
+      margin: 10px 0 0;
+    }
+  }
+  @media (max-width: 1250.1px) {
+    .content-section-benefits-atention {
+      height: auto;
+      overflow: hidden;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .section-info {
+      padding: 10px;
+    }
+  }
+  @media (max-width: 580.1px) {
+    .link-benefits-atention {
+      display: flex;
+    }
+    .content-section-benefits-atention {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    .item-hidden {
+      display: none;
+    }
+    .box-item h2 {
+      font-size: 22px;
+      margin: 10px 0 8px;
+    }
+    .box-item h3 {
+      font-size: 18px;
+      margin: 0 0 20px;
+    }
+    h3.title-benefits-atention {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+</style>
+
+<div class="container-benefits-atention">
+  <div class="section-info">
+    <h3 class="title-benefits-atention">Nuestros beneficios</h3>
+
+    <div class="content-section-benefits-atention">
+      <div id="box-1" class="box-item">
+        <img
+          src="https://devmagento.coopeuch.cl/media/wysiwyg/bag.png"
+          alt="item-1"
+        />
+        <h2>Descuentos en comercios</h2>
+        <h3>más de 100 alianzas con alcance nacional y regional.</h3>
+      </div>
+
+      <div id="box-2" class="box-item item-hidden">
+        <img
+          src="https://devmagento.coopeuch.cl/media/wysiwyg/bank.png"
+          alt="item-2"
+        />
+        <h2>Bonos y becas de estudio</h2>
+        <h3>más de 550 millones entregados como apoyo a la educación.</h3>
+      </div>
+
+      <div id="box-3" class="box-item item-hidden">
+        <img
+          src="https://devmagento.coopeuch.cl/media/wysiwyg/book.png"
+          alt="item-3"
+        />
+        <h2>Cultura</h2>
+        <h3>Sembrando cultura, presentaciones sinfónicas, entre otros.</h3>
+      </div>
+    </div>
+  </div>
+
+  <div id="box-4" class="section-info item-hidden">
+    <h3 class="title-benefits-atention">Nuestros modelo de atención</h3>
+
+    <div class="content-section-benefits-atention">
+      <div id="box-4" class="box-item">
+        <img
+          src="https://devmagento.coopeuch.cl/media/wysiwyg/seller.png"
+          alt="item-1"
+        />
+        <h2>Atención</h2>
+        <h3>Atención presencial, semipresencial o 100% digital.</h3>
+      </div>
+
+      <div id="box-5" class="box-item">
+        <img
+          src="https://devmagento.coopeuch.cl/media/wysiwyg/build.png"
+          alt="item-2"
+        />
+        <h2>Oficinas</h2>
+        <h3>82 oficinas a lo largo del país y un equipo especializado.</h3>
+      </div>
+
+      <div id="box-6" class="box-item">
+        <img
+          src="https://devmagento.coopeuch.cl/media/wysiwyg/news.png"
+          alt="item-3"
+        />
+        <h2>Sitio web</h2>
+        <h3>Sitio web exclusivo para tu empresa y colaboradores.</h3>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button class="custom-btn">Conocer más</button>
+    </div>
+  </div>
+
+  <a
+    id="link-benefits-atention"
+    class="link-benefits-atention"
+    onclick="toggleText()"
+  >
+    Ver más
+  </a>
+</div>
+
+<script>
+  function toggleText() {
+    var element = document.getElementsByClassName(
+      'content-section-benefits-atention'
+    );
+    element[0].classList.toggle('content-section-benefits-atentions-show');
+    element[1].classList.toggle('content-section-benefits-atentions-show');
+
+    [2, 3, 4].map((val) => {
+      const box = document.getElementById(`box-${val}`);
+      box.classList.toggle('item-hidden');
+    });
+
+    const link = document.getElementById('link-benefits-atention');
+    element[0].classList.length > 1
+      ? (link.innerHTML = 'Ocultar')
+      : (link.innerHTML = 'Ver más');
+  }
+</script>

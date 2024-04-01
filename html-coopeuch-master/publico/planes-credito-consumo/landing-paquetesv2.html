@@ -1,0 +1,1974 @@
+<section id="credit-plan-simulation" v-cloak>
+  <h6 style="text-align: center; font-size: 24px; line-height: 28px"><b>Simula tu Plan de Crédito</b></h6>
+
+  <div v-if="isMobile" :class="{ 'fixed-container': fixedSelect }">
+    <label class="mobile-select-label"><b>Selecciona monto y plazo: </b></label>
+    <div class="container-mobile-select">
+      <div ref="mobileSelectAmount" class="coop-dropdown subject-dropdown">
+        <div class="dropbtn form-input" @click="toggleSelect('mobileSelectAmount')">
+            <b id="dropbtn-amount" class="main-prefix" :data-value="amountSelected">${{ amountSelected }}.000.000</b>
+            <span class="coop-icon-down"></span>
+        </div>
+        <div id="dropdown-list" class="dropdown-content">
+            <div v-for="amount in [1, 3, 5]" class="drop-item drop-subject" @click="amountSelected = amount" :data-value="amount">${{ amount }}.000.000</div>
+        </div>
+      </div>
+
+
+
+      <div ref="mobileSelectCuote" class="coop-dropdown subject-dropdown">
+        <div class="dropbtn form-input" @click="toggleSelect('mobileSelectCuote')">
+            <b id="dropbtn-cuote" class="main-prefix" :data-value="cuoteSelected">{{ cuoteSelected }} cuotas</b>
+            <span class="coop-icon-down"></span>
+        </div>
+        <div id="dropdown-list" class="dropdown-content">
+            <div v-for="cuote in [18, 48, 84]" class="drop-item drop-subject" @click="cuoteSelected = cuote" :data-value="cuote">{{ cuote }} cuotas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div v-else class="credit-plan__filters-container">
+    <div class="creditplan-filter__grouped">
+      <label class="credit-plan-filter__label"><b>Selecciona monto y plazo: </b></label>
+      <div class="products-tabs-buttons">
+        <template v-for="amount in [1, 3, 5]">
+          <button :class="['tablink', { 'current-tab': amountSelected === amount }]" @click="amountSelected = amount">
+            <span>{{ amount }}.000.000</span>
+
+
+          </button>
+        </template>
+      </div>
+    </div>
+    <div class="products-tabs-buttons">
+      <template v-for="coute in [18, 48, 84]">
+        <button :class="['tablink', { 'current-tab': cuoteSelected === coute }]" @click="cuoteSelected = coute">
+          <span>{{ coute }} cuotas</span>
+        </button>
+      </template>
+    </div>
+  </div>
+
+  
+
+  <div class="container-credit-plan">
+    <div
+      v-for="{ planType, planBg, amountValue, creditDetail, includes, benefits }, i in currentSelected()"
+      class="card-credit-plan"
+      :style="`order: ${getOrder(planType)};`"
+    >
+      <div v-if="planType === 'Oro'" class="ribbon-plan-credit ribbon-top-left">
+        <span>Más Conveniente</span>
+      </div>
+      <div class="card-credit-plan__header">
+        <figure class="card-credit-plan__container-img">
+          <img
+            :src="`https://www.coopeuch.cl/media/imagegallery/images/${planType.toLowerCase()}.svg`"
+            alt="`paquete-${planType}`"
+            class="card-credit-plan__img"
+            loading="lazy"
+          />
+          <figcaption>
+            <h5 class="card-credit-plan__title">
+              <b>
+                <template v-if="planType === 'Bronce'">
+                  Crédito de Consumo Tradicional
+                </template>
+                <template v-else>
+                  Plan {{ planType }}
+                </template>
+              </b>
+            </h5>
+          </figcaption>
+        </figure>
+        <span :class="['card-credit-plan__amount-to-request', { 'bg-load': loadingInfo }]">
+          Crédito de consumo de <b>${{ amountSelected }}.000.000<sup>*</sup></b>
+        </span>
+        <span class="example-simulation">Ejemplo de simulación*</span>
+        <h6 :class="['card-credit-plan__coutes', { 'bg-load': loadingInfo }]">en {{ cuoteSelected }} cuotas de</h6>
+        <div :class="['card-credit-plan__amount', { 'bg-load': loadingInfo }]">
+          <h3 v-show="!loadingInfo"><b>${{ amountValue }}</b></h3>
+          <span>/mes</span>
+        </div>
+
+        <div :class="['card-credit-plan__detail-collapsable', { expanded: creditDetail.show }]">
+          <ul class="content" style="margin-top: 8px;">
+            <li :class="{ 'bg-load': creditDetail.show && loadingInfo }">
+              CAE:
+              <span style="position: relative;" :style="{ 'display': creditDetail.show && loadingInfo ? 'none' : 'inline-block' }" class="coo-tooltip">
+                <div class="tooltip-content">
+                  <p style="line-height: 24px; font-size: 12px;">
+                    Es el porcentaje que revela el costo del crédito en un año, sin importar el plazo pactado o las cuotas
+                  </p>
+                </div>
+              </span>
+                <b>{{ creditDetail.cae }}%</b>
+            </li>
+            <li :class="{ 'bg-load': creditDetail.show && loadingInfo }">
+              Seguro de Desgravamen ${{ creditDetail.desgravamen }}
+            </li>
+            <li :class="{ 'bg-load': creditDetail.show && loadingInfo }">
+              Costo Total ${{ creditDetail.totalCredit }}
+            </li>
+          </ul>
+        </div>
+        <a
+          v-if="!isMobile"
+          :data-cuotas="cuoteSelected"
+          :data-monto="`PLAN_${planType.toUpperCase()}_${cuoteSelected}C_${amountSelected}000000`"
+          class="button-coopeuch solicitar_credito_cyber solicitar_credito"
+          >
+          ¡Lo quiero!
+        </a>
+      </div>
+
+      <div class="divider"></div>
+      <div :class="['card-credit-plan__body', 'card-credit-plan-body__benefits', { opened: (includes.show && isMobile)}]">
+        <p class="card-credit-plan__includes-title">
+          <b>¿Qué incluye?</b>
+        </p>
+        <div class="card-credit-plan__includes-content">
+          <template v-for="{ icon, includedTitle, optionalText }, i in includes.includesItems">
+            <figure
+              class="card-credit-plan__includes-item"
+              :style="{ backgroundColor: planBg, position: planType === 'Oro' && i === 0 && 'relative', marginTop: i === 0 && isMobile && '24px' }"
+            >
+              <template v-if="planType === 'Oro' && i === 0" >
+                <div class="tooltip discount bg-white"></div>
+                <div class="tooltip discount"><b>-40% DCTO</b></div>
+              </template>
+
+              <img :src="`https://www.coopeuch.cl/media/imagegallery/images/${icon}.svg`" alt="incluye-icon" />
+              <figcaption>
+                <b :class="{ 'bg-load': loadingInfo }">
+                  {{ includedTitle }}
+                  <span v-if="i === 2 || i === 3" class="coo-tooltip">
+                    <div class="tooltip-content">
+                      <p>
+                        <span style="line-height: 24px; font-size: 12px;">
+                          <template v-if="i === 2">Las cuotas serán recaudadas mensualmente desde tu cuenta vista Coopeuch</template>
+                          <template v-else>Abona tu sueldo mensualmente en cuenta vista coopeuch</template>
+                        </span>
+                      </p>
+                    </div>
+                  </span>
+                </b>
+                <h4 v-if="optionalText" :class="{ 'bg-load': optionalText && loadingInfo }">
+                  <span style="font-size: 14px">Tasa de interés </span><b>{{ optionalText }}%</b>
+                </h4>
+              </figcaption>
+            </figure>
+          </template>
+
+          <div v-if="!isMobile" :style="`height: ${getHeight(i)};`"></div>
+
+          <div class="tooltip-container">
+            <div class="tooltip"><b>Comienza a pagar el 2022</b></div>
+            <span class="tooltip-text-reference">Primera <b>cuota hasta 90 días</b></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <div :class="['card-credit-plan__body', 'card-credit-plan-body__benefits', { opened: (benefits.show && isMobile)}]">
+        <p class="card-credit-plan__includes-title">
+          <b>Beneficios</b>
+        </p>
+        <div class="card-credit-plan__benefits card-credit-plan__includes-content">
+          <ul>
+            <li v-for="benefitText in benefits.benefitsItems">
+              <span v-html="benefitText" :class="{ 'bg-load': loadingInfo }"></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <template v-if="isMobile">
+        <div class="divider"></div>
+        <div class="card-credit-plan__footer">
+          <a
+            :data-cuotas="cuoteSelected"
+            :data-monto="`PLAN_${planType.toUpperCase()}_${cuoteSelected}C_${amountSelected}000000`"
+            class="button-coopeuch solicitar_credito_cyber solicitar_credito"
+            >
+            ¡Lo quiero!
+          </a>
+        </div>
+      </template>
+    </div>
+  </div>
+</section>
+
+<script>
+  require(['vue'], (Vue) => {
+    'use strict';
+    new Vue({
+      el: '#credit-plan-simulation',
+      data: {
+        windowWidth: window.screen.width,
+        fixedSelect: false,
+        toggleLegalText: false,
+        loadingInfo: false,
+        amountSelected: 1,
+        cuoteSelected: 18,
+        products: [
+          {
+            totalAmount: 1,
+            coutes: [
+              {
+                coute: 18,
+                plans: [
+                  {
+                    planType: 'Bronce',
+                    planBg: '#ff83001a',
+                    amountValue: '75.020',
+                    creditDetail: {
+                      show: true,
+                      cae: '36,12',
+                      desgravamen: '17.308',
+                      totalCredit: '1.346.292'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '2,77'
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: ['Aumenta <b>tu Remanente</b>', 'Accede a <b>beneficios</b>']
+                    }
+                  },
+                  {
+                    planType: 'Plata',
+                    planBg: '#F6F6F6',
+                    amountValue: '75.020',
+                    creditDetail: {
+                      show: true,
+                      cae: '36,12',
+                      desgravamen: '17.308',
+                      totalCredit: '1.346.292'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '2,77'
+                        },
+                        {
+                          icon: 'cuentavista',
+                          includedTitle: 'Cuenta Vista',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Pago  automático de cuotas de Crédito (PAC)',
+                          optionalText: ''
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: [
+                        'Aumenta <b>&nbsp;tu Remanente</b>',
+                        'Suma <b>&nbsp;5.000 puntos Coopeuch</b> y conviértelos <b>beneficios exclusivos para ti</b>'
+                      ]
+                    }
+                  },
+                  {
+                    planType: 'Oro',
+                    planBg: '#fff9e5',
+                    amountValue: '67.310',
+                    creditDetail: {
+                      show: true,
+                      cae: '22,68',
+                      desgravamen: '67.310',
+                      totalCredit: '1.207.987'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '1,66'
+                        },
+                        {
+                          icon: 'cuentavista',
+                          includedTitle: 'Cuenta Vista',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Pago  automático de cuotas de Crédito (PAC)',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Abono de Remuneraciones',
+                          optionalText: ''
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: [
+                        'Aumenta <b>&nbsp;tu Remanente</b>',
+                        'Mantención <b>&nbsp;Costo 0</b>',
+                        'Suma <b>&nbsp;15.000 puntos Coopeuch</b> y conviértelos <b>beneficios exclusivos para ti</b>'
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                coute: 48,
+                plans: [
+                  {
+                    planType: 'Bronce',
+                    planBg: '#ff83001a',
+                    amountValue: '40.600',
+                    creditDetail: {
+                      show: true,
+                      cae: '35,76',
+                      desgravamen: '32.231',
+                      totalCredit: '1.941.554'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '2,77'
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: ['Aumenta <b>tu Remanente</b>', 'Accede a <b>beneficios</b>']
+                    }
+                  },
+                  {
+                    planType: 'Plata',
+                    planBg: '#F6F6F6',
+                    amountValue: '40.600',
+                    creditDetail: {
+                      show: true,
+                      cae: '35,76',
+                      desgravamen: '32.231',
+                      totalCredit: '1.941.554'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '2,77'
+                        },
+                        {
+                          icon: 'cuentavista',
+                          includedTitle: 'Cuenta Vista',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Pago  automático de cuotas de Crédito (PAC)',
+                          optionalText: ''
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: [
+                        'Aumenta <b>&nbsp;tu Remanente</b>',
+                        'Suma <b>&nbsp;5.000 puntos Coopeuch</b> y conviértelos <b>beneficios exclusivos para ti</b>'
+                      ]
+                    }
+                  },
+                  {
+                    planType: 'Oro',
+                    planBg: '#fff9e5',
+                    amountValue: '32.150',
+                    creditDetail: {
+                      show: true,
+                      cae: '22,08',
+                      desgravamen: '32.231',
+                      totalCredit: '1.537.848'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '1,66'
+                        },
+                        {
+                          icon: 'cuentavista',
+                          includedTitle: 'Cuenta Vista',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Pago  automático de cuotas de Crédito (PAC)',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Abono de Remuneraciones',
+                          optionalText: ''
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: [
+                        'Aumenta <b>&nbsp;tu Remanente</b>',
+                        'Mantención <b>&nbsp;Costo 0</b>',
+                        'Suma <b>&nbsp;15.000 puntos Coopeuch</b> y conviértelos <b>beneficios exclusivos para ti</b>'
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                coute: 84,
+                plans: [
+                  {
+                    planType: 'Bronce',
+                    planBg: '#ff83001a',
+                    amountValue: '33.900',
+                    creditDetail: {
+                      show: true,
+                      cae: '36,24',
+                      desgravamen: '59.594',
+                      totalCredit: '2.832.757'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '2,77'
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: ['Aumenta <b>tu Remanente</b>', 'Accede a <b>beneficios</b>']
+                    }
+                  },
+                  {
+                    planType: 'Plata',
+                    planBg: '#F6F6F6',
+                    amountValue: '33.900',
+                    creditDetail: {
+                      show: true,
+                      cae: '36,24',
+                      desgravamen: '59.594',
+                      totalCredit: '2.832.757'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '2,77'
+                        },
+                        {
+                          icon: 'cuentavista',
+                          includedTitle: 'Cuenta Vista',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Pago  automático de cuotas de Crédito (PAC)',
+                          optionalText: ''
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: [
+                        'Aumenta <b>&nbsp;tu Remanente</b>',
+                        'Suma <b>&nbsp;5.000 puntos Coopeuch</b> y conviértelos <b>beneficios exclusivos para ti</b>'
+                      ]
+                    }
+                  },
+                  {
+                    planType: 'Oro',
+                    planBg: '#fff9e5',
+                    amountValue: '24.110',
+                    creditDetail: {
+                      show: true,
+                      cae: '22,44',
+                      desgravamen: '59.594',
+                      totalCredit: '2.018.058'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '1,66'
+                        },
+                        {
+                          icon: 'cuentavista',
+                          includedTitle: 'Cuenta Vista',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Pago  automático de cuotas de Crédito (PAC)',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Abono de Remuneraciones',
+                          optionalText: ''
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: [
+                        'Aumenta <b>&nbsp;tu Remanente</b>',
+                        'Mantención <b>&nbsp;Costo 0</b>',
+                        'Suma <b>&nbsp;15.000 puntos Coopeuch</b> y conviértelos <b>beneficios exclusivos para ti</b>'
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            totalAmount: 3,
+            coutes: [
+              {
+                coute: 18,
+                plans: [
+                  {
+                    planType: 'Bronce',
+                    planBg: '#ff83001a',
+                    amountValue: '212.110',
+                    creditDetail: {
+                      show: true,
+                      cae: '28,68',
+                      desgravamen: '51.896',
+                      totalCredit: '3.814.267'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '2,18'
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: ['Aumenta <b>tu Remanente</b>', 'Accede a <b>beneficios</b>']
+                    }
+                  },
+                  {
+                    planType: 'Plata',
+                    planBg: '#F6F6F6',
+                    amountValue: '212.110',
+                    creditDetail: {
+                      show: true,
+                      cae: '28,68',
+                      desgravamen: '51.896',
+                      totalCredit: '3.814.267'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '2,18'
+                        },
+                        {
+                          icon: 'cuentavista',
+                          includedTitle: 'Cuenta Vista',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Pago  automático de cuotas de Crédito (PAC)',
+                          optionalText: ''
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: [
+                        'Aumenta <b>&nbsp;tu Remanente</b>',
+                        'Suma <b>&nbsp;5.000 puntos Coopeuch</b> y conviértelos <b>beneficios exclusivos para ti</b>'
+                      ]
+                    }
+                  },
+                  {
+                    planType: 'Oro',
+                    planBg: '#fff9e5',
+                    amountValue: '194.510',
+                    creditDetail: {
+                      show: true,
+                      cae: '18,12',
+                      desgravamen: '51.896',
+                      totalCredit: '3.497.645'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '1,31'
+                        },
+                        {
+                          icon: 'cuentavista',
+                          includedTitle: 'Cuenta Vista',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Pago  automático de cuotas de Crédito (PAC)',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Abono de Remuneraciones',
+                          optionalText: ''
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: [
+                        'Aumenta <b>&nbsp;tu Remanente</b>',
+                        'Mantención <b>&nbsp;Costo 0</b>',
+                        'Suma <b>&nbsp;15.000 puntos Coopeuch</b> y conviértelos <b>beneficios exclusivos para ti</b>'
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                coute: 48,
+                plans: [
+                  {
+                    planType: 'Bronce',
+                    planBg: '#ff83001a',
+                    amountValue: '107.730',
+                    creditDetail: {
+                      show: true,
+                      cae: '28,44',
+                      desgravamen: '96.640',
+                      totalCredit: '5.165.005'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '2,18'
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: ['Aumenta <b>tu Remanente</b>', 'Accede a <b>beneficios</b>']
+                    }
+                  },
+                  {
+                    planType: 'Plata',
+                    planBg: '#F6F6F6',
+                    amountValue: '107.730',
+                    creditDetail: {
+                      show: true,
+                      cae: '28,44',
+                      desgravamen: '96.640',
+                      totalCredit: '5.165.005'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '2,18'
+                        },
+                        {
+                          icon: 'cuentavista',
+                          includedTitle: 'Cuenta Vista',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Pago  automático de cuotas de Crédito (PAC)',
+                          optionalText: ''
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: [
+                        'Aumenta <b>&nbsp;tu Remanente</b>',
+                        'Suma <b>&nbsp;5.000 puntos Coopeuch</b> y conviértelos <b>beneficios exclusivos para ti</b>'
+                      ]
+                    }
+                  },
+                  {
+                    planType: 'Oro',
+                    planBg: '#fff9e5',
+                    amountValue: '88.930',
+                    creditDetail: {
+                      show: true,
+                      cae: '17,76',
+                      desgravamen: '96.640',
+                      totalCredit: '4.246.116'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '1,31'
+                        },
+                        {
+                          icon: 'cuentavista',
+                          includedTitle: 'Cuenta Vista',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Pago  automático de cuotas de Crédito (PAC)',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Abono de Remuneraciones',
+                          optionalText: ''
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: [
+                        'Aumenta <b>&nbsp;tu Remanente</b>',
+                        'Mantención <b>&nbsp;Costo 0</b>',
+                        'Suma <b>&nbsp;15.000 puntos Coopeuch</b> y conviértelos <b>beneficios exclusivos para ti</b>'
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                coute: 84,
+                plans: [
+                  {
+                    planType: 'Bronce',
+                    planBg: '#ff83001a',
+                    amountValue: '85.430',
+                    creditDetail: {
+                      show: true,
+                      cae: '28,8',
+                      desgravamen: '178.687',
+                      totalCredit: '7.166.304'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '2,18'
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: ['Aumenta <b>tu Remanente</b>', 'Accede a <b>beneficios</b>']
+                    }
+                  },
+                  {
+                    planType: 'Plata',
+                    planBg: '#F6F6F6',
+                    amountValue: '85.430',
+                    creditDetail: {
+                      show: true,
+                      cae: '28,8',
+                      desgravamen: '178.687',
+                      totalCredit: '7.166.304'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '2,18'
+                        },
+                        {
+                          icon: 'cuentavista',
+                          includedTitle: 'Cuenta Vista',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Pago  automático de cuotas de Crédito (PAC)',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Pago  automático de cuotas de Crédito (PAC)',
+                          optionalText: ''
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: [
+                        'Aumenta <b>&nbsp;tu Remanente</b>',
+                        'Suma <b>&nbsp;5.000 puntos Coopeuch</b> y conviértelos <b>beneficios exclusivos para ti</b>'
+                      ]
+                    }
+                  },
+                  {
+                    planType: 'Oro',
+                    planBg: '#fff9e5',
+                    amountValue: '63.930',
+                    creditDetail: {
+                      show: true,
+                      cae: '18',
+                      desgravamen: '178.687',
+                      totalCredit: '5.363.556'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '1,31'
+                        },
+                        {
+                          icon: 'cuentavista',
+                          includedTitle: 'Cuenta Vista',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Abono de Remuneraciones',
+                          optionalText: ''
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: [
+                        'Aumenta <b>&nbsp;tu Remanente</b>',
+                        'Mantención <b>&nbsp;Costo 0</b>',
+                        'Suma <b>&nbsp;15.000 puntos Coopeuch</b> y conviértelos <b>beneficios exclusivos para ti</b>'
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            totalAmount: 5,
+            coutes: [
+              {
+                coute: 18,
+                plans: [
+                  {
+                    planType: 'Bronce',
+                    planBg: '#ff83001a',
+                    amountValue: '353.370',
+                    creditDetail: {
+                      show: true,
+                      cae: '28,68',
+                      desgravamen: '68.484',
+                      totalCredit: '6.356.851'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '2,18'
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: ['Aumenta <b>tu Remanente</b>', 'Accede a <b>beneficios</b>']
+                    }
+                  },
+                  {
+                    planType: 'Plata',
+                    planBg: '#F6F6F6',
+                    amountValue: '353.370',
+                    creditDetail: {
+                      show: true,
+                      cae: '28,68',
+                      desgravamen: '68.484',
+                      totalCredit: '6.356.851'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '2,18'
+                        },
+                        {
+                          icon: 'cuentavista',
+                          includedTitle: 'Cuenta Vista',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Pago  automático de cuotas de Crédito (PAC)',
+                          optionalText: ''
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: [
+                        'Aumenta <b>&nbsp;tu Remanente</b>',
+                        'Suma <b>&nbsp;5.000 puntos Coopeuch</b> y conviértelos <b>beneficios exclusivos para ti</b>'
+                      ]
+                    }
+                  },
+                  {
+                    planType: 'Oro',
+                    planBg: '#fff9e5',
+                    amountValue: '324.030',
+                    creditDetail: {
+                      show: true,
+                      cae: '18,12',
+                      desgravamen: '86.484',
+                      totalCredit: '5.829.041'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '1,31'
+                        },
+                        {
+                          icon: 'cuentavista',
+                          includedTitle: 'Cuenta Vista',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Pago  automático de cuotas de Crédito (PAC)',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Abono de Remuneraciones',
+                          optionalText: ''
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: [
+                        'Aumenta <b>&nbsp;tu Remanente</b>',
+                        'Mantención <b>&nbsp;Costo 0</b>',
+                        'Suma <b>&nbsp;15.000 puntos Coopeuch</b> y conviértelos <b>beneficios exclusivos para ti</b>'
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                coute: 48,
+                plans: [
+                  {
+                    planType: 'Bronce',
+                    planBg: '#ff83001a',
+                    amountValue: '179.480',
+                    creditDetail: {
+                      show: true,
+                      cae: '28,44',
+                      desgravamen: '161.050',
+                      totalCredit: '8.609.242'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '2,18'
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: ['Aumenta <b>tu Remanente</b>', 'Accede a <b>beneficios</b>']
+                    }
+                  },
+                  {
+                    planType: 'Plata',
+                    planBg: '#F6F6F6',
+                    amountValue: '179.480',
+                    creditDetail: {
+                      show: true,
+                      cae: '28,44',
+                      desgravamen: '161.050',
+                      totalCredit: '8.609.242'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '2,18'
+                        },
+                        {
+                          icon: 'cuentavista',
+                          includedTitle: 'Cuenta Vista',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Pago  automático de cuotas de Crédito (PAC)',
+                          optionalText: ''
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: [
+                        'Aumenta <b>&nbsp;tu Remanente</b>',
+                        'Suma <b>&nbsp;5.000 puntos Coopeuch</b> y conviértelos <b>beneficios exclusivos para ti</b>'
+                      ]
+                    }
+                  },
+                  {
+                    planType: 'Oro',
+                    planBg: '#fff9e5',
+                    amountValue: '148.160',
+                    creditDetail: {
+                      show: true,
+                      cae: '17,76',
+                      desgravamen: '161.050',
+                      totalCredit: '7.106.870'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '1,31'
+                        },
+                        {
+                          icon: 'cuentavista',
+                          includedTitle: 'Cuenta Vista',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Pago  automático de cuotas de Crédito (PAC)',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Abono de Remuneraciones',
+                          optionalText: ''
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: [
+                        'Aumenta <b>&nbsp;tu Remanente</b>',
+                        'Mantención <b>&nbsp;Costo 0</b>',
+                        'Suma <b>&nbsp;15.000 puntos Coopeuch</b> y conviértelos <b>beneficios exclusivos para ti</b>'
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                coute: 84,
+                plans: [
+                  {
+                    planType: 'Bronce',
+                    planBg: '#ff83001a',
+                    amountValue: '142.340',
+                    creditDetail: {
+                      show: true,
+                      cae: '28,8',
+                      desgravamen: '297.780',
+                      totalCredit: '11.946.888'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '2,18'
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: ['Aumenta <b>tu Remanente</b>', 'Accede a <b>beneficios</b>']
+                    }
+                  },
+                  {
+                    planType: 'Plata',
+                    planBg: '#F6F6F6',
+                    amountValue: '142.340',
+                    creditDetail: {
+                      show: true,
+                      cae: '28,8',
+                      desgravamen: '297.780',
+                      totalCredit: '11.946.888'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '2,18'
+                        },
+                        {
+                          icon: 'cuentavista',
+                          includedTitle: 'Cuenta Vista',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Pago  automático de cuotas de Crédito (PAC)',
+                          optionalText: ''
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: [
+                        'Aumenta <b>&nbsp;tu Remanente</b>',
+                        'Suma <b>&nbsp;5.000 puntos Coopeuch</b> y conviértelos <b>beneficios exclusivos para ti</b>'
+                      ]
+                    }
+                  },
+                  {
+                    planType: 'Oro',
+                    planBg: '#fff9e5',
+                    amountValue: '106.510 ',
+                    creditDetail: {
+                      show: true,
+                      cae: '18',
+                      desgravamen: '297.780',
+                      totalCredit: '8.940.270'
+                    },
+                    includes: {
+                      show: true,
+                      includesItems: [
+                        {
+                          icon: 'consumo',
+                          includedTitle: 'Crédito de Consumo',
+                          optionalText: '1,31'
+                        },
+                        {
+                          icon: 'cuentavista',
+                          includedTitle: 'Cuenta Vista',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Pago  automático de cuotas de Crédito (PAC)',
+                          optionalText: ''
+                        },
+                        {
+                          icon: 'remuneraciones',
+                          includedTitle: 'Abono de Remuneraciones',
+                          optionalText: ''
+                        }
+                      ]
+                    },
+                    benefits: {
+                      show: true,
+                      benefitsItems: [
+                        'Aumenta <b>&nbsp;tu Remanente</b>',
+                        'Mantención <b>&nbsp;Costo 0</b>',
+                        'Suma <b>&nbsp;15.000 puntos Coopeuch</b> y conviértelos <b>beneficios exclusivos para ti</b>'
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      mounted() {
+        this.$nextTick(() => {
+          window.addEventListener(
+            'resize',
+            () => (this.windowWidth = window.screen.width)
+          );
+          window.addEventListener(
+            'scroll',
+            () => (this.fixedSelect = window.pageYOffset > 240)
+          );
+        });
+      },
+      beforeDestroy() {
+        window.removeEventListener('resize');
+        window.removeEventListener('scroll');
+      },
+      watch: {
+        amountSelected(oldVal, newVal) {
+          if (oldVal !== newVal) {
+            this.setLoaded();
+            this.closeSelect('mobileSelectAmount');
+          }
+        },
+        cuoteSelected(oldVal, newVal) {
+          if (oldVal !== newVal){
+            this.setLoaded();
+            this.closeSelect('mobileSelectCuote');
+          }
+        }
+      },
+      computed: {
+        isMobile() {
+          return this.windowWidth <= 580;
+        }
+      },
+      methods: {
+        handleClick(i, el) {
+          const { show } = this.currentSelected()[i][el];
+          this.currentSelected()[i][el].show = !show;
+        },
+        currentSelected() {
+          const { products, amountSelected, cuoteSelected } = this;
+          const currentAmount = products.find(
+            ({ totalAmount }) => totalAmount === amountSelected
+          );
+          return currentAmount.coutes.find(
+            ({ coute }) => coute === cuoteSelected
+          ).plans;
+        },
+        getOrder(planType) {
+          return (
+            this.isMobile &&
+            (planType === 'Oro' ? 1 : planType === 'Plata' ? 2 : 3)
+          );
+        },
+        setLoaded() {
+          this.loadingInfo = true;
+          setTimeout(() => (this.loadingInfo = false), 500);
+        },
+        getHeight(i) {
+          return (i === 0) ? '185px;' : ((i === 1) && '55px;' || '0;');
+        },
+        toggleSelect(target) {
+          this.closeSelect('mobileSelectAmount');
+          this.closeSelect('mobileSelectCuote');
+          this.$refs[target].classList.toggle('show');
+        },
+        closeSelect(target) {
+          this.$refs[target].classList.remove('show');
+        }
+      }
+    });
+  });
+</script>
+
+<style scoped>
+  .coo-tooltip::after {
+    content: "!";
+    font-family: 'Poppins Bold';
+    margin: 0 0 0 4px;
+  }
+  .coo-tooltip .tooltip-content {
+    font-family: 'Poppins';
+    font-size: 12px;
+    line-height: 18px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    color: #383838;
+    padding: 10px;
+    width: fit-content;
+    min-width: 150px;
+    z-index: 2;
+  }
+  .coo-tooltip .tooltip-content::after,
+  .coo-tooltip .tooltip-content::before {
+    border-top-color: #fff
+  }
+  .info-credit-plans {
+    color: #383838;
+    font-family: 'Poppins Bold';
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+  }
+  .bg-load {
+    color: transparent !important;
+    margin: 2px 0 !important;
+  }
+  .fixed-container {
+    position: fixed;
+    top: 0;
+    background: rgb(246, 246, 246);
+    left: 0;
+    width: 100%;
+    padding: 14px 16px 0;
+    z-index: 10;
+    right: 0;
+    box-sizing: border-box;
+  }
+  .example-simulation {
+    color: #383638;
+    font-size: 12px;
+    font-style: italic;
+    letter-spacing: 0;
+    line-height: 20px;
+    text-align: center;
+  }
+  [v-cloak] {
+    display: none;
+  }
+  #credit-plan-simulation {
+    max-width: 1170px;
+    margin: 0 auto;
+  }
+  #credit-plan-simulation .container-credit-plan {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 14px;
+    justify-items: center;
+  }
+  .credit-plan__filters-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    box-sizing: border-box;
+    min-height: 97px;
+    max-width: 1290px;
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    background-color: #ffffff;
+    overflow: hidden;
+    margin: 24px 0;
+  }
+  .creditplan-filter__grouped {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .credit-plan-filter__label {
+    color: #383838;
+    font-size: 16px;
+    line-height: 20px;
+    margin: 0 8px 0 0;
+  }
+  .products-tabs-buttons {
+    display: flex;
+    box-sizing: border-box;
+    height: 48px;
+    border: 1px solid #007db7;
+    border-radius: 5px;
+    background-color: #ffffff;
+    overflow: hidden;
+    margin: 10px 0;
+  }
+  .products-tabs-buttons button {
+    box-shadow: none;
+    background: #00000000;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+    max-width: 127px;
+    flex: 1;
+    border-radius: 0;
+    border-left: 1px solid #007db7;
+  }
+  .products-tabs-buttons button:hover,
+  .products-tabs-buttons button.current-tab:active,
+  .products-tabs-buttons button.current-tab {
+    background-color: #007db7;
+    opacity: 1;
+  }
+  .products-tabs-buttons button span {
+    color: #007db7;
+  }
+  .products-tabs-buttons button:hover span,
+  .products-tabs-buttons button.current-tab:active span,
+  .products-tabs-buttons button.current-tab span {
+    color: #fff;
+  }
+  .card-credit-plan {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    max-width: 410px;
+    width: 100%;
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    background-color: #ffffff;
+    position: relative;
+  }
+  .card-credit-plan .card-credit-plan__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 24px;
+  }
+  .card-credit-plan .card-credit-plan__header .card-credit-plan__container-img {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .card-credit-plan .card-credit-plan__header .card-credit-plan__img {
+    display: flex;
+    width: 64px;
+    height: 64px;
+    box-sizing: border-box;
+    margin: 0 0 7px;
+  }
+  .card-credit-plan .card-credit-plan__header .card-credit-plan__title {
+    color: #383838;
+    font-size: 18px;
+    margin: 7px 0;
+  }
+  .card-credit-plan .card-credit-plan__header .card-credit-plan__coutes {
+    color: #383638;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 28px;
+    margin: 7px 0 0;
+    font-family: 'Poppins SemiBold';
+  }
+  .card-credit-plan .card-credit-plan__header .card-credit-plan__amount {
+    display: flex;
+    align-items: baseline;
+    color: #7c2582;
+  }
+  .card-credit-plan .card-credit-plan__header .card-credit-plan__amount > h3 {
+    font-size: 28px;
+    line-height: 38px;
+    margin: 0;
+    color: #7c2582;
+  }
+  .card-credit-plan .card-credit-plan__header > a.button-coopeuch {
+    min-width: 184px;
+    cursor: pointer;
+  }
+  .card-credit-plan .card-credit-plan__body {
+    padding: 16px 24px;
+    min-height: 140px;
+  }
+  .card-credit-plan .card-credit-plan__footer {
+    padding: 16px 24px;
+    min-height: auto;
+  }
+  .card-credit-plan .card-credit-plan__body.card-credit-plan-body__benefits {
+    flex-grow: 1;
+  }
+  .card-credit-plan .card-credit-plan__body .card-credit-plan__includes-title {
+    font-size: 14px;
+    line-height: 20px;
+    color: #383838;
+  }
+  .card-credit-plan
+    .card-credit-plan__body
+    .card-credit-plan__includes-content
+    .card-credit-plan__includes-item {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    padding: 15px;
+    box-sizing: border-box;
+    margin: 5px 0;
+    max-width: 341px;
+  }
+  .tooltip-container {
+    display: flex;
+  }
+  .tooltip-text-reference {
+    max-width: fit-content;
+    margin-left: 20px;
+  }
+  .tooltip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 32px;
+    max-width: 218px;
+    width: 100%;
+    background-color: rgba(124, 37, 130, 0.15);
+    border-radius: 3px;
+    color: #2b0040;
+  }
+  .tooltip.discount {
+    position: absolute;
+    z-index: 1;
+    right: 10px;
+    top: -15px;
+    max-width: 102px;
+  }
+  .tooltip.discount::after {
+    display: none;
+  }
+  .tooltip.discount.bg-white {
+    background-color: #fff;
+  }
+  .tooltip.discount.bg-white::before {
+    border-color: transparent #fff transparent transparent;
+  }
+  .tooltip.discount::before {
+    content: '';
+    position: absolute;
+    top: 2%;
+    right: 100%;
+    border-width: 15px;
+    border-style: solid;
+    border-color: transparent rgba(124, 37, 130, 0.15) transparent transparent;
+  }
+  .tooltip::after {
+    content: '';
+    position: absolute;
+    top: 2%;
+    left: 100%;
+    border-width: 15px;
+    border-style: solid;
+    border-color: transparent transparent transparent rgba(124, 37, 130, 0.15);
+  }
+  .card-credit-plan
+    .card-credit-plan__body
+    .card-credit-plan__includes-item
+    figcaption {
+    margin: 0 0 0 16px;
+  }
+  .card-credit-plan
+    .card-credit-plan__body
+    .card-credit-plan__includes-item
+    figcaption
+    > b {
+    font-size: 14px;
+    line-height: 20px;
+    color: #383838;
+  }
+  .card-credit-plan
+    .card-credit-plan__body
+    .card-credit-plan__includes-item
+    figcaption
+    > h4 {
+    font-size: 24px;
+    line-height: 20px;
+    margin: 8px 0;
+    color: #383838;
+  }
+  .card-credit-plan .card-credit-plan__header .card-credit-plan__amount > span {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 28px;
+  }
+  .card-credit-plan
+    .card-credit-plan__header
+    .card-credit-plan__amount-to-request {
+    color: #383638;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+  }
+  .card-credit-plan .card-credit-plan__detail-collapsable {
+    transition: all 0.6s ease-out;
+    text-align: center;
+    margin: 0 0 24px;
+  }
+  .card-credit-plan
+    .card-credit-plan__header
+    .card-credit-plan__detail-collapsable
+    a.detail-collapsable__title-action {
+    position: relative;
+    color: #007db7;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+  }
+  .card-credit-plan
+    .card-credit-plan__header
+    .card-credit-plan__detail-collapsable
+    a.detail-collapsable__title-action::after {
+    content: url('https://www.coopeuch.cl/media/imagegallery/images/16x16_down.svg');
+    position: absolute;
+    right: -15px;
+    transition: all 0.6s ease;
+  }
+  .card-credit-plan
+    .card-credit-plan__header
+    .card-credit-plan__detail-collapsable.expanded
+    a.detail-collapsable__title-action::after {
+    transform: rotate(-180deg);
+  }
+  .card-credit-plan
+    .card-credit-plan__header
+    .card-credit-plan__detail-collapsable
+    .content {
+    display: none;
+  }
+  .card-credit-plan
+    .card-credit-plan__header
+    .card-credit-plan__detail-collapsable.expanded
+    .content {
+    display: block;
+    text-align: left;
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+  }
+  .card-credit-plan
+    .card-credit-plan__header
+    .card-credit-plan__detail-collapsable.expanded
+    .content
+    > li {
+    font-size: 14px;
+    line-height: 30px;
+    color: #383838;
+    margin: 0;
+  }
+  .divider {
+    box-sizing: border-box;
+    height: 1px;
+    width: 100%;
+    border: 1px solid #e7e7e7;
+    background: #e7e7e7;
+  }
+  .card-credit-plan__benefits ul {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+  }
+  .card-credit-plan__benefits ul > li {
+    display: flex;
+    color: #383838;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .card-credit-plan__benefits ul > li::before {
+    font-family: 'icomoon';
+    content: '\e903';
+    color: #fff;
+    background-color: #32a734;
+    border-radius: 100px;
+    width: 14px;
+    height: 14px;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 8px;
+    margin: 0 10px 0 0;
+  }
+  .legal-text-container {
+    overflow: hidden;
+    transition: height 0.5s;
+    position: relative;
+  }
+  .legal-text-container.open .letra-pequena,
+  .legal-text-container.open {
+    height: auto;
+  }
+  .continue-reading {
+    cursor: pointer;
+    color: #f42534;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    background-color: #f6f6f6;
+    min-height: 46px;
+    line-height: 46px;
+    width: calc(100% - 10px);
+    font-family: 'Poppins SemiBold';
+    font-size: 14px;
+    box-shadow: 0 -8px 12px 10px #f6f6f6;
+  }
+  .legal-text-container.open .continue-reading {
+    position: relative;
+  }
+  .legal-text-container .letra-pequena {
+    height: 60px;
+  }
+  .ribbon-plan-credit {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: absolute;
+  }
+  .ribbon-plan-credit::before,
+  .ribbon-plan-credit::after {
+    position: absolute;
+    content: '';
+    display: block;
+    border: 5px solid #7c2582;
+  }
+  .ribbon-plan-credit span {
+    position: absolute;
+    display: block;
+    width: 225px;
+    padding: 15px 0;
+    background-color: #7c2582;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 14px;
+    line-height: 21px;
+    font-family: 'Poppins SemiBold';
+  }
+  .ribbon-top-left {
+    top: -10px;
+    left: -10px;
+  }
+  .ribbon-top-left::before,
+  .ribbon-top-left::after {
+    border-top-color: transparent;
+    border-left-color: transparent;
+  }
+  .ribbon-top-left::before {
+    top: 0;
+    right: 0;
+  }
+  .ribbon-top-left::after {
+    bottom: 0;
+    left: 0;
+  }
+  .ribbon-top-left span {
+    right: -25px;
+    top: 30px;
+    transform: rotate(-45deg);
+  }
+
+  /*  */
+  .coop-dropdown .dropbtn {
+    white-space: nowrap;
+    border-radius: 4px;
+  }
+  .coop-dropdown .dropbtn,
+  .coop-dropdown.show .dropbtn,
+  .coop-dropdown .dropbtn:hover {
+    background-color: #007db7;
+    border-color: #007db7;
+    color: #fff;
+  }
+  .coop-dropdown .dropdown-content .drop-item:hover {
+    background-color: #D4D4D4;
+  }
+  .coop-icon-down:before {
+    margin: 0 6px;
+    font-weight: bold;
+    color: #fff;
+  }
+  .coop-dropdown.open .dropbtn:hover .coop-icon-down::before,
+  .coop-dropdown .dropbtn:hover .coop-icon-down::before {
+    content: '\e621';
+  }
+  .container-mobile-select > .dropbtn {
+    max-width: 130px;
+    border-radius: 4px;
+    min-height: 48px;
+    background: #007db7;
+    color: #fff;
+    position: relative;
+  }
+  .container-mobile-select > select.dropbtn {
+    background-image: url('https://www.coopeuch.cl/media/imagegallery/images/arrow-white.svg');
+    background-repeat: no-repeat;
+    background-position-x: 90%;
+    background-position-y: 50%;
+    padding: 1rem;
+    padding-right: 2rem;
+    transition: all 0.6s ease;
+    background-size: 16px;
+  }
+  .mobile-select {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 28px;
+  }
+  .container-mobile-select {
+    display: flex;
+    justify-content: space-between;
+    margin: 16px 0;
+  }
+  .container-mobile-select .coop-dropdown {
+    max-width: 144px;
+    width: 100%;
+  }
+
+  /* Medias Queries */
+  @media (max-width: 1170.1px) {
+    .tooltip {
+      font-size: 12px;
+      line-height: 16px;
+      padding: 0 10px;
+    }
+  }
+  @media (max-width: 580.1px) {
+    #credit-plan-simulation .container-credit-plan {
+      grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
+    .info-credit-plans {
+      font-family: 'Poppins';
+      font-size: 12px;
+      text-align: left;
+    }
+    .card-credit-plan .card-credit-plan__header {
+      padding: 24px 16px;
+    }
+    .card-credit-plan .card-credit-plan__body {
+      padding: 16px;
+    }
+    .card-credit-plan .card-credit-plan__header {
+      align-items: flex-start;
+    }
+    .card-credit-plan
+      .card-credit-plan__header
+      .card-credit-plan__container-img {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+    }
+    .card-credit-plan .card-credit-plan__header .card-credit-plan__img {
+      width: 32px;
+      height: 32px;
+      margin: 0 10px 0 0;
+    }
+    .card-credit-plan .card-credit-plan__detail-collapsable {
+      text-align: left;
+      margin: 0;
+    }
+    .example-simulation {
+      margin: 0;
+    }
+    a.button-coopeuch {
+      width: 100%;
+      margin: 0;
+    }
+    .tooltip-container {
+      flex-direction: column;
+    }
+    .tooltip-text-reference {
+      margin: 10px 0;
+    }
+    .card-credit-plan .card-credit-plan__body .card-credit-plan__includes-item {
+      align-items: flex-start;
+    }
+    .card-credit-plan
+      .card-credit-plan__body
+      .card-credit-plan__includes-item
+      > img {
+      max-width: 24px;
+      max-height: 24px;
+    }
+    .ribbon-top-left {
+      top: -10px;
+      left: 0px;
+    }
+    .ribbon-plan-credit span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      width: 134px;
+      padding: 8px 0;
+      font-size: 12px;
+      height: 24px;
+    }
+    .ribbon-top-left span {
+      right: 0;
+      top: 0;
+      transform: rotate(0);
+    }
+    .ribbon-top-left::after {
+      top: 0px;
+      left: 6px;
+      bottom: auto;
+    }
+    .card-credit-plan
+      .card-credit-plan__body
+      .card-credit-plan__includes-title {
+      position: relative;
+      font-size: 18px;
+      cursor: pointer;
+      width: 93%;
+    }
+    /* .card-credit-plan
+      .card-credit-plan__body
+      .card-credit-plan__includes-title::after {
+      content: url('https://www.coopeuch.cl/media/imagegallery/images/32x32_down.svg');
+      position: absolute;
+      right: -15px;
+      transition: all 0.6s ease;
+    }
+    .card-credit-plan
+      .card-credit-plan-body__benefits.opened
+      .card-credit-plan__includes-title::after {
+      transform: rotate(-180deg);
+    } */
+    .card-credit-plan .card-credit-plan__body {
+      min-height: 14px;
+    }
+    .card-credit-plan
+      .card-credit-plan__body.card-credit-plan-body__benefits
+      .card-credit-plan__includes-content {
+      display: none;
+      transition: height 0.6s ease;
+    }
+    .card-credit-plan
+      .card-credit-plan__body.card-credit-plan-body__benefits.opened
+      .card-credit-plan__includes-content {
+      display: block;
+    }
+    .tooltip-content {
+      left: -80px !important;
+    }
+  }
+</style>

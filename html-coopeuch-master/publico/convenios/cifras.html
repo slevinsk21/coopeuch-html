@@ -1,0 +1,75 @@
+  <div class="cifras-btn">
+    <button class="custom-btn">Descargar Memoria Anual</button>
+    <button class="custom-btn">Descargar Balance Social</button>
+  </div>
+
+  <style>
+    .card-cifras {
+      box-shadow: 1px 4px 3px hsl(0deg 0% 0% / 6%);
+      max-width: 353px;
+      min-height: 136px;
+      max-height: 174px;
+      padding: 16px !important;
+      background-color: #fff;
+      margin: 22px !important;
+    }
+    .cifras-btn button.custom-btn:nth-child(1) {
+      margin-right: 10px;
+    }
+    .cifras-btn button.custom-btn:nth-child(2) {
+      margin-left: 10px;
+    }
+    .card-cifras:nth-child(2) {
+      margin-top: -30px !important;
+    }
+    .pagebuilder-column-group {
+      justify-content: center;
+    }
+    .img-container-mobile {
+      display: none !important;
+      min-width: 252px;
+    }
+    .img-container {
+      display: block !important;
+    }
+
+    @media (max-width: 960.1px) {
+      .img-container-mobile {
+        display: block !important;
+      }
+      .img-container {
+        display: none !important;
+      }
+      .card-cifras:nth-child(2) {
+        margin-top: 22px !important;
+      }
+    }
+    @media (max-width: 580.1px) {
+      .card-cifras:nth-child(2),
+      .card-cifras {
+        margin: 5px 10px !important;
+      }
+    }
+    @media (max-width: 580.1px) {
+      .main-title-cifras h3 strong span {
+        font-size: 24px !important;
+        line-height: 32px !important;
+      }
+      .description-cifras p span {
+        font-size: 16px !important;
+        line-height: 22px !important;
+      }
+      .cifras-btn button.custom-btn:nth-child(1),
+      .cifras-btn button.custom-btn:nth-child(2) {
+        margin: 10px 0;
+      }
+      .custom-btn {
+        width: 100%;
+      }
+    }
+    @media (min-width: 960.1px) and (max-width: 1030px) {
+      .description-cifras p span {
+        font-size: 22px !important;
+      }
+    }
+  </style>

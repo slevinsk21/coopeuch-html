@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+
+  .modal-priv-custom {
+    position: absolute;
+    z-index: 1;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .modal-priv-custom .modal-priv-custom__container {
+    width: 100%;
+    height: 100%;
+    max-width: 989px;
+    max-height: 580px;
+    margin: 32px auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-image: url(./assets/imgs/cta_vista_desk.png); */
+    background-color: #111c3c;
+    border-radius: 2px;
+  }
+  .modal-priv-custom
+    .modal-priv-custom__container
+    .modal-priv-custom__content {
+    max-width: 415px;
+    padding: 40px;
+  }
+  .modal-priv-custom
+    .modal-priv-custom__container
+    .modal-priv-custom__content
+    .modal-priv-custom__heading,
+  .modal-priv-custom
+    .modal-priv-custom__container
+    .modal-priv-custom__content
+    .modal-priv-custom__subheading {
+    color: #ffffff;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 38px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 48px;
+    margin: 0 0 42px 0;
+  }
+  .modal-priv-custom
+    .modal-priv-custom__container
+    .modal-priv-custom__content
+    .modal-priv-custom__subheading {
+    margin: 0;
+  }
+  .modal-priv-custom
+    .modal-priv-custom__container
+    .modal-priv-custom__content
+    .modal-priv-custom__description {
+    color: #ffffff;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    letter-spacing: 0;
+    line-height: 25px;
+    margin: 42px 0;
+  }
+  .modal-priv-custom
+    .modal-priv-custom__container
+    .modal-priv-custom__content
+    .btn-primary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #e81e2b;
+    border-color: #e81e2b;
+    color: #fff;
+    height: 48px;
+    max-width: 220px;
+    width: 100%;
+    padding: 12px 27px;
+    border-radius: 4px;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: all 0.3s ease-out;
+  }
+  .modal-priv-custom
+    .modal-priv-custom__container
+    .modal-priv-custom__content
+    .btn-primary:hover {
+    background-color: #f87c85;
+    border-color: #f87c85;
+  }
+  .modal-priv-custom
+    .modal-priv-custom__container
+    .modal-priv-custom__content
+    .btn-primary.btn-custom {
+    background-color: #fff;
+    border-color: #fff;
+    color: #e81e2b;
+  }
+  .modal-priv-custom
+    .modal-priv-custom__container
+    .modal-priv-custom__content
+    .btn-primary.btn-custom:hover {
+    background-color: #e81e2b;
+    border-color: #e81e2b;
+    color: #fff;
+  }
+  .modal-priv-custom
+    .modal-priv-custom__container
+    .modal-priv-custom__content
+    .modal-priv-custom-promotion__container {
+    display: flex;
+    text-align: left;
+    margin: 42px 0;
+  }
+  .modal-priv-custom
+    .modal-priv-custom__container
+    .modal-priv-custom__content
+    .modal-priv-custom-promotion__container
+    > figure {
+    display: flex;
+    align-items: center;
+    max-width: 240px;
+    margin: 0;
+  }
+  .modal-priv-custom
+    .modal-priv-custom__container
+    .modal-priv-custom__content
+    .modal-priv-custom-promotion__container
+    > figure
+    .promotion-container__title {
+    font-family: 'Ubuntu', sans-serif;
+    color: #fff;
+    font-size: 16px;
+    line-height: 20px;
+    margin: 4px 8px;
+  }
+
+  @media (max-width: 720.1px) {
+    .modal-priv-custom .modal-priv-custom__container {
+      display: flex;
+      justify-content: center;
+      align-items: end;
+      max-width: 320px;
+      min-height: 440px;
+      max-height: 440px;
+      margin: 32px auto;
+      /* background-image: url(./assets/imgs/cta_vista_mobile.png); */
+    }
+    .modal-priv-custom
+      .modal-priv-custom__container
+      .modal-priv-custom__content {
+      padding: 16px;
+      text-align: center;
+    }
+    .modal-priv-custom
+      .modal-priv-custom__container
+      .modal-priv-custom__content
+      .modal-priv-custom__heading,
+    .modal-priv-custom
+      .modal-priv-custom__container
+      .modal-priv-custom__content
+      .modal-priv-custom__subheading,
+    .modal-priv-custom
+      .modal-priv-custom__container
+      .modal-priv-custom__content
+      .modal-priv-custom__description {
+      font-size: 14px;
+      line-height: 18px;
+      margin: 0 0 18px 0;
+    }
+    .modal-priv-custom
+      .modal-priv-custom__container
+      .modal-priv-custom__content
+      .btn-primary {
+      max-width: 100%;
+    }
+    .modal-priv-custom
+      .modal-priv-custom__container
+      .modal-priv-custom__content
+      .modal-priv-custom-promotion__container {
+      text-align: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 0;
+    }
+    .modal-priv-custom
+      .modal-priv-custom__container
+      .modal-priv-custom__content
+      .modal-priv-custom-promotion__container
+      > figure
+      .promotion-container__title {
+      font-size: 12px;
+      line-height: 15px;
+    }
+    .modal-priv-custom
+      .modal-priv-custom__container
+      .modal-priv-custom__content
+      .modal-priv-custom-promotion__container
+      > figure
+      > img {
+      display: none;
+    }
+  }
+</style>
+<div class="modal-priv-custom"></div>
+
+<script>
+  const bgResponsive = window.screen.width <= 720 ? 'mobile' : 'desktop';
+
+  const modalContent = {
+    clientName: 'Cristian Carrasco',
+    subtitle: 'Reliquida tus créditos en 3 pasos',
+    description: '¡Llévate saldo a tu cuenta!',
+    amount: '$ 1.000.000',
+    backgorundImg: `./assets/imgs/cto_consumo_${bgResponsive}.png`, // `./assets/imgs/cta_vista_${bgResponsive}.png`,
+    showPromos: true, // showPromos: false para mostrar description en vez de los bullets
+    btn: {
+      text: 'Ingresar aquí',
+      url: '#'
+    }
+  };
+
+  const bulletsPromotions = `
+<div class="modal-priv-custom-promotion__container">
+<figure>
+    <img src="./assets/icons/calendar-icon-modal-priv.svg" alt="" />
+    <figcaption class="promotion-container__title">
+      Hasta 90 días <b>para el pago de la primera cuota</b>
+    </figcaption>
+  </figure>
+  <figure>
+    <img src="./assets/icons/calculator-icon-modal-priv.svg" alt="" />
+    <figcaption class="promotion-container__title">Hasta 84 <b>cuotas de plazo</b></figcaption>
+  </figure>
+</div>
+`;
+
+  document.querySelector('.modal-priv-custom').innerHTML = `
+<div class="modal-priv-custom__container" style="background-image: url(${
+  modalContent.backgorundImg
+});">
+  <div class="modal-priv-custom__content">
+    <h1 class="modal-priv-custom__heading">
+      ${modalContent.clientName}</h1>
+    <h2 class="modal-priv-custom__subheading">
+      ${modalContent.subtitle}
+      <br />
+      ${modalContent.amount}
+    </h2>
+    
+    ${
+      modalContent.showPromos
+        ? bulletsPromotions
+        : `<h6 class="modal-priv-custom__description">${modalContent.description}</h6>`
+    }
+    <a href="${modalContent.url}" class="btn-primary ${
+    modalContent.showPromos && 'btn-custom'
+  }">
+      ${modalContent.btn.text}
+    </a>
+  </div>
+</div>`;
+</script>
+  </body>
+</html>

@@ -1,0 +1,230 @@
+<div v-cloak id="onboarding">
+  <div class="container-onboarding">
+    <section id="steps">
+      <h2 class="title-onboarding">
+        <strong>Sé parte de Coopeuch Convenios</strong>
+      </h2>
+
+      <p class="subtitle-onboarding">Házlo en simples pasos</p>
+
+      <div class="steps-cards-container">
+        <div v-for="{ id, card, icon } in steps" class="step-card">
+          <div class="current number-step">
+            <div>{{ id }}</div>
+          </div>
+          <figure class="icon-convenio" style="margin: 10px 0;">
+            <img
+              :src="`${window.location.origin}/media/wysiwyg/${icon}.png`"
+              :alt="`${icon}-icon`"
+            />
+          </figure>
+
+          <h3>{{ card.title }}</h3>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script>
+  require(['vue'], function (Vue) {
+    'use strict';
+
+    new Vue({
+      el: '#onboarding',
+      data: {
+        fadeIn: true,
+        steps: [
+          {
+            id: 1,
+            icon: 'inbox_empty',
+            card: {
+              title: 'Primer contacto via mail',
+            },
+          },
+          {
+            id: 2,
+            icon: 'laptop',
+            card: {
+              title: 'Reuniones virtuales por videollamada',
+            },
+          },
+          {
+            id: 3,
+            icon: 'deal',
+            card: {
+              title: 'Formalizacion de convenio',
+            },
+          },
+          {
+            id: 4,
+            icon: 'cost_per_click',
+            card: {
+              title: 'Lanzamiento de convenio en linea',
+            },
+          },
+          {
+            id: 5,
+            icon: 'news_feed',
+            card: {
+              title: 'Sitio web privado de convenios',
+            },
+          }
+        ],
+      },
+    });
+  });
+</script>
+
+<style scoped>
+  [v-cloak] {
+    display: none;
+  }
+  .container-onboarding {
+    max-width: 1170px;
+    margin: 0 auto;
+  }
+  .container-onboarding h2.title-onboarding {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 32px;
+    color: #383638;
+    margin: 0 0 10px;
+    text-align: center;
+  }
+  .container-onboarding p.subtitle-onboarding {
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+    color: #383638;
+    margin: 10px 0;
+    text-align: center;
+  }
+  #steps .steps-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8%;
+  }
+  #steps .steps-cards-container .step-card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #ffffff;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid rgb(51 51 51 / 0%);
+    border-radius: 8px;
+    box-shadow: 1px 4px 3px hsl(0deg 0% 0% / 10%);
+    min-width: 180px;
+    max-width: 180px;
+    min-height: 170px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  #steps .steps-cards-container .step-card h3 {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #383638;
+    font-family: 'Poppins SemiBold';
+    margin: 0;
+  }
+  #steps .steps-cards-container .step-card {
+    position: relative;
+  }
+  #steps .steps-cards-container .step-card .number-step {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 16px;
+    border-radius: 50%;
+    width: 45px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #steps .steps-cards-container .step-card .number-step.current {
+    color: #ffffff;
+    box-shadow: inset 0 0 0 6px white;
+    background-color: #364f6b;
+    border: 2px solid #364f6b;
+    padding: 3px;
+  }
+  .button-coopeuch.secondary,
+  .button-coopeuch.secondary:hover,
+  .button-coopeuch.secondary:focus,
+  .button-coopeuch.secondary:active {
+    background-color: #09a6e3;
+  }
+  #steps .steps-cards-container .step-card figure.icon-convenio {
+      margin: 10px 0;
+  }
+
+  @media (max-width: 1180.1px) {
+    .step-card {
+      min-width: 100px;
+      max-width: 200px;
+      margin: 20px;
+    }
+  }
+  @media (max-width: 580.1px) {
+    #steps .steps-cards-container .step-card {
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      text-align: left;
+      min-height: 64px;
+      max-height: 64px;
+      max-width: 296px;
+      width: 100%;
+      margin: 8px;
+    }
+    #steps .steps-cards-container .step-card .number-step {
+      top: 23px;
+      left: 10px;
+      width: 40px;
+      height: 39px;
+    }
+    #steps .steps-cards-container .step-card .number-step.current {
+      box-shadow: inset 0 0 0 4px white;
+      padding: 0px;
+    }
+    #steps .steps-cards-container .step-card figure.icon-convenio {
+      margin: 0 10px;
+    }
+    #steps .steps-cards-container .step-card figure.icon-convenio img {
+      max-width: 32px;
+      max-height: 32px
+    }
+    #steps .steps-cards-container .step-card h3 {
+      line-height: 18px;
+      margin: 0 10px;
+      max-width: 160px;
+    }
+    .container-onboarding h2.title-onboarding {
+      font-size: 20px;
+    }
+    .container-onboarding p.subtitle-onboarding {
+      font-size: 15px;
+      line-height: 25px;
+    }
+    .pagebuilder-button-primary {
+      width: 100% !important;
+    }
+    .btn-container-bottom {
+      position: relative;
+    }
+    .custom-btn {
+      width: 100%;
+    }
+    .min-h-280 {
+      min-height: 250px;
+    }
+  }
+</style>

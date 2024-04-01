@@ -1,0 +1,247 @@
+<style>
+  .priv-destacado {
+    background: url(https://portal.coopeuch.cl/documents/20184/613583320/533x132.jpg)
+      right top no-repeat;
+    /*    background-size: 750px 220px; */
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    height: 132px;
+    /* width: 397px; */
+    /*   border-bottom: 1px solid #e6e6e6;  */
+    color: #d64b36;
+    border-bottom: 1px solid #e6e6e6;
+  }
+  .priv-destacado3 {
+    color: #d64b36;
+  }
+  .priv-caja-roja {
+    background: #ebebeb;
+    width: 41%;
+    height: 100%;
+    display: block;
+    padding: 18px 0px 0px 29px;
+    margin-left: 38em;
+  }
+  .priv-caja-roja2 {
+    background: #ebebeb;
+    width: 100%;
+    height: 100%;
+    display: block;
+    float: left;
+    padding: 5% 5% 3% 5%;
+    margin-top: -4px;
+  }
+  .priv-caja-roja p {
+    margin-top: 1em;
+  }
+  .priv-caja-roja2 p {
+    margin-top: 1em;
+  }
+  .priv-caja-roja h3 {
+    font-size: 20px;
+    text-align: left;
+    font-weight: 300;
+    margin-top: 0 !important;
+    margin-bottom: -10px !important;
+  }
+  .priv-caja-roja2 h3 {
+    font-size: 20px;
+    text-align: left;
+    font-weight: 300;
+    margin-top: 0 !important;
+    margin-bottom: -10px !important;
+  }
+  .priv-caja-roja h3 span {
+    font-size: 18px;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #606060;
+  }
+  .priv-caja-roja2 h3 span {
+    font-size: 18px;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #606060;
+  }
+  .priv-caja-roja-variable {
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .priv-caja-roja-variable2 {
+    margin-top: 10px;
+  }
+  @media (max-width: 768px) {
+    .priv-destacado {
+      background-position: -119px 0px;
+    }
+    .priv-caja-roja {
+      padding: 16px 0px 0px 22px;
+    }
+  }
+  @media (max-width: 1024px) {
+    .priv-destacado {
+      background-position: -98px 0px;
+    }
+    .priv-caja-roja {
+      padding: 23px 0px 0px 15px;
+      margin-left: 31em;
+    }
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: Lato, Helvetica, Arial, sans-serif;
+  }
+  .main-content {
+    max-width: 800px;
+  }
+  .textos {
+    padding: 0.6em;
+    margin-left: 2em;
+  }
+  .textos h2 {
+    text-align: left;
+    text-transform: uppercase;
+    color: #d64b36;
+    font-family: Lato, Helvetica, Arial, sans-serif;
+  }
+  .lista {
+    list-style: square inside !important;
+    font-size: 0.75em;
+    color: #808080;
+  }
+  .btn-cta {
+    padding: 1em 2em;
+    background: #d64b36;
+    border: none;
+    color: #ffffff;
+    border-radius: 25px;
+    width: 170px;
+    cursor: pointer;
+    margin: 0.5em 34px;
+  }
+  .btn-cta:hover {
+    background: #bc4230;
+  }
+
+  #btn-productos .btn-productos {
+    display: block;
+    background: #d64b36;
+    color: #ffffff;
+    border-radius: 20px;
+    border-color: #ffffff;
+    margin: 15px 0 0 0 !important;
+    margin-top: 2em;
+    width: 226px !important;
+  }
+  #btn-productos .btn-productos:hover {
+    background: #ab3c2b;
+    color: #ffffff;
+    text-decoration: none !important;
+  }
+</style>
+<div class="campanias ng-scope hidden-xs" ng-controller="HomeController">
+  <span id="params" style="visibility: hidden">{{persona.rut | formatRut}} | {{persona.primerNombre | convertToCamelCase}} {{persona.segundoNombre | convertToCamelCase}}|{{persona.apellidoPaterno | convertToCamelCase}} {{persona.apellidoMaterno | convertToCamelCase}}</span>
+  <div id="campanias-content">
+    <header>
+      <div class="priv-destacado img-responsive">
+        <div class="priv-caja-roja">
+          <h3>
+            <span>Tarjeta de Crédito</span>
+          </h3>
+          <div class="priv-caja-roja-variable2">
+            <p>
+              Solicita tu tarjeta de Crédito Coopeuch Mastercard y aprovecha los
+              beneficios exclusivos para nuestros socios.
+            </p>
+          </div>
+        </div>
+      </div>
+      <p
+        style="
+          background-color: #f9f5f5;
+          padding: 7px 0px 7px 6px;
+          color: #d64b36;
+          font-weight: 600;
+          border: 1px solid #d64b36;
+        "
+      >
+        Infórmese sobre las entidades autorizadas para emitir Tarjetas de Pago
+        en el país, quienes se encuentran inscritas en los Registros de Emisores
+        de Tarjetas que lleva la CMF, en www.cmfchile.cl
+      </p>
+    </header>
+  </div>
+</div>
+<div class="hidden-md hidden-lg hidden-sm">
+  <div class="container">
+    <div class="row">
+      <div>
+        <img
+          src="./assets/banner_cuenta_vista.jpg"
+          opacity="0"
+          width="100%"
+        />
+      </div>
+      <!-- <div>
+        <div class="priv-caja-roja2 priv-destacado3">
+          <h3>
+            <span>Tarjeta de Crédito</span>
+          </h3>
+          <div class="priv-caja-roja-variable2">
+            <p>
+              Solicita tu tarjeta de Crédito Coopeuch Mastercard y aprovecha los
+              beneficios exclusivos para nuestros socios.
+            </p>
+          </div>
+          <p
+            style="
+              background-color: #f9f5f5;
+              padding: 7px 0px 7px 6px;
+              color: #d64b36;
+              font-weight: 600;
+              border: 1px solid #d64b36;
+            "
+          >
+            Infórmese sobre las entidades autorizadas para emitir Tarjetas de
+            Pago en el país, quienes se encuentran inscritas en los Registros de
+            Emisores de Tarjetas que lleva la CMF, en www.cmfchile.cl
+          </p>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="textos" style="padding-top: 4em">
+      <h2>Tarjeta de Crédito</h2>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-9">
+    <p class="textos">
+      <strong>Solicita tu tarjeta de Crédito Coopeuch Mastercard y aprovecha los beneficios exclusivos para nuestros socios.</strong>
+    </p>
+    <ul class="textos lista_simple">
+      <li>
+        <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>&nbsp;Programa exclusivo de Acumulación de Puntos por uso del producto.
+      </li>
+      <li>
+        <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>&nbsp;Participación de Remanente, por utilización de todas nuestras
+        tarjetas de crédito.
+      </li>
+      <li>
+        <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>&nbsp;No
+        está afecta al impuesto de timbres y estampillas (DL 3475), aprovecha
+        este beneficio comprando en cuotas.
+      </li>
+    </ul>
+  </div>
+</div>

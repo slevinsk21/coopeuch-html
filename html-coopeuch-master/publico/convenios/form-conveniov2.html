@@ -1,0 +1,139 @@
+<figure class="bg-form">
+  <img src="https://www.coopeuch.cl/media/wysiwyg/bannercontacto2_1.png" />
+</figure>
+
+<section class="container-form" id="contact-form">
+  <div class="headline">
+    <h2 class="text-headline">
+      <strong> Te invitamos a ser parte del mundo Cooperativo </strong>
+    </h2>
+    <h3 class="text-subheadline" style="font-size: 18px;">
+      Envíanos tus datos y te contactaremos para presentarte nuestra propuesta de convenio.
+    </h3>
+  </div>
+<div class="none-header-form">
+{{block class="Formax\FormConvenios\Block\Gray" template="Formax_FormConvenios::cyber/gray.phtml"}}
+ </div>
+</section>
+
+<style>
+  .send-form {
+    float: right;
+  }
+  .none-header-form h1, .none-header-form p{ 
+    display: none;
+  }
+  .container-form {
+    max-width: 945px;
+    min-height: 675px;
+    padding: 30px 10px;
+    background-color: #f6f3f5;
+    border-bottom-left-radius: 60px;
+    box-sizing: border-box;
+  }
+  .container-input-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .form-input, input.form-input {
+    border-radius: 4px;
+  }
+  .bg-form {
+    margin: 0px;
+    padding: 0px;
+  }
+  .bg-form img {
+    display: none;
+  }
+  .p-relative {
+    position: relative;
+  }
+  .xs-text-center {
+    text-align: center;
+  }
+  .columns .column.main {
+    padding-bottom: 0;
+  }
+
+  @media screen and (min-width: 880px) {
+    .container-input-group {
+      flex-wrap: nowrap;
+    }
+    .bg-form img {
+      display: block;
+      max-height: 675px;
+    }
+    .container-form {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .xs-text-center {
+      text-align: left;
+    }
+  }
+
+  @media (min-width: 801.1px) and (max-width: 855px) {
+    .container-form {
+      padding: 30px 50px;
+    }
+  }
+  @media (min-width: 680px) and (max-width: 966.1px) {
+    .modal-body.two-colum-form {
+      display: grid;
+      --size: 32px;
+      grid-gap: 21px var(--size);
+      grid-template-columns: calc(50% - var(--size) / 2) calc(
+          50% - var(--size) / 2
+        );
+    }
+  }
+  @media (min-width: 855.1px) and (max-width: 936px) {
+    .container-form {
+      padding: 47px 5%;
+    }
+  }
+  @media (min-width: 936.1px) and (max-width: 1440.1px) {
+    .container-form {
+      padding: 23px 5%;
+      max-width: 800px;
+      position: absolute;
+      left: 24%;
+      top: 0;
+    }
+  }
+  @media (min-width: 1440.1px) {
+    .container-form {
+      padding: 23px 2%;
+    }
+  }
+  @media (min-width: 980.1px) {
+    .container-form {
+      right: calc((100% - 1170px) / 2) !important;
+    }
+  }
+
+  @media screen and (max-width: 580.1px) {
+    .headline h2.text-headline {
+      font-size: 18px !important;
+      line-height: 24px !important;
+      margin-bottom: 0;
+    }
+    .headline h3.text-subheadline {
+      font-size: 16px !important;
+      line-height: 24px !important;
+    }
+    .input-group input {
+      min-width: auto;
+    }
+    .send-form {
+      float: none;
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+</style>
+
+

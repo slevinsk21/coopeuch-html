@@ -1,0 +1,148 @@
+<section
+  class="modal-container"
+  onclick="document.querySelector('.modal-container').style.display = 'none';"
+>
+  <figure class="modal-info-step-1">
+    <img
+      src="https://consumoplanillaweb.coopeuch.cl/static/media/IllustracionEjecutivoBig.9069d7b5.svg"
+      alt="svg"
+    />
+    <figcaption>
+      <h5>Recuerda:</h5>
+      <p>Debes llenar todos los campos para <b>generar tu simulación.</b></p>
+    </figcaption>
+    <button
+      type="button"
+      onclick="document.querySelector('.modal-container').style.display = 'none';"
+    >
+      <img
+        src="https://consumoplanillaweb.coopeuch.cl/static/media/icnCerrarModal.7743e33d.svg"
+        alt="svg"
+      />
+    </button>
+  </figure>
+</section>
+<style>
+  .modalInformativo {
+    display: none;
+  }
+  .modal-container {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .modal-info-step-1 {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 18px 26px 20px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 456px;
+    margin: auto;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: -4px 12px 10px 6px rgba(0, 0, 0, 0.25);
+    right: 16%;
+    top: 300px;
+    transform: translate(50%, 50%);
+  }
+  .card-relative-modal {
+    position: relative;
+    z-index: 100;
+    background: #fff;
+  }
+  .modal-info-step-1 button {
+    background: #fff0;
+    outline: none;
+    border: none;
+    position: absolute;
+    right: -46%;
+    top: -20px;
+  }
+  .modal-info-step-1 button > img {
+    max-width: 14px;
+  }
+  .modal-info-step-1::before {
+    content: '';
+    width: 27px;
+    height: 27px;
+    position: absolute;
+    top: 26px;
+    overflow: hidden;
+    left: -13px;
+    background: #fff;
+    transform: rotate(45deg);
+    box-shadow: -3px 7px 5px 0px rgba(0, 0, 0, 0.25);
+  }
+  .modal-info-step-1 > img {
+    height: auto;
+    max-width: 97px;
+    margin-right: 14px;
+  }
+  .modal-info-step-1 figcaption {
+    text-align: left;
+    margin-left: 14px;
+  }
+  .modal-info-step-1 figcaption h5 {
+    color: #007db7;
+    font-size: 24px;
+    line-height: 30px;
+    margin: 0;
+  }
+  .modal-info-step-1 figcaption p {
+    color: #383838;
+    font-size: 16px;
+    margin: 0;
+    line-height: 25px;
+  }
+  @media (max-width: 580.1px) {
+    .modal-info-step-1 {
+      padding: 18px;
+      max-width: 291px;
+      right: 45%;
+      top: 10px;
+    }
+    .modal-info-step-1::before {
+      width: 22px;
+      height: 22px;
+      top: 96px;
+      left: 63px;
+      box-shadow: none;
+    }
+    .modal-info-step-1 figcaption h5 {
+      font-size: 16px;
+    }
+    .modal-info-step-1 figcaption p {
+      font-size: 12px;
+      line-height: 15px;
+    }
+    .modal-info-step-1 > img {
+      height: auto;
+      max-width: 70px;
+      margin-right: 8px;
+    }
+    .modal-info-step-1 figcaption {
+      margin-left: 8px;
+    }
+    .modal-info-step-1 button {
+      right: -45%;
+      top: -23px;
+    }
+  }
+</style>
+<script>
+  document.querySelector('.botonBaseFlujo').disabled = false;
+
+  function iluminateCard() {
+    document.querySelector('.card').classList.toggle('card-relative-modal');
+  }
+
+  function closeModal() {
+    document.querySelector('.modal-container').style.display = 'none';
+    iluminateCard();
+  }
+</script>

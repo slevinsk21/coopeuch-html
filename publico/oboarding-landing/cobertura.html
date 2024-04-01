@@ -1,0 +1,178 @@
+<style>
+  .container-cifras {
+    display: flex;
+    justify-content: center;
+    min-height: 400px;
+    overflow: hidden;
+  }
+  .container-cifras .banner-item {
+    min-width: 375px;
+  }
+  .link-portabilidad {
+    display: none;
+    justify-content: center;
+    color: white !important;
+  }
+  .container-cifras.container-cifras-show {
+    height: auto;
+  }
+  figure.container-app-icon {
+    text-align: left;
+    margin: 0px;
+    padding: 0px;
+    border-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0 10px 25px 0;
+  }
+  figure.container-app-icon img {
+    border-style: none;
+    border-width: 1px;
+    border-radius: 0px;
+    max-width: 100%;
+    height: auto;
+    max-width: 36px;
+    max-height: 39px;
+    margin-right: 10px;
+  }
+  figure.container-app-icon figcaption span {
+    font-size: 24px;
+    line-height: 35px;
+    color: #ffffff;
+    font-family: 'Poppins BOld';
+  }
+  ul.listDelete {
+    text-align: left;
+  }
+  ul li.listRed {
+    margin-left: -40px !important;
+    line-height: 34px;
+    padding: 0 50px 0 0;
+    color: #fff;
+    font-size: 16px;
+  }
+  ul li.listRed::before {
+    color: #ffffff;
+  }
+  p.text-soap {
+    color: #fff;
+    font-size: 20px;
+  }
+  @media (max-width: 820.1px) {
+    .container-cifras {
+      height: auto;
+      overflow: hidden;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  @media (max-width: 580.1px) {
+    .link-portabilidad {
+      display: flex;
+    }
+    .container-cifras {
+      height: 145px;
+    }
+    .item-hidden {
+      display: none;
+    }
+    ul li.listRed {
+      font-size: 14px;
+      line-height: 24px;
+    }
+    p.text-soap {
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+</style>
+
+<div class="container-portabilidad">
+  <div style="padding: 10px">
+    <div id="cifras-portabilidad" class="container container-cifras">
+      <div id="box-1" class="banner-item">
+        <figure class="container-app-icon">
+          <img
+            src="https://www.coopeuch.cl/media/wysiwyg/protection-shield.png"
+            alt="app-coopeuch"
+          />
+          <figcaption>
+            <span>¿Qué cubre?</span>
+          </figcaption>
+        </figure>
+
+        <ul class="listDelete">
+          <li class="listRed">Muerte Accidental: UF 300.</li>
+
+          <li class="listRed">Incapacidad permanente total: UF 300.</li>
+
+          <li class="listRed">Incapacidad permanente parcial: UF 200.</li>
+
+          <li class="listRed">
+            Gastos Médicos: hasta UF 300, con un tope para cada prestación de
+            salud que no podrá exceder el nivel 3 de Fonasa.
+          </li>
+        </ul>
+      </div>
+
+      <div id="box-2" class="banner-item item-hidden">
+        <figure class="container-app-icon">
+          <img
+            src="https://www.coopeuch.cl/media/wysiwyg/no-protection-shield.png"
+            alt="app-coopeuch"
+          />
+          <figcaption>
+            <span>¿Qué no cubre?</span>
+          </figcaption>
+        </figure>
+
+        <p class="text-soap">
+          Quedan excluidos de la presente cobertura la muerte, incapacidades
+          permanentes y gastos médicos que provengan o sean consecuencia de:
+        </p>
+        <ul class="listDelete">
+          <li class="listRed">
+            Accidentes causados en carreras de automóviles y otras competencias
+            de vehículos motorizados.
+          </li>
+
+          <li class="listRed">
+            Accidentes ocurridos fuera del territorio nacional.
+          </li>
+
+          <li class="listRed">
+            Accidentes ocurridos como consecuencia de guerras, sismo, y otros
+            casos fortuitos enteramente extraños a la circulación del vehículo.
+          </li>
+
+          <li class="listRed">
+            Suicidio y todo tipo de lesiones autoinferidas.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <a id="link-portabilidad" class="link-portabilidad" onclick="toggleText()">
+      Ver más
+    </a>
+  </div>
+</div>
+<script>
+  function toggleText() {
+    var element = document.getElementById('cifras-portabilidad');
+    element.classList.toggle('container-cifras-show');
+
+    const box2 = document.getElementById('box-2');
+    box2.classList.toggle('item-hidden');
+
+    const link = document.getElementById('link-portabilidad');
+    console.log(element.classList.length > 2);
+
+    element.classList.length > 1
+      ? (link.innerHTML = 'Ocultar')
+      : (link.innerHTML = 'Ver más');
+  }
+</script>
+
+<!--  -->
+

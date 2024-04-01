@@ -1,0 +1,540 @@
+<div class="b-grey">
+  <div class="breadcrumbs">
+    <ul class="items">
+      <li class="item">
+        <a href="#">Inicio</a>
+      </li>
+      <li class="item">
+        <a href="#">Comercios habilitados</a>
+      </li>
+      <li class="item cms_page"><strong>Webpay</strong></li>
+    </ul>
+  </div>
+</div>
+<style>
+  .b-grey {
+    background-color: #f3f3f3;
+  }
+  .breadcrumbs {
+    height: 90px;
+    margin: 0 auto;
+    padding-top: 35px;
+    box-sizing: border-box;
+  }
+  .breadcrumbs .items > li.item {
+    font-family: 'Poppins semibold';
+  }
+  .breadcrumbs .items .item a,
+  .breadcrumbs .items .item:not(:last-child):after {
+    color: #009fe6 !important;
+  }
+
+  @media (max-width: 680.1px) {
+    .main-title-term-dale h4 * {
+      font-size: 20px !important;
+      line-height: 32px !important;
+    }
+  }
+  @media (max-width: 580.1px) {
+    .breadcrumbs {
+      height: 68px;
+      padding-top: 25px;
+    }
+  }
+</style>
+<!--  -->
+
+<h4 class="title-section-2fa">Paso a Paso para obtener el 2FA</h4>
+<div id="steps-dale"></div>
+<div class="card-bg-info">
+  <img
+    src="https://www.coopeuch.cl/media/wysiwyg/like-dale.png"
+    loading="lazy"
+    alt="img-step"
+  />
+  <p class="text-info">
+    Listo! Ahora puedes usar los códigos dinámicos de 6 dígitos que aparecen en
+    la aplicación de autenticación como tu Segunda Clave para hacer las compras
+    online nacionales en webpay.
+  </p>
+</div>
+<script>
+  const stepsDale = [
+      { text: 'Ingresa a tu sesión usando tu rut y contraseña:' },
+      { text: 'Entra a la pestaña “Perfil”:' },
+      {
+        text: 'Presionar el Botón “Activar Factor” en la sección de Seguridad. Te aparecerá un código QR:',
+      },
+      {
+        text: 'Descargar alguna aplicación de autenticación a tu celular. Recomendamos Google Authenticator, Microsoft Authenticator o Authy:',
+      },
+      {
+        text: 'Dentro de la app de autenticación presionar el botón para escanear un nuevo QR:',
+      },
+      {
+        text: 'Sacar una foto del código QR que aparece en la cuenta de Dale:',
+      },
+      {
+        text: 'Usar el código de 6 dígitos que aparece en la aplicación de autenticación y escribirlo en la página Dale donde dice “Código de Aplicación de 6 Dígitos”',
+      },
+    ],
+    el = document.getElementById('steps-dale');
+
+  el.innerHTML = stepsDale
+    .map(
+      ({ text }, i) => `
+      <div class="card-steps-dale">
+        <div class="content-info">
+          <span class="number-step-dale">${i + 1}</span>
+          <p class="text-info">${text}</p>
+        </div>
+        <img src="https://www.coopeuch.cl/media/wysiwyg/0${
+          i + 1
+        }-dale.png" loading="lazy" alt="img-step" />
+      </div>
+  `
+    )
+    .join('');
+</script>
+<style>
+  .title-section-2fa {
+    text-align: center;
+    font-size: 24px;
+    line-height: 35px;
+    color: #333333;
+    margin-top: 36px;
+  }
+  .card-bg-info {
+    width: 100%;
+    max-width: 486px;
+    min-height: 203px;
+    border-radius: 5px;
+    background-color: #009fe6;
+    box-sizing: border-box;
+    padding: 24px 30px;
+    margin-top: 16px;
+  }
+  .card-bg-info .text-info {
+    color: #fff;
+    font-size: 16px;
+    line-height: 25px;
+    margin-top: 10px;
+  }
+  .card-steps-dale {
+    text-align: center;
+    width: 100%;
+    border: 1px solid #d4d4d4;
+    border-radius: 5px;
+    min-height: 324px;
+    max-width: 486px;
+    box-sizing: border-box;
+    padding: 32px;
+    background-color: #fff;
+    margin: 16px 0;
+  }
+  .card-steps-dale .content-info {
+    display: flex;
+    text-align: left;
+  }
+  .card-steps-dale .content-info .number-step-dale {
+    min-width: 32px;
+    width: 32px;
+    height: 32px;
+    color: #383838;
+    background-color: rgba(0, 161, 223, 0.15);
+    border-radius: 100%;
+    font-family: 'Poppins Bold';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+  }
+  .card-steps-dale .content-info .text-info {
+    font-size: 14px;
+    line-height: 22px;
+    margin: 4px 10px;
+  }
+  .card-steps-dale > img {
+    padding-top: 12px;
+  }
+  .columns .column.main {
+    padding-bottom: 0;
+  }
+  .align-items-center {
+    align-items: center;
+  }
+
+  @media (max-width: 580.1px) {
+    .card-steps-dale {
+      padding: 12px;
+    }
+    .title-section-2fa {
+      font-size: 16px;
+      line-height: 32px;
+      margin-top: 9px;
+    }
+    .card-bg-info {
+      padding: 24px;
+    }
+    .card-bg-info .text-info {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+</style>
+<!--  -->
+
+<div class="card-steps-dale wide-card">
+  <figure class="heading-card">
+    <img
+      src="https://www.coopeuch.cl/media/wysiwyg/information-dale.png"
+      alt="time-dale-icon"
+    />
+    <figcaption>Información Importante</figcaption>
+  </figure>
+
+  <div class="content-card">
+    <figure>
+      <img
+        src="https://www.coopeuch.cl/media/wysiwyg/time-dale.png"
+        alt="time-dale-icon"
+      />
+      <figcaption>
+        El código que te entregue la app tiene una duración de 30 segundos para
+        que lo ingreses en webpay.
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img
+        src="https://www.coopeuch.cl/media/wysiwyg/cancel-dale.png"
+        alt="cancel-dale-icon"
+      />
+      <figcaption>
+        Ignora el SMS que llegará a tu teléfono. Debes ingresa el código de 6
+        dígitos que entrega Google Authenticator.
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img
+        src="https://www.coopeuch.cl/media/wysiwyg/alert-dale.png"
+        alt="alert-dale-icon"
+      />
+      <figcaption>
+        Con tu segundo factor activado, no debes renovarlo. La renovación del
+        segundo factor se utiliza solo si se te pierde el celular o se te borra
+        la app.
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img
+        src="https://www.coopeuch.cl/media/wysiwyg/sync-dale.png"
+        alt="sync-dale-icon"
+      />
+      <figcaption>
+        Si no te funciona revisa si tu Horario está Sincronizado
+        <a href="#" style="color: #009fe6">Aquí.</a>
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img
+        src="https://www.coopeuch.cl/media/wysiwyg/search-dale.png"
+        alt="search-dale-icon"
+      />
+      <figcaption>
+        Revisa tu saldo en tu sesión en Dale antes de realizar tu compra.
+      </figcaption>
+    </figure>
+  </div>
+</div>
+<style>
+  .justify-content-center {
+    display: flex;
+    justify-content: center;
+  }
+  .card-steps-dale.wide-card {
+    max-width: 915px;
+    min-height: 308px;
+  }
+  .card-steps-dale.wide-card figure.heading-card img {
+    max-width: 18px;
+    max-height: 18px;
+    object-fit: contain;
+    margin-top: 4px;
+  }
+  .card-steps-dale.wide-card figure.heading-card figcaption {
+    color: #333333;
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .card-steps-dale.wide-card .content-card {
+    max-width: 707px;
+    margin: 0 auto;
+  }
+  .card-steps-dale.wide-card figure {
+    display: flex;
+    align-items: flex-start;
+    margin: 8px 0;
+    min-height: 26px;
+  }
+  .card-steps-dale.wide-card figure figcaption {
+    text-align: left;
+    color: #383838;
+    font-size: 14px;
+    line-height: 22px;
+    margin-left: 10px;
+  }
+  .card-steps-dale.wide-card figure img {
+    max-width: 15px;
+    max-height: 15px;
+    object-fit: contain;
+    margin-top: 4px;
+  }
+
+  @media (max-width: 580.1px) {
+    .card-steps-dale.wide-card figure.heading-card figcaption {
+      color: #333333;
+      font-size: 16px;
+      line-height: 25px;
+    }
+  }
+</style>
+<!--  -->
+
+<div class="container-grid">
+  <div class="item area1">
+    <p>¿Cómo suscribirte a Netflix?</p>
+    <figure>
+      <img
+        src="https://www.coopeuch.cl/media/wysiwyg/time-dale.png"
+        alt="time-dale-icon"
+      />
+      <figcaption>Octubre 29, 2019</figcaption>
+    </figure>
+  </div>
+
+  <div class="item area2">
+    <p>¿Cómo comprar en Nintendo Store?</p>
+    <figure>
+      <img
+        src="https://www.coopeuch.cl/media/wysiwyg/time-dale.png"
+        alt="time-dale-icon"
+      />
+      <figcaption>Octubre 29, 2019</figcaption>
+    </figure>
+  </div>
+
+  <div class="item area3">
+    <p>¿Cómo comprar en App Store?</p>
+    <figure>
+      <img
+        src="https://www.coopeuch.cl/media/wysiwyg/time-dale.png"
+        alt="time-dale-icon"
+      />
+      <figcaption>Octubre 29, 2019</figcaption>
+    </figure>
+  </div>
+
+  <div class="item area4">
+    <p>Vincula tu tarjeta en Alipay para comprar en Aliexpress.</p>
+    <figure>
+      <img
+        src="https://www.coopeuch.cl/media/wysiwyg/time-dale.png"
+        alt="time-dale-icon"
+      />
+      <figcaption>Octubre 29, 2019</figcaption>
+    </figure>
+  </div>
+
+  <div class="item area5">
+    <p>¿Cómo pagar en Latam, Sky Airlines o Despegar?</p>
+    <figure>
+      <img
+        src="https://www.coopeuch.cl/media/wysiwyg/time-dale.png"
+        alt="time-dale-icon"
+      />
+      <figcaption>Octubre 29, 2019</figcaption>
+    </figure>
+  </div>
+
+  <div class="item area6">
+    <p>¿Cómo comprar en Aliexpress sin tarjeta de crédito? Con Tarjeta Dale!</p>
+    <figure>
+      <img
+        src="https://www.coopeuch.cl/media/wysiwyg/time-dale.png"
+        alt="time-dale-icon"
+      />
+      <figcaption>Octubre 29, 2019</figcaption>
+    </figure>
+  </div>
+
+  <div class="area7 link-arrow">
+    <a href="#" class="link-arrow">Ver más comercios asocioados</a>
+  </div>
+</div>
+<style>
+  .container-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      'area1 area2 area3'
+      'area4 area5 area6'
+      'area7 .     .    ';
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    max-width: 1170px;
+    margin: 30px auto;
+  }
+  .container-grid .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 295px;
+    max-height: 112px;
+    box-sizing: border-box;
+    border: 1px solid #d4d4d4;
+    border-radius: 5px;
+    background-color: #ffffff;
+    padding: 16px;
+  }
+  .container-grid .item p {
+    font-size: 14px;
+    line-height: 22px;
+    color: #000;
+    margin-left: 10px;
+  }
+  .container-grid .item figure {
+    display: flex;
+    align-items: center;
+  }
+  .container-grid .item figure figcaption {
+    font-size: 12px;
+    line-height: 22px;
+    color: #a5a5a5;
+    margin-left: 10px;
+  }
+  .container-grid .item figure img {
+    max-width: 15px;
+    max-height: 15px;
+    object-fit: contain;
+    filter: grayscale(100%);
+  }
+  .link-arrow {
+    text-align: left;
+  }
+  .link-arrow a {
+    font-family: 'Poppins SemiBold';
+    color: #fd5373;
+    white-space: nowrap;
+  }
+  .area1 {
+    grid-area: area1;
+  }
+  .area2 {
+    grid-area: area2;
+  }
+  .area3 {
+    grid-area: area3;
+  }
+  .area4 {
+    grid-area: area4;
+  }
+  .area5 {
+    grid-area: area5;
+  }
+  .area6 {
+    grid-area: area6;
+  }
+  .area7 {
+    grid-area: area7;
+  }
+
+  @media (max-width: 768px) {
+    .container-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+        'area1 area2'
+        'area3 area4'
+        'area5 area6'
+        'area7 .';
+    }
+  }
+  @media (max-width: 580px) {
+    .container-grid {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-areas:
+        'area1'
+        'area2'
+        'area3'
+        'area4'
+        'area5'
+        'area6'
+        'area7';
+      grid-gap: 10px;
+    }
+  }
+</style>
+
+<section class="section-info-ws">
+  <figure>
+    <i class="fab fa-whatsapp fa-4x ws-size-icon"></i>
+    <figcaption>
+      <h4>Solicita tu Crédito de Consumo <b>por WhatsApp</b></h4>
+      <a href="#">
+        Solicitar
+        <i class="fa fa-chevron-right" style="font-size: 14px"></i>
+      </a>
+    </figcaption>
+  </figure>
+</section>
+
+<style>
+  .section-info-ws {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #28ab90;
+    height: 75px;
+  }
+  .section-info-ws figure {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    margin: 0;
+  }
+  .section-info-ws figure i.ws-size-icon {
+    font-size: 48px;
+    color: #ffffff;
+  }
+  .section-info-ws figure figcaption {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .section-info-ws figure figcaption a,
+  .section-info-ws figure figcaption h4 {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 24px;
+    margin: 0 10px;
+  }
+  .section-info-ws figure figcaption h4 {
+    max-width: 429px;
+  }
+
+  @media (max-width: 580.1px) {
+    .section-info-ws figure i.ws-size-icon {
+      font-size: 28px;
+    }
+    .section-info-ws figure figcaption a,
+    .section-info-ws figure figcaption h4 {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+</style>

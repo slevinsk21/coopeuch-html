@@ -1,0 +1,277 @@
+<style>
+  .owl-carousel .owl-stage {
+    display: flex;
+  }
+  .coop-product-credits-desktop .owl-carousel .owl-stage-outer .owl-item {
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 273px;
+  }
+  .owl-dot:nth-of-type(4) {
+    display: none !important;
+  }
+  .coop-product-credits-desktop .credit-box-desktop {
+    display: flex !important;
+    height: 100% !important;
+    box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.14);
+  }
+  .coop-product-credits-desktop .credit-box-desktop figure.icono-benefits {
+    display: flex;
+    justify-content: center;
+  }
+  .coop-product-credits-desktop .credit-box-desktop img {
+    width: 48px !important;
+    max-height: 48px;
+    object-fit: contain;
+  }
+  hr.icon-line {
+    background-color: #1bb5ec;
+    width: 32px;
+    height: 4px;
+    margin: 0;
+    align-self: flex-start;
+    border: none;
+  }
+
+  @media (min-width: 768.1px) {
+    .p-benefits p span {
+      line-height: 22px !important;
+    }
+  }
+  @media (min-width: 1094px) {
+    .owl-theme .owl-dots {
+      display: none !important;
+    }
+  }
+</style>
+
+<style>
+  .container-credit {
+    justify-content: center !important;
+    flex-direction: row !important;
+    align-items: flex-start;
+  }
+  .box-credit-img {
+    min-width: 48px;
+    min-height: 100%;
+  }
+  .box-credit-text {
+    max-width: 274px;
+    padding: 0 20px !important;
+  }
+</style>
+
+<!-- tabla -->
+<table class="tabla-emergencia resize-font">
+  <thead>
+    <tr>
+      <th width="300" style="border-top-left-radius: 4px">Monto del crédito</th>
+      <th style="border-top-right-radius: 4px">Tasa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>hasta $1.300.000</td>
+      <td>1,30%</td>
+    </tr>
+
+    <tr>
+      <td>Entre $1.300.000 y $5.700.000</td>
+      <td>1,20%</td>
+    </tr>
+
+    <tr>
+      <td>Sobre $5.700.000</td>
+      <td>1,10%</td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        Ejemplo: Si solicitas un crédito de $1.000.000 líquido en un plazo de 36
+        cuotas mensuales, el costo total del crédito será $1.342.899 (1). CAE
+        18,00% (2). Valor cuota $37.420 (3). Tasa 1,30% (tasa referencial).
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<style>
+  table.tabla-emergencia {
+    max-width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0 auto;
+  }
+  .tabla-emergencia th {
+    font-family: Poppins semiBold;
+    color: #fff;
+    background-color: rgb(0 17 64 / 75%);
+  }
+  .tabla-emergencia {
+    text-align: left;
+    background-color: #fff;
+    color: #383638;
+    font-family: Poppins;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 24px;
+  }
+  table.tabla-emergencia tbody tr:nth-child(odd) {
+    background-color: #f6f6f6;
+  }
+  table.tabla-emergencia tbody tr:nth-child(even) {
+    background-color: #fff;
+  }
+  table > thead > tr > th,
+  table > tbody > tr > th,
+  table > tfoot > tr > th,
+  table > thead > tr > td,
+  table > tbody > tr > td,
+  table > tfoot > tr > td {
+    padding: 11px 16px;
+  }
+
+  @media (max-width: 580px) {
+    table > thead > tr > th,
+    table > tbody > tr > th,
+    table > tfoot > tr > th,
+    table > thead > tr > td,
+    table > tbody > tr > td,
+    table > tfoot > tr > td {
+      padding: 9px 7px;
+    }
+  }
+  @media (max-width: 425.1px) {
+    .tabla-emergencia {
+      font-size: 13px !important;
+    }
+  }
+  @media (min-width: 1150px) {
+    .tabla-emergencia {
+      width: 1150px !important;
+    }
+  }
+</style>
+
+<!-- colapsable -->
+<input
+  type="hidden"
+  id="plus-icon"
+  value="https://www.coopeuch.cl/media/wysiwyg/mas.svg"
+/>
+<input
+  type="hidden"
+  id="minus-icon"
+  value="https://www.coopeuch.cl/media/wysiwyg/menos.svg"
+/>
+
+<!-- cards -->
+<div class="container-soap">
+  <div class="header-soap">
+    <h2 class="title-soap">Terminos y Condiciones</h2>
+    <span class="icon"
+      ><img src="https://www.coopeuch.cl/media/wysiwyg/menos.svg"
+    /></span>
+  </div>
+  <div class="content-soap" style="display: block">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed sint quos
+      dolorem, eligendi temporibus enim iure id vitae aspernatur magni porro
+      eveniet ipsa aut soluta, aliquam molestiae tempore itaque reprehenderit.
+    </p>
+  </div>
+</div>
+
+<style>
+  .content-soap {
+    display: none;
+    margin-top: 15px;
+  }
+  .header-soap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .container-soap {
+    min-height: 67px;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    border-top: 2px solid #d7d7d7;
+    cursor: pointer;
+  }
+  .header-soap .title-soap {
+    display: inline-block;
+    width: 100%;
+    max-width: 90%;
+    font-size: 14px;
+    margin: 0;
+  }
+  .content-soap ul {
+    color: #f42534;
+  }
+  .content-soap ul li > span {
+    color: #333;
+    font-size: 14px;
+  }
+  .content-soap ul li {
+    list-style-type: disc;
+  }
+  .content-soap p {
+    padding: 0 40px;
+  }
+  .container-soap:nth-of-type(1) {
+    border-bottom: 2px solid #d7d7d7;
+  }
+  @media (max-width: 375.1px) {
+    .header-soap span img {
+      width: 23px !important;
+      height: auto;
+    }
+  }
+  @media (max-width: 411.1px) {
+    .header-soap .title-soap {
+      width: 85%;
+    }
+  }
+
+  .title-colapsable {
+    font-family: 'Poppins Bold';
+  }
+  @media (max-width: 580.1px) {
+    .title-colapsable {
+      font-size: 18px !important;
+      font-family: 'Poppins Bold';
+      text-align: left !important;
+    }
+  }
+</style>
+
+<script>
+  require(['jquery', 'collapsible', 'accordion'], function (
+    $,
+    collapsible,
+    accordion
+  ) {
+    $('.header-soap').click(function () {
+      $header = $(this);
+      //getting the next element
+      $content = $header.next();
+      //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
+      if (!$content.is(':visible')) {
+        $header.find('.icon>img').attr('src', $('#minus-icon').val());
+      }
+      $content.slideToggle(500, function () {
+        //execute this after slideToggle is done
+        //change text of header based on visibility of content div
+        if (!$content.is(':visible')) {
+          $header.find('.icon>img').attr('src', $('#plus-icon').val());
+        }
+      });
+    });
+  });
+</script>
